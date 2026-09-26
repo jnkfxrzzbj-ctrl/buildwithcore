@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Frequently Asked Questions | CORE</title>
+<style>
+:root{--bg:#030824;--panel:#070E2F;--panel2:#060C2B;--text:#f5f7fa;--muted:#8e99a8;--line:#222b36;--cyan:#35d2ff;--cyan2:#9aebff;--violet:#35d2ff;--max:1280px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#030824;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 48px),var(--max));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(3,8,36,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+.bar{height:74px;display:flex;align-items:center;justify-content:space-between;gap:26px}.brand{font-weight:950;letter-spacing:-.055em;font-size:24px}.brand i{font-style:normal;color:var(--cyan)}
+nav{display:flex;gap:24px;align-items:center;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.1em}nav a{color:#8993a0}nav a:hover,nav a.active{color:#fff}.pill{padding:11px 15px;border:1px solid var(--line);border-radius:999px;color:#fff}
+.hero{padding:86px 0 64px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 82% 16%,rgba(53,210,255,.10),transparent 28%)}
+.eyebrow{color:var(--cyan);font-size:10px;font-weight:900;letter-spacing:.19em;text-transform:uppercase}
+h1{font-size:clamp(58px,8vw,116px);line-height:.83;letter-spacing:-.075em;margin:16px 0 28px;max-width:1050px}
+h1 span{color:var(--cyan)}.lede{max-width:730px;font-size:20px;line-height:1.58;color:#b4bdc8}
+.section{padding:80px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px}.section-head h2{font-size:clamp(38px,5vw,64px);line-height:.95;letter-spacing:-.055em;margin:8px 0 0}.section-head p{max-width:510px;color:var(--muted);line-height:1.65}
+footer{border-top:1px solid var(--line);padding:28px 0;color:#5e6875;font-size:11px}
+@media(max-width:900px){.wrap{width:min(calc(100% - 28px),var(--max))}nav a:not(.pill){display:none}.hero{padding-top:58px}.section{padding:58px 0}.section-head{display:block}.section-head p{margin-top:18px}}
+
+/* CORE brand */
+.core-word{font-weight:900;letter-spacing:.08em;background:linear-gradient(90deg,#35D2FF 0%,#9AEBFF 42%,#fff 70%,#35D2FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 24px rgba(53,210,255,.16)}
+.core-mark{color:#35D2FF;font-weight:900;text-shadow:0 0 14px rgba(53,210,255,.65),0 0 32px rgba(53,210,255,.24)}
+
+/* CORE v14 canonical navigation */
+.core-nav{display:flex;align-items:center;margin-left:auto}
+.core-links{display:flex;align-items:center;gap:8px}
+.core-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:10px 12px;border-radius:999px;transition:.2s ease}
+.core-links a:hover,.core-links a:focus-visible{color:#fff;background:rgba(53,210,255,.09);outline:none}
+.core-menu{display:none;border:1px solid rgba(53,210,255,.35);background:rgba(53,210,255,.06);color:#9AEBFF;border-radius:999px;padding:9px 13px;font:inherit;font-size:11px;font-weight:900;letter-spacing:.12em;cursor:pointer}
+.core-menu:focus-visible{outline:2px solid #35D2FF;outline-offset:3px}
+@media(max-width:899px){
+ .core-nav{position:relative}
+ .core-menu{display:block}
+ .core-links{display:none;position:absolute;right:0;top:48px;min-width:190px;padding:10px;background:#070E2F;border:1px solid rgba(53,210,255,.18);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.38);z-index:100}
+ .core-nav.open .core-links{display:flex;flex-direction:column;align-items:stretch}
+ .core-links a{padding:12px 14px}
+}
+
+/* CORE v16 — single consistent brand lockup */
+.core-brand-lockup{
+  display:inline-flex;
+  align-items:baseline;
+  flex:0 0 auto;
+  text-decoration:none;
+  line-height:1;
+}
+.core-brand-lockup .core-word{
+  font-size:30px !important;
+  font-weight:950;
+  letter-spacing:.045em;
+  color:#F8FBFF !important;
+  background:none !important;
+  -webkit-background-clip:initial !important;
+  background-clip:initial !important;
+  text-shadow:none !important;
+}
+.core-brand-lockup .core-mark{
+  font-size:30px !important;
+  font-weight:950;
+  color:#35D2FF !important;
+  margin-left:1px;
+  text-shadow:0 0 12px rgba(53,210,255,.62),0 0 26px rgba(53,210,255,.18);
+}
+@media(max-width:899px){
+  .core-brand-lockup .core-word,
+  .core-brand-lockup .core-mark{font-size:27px !important}
+}
+
+</style>
+<style id="v7-polish">
+header{box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.hero{position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:
+linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px),
+linear-gradient(rgba(255,255,255,.011) 1px,transparent 1px);background-size:72px 72px;
+mask-image:linear-gradient(90deg,transparent,#000 62%,#000)}
+.part,.step-media,.media{transition:border-color .25s ease,transform .25s ease}
+.part:hover{border-color:#34414f}
+.buy,.primary,.cta{transition:transform .2s ease,filter .2s ease}
+.buy:hover,.primary:hover,.cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+</style>
+<link rel="stylesheet" href="assets/public.css"><noscript><style>.core-menu{display:none}.core-nav .core-links{display:flex;position:static;flex-wrap:wrap;background:none;border:0;gap:0}.core-nav .core-links a{font-size:10px;padding:8px 6px}</style></noscript><meta name="description" content="Answers for first-time PC builders: exact parts, buying thresholds, Windows, guide availability and independent recommendations."><meta property="og:title" content="Frequently Asked Questions | CORE"><meta property="og:description" content="Answers for first-time PC builders: exact parts, buying thresholds, Windows, guide availability and independent recommendations."><meta property="og:type" content="website"><meta property="og:url" content="https://buildwithcore.co.uk/faq.html"><meta property="og:site_name" content="CORE"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Frequently Asked Questions | CORE"><meta name="twitter:description" content="Answers for first-time PC builders: exact parts, buying thresholds, Windows, guide availability and independent recommendations."><meta name="referrer" content="strict-origin-when-cross-origin"><link rel="canonical" href="https://buildwithcore.co.uk/faq.html"></head><body>
+<header><div class="wrap bar"><a class="brand core-brand-lockup" href="index.html"><span class="core-word">CORE</span><span class="core-mark">_</span><span class="early-access">EARLY ACCESS</span></a>
+<nav class="core-nav" aria-label="Primary navigation">
+      <div class="core-links">
+        <a href="index.html">Home</a>
+        <a href="builds.html">Builds</a>
+        <a href="guides.html">Guides</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <button class="core-menu" type="button" aria-label="Open navigation" aria-expanded="false">MENU</button>
+    </nav></div></header>
+
+<style>
+.faq-wrap{max-width:980px}.faq{border-top:1px solid var(--line)}details{border-bottom:1px solid var(--line);padding:0}summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:50px 1fr auto;align-items:center;gap:18px;padding:28px 0;font-size:22px;font-weight:800;letter-spacing:-.025em}summary::-webkit-details-marker{display:none}.qno{font-size:10px;color:var(--cyan);letter-spacing:.15em}.plus{font-size:24px;color:#66717d;font-weight:300}details[open] .plus{transform:rotate(45deg)}details p{margin:0 0 30px 68px;max-width:760px;color:#a8b1bd;line-height:1.72;font-size:15px}.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}.trust>div{border-top:1px solid var(--line);padding-top:20px}.trust b{display:block;font-size:16px;margin-bottom:8px}.trust span{font-size:13px;color:var(--muted);line-height:1.55}
+@media(max-width:900px){summary{grid-template-columns:32px 1fr auto;font-size:18px}details p{margin-left:50px}.trust{grid-template-columns:1fr}}
+</style>
+
+<section class="hero"><div class="wrap"><div class="eyebrow">BEFORE YOU PICK UP THE SCREWDRIVER</div><h1>QUESTIONS.<br><span>ANSWERED CLEARLY.</span></h1><p class="lede">The things first-time builders actually worry about: compatibility, Windows, tools, changing parts and what to do when the first power button press doesn't go exactly to plan.</p></div></section>
+<section class="section"><div class="wrap faq-wrap"><div class="faq"><details open><summary><span class="qno">01</span><span>Do I need to know anything about PCs before I start?</span><span class="plus">+</span></summary><p>No. CORE is designed around first-time builders. You do need to be comfortable following instructions carefully, checking part orientation before applying force, and using the motherboard manual alongside the guide when a connector label differs.</p></details><details><summary><span class="qno">02</span><span>Are the three builds guaranteed to be compatible?</span><span class="plus">+</span></summary><p>The builds are selected as complete systems rather than independent shopping lists. Compatibility is part of the recommendation. Product revisions can happen, though, so the exact model names on the build page matter more than buying something that merely looks similar.</p></details><details><summary><span class="qno">03</span><span>Why doesn't the Starter build use the newest platform?</span><span class="plus">+</span></summary><p>Because a CORE should maximise what you notice, not what looks newest on a specification sheet. A mature AM4 platform can free meaningful budget for the graphics card. At the Starter tier, that trade can produce a better gaming machine.</p></details><details><summary><span class="qno">04</span><span>Why do you recommend AMD graphics cards?</span><span class="plus">+</span></summary><p>At the prices used for the current builds, AMD cards provide strong conventional gaming performance and 16GB of graphics memory. Nvidia may still be preferable for someone who prioritises specific CUDA workloads, certain creator applications or Nvidia-exclusive features; CORE is optimising these machines primarily for gaming value.</p></details><details><summary><span class="qno">05</span><span>What happens if a component price suddenly rises?</span><span class="plus">+</span></summary><p>Don't blindly buy it. Each build page uses a rough 'good price' target rather than pretending prices are fixed. The principle is simple: we recommend the part, not overpaying for it.</p></details><details><summary><span class="qno">06</span><span>Do I need to buy Windows?</span><span class="plus">+</span></summary><p>You need an operating system if you want to use the PC normally. Exact assembly and first-boot guides are being prepared and are not yet released. Licensing is separate from the hardware build.</p></details><details><summary><span class="qno">07</span><span>What tools do I need?</span><span class="plus">+</span></summary><p>A good Phillips #2 screwdriver covers most of the job. A small container for screws is useful, and cable ties or reusable hook-and-loop straps help with cable management. You do not need a specialist PC tool kit.</p></details><details><summary><span class="qno">08</span><span>What if the PC does not turn on first time?</span><span class="plus">+</span></summary><p>Do not panic and do not start dismantling everything at once. Check the PSU switch, 24-pin motherboard power, CPU/EPS power, front-panel power-switch pins, graphics-card power and monitor connection first. Re-seating memory is also a common fix for a new system that powers on but does not POST.</p></details><details><summary><span class="qno">09</span><span>Can I swap one recommended part for another?</span><span class="plus">+</span></summary><p>Sometimes, but that is where compatibility work starts again. A different graphics card may be longer, a different cooler may need different mounting hardware, and another motherboard may move headers or change BIOS requirements. If you deviate, check socket, memory type, case clearance, PSU capacity and connectors.</p></details><details><summary><span class="qno">10</span><span>Does CORE use affiliate links?</span><span class="plus">+</span></summary><p>Not yet. Current retailer links are ordinary reference links. CORE may earn commission from qualifying purchases in future. Affiliate relationships do not determine our component recommendations or buying thresholds. See our Affiliate Disclosure.</p></details></div>
+<div class="trust"><div><b>No fake certainty.</b><span>Prices move and hardware changes. Check the buying status before purchasing. Unverified prices are not a recommendation to buy.</span></div><div><b>No unnecessary upgrades.</b><span>Every pound should improve performance, usability, reliability or the experience of building the machine.</span></div><div><b>No jargon for its own sake.</b><span>Technical terms are useful only when they help you make a decision or complete the build.</span></div></div>
+</div></section>
+<footer><div class="wrap public-footer"><a class="brand" href="index.html">CORE_</a><span>Your PC. Built by you.</span><nav aria-label="Information"><a href="about.html">About CORE</a><a href="privacy.html">Privacy &amp; Cookies</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a><a href="contact.html">Contact</a></nav></div></footer><script>
+document.querySelectorAll('.core-menu').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var nav=btn.closest('.core-nav'), open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+  });
+});
+</script>
+</body></html>

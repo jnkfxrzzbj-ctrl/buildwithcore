@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gaming PC Builds | CORE</title>
+<style>
+:root{--bg:#030824;--panel:#070E2F;--panel2:#060C2B;--text:#f5f7fa;--muted:#8e99a8;--line:#222b36;--cyan:#35d2ff;--cyan2:#9aebff;--violet:#35d2ff;--max:1280px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#030824;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 48px),var(--max));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(3,8,36,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+.bar{height:74px;display:flex;align-items:center;justify-content:space-between;gap:26px}.brand{font-weight:950;letter-spacing:-.055em;font-size:24px}.brand i{font-style:normal;color:var(--cyan)}
+nav{display:flex;gap:24px;align-items:center;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.1em}nav a{color:#8993a0}nav a:hover,nav a.active{color:#fff}.pill{padding:11px 15px;border:1px solid var(--line);border-radius:999px;color:#fff}
+.hero{padding:86px 0 64px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 82% 16%,rgba(53,210,255,.10),transparent 28%)}
+.eyebrow{color:var(--cyan);font-size:10px;font-weight:900;letter-spacing:.19em;text-transform:uppercase}
+h1{font-size:clamp(58px,8vw,116px);line-height:.83;letter-spacing:-.075em;margin:16px 0 28px;max-width:1050px}
+h1 span{color:var(--cyan)}.lede{max-width:730px;font-size:20px;line-height:1.58;color:#b4bdc8}
+.section{padding:80px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px}.section-head h2{font-size:clamp(38px,5vw,64px);line-height:.95;letter-spacing:-.055em;margin:8px 0 0}.section-head p{max-width:510px;color:var(--muted);line-height:1.65}
+footer{border-top:1px solid var(--line);padding:28px 0;color:#5e6875;font-size:11px}
+@media(max-width:900px){.wrap{width:min(calc(100% - 28px),var(--max))}nav a:not(.pill){display:none}.hero{padding-top:58px}.section{padding:58px 0}.section-head{display:block}.section-head p{margin-top:18px}}
+
+/* CORE brand */
+.core-word{font-weight:900;letter-spacing:.08em;background:linear-gradient(90deg,#35D2FF 0%,#9AEBFF 42%,#fff 70%,#35D2FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 24px rgba(53,210,255,.16)}
+.core-mark{color:#35D2FF;font-weight:900;text-shadow:0 0 14px rgba(53,210,255,.65),0 0 32px rgba(53,210,255,.24)}
+
+/* CORE v14 canonical navigation */
+.core-nav{display:flex;align-items:center;margin-left:auto}
+.core-links{display:flex;align-items:center;gap:8px}
+.core-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:10px 12px;border-radius:999px;transition:.2s ease}
+.core-links a:hover,.core-links a:focus-visible{color:#fff;background:rgba(53,210,255,.09);outline:none}
+.core-menu{display:none;border:1px solid rgba(53,210,255,.35);background:rgba(53,210,255,.06);color:#9AEBFF;border-radius:999px;padding:9px 13px;font:inherit;font-size:11px;font-weight:900;letter-spacing:.12em;cursor:pointer}
+.core-menu:focus-visible{outline:2px solid #35D2FF;outline-offset:3px}
+@media(max-width:899px){
+ .core-nav{position:relative}
+ .core-menu{display:block}
+ .core-links{display:none;position:absolute;right:0;top:48px;min-width:190px;padding:10px;background:#070E2F;border:1px solid rgba(53,210,255,.18);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.38);z-index:100}
+ .core-nav.open .core-links{display:flex;flex-direction:column;align-items:stretch}
+ .core-links a{padding:12px 14px}
+}
+
+/* CORE v16 — single consistent brand lockup */
+.core-brand-lockup{
+  display:inline-flex;
+  align-items:baseline;
+  flex:0 0 auto;
+  text-decoration:none;
+  line-height:1;
+}
+.core-brand-lockup .core-word{
+  font-size:30px !important;
+  font-weight:950;
+  letter-spacing:.045em;
+  color:#F8FBFF !important;
+  background:none !important;
+  -webkit-background-clip:initial !important;
+  background-clip:initial !important;
+  text-shadow:none !important;
+}
+.core-brand-lockup .core-mark{
+  font-size:30px !important;
+  font-weight:950;
+  color:#35D2FF !important;
+  margin-left:1px;
+  text-shadow:0 0 12px rgba(53,210,255,.62),0 0 26px rgba(53,210,255,.18);
+}
+@media(max-width:899px){
+  .core-brand-lockup .core-word,
+  .core-brand-lockup .core-mark{font-size:27px !important}
+}
+
+</style>
+<style id="v7-polish">
+header{box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.hero{position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:
+linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px),
+linear-gradient(rgba(255,255,255,.011) 1px,transparent 1px);background-size:72px 72px;
+mask-image:linear-gradient(90deg,transparent,#000 62%,#000)}
+.part,.step-media,.media{transition:border-color .25s ease,transform .25s ease}
+.part:hover{border-color:#34414f}
+.buy,.primary,.cta{transition:transform .2s ease,filter .2s ease}
+.buy:hover,.primary:hover,.cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+</style>
+<link rel="stylesheet" href="assets/performance.css"><noscript><style>.core-menu{display:none}.core-nav .core-links{display:flex;position:static;min-width:0;flex-wrap:wrap;gap:0;padding:0;background:none;border:0;box-shadow:none}.core-nav .core-links a{font-size:10px;padding:8px 6px;letter-spacing:0}</style></noscript>
+<link rel="stylesheet" href="assets/public.css"><meta name="description" content="Compare Starter, Performance and High-End: three focused gaming PC specifications with clear buying guidance. Performance leads our early access release."><meta property="og:title" content="Gaming PC Builds | CORE"><meta property="og:description" content="Compare Starter, Performance and High-End: three focused gaming PC specifications with clear buying guidance. Performance leads our early access release."><meta property="og:type" content="website"><meta property="og:url" content="https://buildwithcore.co.uk/builds.html"><meta property="og:site_name" content="CORE"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Gaming PC Builds | CORE"><meta name="twitter:description" content="Compare Starter, Performance and High-End: three focused gaming PC specifications with clear buying guidance. Performance leads our early access release."><meta name="referrer" content="strict-origin-when-cross-origin"><link rel="canonical" href="https://buildwithcore.co.uk/builds.html"></head><body>
+<header><div class="wrap bar"><a class="brand core-brand-lockup" href="index.html"><span class="core-word">CORE</span><span class="core-mark">_</span><span class="early-access">EARLY ACCESS</span></a>
+<nav class="core-nav" aria-label="Primary navigation">
+      <div class="core-links">
+        <a href="index.html">Home</a>
+        <a href="builds.html">Builds</a>
+        <a href="guides.html">Guides</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <button class="core-menu" type="button" aria-label="Open navigation" aria-expanded="false">MENU</button>
+    </nav></div></header>
+
+<style>
+.build-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}.build{position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,#091235,#0A1139);min-height:420px;padding:34px;display:flex;flex-direction:column;justify-content:space-between}
+.build.performance{grid-column:span 12;min-height:520px;background:radial-gradient(circle at 78% 28%,rgba(53,210,255,.13),transparent 30%),linear-gradient(145deg,#0A1438,#0A1139)}
+.build.small{grid-column:span 6}.build.high{background:radial-gradient(circle at 80% 25%,rgba(53,210,255,.10),transparent 28%),linear-gradient(145deg,#091133,#0A1139)}
+.tag{font-size:10px;font-weight:900;letter-spacing:.17em;text-transform:uppercase;color:var(--cyan)}.high .tag{color:var(--cyan)}
+.build h3{font-size:clamp(42px,6vw,84px);letter-spacing:-.065em;line-height:.9;margin:12px 0 18px}.build.small h3{font-size:clamp(38px,4vw,58px)}
+.copy{max-width:620px;color:#aeb7c3;line-height:1.65;font-size:16px}.meta{display:flex;gap:30px;flex-wrap:wrap;margin-top:28px}.meta b{display:block;font-size:18px}.meta span{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#717d8a}
+.action{display:inline-flex;align-items:center;gap:8px;margin-top:30px;font-size:11px;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.action b{color:var(--cyan)}.high .action b{color:var(--cyan)}
+.compare{margin-top:50px;border-top:1px solid var(--line)}.row{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:18px;padding:18px 0;border-bottom:1px solid #171e26;font-size:13px}.row.head{color:#687381;text-transform:uppercase;letter-spacing:.12em;font-size:10px}.row strong{font-weight:800}
+@media(max-width:900px){.build.performance,.build.small{grid-column:span 12}.build{min-height:380px;padding:26px}.row{grid-template-columns:1fr 1fr}.row>div:nth-child(n+3){display:none}}
+</style>
+
+<section class="hero"><div class="wrap"><div class="eyebrow">THREE BUILDS. ONE EASY DECISION.</div><h1>CHOOSE THE<br><span>RIGHT MACHINE.</span></h1><p class="lede">Every CORE system is designed around a clear budget, a realistic gaming target and parts that work together. No endless configurator. No incompatible combinations.</p></div></section>
+<section class="section"><div class="wrap">
+<div class="build-grid">
+<article class="build performance"><div><div class="tag">OUR PICK · PERFORMANCE</div><h3>THE ONE<br>WE'D BUILD.</h3><p class="copy">The sweet spot for a first serious gaming PC: modern AM5 platform, 32GB DDR5 and RX 9070 graphics for excellent 1440p gaming without wasting money on prestige parts.</p><div class="meta"><div><div data-core="compact"><strong>HOLD · NOT VERIFIED</strong><br>Check Performance before buying</div></div><div><b>1440p</b><span>Target</span></div><div><b>Beginner +</b><span>Difficulty</span></div></div></div><a class="action" href="core-performance.html">Explore Performance <b>→</b></a></article>
+<article class="build small"><div><div class="tag">BEST VALUE · STARTER</div><h3>START<br>SMART.</h3><p class="copy">A simpler, lower-cost CORE that deliberately uses mature AM4 parts so more of the budget can go into the graphics card.</p><div class="meta"><div><b class="public-unverified">HOLD · NOT VERIFIED</b><span>Price check needed</span></div><div><b>1080p / 1440p</b><span>Target</span></div></div></div><a class="action" href="core-starter.html">Explore Starter <b>→</b></a></article>
+<article class="build small high"><div><div class="tag">FLAGSHIP · HIGH-END</div><h3>GO<br>ALL IN.</h3><p class="copy">High-refresh 1440p, credible 4K performance, 2TB storage and a more dramatic AIO/RGB presentation.</p><div class="meta"><div><b class="public-unverified">HOLD · NOT VERIFIED</b><span>Price check needed</span></div><div><b>1440p / 4K</b><span>Target</span></div></div></div><a class="action" href="core-high-end.html">Explore High-End <b>→</b></a></article>
+</div>
+<div class="compare"><div class="row head"><div>What matters</div><div>Starter</div><div>Performance</div><div>High-End</div></div>
+<div class="row"><strong>Graphics</strong><div>RX 9060 XT 16GB</div><div>RX 9070 16GB</div><div>RX 9070 XT 16GB</div></div>
+<div class="row"><strong>Processor</strong><div>Ryzen 5 5600</div><div>Ryzen 5 9600X</div><div>Ryzen 7 9700X</div></div>
+<div class="row"><strong>Memory</strong><div>16GB DDR4</div><div>32GB DDR5</div><div>32GB DDR5 RGB</div></div>
+<div class="row"><strong>Storage</strong><div>1TB NVMe</div><div><div data-core="capacity">2TB NVMe</div></div><div>2TB NVMe</div></div></div>
+</div></section>
+<footer><div class="wrap public-footer"><a class="brand" href="index.html">CORE_</a><span>Your PC. Built by you.</span><nav aria-label="Information"><a href="about.html">About CORE</a><a href="privacy.html">Privacy &amp; Cookies</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a><a href="contact.html">Contact</a></nav></div></footer><script>
+document.querySelectorAll('.core-menu').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var nav=btn.closest('.core-nav'), open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+  });
+});
+</script>
+<noscript><div class="wrap core-noscript">JavaScript is off. Buying status cannot be verified. Do not use recorded prices as a current buying recommendation.</div></noscript>
+<script src="assets/core-data.generated.js"></script>
+<script src="assets/core-engine.js"></script>
+<script src="assets/core-view.js"></script>
+<script src="assets/core-client.js"></script>
+</body></html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Build Guides | CORE</title>
+<style>
+:root{--bg:#030824;--panel:#070E2F;--panel2:#060C2B;--text:#f5f7fa;--muted:#8e99a8;--line:#222b36;--cyan:#35d2ff;--cyan2:#9aebff;--violet:#35d2ff;--max:1280px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#030824;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 48px),var(--max));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(3,8,36,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+.bar{height:74px;display:flex;align-items:center;justify-content:space-between;gap:26px}.brand{font-weight:950;letter-spacing:-.055em;font-size:24px}.brand i{font-style:normal;color:var(--cyan)}
+nav{display:flex;gap:24px;align-items:center;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.1em}nav a{color:#8993a0}nav a:hover,nav a.active{color:#fff}.pill{padding:11px 15px;border:1px solid var(--line);border-radius:999px;color:#fff}
+.hero{padding:86px 0 64px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 82% 16%,rgba(53,210,255,.10),transparent 28%)}
+.eyebrow{color:var(--cyan);font-size:10px;font-weight:900;letter-spacing:.19em;text-transform:uppercase}
+h1{font-size:clamp(58px,8vw,116px);line-height:.83;letter-spacing:-.075em;margin:16px 0 28px;max-width:1050px}
+h1 span{color:var(--cyan)}.lede{max-width:730px;font-size:20px;line-height:1.58;color:#b4bdc8}
+.section{padding:80px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px}.section-head h2{font-size:clamp(38px,5vw,64px);line-height:.95;letter-spacing:-.055em;margin:8px 0 0}.section-head p{max-width:510px;color:var(--muted);line-height:1.65}
+footer{border-top:1px solid var(--line);padding:28px 0;color:#5e6875;font-size:11px}
+@media(max-width:900px){.wrap{width:min(calc(100% - 28px),var(--max))}nav a:not(.pill){display:none}.hero{padding-top:58px}.section{padding:58px 0}.section-head{display:block}.section-head p{margin-top:18px}}
+
+/* CORE brand */
+.core-word{font-weight:900;letter-spacing:.08em;background:linear-gradient(90deg,#35D2FF 0%,#9AEBFF 42%,#fff 70%,#35D2FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 24px rgba(53,210,255,.16)}
+.core-mark{color:#35D2FF;font-weight:900;text-shadow:0 0 14px rgba(53,210,255,.65),0 0 32px rgba(53,210,255,.24)}
+
+/* CORE v14 canonical navigation */
+.core-nav{display:flex;align-items:center;margin-left:auto}
+.core-links{display:flex;align-items:center;gap:8px}
+.core-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:10px 12px;border-radius:999px;transition:.2s ease}
+.core-links a:hover,.core-links a:focus-visible{color:#fff;background:rgba(53,210,255,.09);outline:none}
+.core-menu{display:none;border:1px solid rgba(53,210,255,.35);background:rgba(53,210,255,.06);color:#9AEBFF;border-radius:999px;padding:9px 13px;font:inherit;font-size:11px;font-weight:900;letter-spacing:.12em;cursor:pointer}
+.core-menu:focus-visible{outline:2px solid #35D2FF;outline-offset:3px}
+@media(max-width:899px){
+ .core-nav{position:relative}
+ .core-menu{display:block}
+ .core-links{display:none;position:absolute;right:0;top:48px;min-width:190px;padding:10px;background:#070E2F;border:1px solid rgba(53,210,255,.18);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.38);z-index:100}
+ .core-nav.open .core-links{display:flex;flex-direction:column;align-items:stretch}
+ .core-links a{padding:12px 14px}
+}
+
+/* CORE v16 — single consistent brand lockup */
+.core-brand-lockup{
+  display:inline-flex;
+  align-items:baseline;
+  flex:0 0 auto;
+  text-decoration:none;
+  line-height:1;
+}
+.core-brand-lockup .core-word{
+  font-size:30px !important;
+  font-weight:950;
+  letter-spacing:.045em;
+  color:#F8FBFF !important;
+  background:none !important;
+  -webkit-background-clip:initial !important;
+  background-clip:initial !important;
+  text-shadow:none !important;
+}
+.core-brand-lockup .core-mark{
+  font-size:30px !important;
+  font-weight:950;
+  color:#35D2FF !important;
+  margin-left:1px;
+  text-shadow:0 0 12px rgba(53,210,255,.62),0 0 26px rgba(53,210,255,.18);
+}
+@media(max-width:899px){
+  .core-brand-lockup .core-word,
+  .core-brand-lockup .core-mark{font-size:27px !important}
+}
+
+</style>
+<style id="v7-polish">
+header{box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.hero{position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:
+linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px),
+linear-gradient(rgba(255,255,255,.011) 1px,transparent 1px);background-size:72px 72px;
+mask-image:linear-gradient(90deg,transparent,#000 62%,#000)}
+.part,.step-media,.media{transition:border-color .25s ease,transform .25s ease}
+.part:hover{border-color:#34414f}
+.buy,.primary,.cta{transition:transform .2s ease,filter .2s ease}
+.buy:hover,.primary:hover,.cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+</style>
+<link rel="stylesheet" href="assets/performance.css"><noscript><style>.core-menu{display:none}.core-nav .core-links{display:flex;position:static;min-width:0;flex-wrap:wrap;gap:0;padding:0;background:none;border:0;box-shadow:none}.core-nav .core-links a{font-size:10px;padding:8px 6px;letter-spacing:0}</style></noscript>
+<link rel="stylesheet" href="assets/public.css"><meta name="description" content="See the status of CORE build guides. Performance hardware notes are available; exact assembly instructions are being prepared."><meta property="og:title" content="Build Guides | CORE"><meta property="og:description" content="See the status of CORE build guides. Performance hardware notes are available; exact assembly instructions are being prepared."><meta property="og:type" content="website"><meta property="og:url" content="https://buildwithcore.co.uk/guides.html"><meta property="og:site_name" content="CORE"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Build Guides | CORE"><meta name="twitter:description" content="See the status of CORE build guides. Performance hardware notes are available; exact assembly instructions are being prepared."><meta name="referrer" content="strict-origin-when-cross-origin"><link rel="canonical" href="https://buildwithcore.co.uk/guides.html"></head><body>
+<header><div class="wrap bar"><a class="brand core-brand-lockup" href="index.html"><span class="core-word">CORE</span><span class="core-mark">_</span><span class="early-access">EARLY ACCESS</span></a>
+<nav class="core-nav" aria-label="Primary navigation">
+      <div class="core-links">
+        <a href="index.html">Home</a>
+        <a href="builds.html">Builds</a>
+        <a href="guides.html">Guides</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <button class="core-menu" type="button" aria-label="Open navigation" aria-expanded="false">MENU</button>
+    </nav></div></header>
+
+<style>
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.guide-card{border-top:1px solid var(--line);padding:30px 0 0;min-height:310px;display:flex;flex-direction:column}.guide-card.featured{border-color:var(--cyan)}.num{font-size:10px;font-weight:900;letter-spacing:.17em;text-transform:uppercase;color:#6c7785}.featured .num{color:var(--cyan)}.guide-card h3{font-size:42px;letter-spacing:-.055em;line-height:.95;margin:14px 0 18px}.guide-card p{color:#9fa9b5;line-height:1.65;font-size:15px;max-width:360px}.facts{display:flex;gap:24px;margin-top:20px;color:#707b87;font-size:11px}.guide-link{margin-top:auto;padding-top:32px;font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.1em}.guide-link b{color:var(--cyan)}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:25px}.phase{padding-top:22px;border-top:1px solid var(--line)}.phase span{font-size:10px;color:var(--cyan);font-weight:900}.phase h4{font-size:19px;margin:10px 0 8px}.phase p{font-size:13px;color:var(--muted);line-height:1.55}
+@media(max-width:900px){.guide-grid,.process{grid-template-columns:1fr}.guide-card{min-height:0;padding-bottom:24px}}
+</style>
+
+<section class="hero"><div class="wrap"><div class="eyebrow">NO ASSUMED KNOWLEDGE</div><h1>BUILD IT.<br><span>WITH CONFIDENCE.</span></h1><p class="lede">Explore the hardware notes for Performance. Exact step-by-step assembly guides are being prepared and are not yet released.</p></div></section>
+<section class="section"><div class="wrap"><div class="guide-grid">
+<article class="guide-card"><div class="num">01 · STARTER</div><h3>THE SIMPLEST<br>CORE.</h3><p>Air cooling, mature AM4 hardware and a roomy case keep the assembly straightforward.</p><div class="facts">Assembly guide in preparation</div><a class="guide-link" href="core-starter-guide.html">Starter guide status <b>→</b></a></article>
+<article class="guide-card featured"><div class="num">02 · PERFORMANCE · OUR PICK</div><h3>MODERN.<br>STILL SIMPLE.</h3><p>AM5 and DDR5 without unnecessary complexity. The Performance hardware notes are available; its exact assembly guide is awaiting review.</p><div class="facts">Assembly guide in preparation</div><a class="guide-link" href="core-performance-guide.html">Performance guide status <b>→</b></a></article>
+<article class="guide-card"><div class="num">03 · HIGH-END</div><h3>THE SHOWPIECE<br>BUILD.</h3><p>360mm liquid cooling, RGB routing and a larger graphics card make this the more involved assembly.</p><div class="facts">Assembly guide in preparation</div><a class="guide-link" href="core-high-end-guide.html">High-End guide status <b>→</b></a></article>
+</div></div></section>
+<section class="section" style="background:#050B29;border-top:1px solid var(--line)"><div class="wrap"><div class="section-head"><div><div class="eyebrow">THE CORE METHOD</div><h2>THE SAME LOGIC.<br>EVERY TIME.</h2></div><p>Our planned guides follow a simple sequence so you do the fiddly motherboard work while access is easiest, route power before the graphics card blocks your hands, and only close the case once the machine has successfully powered on.</p></div><div class="process"><div class="phase"><span>01</span><h4>Build the board</h4><p>CPU, memory and SSD are installed outside the case where you can actually see what you're doing.</p></div><div class="phase"><span>02</span><h4>Prepare cooling</h4><p>Air cooler or AIO hardware goes on before cable access becomes awkward.</p></div><div class="phase"><span>03</span><h4>Case + power</h4><p>Motherboard, PSU and front-panel wiring are connected before the GPU arrives.</p></div><div class="phase"><span>04</span><h4>GPU + first boot</h4><p>The final major component goes in, connections are checked, then you power on with the glass still off.</p></div></div></div></section>
+<footer><div class="wrap public-footer"><a class="brand" href="index.html">CORE_</a><span>Your PC. Built by you.</span><nav aria-label="Information"><a href="about.html">About CORE</a><a href="privacy.html">Privacy &amp; Cookies</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a><a href="contact.html">Contact</a></nav></div></footer><script>
+document.querySelectorAll('.core-menu').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var nav=btn.closest('.core-nav'), open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+  });
+});
+</script>
+<noscript><div class="wrap core-noscript">JavaScript is off. Buying status cannot be verified. Do not use recorded prices as a current buying recommendation.</div></noscript>
+<script src="assets/core-data.generated.js"></script>
+<script src="assets/core-engine.js"></script>
+<script src="assets/core-view.js"></script>
+<script src="assets/core-client.js"></script>
+</body></html>

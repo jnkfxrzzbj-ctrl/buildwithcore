@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>High-End Build Guide Status | CORE</title>
+<style>
+:root{--bg:#030824;--panel:#081032;--text:#f5f7fa;--muted:#8e99a8;--line:#222b36;--a:#35d2ff;--max:1280px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#030824;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}img{display:block;width:100%}.wrap{width:min(calc(100% - 48px),var(--max));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(3,8,36,.94);backdrop-filter:blur(18px);border-bottom:1px solid #1d252e}.bar{height:74px;display:flex;align-items:center;justify-content:space-between;gap:25px}.brand{font-weight:950;letter-spacing:-.055em;font-size:24px}.brand i{font-style:normal;color:var(--a)}.crumb{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em}.crumb b{color:#fff}.links{display:flex;gap:20px;align-items:center;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.1em}.links a:first-child{color:var(--muted)}.pill{border:1px solid var(--line);border-radius:999px;padding:11px 15px}
+.hero{padding:86px 0 58px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 82% 18%,color-mix(in srgb,var(--a) 13%,transparent),transparent 27%)}.eyebrow,.num{color:var(--a);font-size:10px;font-weight:900;letter-spacing:.19em;text-transform:uppercase}h1{font-size:clamp(58px,8vw,116px);line-height:.83;letter-spacing:-.075em;margin:16px 0 28px;max-width:1000px}h1 span{color:var(--a)}.lede{max-width:720px;font-size:20px;line-height:1.55;color:#b3bcc7}.stats{display:flex;gap:42px;flex-wrap:wrap;margin-top:42px}.stat b{display:block;font-size:20px}.stat span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em}.parts{margin-top:34px;color:#6f7a87;font-size:12px;line-height:1.7}
+.layout{display:grid;grid-template-columns:210px minmax(0,1fr);gap:72px;padding:70px 0 110px}.side{position:sticky;top:104px}.side>div{font-size:9px;color:#66717f;text-transform:uppercase;letter-spacing:.18em;margin-bottom:18px}.side a{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #151c24;color:#727d89;font-size:12px}.side a:hover{color:#fff}.side span{color:var(--a)}
+.step{display:grid;grid-template-columns:minmax(0,.9fr) minmax(320px,1.1fr);gap:56px;align-items:center;padding-bottom:82px;margin-bottom:82px;border-bottom:1px solid var(--line)}.step:nth-child(even) .copy{order:2}.step:nth-child(even) .media{order:1}.step h2{font-size:clamp(38px,4.6vw,64px);line-height:.95;letter-spacing:-.055em;margin:10px 0 20px}.step p{font-size:16px;line-height:1.7;color:#aeb7c3;max-width:590px}ul{list-style:none;padding:0;margin:24px 0}li{position:relative;padding:8px 0 8px 24px;color:#d6dbe2;font-size:14px}li:before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;border-radius:50%;background:var(--a);box-shadow:0 0 14px color-mix(in srgb,var(--a) 60%,transparent)}.media{background:linear-gradient(145deg,#0B163D,#0A1139);border:1px solid #242e3a;min-height:360px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 35px 80px rgba(0,0,0,.27)}.media img{height:100%;max-height:520px;object-fit:cover}.diagram{font-size:110px;font-weight:950;color:#0D1943}.tip{margin-top:25px;border-left:2px solid var(--a);padding:4px 0 4px 18px;color:#9da7b4;font-size:13px;line-height:1.55}.tip b{display:block;color:var(--a);font-size:9px;letter-spacing:.16em;margin-bottom:6px}
+.finish{padding:80px 0 100px;background:#050B29;border-top:1px solid var(--line)}.finishgrid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}.finish h2{font-size:clamp(48px,6vw,84px);letter-spacing:-.065em;line-height:.9;margin:10px 0 18px}.finish p{color:var(--muted);max-width:660px;line-height:1.65}.cta{display:inline-block;padding:16px 22px;background:var(--a);color:#071016;font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.1em}footer{border-top:1px solid var(--line);padding:28px 0;color:#5e6875;font-size:11px}
+@media(max-width:900px){.wrap{width:min(calc(100% - 28px),var(--max))}.crumb,.links a:first-child{display:none}.hero{padding-top:58px}.layout{grid-template-columns:1fr;padding-top:38px}aside{display:none}.step,.step:nth-child(even){grid-template-columns:1fr;gap:30px;margin-bottom:58px;padding-bottom:58px}.step:nth-child(even) .copy,.step:nth-child(even) .media{order:initial}.media{min-height:260px}.finishgrid{grid-template-columns:1fr;align-items:start}}
+
+/* CORE brand */
+.core-word{font-weight:900;letter-spacing:.08em;background:linear-gradient(90deg,#35D2FF 0%,#9AEBFF 42%,#fff 70%,#35D2FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 24px rgba(53,210,255,.16)}
+.core-mark{color:#35D2FF;font-weight:900;text-shadow:0 0 14px rgba(53,210,255,.65),0 0 32px rgba(53,210,255,.24)}
+
+/* CORE v14 canonical navigation */
+.core-nav{display:flex;align-items:center;margin-left:auto}
+.core-links{display:flex;align-items:center;gap:8px}
+.core-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:10px 12px;border-radius:999px;transition:.2s ease}
+.core-links a:hover,.core-links a:focus-visible{color:#fff;background:rgba(53,210,255,.09);outline:none}
+.core-menu{display:none;border:1px solid rgba(53,210,255,.35);background:rgba(53,210,255,.06);color:#9AEBFF;border-radius:999px;padding:9px 13px;font:inherit;font-size:11px;font-weight:900;letter-spacing:.12em;cursor:pointer}
+.core-menu:focus-visible{outline:2px solid #35D2FF;outline-offset:3px}
+@media(max-width:899px){
+ .core-nav{position:relative}
+ .core-menu{display:block}
+ .core-links{display:none;position:absolute;right:0;top:48px;min-width:190px;padding:10px;background:#070E2F;border:1px solid rgba(53,210,255,.18);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.38);z-index:100}
+ .core-nav.open .core-links{display:flex;flex-direction:column;align-items:stretch}
+ .core-links a{padding:12px 14px}
+}
+
+/* CORE v16 — single consistent brand lockup */
+.core-brand-lockup{
+  display:inline-flex;
+  align-items:baseline;
+  flex:0 0 auto;
+  text-decoration:none;
+  line-height:1;
+}
+.core-brand-lockup .core-word{
+  font-size:30px !important;
+  font-weight:950;
+  letter-spacing:.045em;
+  color:#F8FBFF !important;
+  background:none !important;
+  -webkit-background-clip:initial !important;
+  background-clip:initial !important;
+  text-shadow:none !important;
+}
+.core-brand-lockup .core-mark{
+  font-size:30px !important;
+  font-weight:950;
+  color:#35D2FF !important;
+  margin-left:1px;
+  text-shadow:0 0 12px rgba(53,210,255,.62),0 0 26px rgba(53,210,255,.18);
+}
+@media(max-width:899px){
+  .core-brand-lockup .core-word,
+  .core-brand-lockup .core-mark{font-size:27px !important}
+}
+
+</style>
+<style id="v7-polish">
+header{box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.hero{position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:
+linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px),
+linear-gradient(rgba(255,255,255,.011) 1px,transparent 1px);background-size:72px 72px;
+mask-image:linear-gradient(90deg,transparent,#000 62%,#000)}
+.part,.step-media,.media{transition:border-color .25s ease,transform .25s ease}
+.part:hover{border-color:#34414f}
+.buy,.primary,.cta{transition:transform .2s ease,filter .2s ease}
+.buy:hover,.primary:hover,.cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+</style>
+<link rel="stylesheet" href="assets/public.css"><noscript><style>.core-menu{display:none}.core-nav .core-links{display:flex;position:static;flex-wrap:wrap;background:none;border:0;gap:0}.core-nav .core-links a{font-size:10px;padding:8px 6px}</style></noscript><meta name="description" content="Check High-End guide availability. Exact assembly instructions are being prepared; do not treat these pages as a released assembly guide."><meta property="og:title" content="High-End Build Guide Status | CORE"><meta property="og:description" content="Check High-End guide availability. Exact assembly instructions are being prepared; do not treat these pages as a released assembly guide."><meta property="og:type" content="website"><meta property="og:url" content="https://buildwithcore.co.uk/core-high-end-guide.html"><meta property="og:site_name" content="CORE"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="High-End Build Guide Status | CORE"><meta name="twitter:description" content="Check High-End guide availability. Exact assembly instructions are being prepared; do not treat these pages as a released assembly guide."><meta name="referrer" content="strict-origin-when-cross-origin"><link rel="canonical" href="https://buildwithcore.co.uk/core-high-end-guide.html"></head><body>
+<header><div class="wrap bar"><a class="brand core-brand-lockup" href="index.html"><span class="core-word">CORE</span><span class="core-mark">_</span><span class="early-access">EARLY ACCESS</span></a><div class="crumb"><b>High-End</b> / build guide</div><nav class="core-nav" aria-label="Primary navigation">
+      <div class="core-links">
+        <a href="index.html">Home</a>
+        <a href="builds.html">Builds</a>
+        <a href="guides.html">Guides</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <button class="core-menu" type="button" aria-label="Open navigation" aria-expanded="false">MENU</button>
+    </nav></div></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">High-End build guide</div><h1>BUILD IT.<br><span>WITH CONFIDENCE.</span></h1><p class="lede">Exact assembly instructions are being prepared. This guide is not yet released.</p><p>Use the hardware manufacturer’s instructions. CORE has not yet physically validated this build.</p><a class="primary" href="core-high-end.html">Explore the specification →</a></div></section><section class="finish"><div class="wrap finishgrid"><div><div class="eyebrow">FIRST BOOT</div><h2>YOU BUILT IT.</h2><p>Enter UEFI/BIOS and confirm the processor, memory and SSD are detected. Enable the memory profile where appropriate, then install Windows 11 from a bootable USB. Use UEFI mode and keep Secure Boot enabled for Windows 11 security.</p></div><a class="cta" href="core-high-end.html">Back to the build →</a></div></section><footer><div class="wrap public-footer"><a class="brand" href="index.html">CORE_</a><span>Your PC. Built by you.</span><nav aria-label="Information"><a href="about.html">About CORE</a><a href="privacy.html">Privacy &amp; Cookies</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a><a href="contact.html">Contact</a></nav></div></footer><script>
+document.querySelectorAll('.core-menu').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var nav=btn.closest('.core-nav'), open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+  });
+});
+</script>
+</body></html>
