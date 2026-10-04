@@ -1,8 +1,8 @@
 # Performance affiliate maintenance
 
-`assets/core-affiliates.js` is the destination catalogue. It is separate from `CORE_DATA` and is never read by the purchasing engine. Add an entry only after checking the exact Amazon UK product against the component MPN; record the ASIN and identity-verification note. No product-name searches or guessed ASINs. Initially only the owner-tested Ryzen 5 9600X is verified.
+`assets/core-affiliates.js` is the destination catalogue. It is separate from `CORE_DATA` and is never read by the purchasing engine. Add an entry only after checking the exact Amazon UK product against the component MPN (or exact EAN when CORE has no MPN); record the ASIN and identity-verification note. No product-name searches or guessed ASINs. See [the verification record](amazon-destinations-verification.md) for evidence, variant exclusions and unresolved components.
 
-The shared view resolves links by the selected exact component ID and matching MPN. Missing or mismatched records produce no affiliate link. Entries are retailer-specific so future networks can add their own destination resolvers without changing purchasing evidence.
+The shared view resolves links by the selected exact component ID and matching MPN, or matching EAN for an EAN-only record. MPN records cannot fall back to EAN. Missing or mismatched records produce no affiliate link. Entries are retailer-specific so future networks can add their own destination resolvers without changing purchasing evidence.
 
 After changing catalogue or parts rendering:
 
