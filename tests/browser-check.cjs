@@ -1,5 +1,6 @@
 const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES?process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/playwright':'playwright');
 const fs=require('node:fs'),http=require('node:http'),path=require('node:path'),assert=require('node:assert/strict');
+const expected=require('./affiliate-expectations.cjs');
 (async()=>{
  const server=http.createServer((req,res)=>{
   const file=path.resolve('.',decodeURIComponent(req.url.split('?')[0]).replace(/^\//,'')||'index.html');
@@ -18,14 +19,54 @@ const fs=require('node:fs'),http=require('node:http'),path=require('node:path'),
   const cpu=page.locator('#part-cpu');await cpu.locator('summary').click();
   const amazon=cpu.getByRole('link',{name:'Check price at Amazon ↗'});
   assert.equal(await amazon.count(),1);assert.equal(await amazon.getAttribute('href'),'https://www.amazon.co.uk/dp/B0D6NN6TM7?tag=buildwithcore-21');assert.equal(await amazon.getAttribute('rel'),'sponsored noopener noreferrer');assert.equal(await amazon.getAttribute('target'),'_blank');checks+=4;
-  assert.equal(await page.locator('a[href*="amazon.co.uk"]').count(),1);checks++;
+  // Inspect each selected part, including every newly verified preferred destination.
+  const preferred={cpu:'ryzen9600x',gpu:'gigabyte9070',motherboard:'msib850',ram:'fitv28',ssd:'sn5100',psu:'rm750x',cooler:'pa120se',case:'h6flow'};
+  for(const [slot,id] of Object.entries(preferred)){
+   const links=page.locator('#part-'+slot+' a[href*="amazon.co.uk"]');
+   assert.equal(await links.count(),expected[id]?1:0);checks++;
+   if(expected[id]){
+    assert.equal(await links.getAttribute('href'),'https://www.amazon.co.uk/dp/'+expected[id]+'?tag=buildwithcore-21');
+    assert.equal(await links.getAttribute('rel'),'sponsored noopener noreferrer');
+    assert.equal(await links.getAttribute('target'),'_blank');checks+=3;
+   }
+  }
+  assert.equal(await page.locator('a[href*="amazon.co.uk"]').count(),7);checks++;
   assert.equal(await cpu.getByRole('link',{name:'Reference retailer listing ↗'}).count(),1);assert.equal(await cpu.getByRole('link',{name:'Product source 1 ↗'}).count(),1);checks+=2;
   assert.match(await page.locator('[data-core="panel"]').innerText(),/HOLD/);checks++;
   assert.equal(await page.locator('.core-price-unchecked').count(),8);checks++;
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));checks++;
   if(javaScriptEnabled){assert.equal(await page.evaluate(()=>window.CORE_RESULT.eligiblePurchaseTotal),null);checks++;}
   assert.deepEqual(errors,[]);checks++;
+  await page.locator('.core-part details').evaluateAll(nodes=>nodes.forEach(node=>node.open=true));
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));checks++;
   await page.screenshot({path:path.join(require('node:os').tmpdir(),'core-performance-'+width+'-'+javaScriptEnabled+'.png'),fullPage:true});
+  if(javaScriptEnabled){
+   // Exercise all approved selections through the real browser engine and view.
+   const scenarios=await page.evaluate(()=>{
+    const base=window.CORE_DATA,now='2026-10-04T20:30:00Z',out=[];
+    for(const cfg of Object.values(base.guideConfigurations)){
+     if(cfg.buildRevision!==base.builds.performance.revision)continue;
+     const d=JSON.parse(JSON.stringify(base));
+     for(const s of d.builds.performance.slots){
+      d.selectionState[s.id]=d.offers.find(o=>o.componentId===cfg.components[s.id]).id;
+      for(const o of d.offers)if(s.approvedIds.includes(o.componentId))Object.assign(o,{checkedAt:now,stock:o.componentId===cfg.components[s.id]?'in_stock':'out_of_stock',dispatchWorkingDays:1,identityVerified:true,sellerIsRetailer:true,condition:'new',vatIncluded:true,deliveryPence:0,itemPence:s.targetPence-1000});
+     }
+     const r=CoreEngine.derive(d,now),before=JSON.stringify(r);
+     document.querySelector('[data-core="parts"]').innerHTML=CoreView.parts(d,r);
+     out.push({selected:r.selectedIds,expected:cfg.components,unchanged:JSON.stringify(CoreEngine.derive(d,now))===before,state:r.state,
+      parts:[...document.querySelectorAll('.core-part')].map(p=>({slot:p.id.slice(5),links:[...p.querySelectorAll('a[href*="amazon.co.uk"]')].map(a=>({url:a.href,rel:a.rel,target:a.target}))})),
+      noOverflow:document.documentElement.scrollWidth<=innerWidth});
+    }
+    return out;
+   });
+   for(const scenario of scenarios){
+    assert.deepEqual(scenario.selected,scenario.expected);assert.equal(scenario.unchanged,true);assert.equal(scenario.state,'GOOD BUY');assert.equal(scenario.noOverflow,true);checks+=4;
+    for(const part of scenario.parts){
+     const asin=expected[scenario.selected[part.slot]];
+     assert.deepEqual(part.links,asin?[{url:'https://www.amazon.co.uk/dp/'+asin+'?tag=buildwithcore-21',rel:'sponsored noopener noreferrer',target:'_blank'}]:[]);checks++;
+    }
+   }
+  }
   await ctx.close();
  }
  const ctx=await browser.newContext(),page=await ctx.newPage();
