@@ -78,6 +78,64 @@ const expected=require('./affiliate-expectations.cjs');
    const results=await Promise.all(urls.map(async u=>[u,(await fetch(u)).status]));return results.filter(([,status])=>status>=400);
   });assert.deepEqual(broken,[]);assert.deepEqual(errors,[]);checks+=2;page.off('pageerror',onError);
  }
- await ctx.close();console.log(checks+' browser/site checks passed across desktop, mobile, no-JS and all HTML pages');
+ await ctx.close();
+ // Phase 1 public journeys, including narrow phones, keyboard navigation and no-JS recovery.
+ const shots=process.env.CORE_QA_DIR;
+ if(shots)fs.mkdirSync(shots,{recursive:true});
+ for(const javaScriptEnabled of [true,false])for(const width of [1440,390,320]){
+  const context=await browser.newContext({javaScriptEnabled,viewport:{width,height:900}}),p=await context.newPage();
+  for(const file of fs.readdirSync('.').filter(x=>x.endsWith('.html'))){
+   const errors=[];const onError=e=>errors.push(e.message);p.on('pageerror',onError);
+   await p.goto(origin+'/'+file);
+   assert.equal(await p.locator('main#main-content').count(),1,file);checks++;
+   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),file+' '+width+' overflow');checks++;
+   await p.keyboard.press('Tab');assert.equal(await p.locator('.skip-link').evaluate(e=>e===document.activeElement),true);checks++;
+   if(width<900&&javaScriptEnabled){
+    const menu=p.getByRole('button',{name:'Open navigation'});await menu.click();
+    for(const name of ['Home','Builds','Guides','FAQ']){assert.ok(await p.locator('.core-nav').getByRole('link',{name,exact:true}).isVisible());checks++;}
+    await p.locator('.core-links a').first().focus();await p.keyboard.press('Escape');
+    assert.equal(await menu.getAttribute('aria-expanded'),'false');assert.equal(await menu.evaluate(e=>e===document.activeElement),true);checks+=2;
+    await menu.click();await p.mouse.click(4,450);assert.equal(await menu.getAttribute('aria-expanded'),'false');checks++;
+   }else if(!javaScriptEnabled){
+    for(const a of await p.locator('.core-links a').all()){assert.ok(await a.isVisible());checks++;}
+   }
+   if(file==='builds.html'){
+    assert.equal(await p.locator('thead th').count(),4);checks++;
+    assert.equal(await p.locator('tbody tr').count(),8);checks++;
+    const region=p.getByRole('region',{name:'Build comparison'});
+    await region.evaluate(e=>{e.scrollLeft=e.scrollWidth;});
+    assert.ok(await p.locator('thead th').last().evaluate(e=>{const r=e.getBoundingClientRect();return r.right<=innerWidth&&r.left>=0;}));checks++;
+   }
+   if(file==='core-performance.html'){
+    assert.match(await p.locator('[data-core="panel"]').innerText(),/HOLD/);checks++;
+    assert.equal(await p.locator('.core-part .core-mpn').count(),8);checks++;
+    for(const a of await p.locator('a[rel~="sponsored"]').all()){
+     assert.ok(await a.isVisible());assert.match(await a.locator('..').innerText(),/Affiliate link/);checks+=2;
+    }
+   }
+   await p.locator('main').focus();await p.locator('main').evaluate(e=>e.blur());
+   if(shots&&width!==320)await p.screenshot({path:path.join(shots,file.replace('.html','')+'-'+width+'-'+javaScriptEnabled+'.png'),fullPage:true});
+   assert.deepEqual(errors,[],file);checks++;p.off('pageerror',onError);
+  }
+  await p.goto(origin+'/guides.html');await p.getByRole('link',{name:'Explore Performance hardware notes'}).click();
+  if(javaScriptEnabled){assert.equal(await p.locator('.core-guide-parts>li').count(),8);checks++;}
+  else {assert.match(await p.locator('.core-noscript').innerText(),/saved parts link needs JavaScript/);checks++;await p.locator('.core-noscript a').click();assert.equal(await p.locator('.core-part').count(),8);checks++;}
+  if(javaScriptEnabled){
+   for(const id of ['', '?configuration=unknown','?configuration=__proto__']){
+    await p.goto(origin+'/core-performance-guide.html'+id);
+    assert.equal(await p.locator('.core-guide-parts').count(),0);checks++;
+    assert.ok(await p.getByRole('link',{name:'Explore the current Performance parts'}).isVisible());checks++;
+   }
+   // Fresh-looking inputs must not bypass the existing public publication safeguard.
+   await p.goto(origin+'/core-performance.html');
+   await p.evaluate(()=>{
+    for(const o of CORE_DATA.offers){const s=CORE_DATA.builds.performance.slots.find(s=>s.approvedIds.includes(o.componentId));Object.assign(o,{checkedAt:new Date().toISOString(),stock:'in_stock',dispatchWorkingDays:1,identityVerified:true,sellerIsRetailer:true,condition:'new',vatIncluded:true,deliveryPence:0,itemPence:s.targetPence-1000});}
+    document.dispatchEvent(new Event('visibilitychange'));
+   });
+   assert.equal(await p.evaluate(()=>CORE_RESULT.state),'GOOD BUY');assert.match(await p.locator('[data-core="panel"]').innerText(),/HOLD/);assert.equal(await p.locator('.core-price-unchecked').count(),8);checks+=3;
+  }
+  await context.close();
+ }
+ console.log(checks+' browser/site checks passed across desktop, mobile, no-JS and all HTML pages');
  }finally{if(browser)await browser.close();server.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
