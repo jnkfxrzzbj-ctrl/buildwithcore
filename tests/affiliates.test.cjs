@@ -3,13 +3,14 @@ const E=require('../assets/core-engine.js'),V=require('../assets/core-view.js'),
 const expected=require('./affiliate-expectations.cjs');
 const context={window:{}};vm.runInNewContext(fs.readFileSync('assets/core-data.generated.js','utf8'),context);
 const base=JSON.parse(JSON.stringify(context.window.CORE_DATA));
+const current=structuredClone(base);base.currentPerformanceRevision='performance-1.1-approved';
 const clone=x=>JSON.parse(JSON.stringify(x));
 const url=asin=>'https://www.amazon.co.uk/dp/'+asin+'?tag=buildwithcore-21';
 const now='2026-10-04T20:30:00Z';
 function fresh(){
  const d=clone(base);
  for(const o of d.offers){
-  const slot=d.builds.performance.slots.find(s=>s.approvedIds.includes(o.componentId));
+  const slot=d.performanceRevisions['performance-1.1-approved'].build.slots.find(s=>s.approvedIds.includes(o.componentId));
   Object.assign(o,{checkedAt:now,stock:'in_stock',dispatchWorkingDays:1,identityVerified:true,sellerIsRetailer:true,condition:'new',vatIncluded:true,deliveryPence:0,itemPence:slot.targetPence-1000});
  }
  return d;
@@ -18,7 +19,7 @@ function assertDestinations(d,r,html){
  const articles=html.match(/<article\b[\s\S]*?<\/article>/g)||[];
  assert.equal(articles.length,8);
  for(const [i,s] of r.slots.entries()){
-  const id=s.selected?.offer.componentId,asin=expected[id],article=articles[i];
+  const id=r.selectedIds[s.id],asin=expected[id],article=articles[i];
   const urls=[...article.matchAll(/href="(https:\/\/www.amazon.co.uk[^\"]+)"/g)].map(m=>m[1]);
   assert.deepEqual(urls,asin?[url(asin)]:[],id||s.id);
   if(asin)assert.match(article,/target="_blank" rel="sponsored noopener noreferrer">Check price at Amazon ↗/);
@@ -55,11 +56,11 @@ test('catalogue contains only reviewed destinations and identity metadata',()=>{
 });
 test('every approved guide selection renders only its own exact destinations',()=>{
  for(const cfg of Object.values(base.guideConfigurations)){
-  if(cfg.buildRevision!==base.builds.performance.revision)continue;
+  if(cfg.buildRevision!==base.performanceRevisions['performance-1.1-approved'].build.revision)continue;
   const d=fresh();
-  for(const s of d.builds.performance.slots){
+  for(const s of d.performanceRevisions['performance-1.1-approved'].build.slots){
    const chosen=cfg.components[s.id];
-   d.selectionState[s.id]=d.offers.find(o=>o.componentId===chosen).id;
+   d.performanceRevisions['performance-1.1-approved'].selectionState[s.id]=d.offers.find(o=>o.componentId===chosen).id;
    for(const o of d.offers)if(s.approvedIds.includes(o.componentId)&&o.componentId!==chosen)o.stock='out_of_stock';
   }
   const r=E.derive(d,now);assert.deepEqual(r.selectedIds,cfg.components);
@@ -75,7 +76,7 @@ test('all purchasing states and the 24-hour boundary are independent of affiliat
   ['UNAVAILABLE',fresh(),now],
   ['GOOD BUY',fresh(),'2026-10-05T20:30:00Z']
  ];
- for(const o of scenarios[1][1].offers)o.itemPence=scenarios[1][1].builds.performance.slots.find(s=>s.approvedIds.includes(o.componentId)).maxPence;
+ for(const o of scenarios[1][1].offers)o.itemPence=scenarios[1][1].performanceRevisions['performance-1.1-approved'].build.slots.find(s=>s.approvedIds.includes(o.componentId)).maxPence;
  for(const o of scenarios[2][1].offers)if(o.componentId==='ryzen9600x')o.itemPence=19001;
  for(const o of scenarios[4][1].offers)o.stock='out_of_stock';
  const script=fs.readFileSync('assets/core-view.js','utf8'),engine=fs.readFileSync('assets/core-engine.js','utf8');
@@ -106,13 +107,13 @@ test('unknown selected identity and missing offers never borrow another destinat
  const r=E.derive(clone(base),now);r.slots[0].selected.offer.componentId='unknown';
  assert.doesNotMatch(V.parts(base,r).split('</article>')[0],/amazon\.co\.uk/);
  const d=clone(base);d.offers=[];const empty=E.derive(d,now);
- assert.equal(empty.state,'UNAVAILABLE');assert.equal(empty.eligiblePurchaseTotal,null);assert.doesNotMatch(V.parts(d,empty),/amazon\.co\.uk/);
+ assert.equal(empty.state,'UNAVAILABLE');assert.equal(empty.eligiblePurchaseTotal,null);assertDestinations(d,empty,V.parts(d,empty));
 });
 test('static markup is reproducible and presentation has no destination special cases',()=>{
  require('node:child_process').execFileSync(process.execPath,['scripts/render-performance.cjs','--check']);
  const view=fs.readFileSync('assets/core-view.js','utf8');
  for(const asin of Object.values(expected))assert.ok(!view.includes(asin));
  assert.doesNotMatch(view,/s\.id==='cpu'|buildwithcore-21/);
- const html=fs.readFileSync('core-performance.html','utf8');assert.match(html,/core-affiliates\.js/);assert.match(html,/HOLD · NOT VERIFIED/);
- assertDestinations(base,E.derive(base,now),html.slice(html.indexOf('<article class="core-part"')));
+ const html=fs.readFileSync('core-performance.html','utf8');assert.match(html,/core-affiliates\.js/);assert.match(html,/HOLD — buying criteria awaiting approval/);
+ assertDestinations(current,E.derive(current,now),html.slice(html.indexOf('<article class="core-part"')));
 });

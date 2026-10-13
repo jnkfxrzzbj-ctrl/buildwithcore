@@ -13,6 +13,16 @@ const source = fs.readFileSync(path.join(root, 'core-data.json'), 'utf8');
 const bundle = fs.readFileSync(path.join(root, 'assets/core-data.generated.js'), 'utf8');
 const data = JSON.parse(source);
 
+// Reconstruct the original object, including insertion order, for the unchanged
+// independent PR1 fingerprint. Added snapshots/registry do not weaken this lock.
+function legacyProjection(d) {
+ const r=d.performanceRevisions['performance-1.1-approved'];
+ const omitNew=o=>Object.fromEntries(Object.entries(o).filter(([k])=>!['asus9070xtprimeoc','msib850mwifi6e','rm850x2024uk'].includes(k)));
+ const guides=Object.fromEntries(Object.entries(d.guideVariants).filter(([,v])=>!['asus9070xtprimeoc','msib850mwifi6e','rm850x2024uk'].includes(v.componentId)));
+ const configs=Object.fromEntries(Object.entries(d.guideConfigurations).filter(([,v])=>v.buildRevision===r.build.revision).map(([id,c])=>[id,Object.fromEntries(Object.entries(c).filter(([k])=>!['compatibilityReviewed','powerPlan','hardwareSnapshot'].includes(k)))]));
+ return {schemaVersion:1,release:d.release,decisions:d.decisions,builds:{performance:r.build},pricingPolicy:d.pricingPolicy,retailers:d.retailers,components:omitNew(d.components),offers:d.offers,selectionState:r.selectionState,guideVariants:guides,guideConfigurations:configs};
+}
+
 function browserData(script) {
   const context = {window: {}};
   vm.runInNewContext(script, context, {timeout: 1000});
@@ -36,7 +46,7 @@ test('recovered source preserves the entire reviewed baseline and browser data',
   assert.deepEqual(data, browserData(bundle));
   // Independent migration fingerprint of JSON.stringify(CORE_DATA) from
   // 6503b72c77a187c819ca023dc61882904a980454. Do not regenerate automatically.
-  assert.equal(createHash('sha256').update(JSON.stringify(data)).digest('hex'),
+  assert.equal(createHash('sha256').update(JSON.stringify(legacyProjection(data))).digest('hex'),
     '1bf61da9af81eedcffbf1ed791bf8bd2183e86af6bb5fc41c3d2d85cee0d626f');
   assert.equal(generate(source), bundle);
   assert.deepEqual(browserData(generate(source)), data);
@@ -90,7 +100,7 @@ test('--check rejects drift and missing output without repairing either', t => {
 test('malformed JSON and invalid data fail before changing the existing output', t => {
   const f = fixture(t);
   const mutations = [
-    d => { d.builds.performance.targetPence = -1; },
+    d => { d.performanceRevisions['performance-1.1-approved'].build.targetPence = -1; },
     d => { d.components.ryzen9600x.mpn = null; },
     d => { d.offers[0].itemPence = 1.5; },
     d => { d.offers[0].checkedAt = 'not-a-timestamp'; },

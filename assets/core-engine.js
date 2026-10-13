@@ -4,10 +4,10 @@
 const money=v=>Number.isSafeInteger(v)&&v>=0;
 const stamp=o=>o.checkedAt?Date.parse(o.checkedAt):(/^\d{4}-\d{2}-\d{2}$/.test(o.observedOn||'')?Date.parse(o.observedOn+'T00:00:00Z'):NaN);
 const clone=x=>JSON.parse(JSON.stringify(x));
-function validate(d){
+function validateScoped(d){
  const fail=m=>{throw new Error('Invalid CORE data: '+m)};
  if(d.schemaVersion!==1||!d.builds?.performance)fail('schema / build');
- const b=d.builds.performance;if(!money(b.targetPence))fail('build target');
+ const b=d.builds.performance;if(d.policyApproved?!money(b.targetPence):b.targetPence!==null)fail('build target');
  if(!Array.isArray(b.slots)||b.slots.length!==8)fail('Performance requires eight slots');
  if(!d.components||!d.retailers||!d.guideVariants||!d.guideConfigurations||!d.selectionState||!Array.isArray(d.offers))fail('missing manifest sections');
  const text=v=>typeof v==='string'&&v.trim().length>0;
@@ -17,7 +17,7 @@ function validate(d){
  if(!d.pricingPolicy)fail('pricing policy');
  for(const key of ['freshHours','hideCurrentTotalAfterHours','dispatchMaximumWorkingDays'])if(!Number.isSafeInteger(d.pricingPolicy[key])||d.pricingPolicy[key]<0)fail('policy '+key);
  for(const [id,c] of Object.entries(d.components)){
-  if(!text(c.name)||!text(c.manufacturer)||!text(c.slot)||(!text(c.mpn)&&!text(c.ean)))fail('component identity '+id);
+  if(!text(c.name)||!text(c.manufacturer)||!text(c.slot)||(!text(c.mpn)&&!text(c.ean)&&!text(c.model)))fail('component identity '+id);
   if(!Array.isArray(c.sources)||!c.sources.length||!c.sources.every(https))fail('component sources '+id);
  }
  for(const [id,r] of Object.entries(d.retailers))if(!text(r.name)||typeof r.approved!=='boolean')fail('retailer '+id);
@@ -29,10 +29,10 @@ function validate(d){
   if(!text(s.id)||!text(s.label))fail('slot identity');
   if(slots.has(s.id))fail('duplicate slot');slots.add(s.id);
   if(!['FIXED','SWITCHABLE'].includes(s.policy)||!Number.isInteger(s.quantity)||s.quantity<1)fail('slot policy/quantity');
-  if(!money(s.targetPence)||!money(s.maxPence)||s.maxPence<s.targetPence||!money(s.switchSavingPence))fail('slot prices');
+  if(d.policyApproved?(!money(s.targetPence)||!money(s.maxPence)||s.maxPence<s.targetPence||!money(s.switchSavingPence)):(s.targetPence!==null||s.maxPence!==null||s.switchSavingPence!==null))fail('slot prices');
   if(!Array.isArray(s.approvedIds)||!s.approvedIds.length||new Set(s.approvedIds).size!==s.approvedIds.length||!s.approvedIds.includes(s.preferredId))fail('approved list');
   if(s.policy==='FIXED'&&s.approvedIds.length!==1)fail('fixed component substitution');
-  for(const id of s.approvedIds){let c=d.components[id];if(!c||c.slot!==s.id||(!c.mpn&&!c.ean))fail('component identity');if(!d.guideVariants[c.guideVariantId])fail('guide variant missing');}
+  for(const id of s.approvedIds){let c=d.components[id];if(!c||c.slot!==s.id||(!c.mpn&&!c.ean&&!c.model))fail('component identity');if(!d.guideVariants[c.guideVariantId])fail('guide variant missing');}
  }
  for(const o of d.offers){
   if(!text(o.id))fail('offer ID');
@@ -64,7 +64,8 @@ function assess(d,s,o,now){
  const trusted=o.identityVerified===true&&o.sellerIsRetailer===true&&o.condition==='new'&&o.currency==='GBP'&&o.vatIncluded===true&&d.retailers[o.retailerId]?.approved===true;
  const stocked=o.stock==='in_stock'&&Number.isInteger(o.dispatchWorkingDays)&&o.dispatchWorkingDays>=0&&o.dispatchWorkingDays<=d.pricingPolicy.dispatchMaximumWorkingDays;
  const guideCompatible=v?.compatibilityReviewed===true&&v.componentId===o.componentId;
- const aboveMaximum=money(o.itemPence)&&o.itemPence>s.maxPence;
+ const priced=money(s.targetPence)&&money(s.maxPence);
+ const aboveMaximum=priced&&money(o.itemPence)&&o.itemPence>s.maxPence;
  const reasons=[];
  if(!trusted)reasons.push('Offer identity or condition needs checking');
  if(!money(o.itemPence))reasons.push('Item price unknown');
@@ -72,8 +73,8 @@ function assess(d,s,o,now){
  if(!stocked)reasons.push(o.stock==='preorder'?'Preorder — not eligible':o.stock==='dispatch_unconfirmed'?'Stock needs confirmation':'Unavailable');
  if(!fresh)reasons.push('Price needs checking');
  if(!guideCompatible)reasons.push('Guide mapping requires review');
- const eligible=trusted&&stocked&&fresh&&guideCompatible&&money(o.itemPence)&&!aboveMaximum;
- const state=!trusted||!guideCompatible||!money(o.itemPence)?'UNAVAILABLE':aboveMaximum?'HOLD':!stocked?'UNAVAILABLE':!fresh?'STALE':o.itemPence<=s.targetPence?'GOOD BUY':'ACCEPTABLE';
+ const eligible=d.policyApproved&&priced&&trusted&&stocked&&fresh&&guideCompatible&&money(o.itemPence)&&!aboveMaximum;
+ const state=!trusted||!guideCompatible||!money(o.itemPence)?'UNAVAILABLE':aboveMaximum?'HOLD':!stocked?'UNAVAILABLE':!fresh?'STALE':!d.policyApproved?'HOLD':o.itemPence<=s.targetPence?'GOOD BUY':'ACCEPTABLE';
  return {offer:o,component:c,eligible,state,reasons,fresh,visible,ageHours:validDate?ageHours:null,aboveMaximum,stocked,trusted,guideCompatible,deliveredPence:money(o.itemPence)&&money(o.deliveryPence)?o.itemPence+o.deliveryPence:null};
 }
 const compare=(a,b)=>(a.deliveredPence-b.deliveredPence)||a.offer.componentId.localeCompare(b.offer.componentId)||a.offer.retailerId.localeCompare(b.offer.retailerId)||a.offer.id.localeCompare(b.offer.id);
@@ -103,16 +104,67 @@ function choose(d,s,now){
  }
  return {...s,selected:pick,options,eligible:!!pick?.eligible,selectionReason,comparisonComplete,switched:!!pick&&!!incumbent&&pick.offer.componentId!==incumbent.offer.componentId};
 }
-function configuration(d,ids){return Object.entries(d.guideConfigurations).find(([,c])=>c.buildRevision===d.builds.performance.revision&&d.builds.performance.slots.every(s=>c.components[s.id]===ids[s.id]))?.[0]||null;}
-function derive(d,asOf=Date.now()){
+// Revision lookup never falls back from an unknown ID to current hardware.
+const own=(object,key)=>Object.prototype.hasOwnProperty.call(object||{},key);
+function revision(d,id=d.currentPerformanceRevision){return own(d.performanceRevisions,id)?d.performanceRevisions[id]:null;}
+function scoped(d,id){
+ const r=revision(d,id);if(!r)throw Error('Unknown Performance revision');
+ return {...d,schemaVersion:1,builds:{performance:r.build},selectionState:r.selectionState,policyApproved:r.purchasingPolicy?.approvalStatus==='approved'};
+}
+function configurationValid(d,id){
+ try{return checkedConfiguration(d,id);}catch{return false;}
+}
+function checkedConfiguration(d,id){
+ if(!own(d.guideConfigurations,id))return false;
+ const c=d.guideConfigurations[id],r=revision(d,c.buildRevision),slots=r?.build?.slots;
+ if(!Array.isArray(slots)||slots.length!==8||!r.approvedConfigurationIds?.includes(id)||c.compatibilityReviewed!==true)return false;
+ if(!Array.isArray(c.hardwareSnapshot)||c.hardwareSnapshot.length!==8||Object.keys(c.components||{}).length!==8||Object.keys(c.guideVariantIds||{}).length!==8)return false;
+ const matching=r.approvedConfigurationIds.filter(key=>{const other=d.guideConfigurations[key];return other&&slots.every(s=>other.components?.[s.id]===c.components[s.id]);});
+ if(matching.length!==1)return false;
+ const p=c.powerPlan;
+ if(!p||p.reviewed!==true||p.gpuId!==c.components.gpu||p.psuId!==c.components.psu)return false;
+ // Exact documented cable plans, not a wattage-based compatibility solver.
+ const plans={gigabyte9070:['rm750x',2],pulse9070:['rm750x',2],asus9070xtprimeoc:['rm850x2024uk',3]};
+ const plan=plans[p.gpuId];if(!plan||p.psuId!==plan[0]||p.separatePcieLeads!==plan[1])return false;
+ return slots.every((s,i)=>{
+  const id=c.components[s.id],component=d.components?.[id],v=d.guideVariants?.[c.guideVariantIds[s.id]],snap=c.hardwareSnapshot[i];
+  return Array.isArray(s.approvedIds)&&s.approvedIds.includes(id)&&component?.slot===s.id&&v?.componentId===id&&v.compatibilityReviewed===true&&c.guideVariantIds[s.id]===component.guideVariantId&&snap?.id===s.id&&snap.componentId===id&&['mpn','ean','model','manufacturer','name'].every(k=>snap.component?.[k]===component[k]);
+ });
+}
+function validate(d){
+ const fail=m=>{throw Error('Invalid CORE data: '+m)};
+ if(d.schemaVersion!==2||!revision(d))fail('schema / revision');
+ for(const [id,r] of Object.entries(d.performanceRevisions)){
+  if(r.build?.revision!==id||!r.selectionState||!['approved','pending'].includes(r.purchasingPolicy?.approvalStatus))fail('revision policy');
+  if(r.purchasingPolicy.approvalStatus==='pending'&&(r.purchasingPolicy.approvedAt!==null||r.purchasingPolicy.wholeBuildMaximumPence!==null))fail('pending policy');
+  validateScoped(scoped(d,id));
+  if(!Array.isArray(r.approvedConfigurationIds)||!r.approvedConfigurationIds.length||new Set(r.approvedConfigurationIds).size!==r.approvedConfigurationIds.length||!r.approvedConfigurationIds.includes(r.defaultConfigurationId))fail('approved configurations');
+  const tuples=new Set();
+  for(const cid of r.approvedConfigurationIds){
+   if(!configurationValid(d,cid)||d.guideConfigurations[cid].buildRevision!==id)fail('configuration compatibility');
+   const tuple=JSON.stringify(r.build.slots.map(s=>d.guideConfigurations[cid].components[s.id]));
+   if(tuples.has(tuple))fail('duplicate configuration tuple');tuples.add(tuple);
+  }
+ }
+ for(const [id,c] of Object.entries(d.guideConfigurations))if(!revision(d,c.buildRevision)?.approvedConfigurationIds.includes(id))fail('unregistered configuration');
+ return true;
+}
+function configuration(d,ids,revisionId){
+ const r=revision(d,revisionId);
+ const matches=r.approvedConfigurationIds.filter(id=>configurationValid(d,id)&&r.build.slots.every(s=>d.guideConfigurations[id].components[s.id]===ids[s.id]));
+ return matches.length===1?matches[0]:null;
+}
+function derive(d,asOf=Date.now(),revisionId=d.currentPerformanceRevision){
  validate(d);const now=typeof asOf==='number'?asOf:Date.parse(asOf);if(!Number.isFinite(now))throw new Error('Invalid evaluation time');
- const b=d.builds.performance,slots=b.slots.map(s=>choose(d,s,now));
+ const context=scoped(d,revisionId),b=context.builds.performance,policyApproved=context.policyApproved;
+ const slots=b.slots.map(s=>choose(context,s,now));
+ const selectedIds=Object.fromEntries(slots.map(s=>[s.id,s.selected?.offer.componentId||s.preferredId]));
+ const configurationId=configuration(d,selectedIds,revisionId);
  const allPrices=slots.every(s=>s.selected?.trusted&&money(s.selected.offer.itemPence));
  const referenceSubtotal=allPrices?slots.reduce((n,s)=>n+s.selected.offer.itemPence*s.quantity,0):null;
- const allVisible=slots.every(s=>s.selected?.visible);
- const allFresh=slots.every(s=>s.selected?.fresh);
+ const allVisible=slots.every(s=>s.selected?.visible),allFresh=slots.every(s=>s.selected?.fresh);
  const indicativeSubtotal=allVisible?referenceSubtotal:null;
- const eligible=slots.every(s=>s.eligible);
+ const eligible=policyApproved&&configurationId!==null&&slots.every(s=>s.eligible);
  const eligiblePurchaseTotal=eligible?referenceSubtotal:null;
  const deliveryKnown=slots.every(s=>money(s.selected?.offer.deliveryPence));
  // Standalone quoted shipping only; basket consolidation is not inferred.
@@ -120,9 +172,8 @@ function derive(d,asOf=Date.now()){
  const deliveredEstimate=eligible&&deliveryKnown?eligiblePurchaseTotal+quotedDeliverySum:null;
  const hasHold=slots.some(s=>s.selected?.aboveMaximum);
  const unavailable=slots.some(s=>!s.selected||!s.selected.stocked||!s.selected.trusted||!money(s.selected.offer.itemPence)||!s.selected.guideCompatible);
- const state=hasHold?'HOLD':unavailable?'UNAVAILABLE':!allFresh?'STALE':eligible&&eligiblePurchaseTotal<=b.targetPence?'GOOD BUY':'ACCEPTABLE';
- const selectedIds=Object.fromEntries(slots.map(s=>[s.id,s.selected?.offer.componentId||null]));
- return {asOf:new Date(now).toISOString(),state,slots,selectedIds,configurationId:configuration(d,selectedIds),referenceSubtotal,indicativeSubtotal,eligiblePurchaseTotal,quotedDeliverySum,deliveredEstimate,allFresh,allVisible,deliveryKnown,targetPence:b.targetPence,targetDifference:indicativeSubtotal===null?null:indicativeSubtotal-b.targetPence,referenceDifference:referenceSubtotal===null?null:referenceSubtotal-b.targetPence,completeEligible:eligible};
+ const state=!configurationId?'UNAVAILABLE':!policyApproved?'HOLD':hasHold?'HOLD':unavailable?'UNAVAILABLE':!allFresh?'STALE':eligible&&eligiblePurchaseTotal<=b.targetPence?'GOOD BUY':'ACCEPTABLE';
+ return {asOf:new Date(now).toISOString(),revisionId,policyApproved,reasonCode:!configurationId?'CONFIGURATION_NOT_APPROVED':!policyApproved?'PRICING_POLICY_PENDING':null,state,slots,selectedIds,configurationId,referenceSubtotal,indicativeSubtotal,eligiblePurchaseTotal,quotedDeliverySum,deliveredEstimate,allFresh,allVisible,deliveryKnown,targetPence:b.targetPence,targetDifference:!policyApproved||indicativeSubtotal===null?null:indicativeSubtotal-b.targetPence,referenceDifference:!policyApproved||referenceSubtotal===null?null:referenceSubtotal-b.targetPence,completeEligible:eligible};
 }
-return {validate,derive,assess,clone,money,stamp};
+return {validate,derive,assess,clone,money,stamp,revision,configurationValid};
 });
