@@ -20,7 +20,7 @@ const expected=require('./affiliate-expectations.cjs');
   const amazon=cpu.getByRole('link',{name:'Check price at Amazon ↗'});
   assert.equal(await amazon.count(),1);assert.equal(await amazon.getAttribute('href'),'https://www.amazon.co.uk/dp/B0D6NN6TM7?tag=buildwithcore-21');assert.equal(await amazon.getAttribute('rel'),'sponsored noopener noreferrer');assert.equal(await amazon.getAttribute('target'),'_blank');checks+=4;
   // Inspect each selected part, including every newly verified preferred destination.
-  const preferred={cpu:'ryzen9600x',gpu:'gigabyte9070',motherboard:'msib850',ram:'fitv28',ssd:'sn5100',psu:'rm750x',cooler:'pa120se',case:'h6flow'};
+  const preferred={cpu:'ryzen9600x',gpu:'asus9070xtprimeoc',motherboard:'msib850mwifi6e',ram:'fitv28',ssd:'sn5100',psu:'rm850x2024uk',cooler:'pa120se',case:'h6flow'};
   for(const [slot,id] of Object.entries(preferred)){
    const links=page.locator('#part-'+slot+' a[href*="amazon.co.uk"]');
    assert.equal(await links.count(),expected[id]?1:0);checks++;
@@ -30,7 +30,7 @@ const expected=require('./affiliate-expectations.cjs');
     assert.equal(await links.getAttribute('target'),'_blank');checks+=3;
    }
   }
-  assert.equal(await page.locator('a[href*="amazon.co.uk"]').count(),7);checks++;
+  assert.equal(await page.locator('a[href*="amazon.co.uk"]').count(),4);checks++;
   assert.equal(await cpu.getByRole('link',{name:'Reference retailer listing ↗'}).count(),1);assert.equal(await cpu.getByRole('link',{name:'Product source 1 ↗'}).count(),1);checks+=2;
   assert.match(await page.locator('[data-core="panel"]').innerText(),/HOLD/);checks++;
   assert.equal(await page.locator('.core-price-unchecked').count(),8);checks++;
@@ -45,10 +45,10 @@ const expected=require('./affiliate-expectations.cjs');
    const scenarios=await page.evaluate(()=>{
     const base=window.CORE_DATA,now='2026-10-04T20:30:00Z',out=[];
     for(const cfg of Object.values(base.guideConfigurations)){
-     if(cfg.buildRevision!==base.builds.performance.revision)continue;
-     const d=JSON.parse(JSON.stringify(base));
-     for(const s of d.builds.performance.slots){
-      d.selectionState[s.id]=d.offers.find(o=>o.componentId===cfg.components[s.id]).id;
+     if(cfg.buildRevision!==base.performanceRevisions['performance-1.1-approved'].build.revision)continue;
+     const d=JSON.parse(JSON.stringify(base));d.currentPerformanceRevision='performance-1.1-approved';
+     for(const s of d.performanceRevisions['performance-1.1-approved'].build.slots){
+      d.performanceRevisions['performance-1.1-approved'].selectionState[s.id]=d.offers.find(o=>o.componentId===cfg.components[s.id]).id;
       for(const o of d.offers)if(s.approvedIds.includes(o.componentId))Object.assign(o,{checkedAt:now,stock:o.componentId===cfg.components[s.id]?'in_stock':'out_of_stock',dispatchWorkingDays:1,identityVerified:true,sellerIsRetailer:true,condition:'new',vatIncluded:true,deliveryPence:0,itemPence:s.targetPence-1000});
      }
      const r=CoreEngine.derive(d,now),before=JSON.stringify(r);
@@ -118,21 +118,46 @@ const expected=require('./affiliate-expectations.cjs');
    assert.deepEqual(errors,[],file);checks++;p.off('pageerror',onError);
   }
   await p.goto(origin+'/guides.html');await p.getByRole('link',{name:'Explore Performance hardware notes'}).click();
-  if(javaScriptEnabled){assert.equal(await p.locator('.core-guide-parts>li').count(),8);checks++;}
-  else {assert.match(await p.locator('.core-noscript').innerText(),/saved parts link needs JavaScript/);checks++;await p.locator('.core-noscript a').click();assert.equal(await p.locator('.core-part').count(),8);checks++;}
+  if(javaScriptEnabled){assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);checks++;}
+  else {assert.match(await p.locator('.core-noscript').innerText(),/exact configuration index/);checks++;await p.locator('.core-noscript a').click();assert.equal(await p.locator('.core-saved-configuration').count(),9);checks++;for(const section of await p.locator('.core-saved-configuration').all()){await section.locator(':scope>summary').click();assert.equal(await section.locator('.core-guide-parts>li').count(),8);checks++;}}
   if(javaScriptEnabled){
    for(const id of ['', '?configuration=unknown','?configuration=__proto__']){
     await p.goto(origin+'/core-performance-guide.html'+id);
-    assert.equal(await p.locator('.core-guide-parts').count(),0);checks++;
-    assert.ok(await p.getByRole('link',{name:'Explore the current Performance parts'}).isVisible());checks++;
+    assert.equal(await p.locator('[data-core="guide"] .core-guide-parts').count(),0);checks++;
+    assert.ok(await p.locator('[data-core="guide"]').getByRole('link',{name:'Find your exact saved configuration →'}).isVisible());checks++;
    }
-   // Fresh-looking inputs must not bypass the existing public publication safeguard.
+   // C must stay on HOLD with a complete, fresh, artificially cheap fixture.
    await p.goto(origin+'/core-performance.html');
    await p.evaluate(()=>{
-    for(const o of CORE_DATA.offers){const s=CORE_DATA.builds.performance.slots.find(s=>s.approvedIds.includes(o.componentId));Object.assign(o,{checkedAt:new Date().toISOString(),stock:'in_stock',dispatchWorkingDays:1,identityVerified:true,sellerIsRetailer:true,condition:'new',vatIncluded:true,deliveryPence:0,itemPence:s.targetPence-1000});}
+    const r=CORE_DATA.performanceRevisions['performance-1.2-c'],template=CORE_DATA.offers[0];
+    CORE_DATA.offers=r.build.slots.map(s=>({...template,id:'test-'+s.id,componentId:s.preferredId,checkedAt:new Date().toISOString(),stock:'in_stock',dispatchWorkingDays:1,identityVerified:true,sellerIsRetailer:true,condition:'new',currency:'GBP',vatIncluded:true,deliveryPence:0,itemPence:100}));
     document.dispatchEvent(new Event('visibilitychange'));
    });
-   assert.equal(await p.evaluate(()=>CORE_RESULT.state),'GOOD BUY');assert.match(await p.locator('[data-core="panel"]').innerText(),/HOLD/);assert.equal(await p.locator('.core-price-unchecked').count(),8);checks+=3;
+   assert.equal(await p.evaluate(()=>CORE_RESULT.state),'HOLD');assert.equal(await p.evaluate(()=>CORE_RESULT.reasonCode),'PRICING_POLICY_PENDING');assert.equal(await p.evaluate(()=>CORE_RESULT.eligiblePurchaseTotal),null);assert.match(await p.locator('[data-core="panel"]').innerText(),/buying criteria awaiting approval/);assert.equal(await p.locator('.core-price-unchecked').count(),8);assert.equal(await p.getByRole('link',{name:'View exact offer ↗'}).count(),0);checks+=6;
+   await p.evaluate(()=>{CORE_DATA.offers=[];document.dispatchEvent(new Event('visibilitychange'));});
+   assert.equal(await p.locator('.core-part').count(),8);assert.equal(await p.evaluate(()=>CORE_RESULT.state),'HOLD');checks+=2;
+   await p.evaluate(()=>{CORE_DATA.guideConfigurations['performance-1.2-c-asus9070xt-fitv28-sn5100'].powerPlan.psuId='rm750x';document.dispatchEvent(new Event('visibilitychange'));});
+   assert.equal(await p.evaluate(()=>CORE_RESULT.state),'UNAVAILABLE');assert.equal(await p.locator('.core-part').count(),0);checks+=2;
+   // Each legacy URL resolves to its original hardware, not the current revision.
+   for(const [id,cfg] of Object.entries(require('../core-data.json').guideConfigurations)){
+    await p.goto(origin+'/core-performance-guide.html?configuration='+id);
+    const notes=p.locator('[data-core="guide"]');assert.equal(await notes.locator('.core-guide-parts>li').count(),8);checks++;
+    for(const entry of cfg.hardwareSnapshot){assert.ok((await notes.innerText()).includes(entry.component.manufacturer+' '+entry.component.name));checks++;}
+   }
+
+   // Preserve the independent browser publication lock for an internally eligible legacy fixture.
+   await p.goto(origin+'/core-performance.html');
+   await p.evaluate(()=>{
+    CORE_DATA.currentPerformanceRevision='performance-1.1-approved';
+    const r=CORE_DATA.performanceRevisions[CORE_DATA.currentPerformanceRevision];
+    for(const o of CORE_DATA.offers){const s=r.build.slots.find(s=>s.approvedIds.includes(o.componentId));Object.assign(o,{checkedAt:new Date().toISOString(),stock:'in_stock',dispatchWorkingDays:1,identityVerified:true,sellerIsRetailer:true,condition:'new',vatIncluded:true,deliveryPence:0,itemPence:s.targetPence-1000});}
+    document.dispatchEvent(new Event('visibilitychange'));
+   });
+   assert.equal(await p.evaluate(()=>CORE_RESULT.state),'GOOD BUY');
+   assert.match(await p.locator('[data-core="panel"]').innerText(),/HOLD/);
+   assert.equal(await p.locator('.core-price-unchecked').count(),8);
+   assert.equal(await p.getByRole('link',{name:'View exact offer ↗'}).count(),0);checks+=4;
+
   }
   await context.close();
  }

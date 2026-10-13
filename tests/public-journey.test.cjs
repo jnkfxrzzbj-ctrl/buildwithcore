@@ -6,7 +6,7 @@ test('known saved parts retain their own exact identities; unknown links do not 
  for(const [id,cfg] of Object.entries(d.guideConfigurations)){
   const html=V.guide(d,id);
   assert.equal((html.match(/<li>/g)||[]).length,8);
-  for(const component of Object.values(cfg.components)){const c=d.components[component];assert.ok(html.includes(V.esc(c.mpn||c.ean)));}
+  for(const component of Object.values(cfg.components)){const c=d.components[component];assert.ok(html.includes(V.esc(c.mpn||c.ean||c.model)));}
   assert.match(html,/not a purchase record/);assert.match(html,/assembly instructions are not yet released/);
  }
  for(const id of ['missing','__proto__','constructor','<script>alert(1)</script>']){
