@@ -145,6 +145,19 @@ const expected=require('./affiliate-expectations.cjs');
     for(const entry of cfg.hardwareSnapshot){assert.ok((await notes.innerText()).includes(entry.component.manufacturer+' '+entry.component.name));checks++;}
    }
 
+   // Preserve the independent browser publication lock for an internally eligible legacy fixture.
+   await p.goto(origin+'/core-performance.html');
+   await p.evaluate(()=>{
+    CORE_DATA.currentPerformanceRevision='performance-1.1-approved';
+    const r=CORE_DATA.performanceRevisions[CORE_DATA.currentPerformanceRevision];
+    for(const o of CORE_DATA.offers){const s=r.build.slots.find(s=>s.approvedIds.includes(o.componentId));Object.assign(o,{checkedAt:new Date().toISOString(),stock:'in_stock',dispatchWorkingDays:1,identityVerified:true,sellerIsRetailer:true,condition:'new',vatIncluded:true,deliveryPence:0,itemPence:s.targetPence-1000});}
+    document.dispatchEvent(new Event('visibilitychange'));
+   });
+   assert.equal(await p.evaluate(()=>CORE_RESULT.state),'GOOD BUY');
+   assert.match(await p.locator('[data-core="panel"]').innerText(),/HOLD/);
+   assert.equal(await p.locator('.core-price-unchecked').count(),8);
+   assert.equal(await p.getByRole('link',{name:'View exact offer ↗'}).count(),0);checks+=4;
+
   }
   await context.close();
  }
