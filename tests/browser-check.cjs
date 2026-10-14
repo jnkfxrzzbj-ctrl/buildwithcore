@@ -1,10 +1,15 @@
 const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES?process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/playwright':'playwright');
 const fs=require('node:fs'),http=require('node:http'),path=require('node:path'),assert=require('node:assert/strict');
 const expected=require('./affiliate-expectations.cjs');
+// Test code and fixtures stay in the checkout; only this root is HTTP-served.
+if(Object.hasOwn(process.env,'CORE_SITE_ROOT')&&!process.env.CORE_SITE_ROOT)throw Error('CORE_SITE_ROOT must not be empty');
+const siteRoot=fs.realpathSync(process.env.CORE_SITE_ROOT||path.resolve(__dirname,'..'));
+const packageMode=siteRoot!==fs.realpathSync(path.resolve(__dirname,'..'));
+const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
 (async()=>{
  const server=http.createServer((req,res)=>{
-  const file=path.resolve('.',decodeURIComponent(req.url.split('?')[0]).replace(/^\//,'')||'index.html');
-  if(!file.startsWith(process.cwd()+path.sep)){res.writeHead(403);res.end();return;}
+  const file=path.resolve(siteRoot,decodeURIComponent(req.url.split('?')[0]).replace(/^\//,'')||'index.html');
+  if(!file.startsWith(siteRoot+path.sep)){res.writeHead(403);res.end();return;}
   fs.readFile(file,(err,data)=>{if(err){res.writeHead(404);res.end();return;}res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html');res.end(data);});
  });
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port;
@@ -70,7 +75,8 @@ const expected=require('./affiliate-expectations.cjs');
   await ctx.close();
  }
  const ctx=await browser.newContext(),page=await ctx.newPage();
- for(const file of fs.readdirSync('.').filter(x=>x.endsWith('.html'))){
+ if(packageMode){for(const name of ['core-data.json','scripts/README.md','scripts/configuration-c-verification.md','scripts/package-public.cjs','scripts/public-files.json','tests/revisions.test.cjs','.env','.git/config','private-feed.json','dist/index.html']){assert.equal((await page.request.get(origin+'/'+name)).status(),404,name);checks++;}}
+ for(const file of htmlFiles){
   const errors=[];const onError=e=>errors.push(e.message);page.on('pageerror',onError);
   const response=await page.goto(origin+'/'+file);assert.equal(response.status(),200);checks++;
   const broken=await page.evaluate(async()=>{
@@ -84,7 +90,7 @@ const expected=require('./affiliate-expectations.cjs');
  if(shots)fs.mkdirSync(shots,{recursive:true});
  for(const javaScriptEnabled of [true,false])for(const width of [1440,390,320]){
   const context=await browser.newContext({javaScriptEnabled,viewport:{width,height:900}}),p=await context.newPage();
-  for(const file of fs.readdirSync('.').filter(x=>x.endsWith('.html'))){
+  for(const file of htmlFiles){
    const errors=[];const onError=e=>errors.push(e.message);p.on('pageerror',onError);
    await p.goto(origin+'/'+file);
    assert.equal(await p.locator('main#main-content').count(),1,file);checks++;
@@ -161,6 +167,6 @@ const expected=require('./affiliate-expectations.cjs');
   }
   await context.close();
  }
- console.log(checks+' browser/site checks passed across desktop, mobile, no-JS and all HTML pages');
+ console.log(checks+' browser/site checks passed across desktop, mobile, no-JS and all HTML pages ('+(packageMode?'public package':'source')+')');
  }finally{if(browser)await browser.close();server.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
