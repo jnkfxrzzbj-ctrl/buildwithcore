@@ -1,9 +1,10 @@
 # CORE Phase 3B — public packaging and future deployment
 
 Phase 3B record, updated for Phase 3D on 18 October 2026. Original baseline: main `436e9b0ed86f6be30b6cf79fd3e6ece3f79d51f9`.
-Read alongside the generation README and Phase 3A report. This implements only a
-local/CI packager. No hosting settings, DNS, domain, deployment job, prices,
-affiliate destinations, specifications or customer-facing files change.
+Read alongside the generation README and Phase 3A report. Phase 3B introduced a
+local/CI packager; Phase 3D adds the static `404.html` recovery page. No hosting
+settings, DNS, domain, deployment job, prices, affiliate destinations or
+specifications change.
 
 ## What is published
 
