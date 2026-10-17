@@ -27,6 +27,25 @@ deployment, no Functions, and exactly one successful preview deployment:
 Its upload metadata says `commit_dirty: true`; metadata alone does not prove exact
 uploaded bytes. The user-reported original package is 23 files / 391,668 bytes;
 local reconstruction independently confirms that inventory and byte count.
+Fresh hosted GETs of all 23 allowlisted paths (following canonical redirects)
+returned byte-identical contents to the reconstructed baseline, including CNAME.
+
+Read-only hosted HTTP observations (existing Phase 3C preview): homepage,
+`/core-data.json`, `/package.json`, `/this-page-does-not-exist-12345` and
+`/nested/missing/page` returned 200 with identical homepage SHA-256
+`6a40f3b1cc925becf5739d274d52c92001b7d23e337b5112ad83f15bc0fc37be`.
+Thus these tested internal paths returned HTML, not canonical JSON or a package
+manifest. `/core-performance.html` returned 308 to `/core-performance`, then 200;
+its body matched source bytes. The current configuration guide `.html` query
+returned 308 to the extensionless path preserving `configuration`, then 200 with
+source-identical body. These HTTP checks do not prove browser fragment handling.
+Final HTML responses carried `content-type: text/html; charset=utf-8`,
+`x-content-type-options: nosniff`, `referrer-policy: strict-origin-when-cross-origin`,
+`x-robots-tag: noindex` and `cache-control: public, max-age=0, must-revalidate`.
+CSP, HSTS and frame-policy headers were absent on these sampled responses. No
+header change is proposed by this routing fix; final-hostname policy remains a
+migration review item. A separate Python HTTP-client attempt returned access
+403s in this environment; those were not counted as application test results.
 
 ## Changes and security boundary
 

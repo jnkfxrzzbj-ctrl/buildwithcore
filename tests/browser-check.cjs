@@ -183,7 +183,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
   await p.goto(origin+'/core-performance-guide.html?configuration='+id+'#'+id);
   assert.equal(new URL(p.url()).searchParams.get('configuration'),id);assert.equal(new URL(p.url()).hash,'#'+id);checks+=2;
   if(javaScriptEnabled){assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);checks++;}
-  else {await p.locator('#'+id+'>summary').click();assert.equal(await p.locator('#'+id+' .core-guide-parts>li').count(),8);checks++;}
+  else {const saved=p.locator('[id="'+id+'"]');if(await saved.getAttribute('open')===null)await saved.locator(':scope>summary').click();assert.equal(await saved.locator('.core-guide-parts>li').count(),8);checks++;}
   await context.close();
  }
  console.log(checks+' browser/site checks passed across desktop, mobile, no-JS and all HTML pages ('+(packageMode?'public package':'source')+')');
