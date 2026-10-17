@@ -1,19 +1,20 @@
 # CORE Phase 3B — public packaging and future deployment
 
-14 October 2026. Baseline: main `436e9b0ed86f6be30b6cf79fd3e6ece3f79d51f9`.
+Phase 3B record, updated for Phase 3D on 18 October 2026. Original baseline: main `436e9b0ed86f6be30b6cf79fd3e6ece3f79d51f9`.
 Read alongside the generation README and Phase 3A report. This implements only a
 local/CI packager. No hosting settings, DNS, domain, deployment job, prices,
 affiliate destinations, specifications or customer-facing files change.
 
 ## What is published
 
-`scripts/public-files.json` is the reviewed, explicit allowlist. Exactly 23 files
+`scripts/public-files.json` is the reviewed, explicit allowlist. Exactly 24 files
 are copied byte for byte; there is no recursive repository copy or runtime fetch
-of canonical JSON. No new HTML, assets, redirect rules or hosting configuration
-are generated. All paths below remain stable, including their case.
+of canonical JSON. The Phase 3D addition is a hand-written root `404.html`; no redirect rules or
+hosting configuration are generated. All paths below remain stable, including their case.
 
 | Public path | Purpose / dependency |
 | --- | --- |
+| `404.html` | CORE recovery page; disables Pages SPA fallback; root-relative links work at nested missing paths |
 | `CNAME` | Existing custom-domain declaration, unchanged; not DNS configuration |
 | `index.html` | Homepage, also served at `/` |
 | `builds.html` | Build comparison |
@@ -145,14 +146,13 @@ Archive compression/container metadata is host-controlled, not claimed identical
 Owner-confirmed configuration: Deploy from a branch, `main`, `/ (root)`, domain
 `buildwithcore.co.uk`. No API/settings/DNS mutation is part of this PR.
 
-Before opening the PR, all 23 public files matched the main baseline fingerprint.
-There is no change to `CNAME`, public HTML/CSS/JS, Jekyll configuration or generator
-behaviour. New code lives under scripts/tests. The checks workflow only adds a
-second local browser run against temporary output: no Pages actions, deployment
-permissions, artifact publication, workflow dispatch or commit/push step.
-Branch-root Pages does not execute these Node helpers. No output is committed.
-Thus a later approved merge may trigger the existing Pages build but will not
-change the customer website bytes or behaviour.
+Phase 3D preserves all original 23 public files byte for byte and adds `404.html`.
+It changes neither hosting configuration nor the checks workflow. This branch is
+not deployed. A later merge under today's branch-root publication would add the
+custom 404 page to GitHub Pages and may trigger its existing deployment, so merge
+and deployment remain separate owner decisions. No claim is made that merging
+has no public effect. The existing homepage, legitimate pages and purchasing
+behaviour are unchanged. Do not merge or deploy under Phase 3D authority.
 
 **Merging this PR alone does not fix current file exposure.** Existing branch-root
 publication can still serve development files, including the new non-secret
@@ -205,8 +205,8 @@ assets and no GitHub runtime API, repository-name prefix, Functions or database.
 
 [Cloudflare's serving defaults](https://developers.cloudflare.com/pages/configuration/serving-pages/)
 redirect `.html` paths to extensionless URLs and use an SPA fallback when there is
-no top-level `404.html`. No 404 page or redirect rule is added here. Before a
-switch, explicitly verify old `.html?configuration=...` bookmarks, preserved
+no top-level `404.html`. Phase 3D adds the root `404.html` to opt out of this fallback,
+without a redirect rule. Before a switch, explicitly verify old `.html?configuration=...` bookmarks, preserved
 queries/fragments and missing-file responses; approve any host-specific response
 policy separately. An HTML fallback response is not proof an internal file leaked,
 but must not be misreported as a verified 404. Preview-only tests and provider
@@ -217,8 +217,23 @@ configuration remain outstanding. No paid service or account resource is created
 - Review this PR and approve merge separately from any hosting/deployment switch.
 - Confirm hosting suitability, actual source/settings, domain/HTTPS and rollback.
 - Approve a deployment workflow or host-connected build, permissions and triggers.
-- Verify that only the 23-file package is served, internal files are unavailable,
+- Verify that only the 24-file package is served, internal files are unavailable,
   and all historical queries, HOLD, affiliate destinations, mobile and no-JS work.
 - Resolve any provider URL/output-folder differences without weakening packaging.
 - Keep Configuration C purchasing activation, prices, feeds and affiliate changes
   outside this work. Packaging does not approve any of them.
+
+## Phase 3D routing and preview gate
+
+The current package is **24 files, 395,484 bytes**. The only additional public
+file is the 3,816-byte `404.html`. Ordered path/NUL/bytes/NUL SHA-256:
+`dc808515c798ead293807bd67a5e91e2db28b77d267269a5867b7a5743ae4c55`.
+The original 23-file fingerprint remains
+`eb3780f64e86244531bc9e209a8f2ac794e4b140d74a9f6e97e340ed7e734482`.
+The packager permits the exact numeric path `404.html`; other numeric HTML names
+remain disallowed. All existing symlink, output, reference, consistency and
+credential guards remain active.
+
+See [phase-3d-verification.md](phase-3d-verification.md) for full results, evidence
+boundaries, residual migration risks and the proposed preview-only procedure.
+No `_redirects`, `_headers`, Functions, Worker, framework or paid service is added.
