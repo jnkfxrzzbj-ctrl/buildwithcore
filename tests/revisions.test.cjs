@@ -63,3 +63,17 @@ test('saved historical snapshots do not depend on offers or current selection; s
  assert.equal((V.guideIndex(base).match(/class="core-saved-configuration"/g)||[]).length,9);
  const html=V.guide(base,CID);for(const text of ['PCI_E2','M2_1','A2/B2','three separate','standoff','BIOS','CPU_FAN1','JFP1','not physically built'])assert.ok(html.includes(text),text);
 });
+
+test('the current HOLD is in the index link and native summary before expansion',()=>{
+ const html=V.guideIndex(base),notice='Configuration C · HOLD — buying criteria awaiting approval.';
+ assert.ok(html.includes('then open the matching configuration row to read its eight parts'));
+ assert.ok(html.includes(`<a href="#${CID}">${CID}<br><strong>${notice}</strong></a>`));
+ const entries=[...html.matchAll(/<details id="([^"]+)" class="core-saved-configuration"><summary>(.*?)<\/summary>/g)];
+ assert.deepEqual(entries.map(e=>e[1]),Object.keys(base.guideConfigurations));
+ for(const [,id,summary] of entries){
+  if(id===CID)assert.equal(summary,`${CID}<br><strong>${notice}</strong>`);
+  else assert.equal(summary,id); // Historical summaries and identities stay untouched.
+ }
+ assert.equal(entries.length,9);
+ assert.ok(fs.readFileSync('core-performance-guide.html','utf8').includes(html));
+});
