@@ -99,6 +99,43 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
   if(process.env.CORE_QA_DIR){fs.mkdirSync(process.env.CORE_QA_DIR,{recursive:true});await p.goto(origin+'/nested/missing/page');await p.screenshot({path:path.join(process.env.CORE_QA_DIR,'404-nested-'+width+'-'+javaScriptEnabled+'.png'),fullPage:true});}
   await context.close();
  }
+ // No-JS index links must expose the buying warning before a beginner expands
+ // the row. Retain native disclosure controls and every historical identity.
+ for(const width of [1440,390,320]){
+  const context=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce',viewport:{width,height:900}}),p=await context.newPage();
+  for(const [id,cfg] of Object.entries(require('../core-data.json').guideConfigurations)){
+   const route='/core-performance-guide.html?configuration='+id;
+   await p.goto(origin+route);
+   const entry=p.locator('[id="'+id+'"]'),summary=entry.locator(':scope>summary'),parts=entry.locator('.core-guide-parts');
+   assert.equal(await entry.evaluate(e=>e.open),false);checks++;
+   const link=p.locator('a[href="#'+id+'"]');
+   await link.focus();
+   await Promise.all([
+    p.waitForURL(url=>url.hash==='#'+id),
+    p.keyboard.press('Enter')
+   ]);
+   assert.equal(new URL(p.url()).searchParams.get('configuration'),id);assert.equal(new URL(p.url()).hash,'#'+id);checks+=2;
+   assert.equal(await entry.evaluate(e=>e.open),false);assert.equal(await parts.isVisible(),false);checks+=2;
+   if(id==='performance-1.2-c-asus9070xt-fitv28-sn5100'){
+    for(const node of [link,summary]){assert.match(await node.innerText(),/Configuration C · HOLD — buying criteria awaiting approval/);checks++;}
+    assert.ok(await summary.isVisible());
+    assert.ok(await summary.evaluate(e=>{const r=e.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight;}));checks+=2;
+   }else{assert.equal(await summary.innerText(),id);checks++;}
+   await summary.focus();await p.keyboard.press('Enter');
+   assert.equal(await entry.evaluate(e=>e.open),true);assert.equal(await parts.locator(':scope>li').count(),8);checks+=2;
+   for(const s of cfg.hardwareSnapshot){assert.ok((await parts.innerText()).includes(s.component.manufacturer+' '+s.component.name));checks++;}
+   await p.keyboard.press('Space');assert.equal(await entry.evaluate(e=>e.open),false);checks++;
+   // Fresh direct-fragment entry has the same visible warning and native control.
+   await p.goto(origin+'/index.html');await p.goto(origin+route+'#'+id);
+   assert.equal(await entry.evaluate(e=>e.open),false);checks++;
+   if(id==='performance-1.2-c-asus9070xt-fitv28-sn5100'){assert.match(await summary.innerText(),/HOLD/);assert.ok(await summary.isVisible());checks+=2;}
+   await summary.click();assert.equal(await parts.isVisible(),true);checks++;
+   if(id==='performance-1.2-c-asus9070xt-fitv28-sn5100'){assert.ok(await entry.getByText('HOLD — buying criteria awaiting approval. CORE is not currently recommending purchase of this complete build.',{exact:true}).isVisible());checks++;}
+   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));checks++;
+  }
+  if(process.env.CORE_QA_DIR){await p.screenshot({path:path.join(process.env.CORE_QA_DIR,'guide-nojs-hold-'+width+'.png'),fullPage:false});}
+  await context.close();
+ }
  const ctx=await browser.newContext(),page=await ctx.newPage();
  if(packageMode){for(const name of ['core-data.json','scripts/README.md','scripts/configuration-c-verification.md','scripts/package-public.cjs','scripts/public-files.json','tests/revisions.test.cjs','.env','.git/config','private-feed.json','dist/index.html']){assert.equal((await page.request.get(origin+'/'+name)).status(),404,name);checks++;}}
  for(const file of htmlFiles){
