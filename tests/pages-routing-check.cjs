@@ -24,7 +24,14 @@ const {inventory}=require('../scripts/package-public.cjs');
  for(const route of ['/core-data.json','/package.json','/this-page-does-not-exist-12345','/nested/missing/page','/assets/missing.css','/scripts/public-files.json','/scripts/README.md','/tests/deployment.test.cjs','/.env','/.git/config','/private-feed.json']){
   const r=await get(route);assert.equal(r.status,404,route);assert.deepEqual(Buffer.from(await r.arrayBuffer()),fs.readFileSync(path.join(root,'404.html')));checks+=2;
   const head=await fetch(new URL(route,origin),{method:'HEAD',redirect:'manual'});assert.equal(head.status,404);assert.equal((await head.arrayBuffer()).byteLength,0);checks+=2;
-  if(!local){assert.equal(r.headers.get('x-content-type-options'),'nosniff');assert.equal(r.headers.get('x-robots-tag'),'noindex');checks+=2;}
+  if(!local){
+   assert.equal(r.headers.get('x-content-type-options'),'nosniff');checks++;
+   // Cloudflare's custom 404 page carries an HTML robots directive; a CDN
+   // X-Robots-Tag header is not guaranteed without a separate _headers rule.
+   assert.match(fs.readFileSync(path.join(root,'404.html'),'utf8'),/<meta\s+name=["']robots["']\s+content=["']noindex["']\s*\/?\s*>/i);checks++;
+   const robotsHeader=r.headers.get('x-robots-tag');
+   if(robotsHeader!==null){assert.match(robotsHeader,/(?:^|,)\s*noindex\b/i);checks++;}
+  }
  }
  for(const id of Object.keys(require('../core-data.json').guideConfigurations)){
   const query='?configuration='+id,route='/core-performance-guide.html'+query;
