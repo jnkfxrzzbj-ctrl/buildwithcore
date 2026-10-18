@@ -10,14 +10,14 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
  const server=http.createServer((req,res)=>{
   const file=path.resolve(siteRoot,decodeURIComponent(req.url.split('?')[0]).replace(/^\//,'')||'index.html');
   if(!file.startsWith(siteRoot+path.sep)){res.writeHead(403);res.end();return;}
-  fs.readFile(file,(err,data)=>{if(err){res.writeHead(404);res.end();return;}res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html');res.end(data);});
+  fs.readFile(file,(err,data)=>{if(err){res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'});res.end(fs.readFileSync(path.join(siteRoot,'404.html')));return;}res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html');res.end(data);});
  });
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port;
  let browser,checks=0;
  try{
  browser=await chromium.launch({headless:true,...(process.env.CORE_CHROMIUM_PATH?{executablePath:process.env.CORE_CHROMIUM_PATH}:{})});
  for(const javaScriptEnabled of [true,false])for(const width of [1440,390]){
-  const ctx=await browser.newContext({javaScriptEnabled,viewport:{width,height:900}}),page=await ctx.newPage(),errors=[];
+  const ctx=await browser.newContext({javaScriptEnabled,reducedMotion:'reduce',viewport:{width,height:900}}),page=await ctx.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.url()+': '+r.status());});
   await page.goto(origin+'/core-performance.html');
   assert.equal(await page.locator('.core-part').count(),8);checks++;
@@ -74,6 +74,31 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
   }
   await ctx.close();
  }
+ // Generic local HTTP server: real browser recovery checks, not Cloudflare edge certification.
+ for(const javaScriptEnabled of [true,false])for(const width of [1440,390,320]){
+  const context=await browser.newContext({javaScriptEnabled,reducedMotion:'reduce',viewport:{width,height:900}}),p=await context.newPage();
+  for(const route of ['/this-page-does-not-exist-12345','/nested/missing/page?test=1#main-content','/assets/missing.css']){
+   const failures=[];const listener=r=>{if(r.request().resourceType()!=='document'&&r.status()>=400)failures.push(r.url());};
+   p.on('response',listener);
+   const response=await p.goto(origin+route);assert.equal(response.status(),404);checks++;
+   assert.equal(await p.title(),'Page not found | CORE');checks++;
+   assert.equal(await p.locator('body').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(3, 8, 36)');checks++;
+   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));checks++;
+   if(width<900&&javaScriptEnabled)await p.getByRole('button',{name:'Open navigation'}).click();
+   for(const name of ['Home','Builds','Guides','FAQ']){assert.ok(await p.locator('.core-nav').getByRole('link',{name,exact:true}).isVisible());checks++;}
+   assert.deepEqual(failures,[]);checks++;
+   await p.getByRole('link',{name:'Return to Home →'}).click();assert.equal(new URL(p.url()).pathname,'/index.html');checks++;
+   p.off('response',listener);
+  }
+  for(const id of Object.keys(require('../core-data.json').guideConfigurations)){
+   const response=await p.goto(origin+'/core-performance-guide.html?configuration='+id+'#'+id);
+   assert.equal(response.status(),200);assert.equal(new URL(p.url()).searchParams.get('configuration'),id);assert.equal(new URL(p.url()).hash,'#'+id);checks+=3;
+   assert.equal(await p.locator('[id="'+id+'"]').count(),1);checks++;
+   if(!javaScriptEnabled){const entry=p.locator('[id="'+id+'"]');if(!await entry.evaluate(e=>e.open))await entry.locator(':scope>summary').click();assert.equal(await entry.locator('.core-guide-parts>li').count(),8);assert.ok(await entry.locator('.core-guide-parts').isVisible());checks+=2;}
+  }
+  if(process.env.CORE_QA_DIR){fs.mkdirSync(process.env.CORE_QA_DIR,{recursive:true});await p.goto(origin+'/nested/missing/page');await p.screenshot({path:path.join(process.env.CORE_QA_DIR,'404-nested-'+width+'-'+javaScriptEnabled+'.png'),fullPage:true});}
+  await context.close();
+ }
  const ctx=await browser.newContext(),page=await ctx.newPage();
  if(packageMode){for(const name of ['core-data.json','scripts/README.md','scripts/configuration-c-verification.md','scripts/package-public.cjs','scripts/public-files.json','tests/revisions.test.cjs','.env','.git/config','private-feed.json','dist/index.html']){assert.equal((await page.request.get(origin+'/'+name)).status(),404,name);checks++;}}
  for(const file of htmlFiles){
@@ -89,7 +114,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
  const shots=process.env.CORE_QA_DIR;
  if(shots)fs.mkdirSync(shots,{recursive:true});
  for(const javaScriptEnabled of [true,false])for(const width of [1440,390,320]){
-  const context=await browser.newContext({javaScriptEnabled,viewport:{width,height:900}}),p=await context.newPage();
+  const context=await browser.newContext({javaScriptEnabled,reducedMotion:'reduce',viewport:{width,height:900}}),p=await context.newPage();
   for(const file of htmlFiles){
    const errors=[];const onError=e=>errors.push(e.message);p.on('pageerror',onError);
    await p.goto(origin+'/'+file);
