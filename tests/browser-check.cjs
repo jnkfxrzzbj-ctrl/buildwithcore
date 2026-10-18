@@ -109,7 +109,11 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    const entry=p.locator('[id="'+id+'"]'),summary=entry.locator(':scope>summary'),parts=entry.locator('.core-guide-parts');
    assert.equal(await entry.evaluate(e=>e.open),false);checks++;
    const link=p.locator('a[href="#'+id+'"]');
-   await link.focus();await p.keyboard.press('Enter');
+   await link.focus();
+   await Promise.all([
+    p.waitForURL(url=>url.hash==='#'+id),
+    p.keyboard.press('Enter')
+   ]);
    assert.equal(new URL(p.url()).searchParams.get('configuration'),id);assert.equal(new URL(p.url()).hash,'#'+id);checks+=2;
    assert.equal(await entry.evaluate(e=>e.open),false);assert.equal(await parts.isVisible(),false);checks+=2;
    if(id==='performance-1.2-c-asus9070xt-fitv28-sn5100'){

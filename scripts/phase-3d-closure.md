@@ -97,7 +97,11 @@ Totals are assertions, not counts of independent test cases.
 
 A first scratch reproduction assertion wrongly expected Enter always to open a
 section already opened by JS. It was corrected to close the section first;
-this was a harness assumption, not a site defect. Hosted browser access uses a
+this was a harness assumption, not a site defect. The first GitHub CI run also
+failed because the new keyboard test read the URL before fragment navigation
+completed. The test now registers and awaits the exact expected fragment before
+checking it; the expected URL and all warning/native-control assertions remain
+unchanged. See PR checks for the latest CI result. Hosted browser access uses a
 network proxy with certificate checks bypassed because of proxy trust; it does
 not certify origin TLS. Local Chromium is 153.0.8010.0; Node is 24.19.0. Functional
 contexts use reduced motion. No Safari/Firefox, physical touch or screen-reader
