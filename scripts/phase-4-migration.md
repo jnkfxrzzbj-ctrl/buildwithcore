@@ -2,7 +2,11 @@
 
 19 October 2026. Source: `jnkfxrzzbj-ctrl/buildwithcore`, main
 `38ec85392ae1100c77be4a564895910950240ffa` (PR #11 squash merge).
-Preparation branch: `phase-4-migration-preparation`; PR #12 (draft, not merged).
+Preparation PR #12 was squash-merged into main at
+`f54390295b1b893073daf86286900659a916c6fb`. The evidence below describes the
+original Phase 4 baseline. See [inactive workflow templates](deployment-templates/README.md) for
+publishing prerequisites. The separate Phase 4B owner handover contains the
+account inventory and remaining approvals.
 
 **CONDITIONAL GO for the proposed migration approach; NO-GO for cutover today.**
 The public package is reproducible and the preparation workflow has no deployment
@@ -169,14 +173,15 @@ interpret this document as approval to mutate production.
 
 ### Gate A — records and recovery readiness
 
-1. Owner approves PR #12 merge after green checks, separately from migration.
+1. PR #12 merge is complete. Review the Phase 4B preparation PR separately from
+   any workflow activation or migration approval.
 2. Capture authenticated GitHub Settings → Pages: source/branch/folder, domain,
    HTTPS enforcement, successful deployment ID/SHA. Keep the custom-domain claim.
 3. Obtain complete Wix DNS export/screenshots: all A/AAAA/CNAME/MX/TXT, DKIM,
    DMARC/SPF, SRV, CAA, verification and wildcard records; registrar nameservers,
    DNSSEC/DS state, domain renewal, forwarding and mail services. Confirm the
-   actual account permits custom nameservers. Check the secondary `.com` domain
-   for forwarding/dependencies without changing it. Public DNS queries cannot
+   actual account permits custom nameservers. Check any other owner-confirmed domains
+   for forwarding/dependencies without assuming ownership or changing them. Public DNS queries cannot
    replace this account inventory.
 4. Choose the approved main SHA; run the candidate workflow and retain its archive,
    `source-sha.txt`, inventory and archive checksum. Verify that the recorded SHA
@@ -298,7 +303,8 @@ Those would change live settings and require approval.
 
 ### Content-only failure on Cloudflare
 
-Freeze the publisher. In the production project's Deployments list, choose the
+Freeze the publisher: unset its enable variable and cancel queued/in-progress
+deployment jobs before recovery. In the production project's Deployments list, choose the
 recorded successful known-good **production** deployment → Rollback to this
 deployment. Verify its ID and rerun acceptance. Preview `c06cc7c7…` is not a valid
 rollback target. For a first-release failure, redeploy the retained approved
@@ -307,7 +313,7 @@ moving main. The first release has no previous production deployment to select.
 
 ### Hosting/TLS failure: return web traffic to GitHub
 
-1. Freeze Cloudflare releases. Confirm the previously rehearsed secure GitHub
+1. Freeze Cloudflare releases; unset the enable variable and cancel pending jobs. Confirm the previously rehearsed secure GitHub
    artifact release still exists, is successful, retains the domain association
    and valid certificate. Use SNI/Host-aware testing to GitHub's recorded addresses
    before routing traffic back; do not assume the `github.io` redirect proves TLS.

@@ -1,0 +1,119 @@
+# INACTIVE: activation requires a separately approved PR and environment setup.
+name: CORE Cloudflare production (owner gated)
+on:
+  workflow_dispatch:
+    inputs:
+      release_sha:
+        description: Full reviewed main commit SHA (older main commits allow rollback)
+        required: true
+        type: string
+      fingerprint:
+        description: Expected public fingerprint from the reviewed release inventory
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: core-production-publication
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main' && vars.CORE_CLOUDFLARE_ENABLED == 'approved'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CORE_RELEASE_SHA: ${{ inputs.release_sha }}
+      CORE_EXPECTED_FINGERPRINT: ${{ inputs.fingerprint }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Require reviewed immutable main history
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$CORE_RELEASE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$CORE_EXPECTED_FINGERPRINT" =~ ^[0-9a-f]{64}$ ]]
+          git merge-base --is-ancestor "$CORE_RELEASE_SHA" "$GITHUB_SHA"
+          git checkout --detach "$CORE_RELEASE_SHA"
+          test "$(git rev-parse HEAD)" = "$CORE_RELEASE_SHA"
+          test -z "$(git status --porcelain)"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - name: Check and package approved source
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build.cjs --check
+          node scripts/render-performance.cjs --check
+          node --test tests/*.test.cjs
+          node scripts/package-public.cjs --out "$RUNNER_TEMP/core-public"
+          node scripts/verify-public.cjs "$RUNNER_TEMP/core-public" > "$RUNNER_TEMP/inventory.json"
+          node -e 'const i=require(process.env.RUNNER_TEMP+"/inventory.json");require("node:assert/strict").equal(i.fingerprint,process.env.CORE_EXPECTED_FINGERPRINT)'
+          printf 'Release: %s\nFingerprint: %s\n' "$CORE_RELEASE_SHA" "$CORE_EXPECTED_FINGERPRINT" >> "$GITHUB_STEP_SUMMARY"
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Existing package browser acceptance
+        env:
+          CORE_SITE_ROOT: ${{ runner.temp }}/core-public
+        run: node tests/browser-check.cjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: core-public-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/core-public
+          if-no-files-found: error
+          retention-days: 14
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: cloudflare-production
+    env:
+      CORE_EXPECTED_FINGERPRINT: ${{ inputs.fingerprint }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ inputs.release_sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: core-public-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/core-public
+      - name: Reverify bytes without rebuilding
+        run: |
+          node scripts/verify-public.cjs "$RUNNER_TEMP/core-public" > "$RUNNER_TEMP/inventory.json"
+          node -e 'const i=require(process.env.RUNNER_TEMP+"/inventory.json");require("node:assert/strict").equal(i.fingerprint,process.env.CORE_EXPECTED_FINGERPRINT)'
+      - name: Install pinned deployment tool without credentials
+        run: npm install --prefix "$RUNNER_TEMP/core-tools" --no-save --package-lock=false wrangler@4.151.1
+      - name: Check existing project and publish approved artifact
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CORE_PRODUCTION_PROJECT: ${{ vars.CORE_PRODUCTION_PROJECT }}
+          CORE_RELEASE_SHA: ${{ inputs.release_sha }}
+          WRANGLER_SEND_METRICS: 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$CLOUDFLARE_ACCOUNT_ID" =~ ^[0-9a-f]{32}$ ]]
+          test "$CORE_PRODUCTION_PROJECT" = 'core-production'
+          # GET only: fail rather than implicitly creating an absent/wrong project.
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          const e=process.env;
+          const r=await fetch(`https://api.cloudflare.com/client/v4/accounts/${e.CLOUDFLARE_ACCOUNT_ID}/pages/projects/${e.CORE_PRODUCTION_PROJECT}`,{headers:{Authorization:`Bearer ${e.CLOUDFLARE_API_TOKEN}`},signal:AbortSignal.timeout(20000)});
+          assert.equal(r.status,200,'Project GET failed');
+          const body=await r.json(); assert.equal(body.success,true);
+          assert.equal(body.result.name,'core-production');
+          assert.equal(body.result.production_branch,'main');
+          assert.ok(!body.result.source,'Direct Upload project required');
+          const allowed=new Set(['core-production.pages.dev','buildwithcore.co.uk','www.buildwithcore.co.uk']);
+          assert.ok(body.result.domains.every(d=>allowed.has(d)),'Unexpected domain binding');
+          JS
+          cd "$RUNNER_TEMP"
+          "$RUNNER_TEMP/core-tools/node_modules/.bin/wrangler" pages deploy "$RUNNER_TEMP/core-public" --project-name "$CORE_PRODUCTION_PROJECT" --branch main --commit-hash "$CORE_RELEASE_SHA" --commit-dirty=false
