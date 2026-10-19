@@ -155,23 +155,23 @@ was changed. This assessment grants no merge or deployment approval.
 
 ### Approved source and package
 
-- PR #10 was merged into \`main\`; verified source commit: \`9f75266b13c1af0adc4d77a8d9b4cf9cca064ae0\`.
-- The owner's Mac fast-forwarded local \`main\` to that SHA; only untracked \`.wrangler/\` was reported.
-- \`node scripts/build.cjs --check\` and \`node scripts/render-performance.cjs --check\` completed without errors; \`node --test tests/*.test.cjs\` passed **47/47**.
-- \`node scripts/package-public.cjs\` produced **24 files**, **396,023 bytes**, outside the repository. An independent Python ordered \`path/NUL/bytes/NUL\` SHA-256 check passed: \`643c83c855293f056326467fcd435d2740ab8e5a220a697fdd77dbe52ad2fdce\`.
-- Local packaged Chromium suite: **2,556 browser/site assertions passed** (\`CORE_SITE_ROOT="$PACKAGE" node tests/browser-check.cjs\`).
+- PR #10 was merged into `main`; verified source commit: `9f75266b13c1af0adc4d77a8d9b4cf9cca064ae0`.
+- The owner's Mac fast-forwarded local `main` to that SHA; only untracked `.wrangler/` was reported.
+- `node scripts/build.cjs --check` and `node scripts/render-performance.cjs --check` completed without errors; `node --test tests/*.test.cjs` passed **47/47**.
+- `node scripts/package-public.cjs` produced **24 files**, **396,023 bytes**, outside the repository. An independent Python ordered `path/NUL/bytes/NUL` SHA-256 check passed: `643c83c855293f056326467fcd435d2740ab8e5a220a697fdd77dbe52ad2fdce`.
+- Local packaged Chromium suite: **2,556 browser/site assertions passed** (`CORE_SITE_ROOT="$PACKAGE" node tests/browser-check.cjs`).
 
 ### Isolated Cloudflare preview deployment
 
-- The owner authenticated Wrangler 4.151.1 with an OAuth token including \`pages (write)\`, overcoming the previous upload-token authentication blocker.
-- Deployed the verified package with \`wrangler pages deploy "$PACKAGE" --project-name core-preview-test --branch core-phase3d-closure --commit-hash 9f75266b13c1af0adc4d77a8d9b4cf9cca064ae0 --commit-message "Phase 3D verified preview package"\`.
+- The owner authenticated Wrangler 4.151.1 with an OAuth token including `pages (write)`, overcoming the previous upload-token authentication blocker.
+- Deployed the verified package with `wrangler pages deploy "$PACKAGE" --project-name core-preview-test --branch core-phase3d-closure --commit-hash 9f75266b13c1af0adc4d77a8d9b4cf9cca064ae0 --commit-message "Phase 3D verified preview package"`.
 - Wrangler reported **deployment complete**, **2 files uploaded** and **22 already uploaded**. Immutable deployment URL: https://c06cc7c7.core-preview-test.pages.dev ; branch alias: https://core-phase3d-closure.core-preview-test.pages.dev .
-- The production branch remained the deliberately separate \`core-production-disabled\` deployment target. No production-branch, DNS, domain, or live GitHub Pages configuration change was requested or performed as part of this preview deployment.
+- The production branch remained the deliberately separate `core-production-disabled` deployment target. No production-branch, DNS, domain, or live GitHub Pages configuration change was requested or performed as part of this preview deployment.
 
 ### Hosted acceptance evidence
 
-- Read-only \`tests/pages-routing-check.cjs\` against the immutable deployment and exact local package: **199 hosted HTTP checks passed**. This checks deployed bytes, redirects, 404 GET/HEAD handling, development-file exclusions and all nine configuration query links. Fragment behaviour is browser-tested separately.
-- The owner ran a separate Playwright Chromium hosted script against the immutable HTTPS URL: **44 assertions passed** across **390px and 320px**, with JavaScript **off and on**. The test covered Configuration C HOLD disclosure and eight parts, mobile overflow and browser errors; Playwright's \`ignoreHTTPSErrors\` was **false**.
+- Read-only `tests/pages-routing-check.cjs` against the immutable deployment and exact local package: **199 hosted HTTP checks passed**. This checks deployed bytes, redirects, 404 GET/HEAD handling, development-file exclusions and all nine configuration query links. Fragment behaviour is browser-tested separately.
+- The owner ran a separate Playwright Chromium hosted script against the immutable HTTPS URL: **44 assertions passed** across **390px and 320px**, with JavaScript **off and on**. The test covered Configuration C HOLD disclosure and eight parts, mobile overflow and browser errors; Playwright's `ignoreHTTPSErrors` was **false**.
 - This is evidence of normal Chromium TLS verification without certificate bypass, **not** independent manual Safari/Firefox, screen-reader, physical-device or external TLS audit certification.
 - The 44 hosted assertions are separate from the 2,556 local package assertions; they should not be represented as a comprehensive hosted replay of the local suite. The owner supplied the test outputs in the ChatGPT-assisted verification session; this document records those reported results, rather than asserting the agent independently executed the Mac tests.
 
@@ -179,4 +179,4 @@ was changed. This assessment grants no merge or deployment approval.
 
 **Phase 3D technical acceptance criteria are met on the evidence above.** This PR changes only this development-only closure record. It must remain **unmerged pending owner review**. No new hardware specification, purchasing rule, pricing threshold, affiliate destination, deployment configuration or live-site change is proposed.
 
-A future production migration remains a separate decision requiring publication-path controls, DNS/mail/DNSSEC inventory, custom-domain TLS and rollback planning. The existing GitHub Pages \`main / (root)\` exposure is not fixed by this isolated preview verification.
+A future production migration remains a separate decision requiring publication-path controls, DNS/mail/DNSSEC inventory, custom-domain TLS and rollback planning. The existing GitHub Pages `main / (root)` exposure is not fixed by this isolated preview verification.
