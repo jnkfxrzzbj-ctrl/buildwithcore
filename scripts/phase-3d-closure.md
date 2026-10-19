@@ -1,5 +1,7 @@
 # Phase 3D — final verification and closure assessment
 
+> **Current status (19 October 2026): GO for isolated-preview technical closure, subject to documentation PR review.** The 18 October NO-GO and candidate-not-deployed findings below are retained as historical evidence; see the [post-merge closure addendum](#closure-addendum--19-october-2026-post-merge-hosted-acceptance) for the current assessment. No production migration is authorised.
+
 18 October 2026. Base/current main: `25b840d3c67ec081eea030b11aad219d8571a13d`.
 Branch: `fix/phase3d-nojs-hold-discovery`. Nothing merged or deployed.
 Existing preview: [immutable deployment](https://f46d0470.core-preview-test.pages.dev).
@@ -151,7 +153,7 @@ was changed. This assessment grants no merge or deployment approval.
 
 ## Closure addendum — 19 October 2026 (post-merge hosted acceptance)
 
-**Decision: GO for Phase 3D technical closure, subject to review and merge of this documentation-only PR.** This addendum supersedes the historical NO-GO decision above, which accurately described the pre-merge and pre-deployment position on 18 October. It does **not** approve production migration.
+**Decision: GO for Phase 3D technical closure, subject to review and merge of this documentation-only PR.** This addendum supersedes the historical NO-GO decision and the earlier statements that the candidate was **NOT TESTED on Cloudflare**, that the hosted defect remained unresolved, and that TLS verification was bypassed on the *previous* hosted run. Those statements accurately described earlier test stages but are not current findings for the new immutable deployment. It does **not** approve production migration.
 
 ### Approved source and package
 
@@ -175,8 +177,22 @@ was changed. This assessment grants no merge or deployment approval.
 - This is evidence of normal Chromium TLS verification without certificate bypass, **not** independent manual Safari/Firefox, screen-reader, physical-device or external TLS audit certification.
 - The 44 hosted assertions are separate from the 2,556 local package assertions; they should not be represented as a comprehensive hosted replay of the local suite. The owner supplied the test outputs in the ChatGPT-assisted verification session; this document records those reported results, rather than asserting the agent independently executed the Mac tests.
 
+### Closure criteria mapped to evidence
+
+| Original closure criterion | Current evidence and qualification |
+|---|---|
+| Review and approve the focused warning-discoverability fix | PR #10 merged into `main` at `9f75266b13c1af0adc4d77a8d9b4cf9cca064ae0`; this PR records closure only |
+| Complete required PR and regression checks | PR #10 CI passed; 47 regression tests and 2,556 local packaged browser assertions reported passing |
+| Separately authorise merge and isolated preview deployment | PR #10 merged; owner deployed the approved package to preview branch `core-phase3d-closure` |
+| Verify exact public bytes, routing and 404/exclusions | Package inventory/fingerprint recorded above; 199 owner-run hosted HTTP assertions reportedly passed, including deployed bytes, redirects, 404 GET/HEAD and excluded development paths |
+| Verify no-JS 390px/320px collapsed Configuration C warning | 44 owner-run hosted Chromium assertions cover both widths with JS off/on; warning visible in index and collapsed summary |
+| Verify JS Configuration C HOLD and historical links | Hosted JS C HOLD covered by the 44 assertions; all nine configuration query URLs covered by 199 HTTP assertions; historical configurations covered by the existing local regression/browser suites. A separate nine-link hosted *interactive browser* replay is not asserted |
+| Verify ordinary-browser HTTPS without certificate bypass | Hosted Playwright Chromium used `ignoreHTTPSErrors: false` and completed successfully; no separate manual Chrome/Safari/Firefox or external TLS audit claimed |
+
+The historical-link requirement is supported by hosted HTTP link/routing checks and local browser regressions, not a claimed standalone hosted interactive replay of every historical configuration. The TLS requirement is supported by real Chromium certificate validation, not a separate manual browser session.
+
 ### Scope and next steps
 
 **Phase 3D technical acceptance criteria are met on the evidence above.** This PR changes only this development-only closure record. It must remain **unmerged pending owner review**. No new hardware specification, purchasing rule, pricing threshold, affiliate destination, deployment configuration or live-site change is proposed.
 
-A future production migration remains a separate decision requiring publication-path controls, DNS/mail/DNSSEC inventory, custom-domain TLS and rollback planning. The existing GitHub Pages `main / (root)` exposure is not fixed by this isolated preview verification.
+A future production migration remains a separate decision requiring publication-path controls, DNS/mail/DNSSEC inventory, custom-domain TLS and rollback planning. The existing GitHub Pages `main / (root)` exposure is not fixed by this isolated preview verification. The previously identified stale affiliate-disclosure metadata sentence remains an **editorial follow-up before production migration**; it was not changed or tested in Phase 3D.
