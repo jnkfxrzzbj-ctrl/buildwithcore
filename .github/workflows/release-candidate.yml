@@ -1,0 +1,60 @@
+name: CORE release candidate (no deployment)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/release-candidate.yml'
+      - 'scripts/verify-public.cjs'
+      - 'tests/release-candidate.test.cjs'
+      - 'tests/hosted-browser-check.cjs'
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '24'
+      - run: node scripts/build.cjs --check
+      - run: node scripts/render-performance.cjs --check
+      - run: node --test tests/*.test.cjs
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/browser-check.cjs
+      - name: Build, verify and rehearse restore
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/package-public.cjs --out "$RUNNER_TEMP/core-public"
+          node scripts/verify-public.cjs "$RUNNER_TEMP/core-public" > "$RUNNER_TEMP/inventory.json"
+          CORE_SITE_ROOT="$RUNNER_TEMP/core-public" node tests/browser-check.cjs
+          mkdir "$RUNNER_TEMP/core-release"
+          tar -czf "$RUNNER_TEMP/core-release/public.tar.gz" -C "$RUNNER_TEMP/core-public" .
+          mkdir "$RUNNER_TEMP/core-restored"
+          tar -xzf "$RUNNER_TEMP/core-release/public.tar.gz" -C "$RUNNER_TEMP/core-restored"
+          node scripts/verify-public.cjs "$RUNNER_TEMP/core-restored" > "$RUNNER_TEMP/restored.json"
+          cmp "$RUNNER_TEMP/inventory.json" "$RUNNER_TEMP/restored.json"
+          cp "$RUNNER_TEMP/inventory.json" "$RUNNER_TEMP/core-release/inventory.json"
+          git rev-parse HEAD > "$RUNNER_TEMP/core-release/source-sha.txt"
+          cd "$RUNNER_TEMP/core-release"
+          sha256sum public.tar.gz > archive.sha256
+      - name: Read-only acceptance of existing isolated preview
+        env:
+          CORE_PAGES_ORIGIN: https://c06cc7c7.core-preview-test.pages.dev
+          CORE_PUBLIC_DIR: ${{ runner.temp }}/core-public
+        run: |
+          node tests/pages-routing-check.cjs
+          node tests/hosted-browser-check.cjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: core-release-${{ github.sha }}
+          path: ${{ runner.temp }}/core-release/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+    # Intentionally no deploy job, credentials, environment or provider invocation.
