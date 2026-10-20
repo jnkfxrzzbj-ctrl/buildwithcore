@@ -20,10 +20,13 @@ test('package contains exactly 24 approved public files with source bytes, modes
  for(const name of expected){const bytes=fs.readFileSync(path.join(a.directory,name));assert.deepEqual(bytes,fs.readFileSync(path.join(root,name)));if(!['assets/core-view.js','core-performance-guide.html'].includes(name)){hash.update(name+'\0');hash.update(bytes);hash.update('\0');}
   for(const directory of [a.directory,b.directory]){const s=fs.statSync(path.join(directory,name));assert.equal(s.nlink,1);assert.equal(s.mode&0o777,0o644);assert.equal(s.mtimeMs,946684800000);}
  }
- // These 22 files remain byte-identical to main 25b840d. The reviewed no-JS
- // correction changes only core-view.js and its generated guide index.
- // Do not silently rebaseline unrelated files.
- assert.equal(hash.digest('hex'),'54ba40d7d90580e03072378b8cb4c929a781cfd0301398b953f227d79acc36fa');
+ // Phase 5 explicitly reviews five editorial HTML changes; see phase-5-launch-readiness.md.
+ // The other public bytes and the 24-file allowlist remain unchanged.
+ // This fixed digest must not be regenerated without reviewing the public diff.
+ assert.equal(hash.digest('hex'),'e3dec3e0c9642abe6fc89d1484368d5de08d92ae9ff752bd7632b90f819026e2');
+ const verified=require('../scripts/verify-public.cjs').verify(a.directory);
+ assert.equal(verified.fingerprint,'968d6acc5ec24c02f344a3b220c08bfc0677e38c637c291e4350f75e10f7b429');
+ console.log('Phase 5 verified public package:',verified.count,verified.fingerprint);
  for(const name of ['core-data.json','scripts','tests','.github','.git','.env','dist'])assert.equal(fs.existsSync(path.join(a.directory,name)),false);
 });
 test('source-only secrets, research, private feeds and unrelated development files are never copied',t=>{
