@@ -122,10 +122,12 @@ These are planning estimates, not commitments. A date alone never overrides HOLD
 Public allowlist unchanged: 24 paths. Five reviewed HTML files change. Engine, data, affiliate catalogue, view/static generated sections, nine configurations, CSS and workflows are unchanged. Tests/report remain internal.
 
 Baseline full source fingerprint: `643c83c855293f056326467fcd435d2740ab8e5a220a697fdd77dbe52ad2fdce`.
-Proposed full source fingerprint: `968d6acc5ec24c02f344a3b220c08bfc0677e38c637c291e4350f75e10f7b429`.
-The existing 22-file regression hash was independently reproduced before explicitly updating it from `54ba40d7d90580e03072378b8cb4c929a781cfd0301398b953f227d79acc36fa` to `e3dec3e0c9642abe6fc89d1484368d5de08d92ae9ff752bd7632b90f819026e2`.
+Proposed full source fingerprint: `9d56efea73367b2865db759366202e519b3f2a1d536837889ac4d4fed2605d97`.
+The existing 22-file regression hash was independently reproduced before explicitly updating it from `54ba40d7d90580e03072378b8cb4c929a781cfd0301398b953f227d79acc36fa` to `7087d9ee9653a1f595ca44d5999d356ac363be38702838c66e965354759bf957`.
 Ordering is sorted path + NUL + exact UTF-8 content + NUL.
 
 The packaging test now also calls the established `verify-public.cjs` on its isolated output and asserts/prints the fixed full fingerprint. Existing CI must recreate this package and pass the Node, source-browser and package-browser suites. No test assertion or exclusion is removed to hide a failure.
 
 Source link checks and resolver execution passed in orchestration; these are not substitutes for Node/Playwright. Local shell, browser screenshots, live hashes/TLS/exclusion checks and attachment reading were unavailable. Record actual GitHub CI results in the PR; until then the patch is draft/unverified. Even green CI does not establish retailer availability or live deployment. Owner review is still required.
+
+Initial CI at df3fc3e passed Node/package checks but caught Guides overflow at 320px. The new headings were shortened; browser assertions were preserved. Follow-up CI must pass before review.

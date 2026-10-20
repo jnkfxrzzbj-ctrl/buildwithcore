@@ -23,9 +23,9 @@ test('package contains exactly 24 approved public files with source bytes, modes
  // Phase 5 explicitly reviews five editorial HTML changes; see phase-5-launch-readiness.md.
  // The other public bytes and the 24-file allowlist remain unchanged.
  // This fixed digest must not be regenerated without reviewing the public diff.
- assert.equal(hash.digest('hex'),'e3dec3e0c9642abe6fc89d1484368d5de08d92ae9ff752bd7632b90f819026e2');
+ assert.equal(hash.digest('hex'),'7087d9ee9653a1f595ca44d5999d356ac363be38702838c66e965354759bf957');
  const verified=require('../scripts/verify-public.cjs').verify(a.directory);
- assert.equal(verified.fingerprint,'968d6acc5ec24c02f344a3b220c08bfc0677e38c637c291e4350f75e10f7b429');
+ assert.equal(verified.fingerprint,'9d56efea73367b2865db759366202e519b3f2a1d536837889ac4d4fed2605d97');
  console.log('Phase 5 verified public package:',verified.count,verified.fingerprint);
  for(const name of ['core-data.json','scripts','tests','.github','.git','.env','dist'])assert.equal(fs.existsSync(path.join(a.directory,name)),false);
 });
