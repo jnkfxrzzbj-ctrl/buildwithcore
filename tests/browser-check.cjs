@@ -188,7 +188,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
   }
   await p.goto(origin+'/guides.html');await p.getByRole('link',{name:'Explore Performance hardware notes'}).click();
   if(javaScriptEnabled){await p.locator('[data-core="guide"] .core-guide-parts>li').first().waitFor({state:'attached',timeout:10000});assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);checks++;}
-  else {assert.match(await p.locator('.core-noscript').innerText(),/exact configuration index/);checks++;await p.locator('.core-noscript a').click();assert.equal(await p.locator('.core-saved-configuration').count(),10);checks++;for(const section of await p.locator('.core-saved-configuration').all()){await section.locator(':scope>summary').click();assert.equal(await section.locator('.core-guide-parts>li').count(),8);checks++;}}
+  else {assert.match(await p.locator('.core-noscript').innerText(),/exact configuration index/);checks++;await p.locator('.core-noscript').getByRole('link',{name:'exact configuration index',exact:true}).click();assert.equal(await p.locator('.core-saved-configuration').count(),10);checks++;for(const section of await p.locator('.core-saved-configuration').all()){await section.locator(':scope>summary').click();assert.equal(await section.locator('.core-guide-parts>li').count(),8);checks++;}}
   if(javaScriptEnabled){
    for(const id of ['', '?configuration=unknown','?configuration=__proto__']){
     await p.goto(origin+'/core-performance-guide.html'+id);
