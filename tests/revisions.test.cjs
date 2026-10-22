@@ -1,12 +1,12 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs');
 const E=require('../assets/core-engine.js'),V=require('../assets/core-view.js');
-const base=require('../core-data.json'),clone=()=>structuredClone(base);
+const base=require('../core-data.json'),clone=()=>({...structuredClone(base),currentPerformanceRevision:"performance-1.2-c"});
 const C='performance-1.2-c',L='performance-1.1-approved',CID='performance-1.2-c-asus9070xt-fitv28-sn5100',now='2026-10-13T12:00:00Z';
 const ids={cpu:'ryzen9600x',gpu:'asus9070xtprimeoc',motherboard:'msib850mwifi6e',ram:'fitv28',ssd:'sn5100',psu:'rm850x2024uk',cooler:'pa120se',case:'h6flow'};
 function fresh(revision=C){const d=clone();d.currentPerformanceRevision=revision;const r=d.performanceRevisions[revision];d.offers=r.build.slots.flatMap(s=>s.approvedIds.map(id=>({...structuredClone(base.offers[0]),id:'test-'+id,componentId:id,checkedAt:now,observedOn:null,itemPence:revision===C?100:s.targetPence-1000,deliveryPence:0,stock:'in_stock',dispatchWorkingDays:1,identityVerified:true,sellerIsRetailer:true,condition:'new',currency:'GBP',vatIncluded:true})));r.selectionState=Object.fromEntries(r.build.slots.map(s=>[s.id,'test-'+s.preferredId]));return d;}
 function hold(d){const r=E.derive(d,now);assert.equal(r.state,'HOLD');assert.equal(r.reasonCode,'PRICING_POLICY_PENDING');assert.equal(r.completeEligible,false);assert.equal(r.eligiblePurchaseTotal,null);assert.equal(r.deliveredEstimate,null);assert.equal(r.targetPence,null);assert.equal(r.targetDifference,null);assert.equal(r.configurationId,CID);assert.deepEqual(r.selectedIds,ids);for(const html of [V.parts(d,r),V.panel(d,r),V.compact(d,r),V.fallback(d)])assert.doesNotMatch(html,/GOOD BUY|ACCEPTABLE|Good price|Within our limit|View exact offer|£1,550|£1,650|£1,800/);return r;}
 test('C has exact separate identities, fixed tuple and genuinely null pricing',()=>{
- assert.equal(base.currentPerformanceRevision,C);assert.deepEqual(base.guideConfigurations[CID].components,ids);
+ assert.equal(base.currentPerformanceRevision,"performance-1.3-b");assert.deepEqual(base.guideConfigurations[CID].components,ids);
  assert.equal(base.components.asus9070xtprimeoc.mpn,'90YV0L71-M0NA00');assert.equal(base.components.asus9070xtprimeoc.model,'PRIME-RX9070XT-O16G');assert.equal(base.components.rm850x2024uk.mpn,'CP-9020270-UK');assert.equal(base.components.msib850mwifi6e.mpn,null);assert.equal(base.components.msib850mwifi6e.model,'B850M GAMING PLUS WIFI6E');
  const r=base.performanceRevisions[C];assert.deepEqual(r.approvedConfigurationIds,[CID]);assert.equal(r.purchasingPolicy.approvalStatus,'pending');assert.equal(r.purchasingPolicy.wholeBuildMaximumPence,null);
  for(const s of r.build.slots){assert.deepEqual(s.approvedIds,[ids[s.id]]);assert.equal(s.policy,'FIXED');for(const key of ['targetPence','maxPence','switchSavingPence'])assert.equal(s[key],null);}
@@ -60,7 +60,7 @@ test('saved historical snapshots do not depend on offers or current selection; s
  const d=clone();d.offers=[];d.currentPerformanceRevision='unknown';
  for(const id of base.performanceRevisions[L].approvedConfigurationIds){const cfg=d.guideConfigurations[id];assert.equal(cfg.hardwareSnapshot.length,8);const before=V.guide(d,id);d.components.ryzen9600x.compatibility='different current note';assert.equal(V.guide(d,id),before);assert.match(before,/Historical Performance/);assert.ok(fs.readFileSync('core-performance-guide.html','utf8').includes('id="'+id+'"'));}
  for(const id of ['unknown','__proto__','constructor',null])assert.doesNotMatch(V.guide(d,id),/core-guide-parts/);
- assert.equal((V.guideIndex(base).match(/class="core-saved-configuration"/g)||[]).length,9);
+ assert.equal((V.guideIndex(base).match(/class="core-saved-configuration"/g)||[]).length,10);
  const html=V.guide(base,CID);for(const text of ['PCI_E2','M2_1','A2/B2','three separate','standoff','BIOS','CPU_FAN1','JFP1','not physically built'])assert.ok(html.includes(text),text);
 });
 
@@ -72,8 +72,9 @@ test('the current HOLD is in the index link and native summary before expansion'
  assert.deepEqual(entries.map(e=>e[1]),Object.keys(base.guideConfigurations));
  for(const [,id,summary] of entries){
   if(id===CID)assert.equal(summary,`${CID}<br><strong>${notice}</strong>`);
+  else if(id.startsWith("performance-1.3-b"))assert.equal(summary,`${id}<br><strong>Option B · HOLD — buying criteria awaiting approval.</strong>`);
   else assert.equal(summary,id); // Historical summaries and identities stay untouched.
  }
- assert.equal(entries.length,9);
+ assert.equal(entries.length,10);
  assert.ok(fs.readFileSync('core-performance-guide.html','utf8').includes(html));
 });

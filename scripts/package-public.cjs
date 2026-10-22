@@ -83,8 +83,8 @@ function audit(root){
  for(const [name,bytes] of files)secretCheck(name,bytes);
  references(files);
  // Check, do not repair: stale generated/static output is a failed package.
- for(const name of ['core-data.json','scripts/build.cjs','scripts/render-performance.cjs'])regular(root,name);
- for(const name of ['build.cjs','render-performance.cjs']){
+ for(const name of ['core-data.json','scripts/build.cjs','scripts/render-performance.cjs','scripts/render-launch.cjs'])regular(root,name);
+ for(const name of ['build.cjs','render-performance.cjs','render-launch.cjs']){
   try{execFileSync(process.execPath,[path.join(root,'scripts',name),'--check'],{cwd:root,stdio:'pipe'});}
   catch{fail(name+' --check failed; run the documented verification commands');}
  }

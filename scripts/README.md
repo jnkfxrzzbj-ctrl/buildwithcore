@@ -71,3 +71,9 @@ the browser/site checks. This workflow verifies changes; it does not deploy.
 Tests, scripts and the canonical JSON are development inputs and should be
 excluded from any separately prepared public deployment package. The browser
 continues to load the committed generated bundle; no runtime JSON fetch is added.
+
+Phase 5F: after editing `core-data.json`, run `node scripts/build.cjs`,
+`node scripts/render-performance.cjs` and `node scripts/render-launch.cjs`.
+Their `--check` modes never repair stale output. Run `node --test tests/*.test.cjs`
+and `node tests/browser-check.cjs`, then test the isolated package as in CI.
+See `phase-5f-build-completion.md` for exact specifications, evidence gaps and HOLD gates.

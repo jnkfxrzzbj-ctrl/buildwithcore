@@ -1,0 +1,265 @@
+{
+  "retrievedOn": "2026-10-22",
+  "checkedAt": null,
+  "purpose": "Research only. No exact checkout timestamps or postcode-specific complete baskets. Never copy these observations into approved offers.",
+  "builds": {
+    "Starter": {
+      "deliveredTotalPence": null,
+      "purchasingApproved": false,
+      "observations": [
+        {
+          "slot": "cpu",
+          "model": "100-100000927BOX",
+          "retailer": "AWD-IT",
+          "observedItemPence": 12499,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Free delivery advertised; no destination quote",
+          "url": "https://www.awd-it.co.uk/amd-ryzen-5-5600-cpu-six-core-3-5ghz-processor-socket-am4-retail.html",
+          "limitations": "22 October page observation"
+        },
+        {
+          "slot": "gpu",
+          "model": "NE75060019P1-GB2063D",
+          "retailer": "Scan",
+          "observedItemPence": 40999,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "\u00a35.48 advertised; 23 October delivery displayed",
+          "url": "https://www.scan.co.uk/products/palit-nvidia-geforce-rtx-5060-dual-8gb-gddr7-ray-tracing-graphics-card-dlss-4-3840-cores-2497-mhz-bo",
+          "limitations": "22 October page observation"
+        },
+        {
+          "slot": "motherboard",
+          "model": "B550M PRO-VDH WIFI",
+          "retailer": "PCUpgrade",
+          "observedItemPence": 10794,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Delivery charge and dispatch unverified",
+          "url": "https://www.pcupgrade.co.uk/components/motherboards/msi-b550m-pro-vdh-wifi-amd-socket-am4-motherboard/",
+          "limitations": "22 October page observation; new condition, exact model"
+        },
+        {
+          "slot": "ram",
+          "model": "CMK16GX4M2E3200C16",
+          "retailer": "Scan",
+          "observedItemPence": 15499,
+          "observedStock": "unconfirmed",
+          "deliveryEvidence": "Unverified",
+          "url": "https://www.scan.co.uk/products/16gb-2x8gb-corsair-ddr4-vengeance-lpx-black-pc4-25600-3200-non-ecc-unbuffered-cas-16-20-20-38-xmp-20",
+          "limitations": "Retrieved 22 October but cached delivery date 17 October: not current evidence"
+        },
+        {
+          "slot": "ssd",
+          "model": "SNV3S/1000G",
+          "retailer": "Scan",
+          "observedItemPence": 12998,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Free delivery advertised; 23 October displayed",
+          "url": "https://www.scan.co.uk/products/1tb-kingston-nv3-ssd-m2-2280-pcie-40-x4-nvme-ssd-3d-nand-6000mb-s-read-4000mb-s-write-oem",
+          "limitations": "22 October page observation"
+        },
+        {
+          "slot": "psu",
+          "model": "CP-9020278-UK",
+          "retailer": "Corsair",
+          "observedItemPence": 5499,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "27\u201328 October estimated; shipping charge unverified",
+          "url": "https://www.corsair.com/uk/en/p/psu/cp-9020278-uk/cx-series-cx650-650-watt-80-plus-bronze-atx-power-supply-uk-cp-9020278-uk",
+          "limitations": "22 October canonical page; conflicting cached \u00a344.99 ignored"
+        },
+        {
+          "slot": "cooler",
+          "model": "Included with 100-100000927BOX",
+          "retailer": "Included with boxed CPU",
+          "observedItemPence": 0,
+          "observedStock": "bundled",
+          "deliveryEvidence": "Included in CPU line",
+          "url": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5600.html",
+          "limitations": "No separate purchase; boxed CPU only"
+        },
+        {
+          "slot": "case",
+          "model": "CC-H61FB-01",
+          "retailer": "Scan",
+          "observedItemPence": 8498,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "\u00a35.48 advertised; 23 October displayed",
+          "url": "https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx",
+          "limitations": "22 October page observation"
+        }
+      ]
+    },
+    "Performance": {
+      "deliveredTotalPence": null,
+      "purchasingApproved": false,
+      "observations": [
+        {
+          "slot": "cpu",
+          "model": "100-100001405WOF",
+          "retailer": "Scan",
+          "observedItemPence": 18998,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Basket quote incomplete",
+          "url": "https://www.scan.co.uk/products/amd-ryzen-5-9600x-am5-zen-5-6-core-12-thread-39ghz-54ghz-turbo-32mb-cache-pcie-50-65w-cpu-retail-box",
+          "limitations": "Phase 5D, 21 October; not refreshed into buying engine"
+        },
+        {
+          "slot": "gpu",
+          "model": "RX9070XT 16G-A",
+          "retailer": "Overclockers UK",
+          "observedItemPence": 79999,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Basket delivery not verified",
+          "url": "https://www.overclockers.co.uk/powercolor-radeon-rx-9070-xt-reaper-16gb-gddr6-pci-express-graphics-card/GRA-PWC-04017.html",
+          "limitations": "Phase 5D, 21 October"
+        },
+        {
+          "slot": "motherboard",
+          "model": "B850M GAMING PLUS WIFI6E",
+          "retailer": "Overclockers UK",
+          "observedItemPence": 12995,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Basket delivery not verified",
+          "url": "https://www.overclockers.co.uk/msi-b850m-gaming-plus-wifi6e-amd-am5-b850-ddr5-micro-atx-motherboard/MOT-MSI-05943.html",
+          "limitations": "Phase 5D, 21 October"
+        },
+        {
+          "slot": "ram",
+          "model": "KD5AGU880-60B280L",
+          "retailer": "Overclockers UK",
+          "observedItemPence": 39995,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Basket delivery not verified",
+          "url": "https://www.overclockers.co.uk/klevv-fit-v-expo-32gb-2x16gb-6000mhz-c28-ddr5-dual-channel-kit-black/MEM-KLV-07037.html",
+          "limitations": "Phase 5D, 21 October; material value concern"
+        },
+        {
+          "slot": "ssd",
+          "model": "WDS100T4X0E-00CJA0",
+          "retailer": "Scan",
+          "observedItemPence": 15998,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Basket quote incomplete",
+          "url": "https://www.scan.co.uk/products/1tb-wd-black-sn7100-m2-2280-pcie-40-x4-nvme-ssd-7250mb-s-read-6900mb-s-write-1000k-1400k-iops",
+          "limitations": "Phase 5D, 21 October"
+        },
+        {
+          "slot": "psu",
+          "model": "CP-9020270-UK",
+          "retailer": "Corsair",
+          "observedItemPence": 13999,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Free shipping advertised; no combined checkout quote",
+          "url": "https://www.corsair.com/uk/en/p/psu/CP-9020270-UK/rmx-series-rm850x-fully-modular-power-supply-uk-cp-9020270-uk",
+          "limitations": "Phase 5D, 21 October"
+        },
+        {
+          "slot": "cooler",
+          "model": "ACFRE00121A",
+          "retailer": "Scan",
+          "observedItemPence": 1999,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Basket quote incomplete",
+          "url": "https://www.scan.co.uk/products/arctic-freezer-36-cpu-air-cooler-2x120mm-p12-fans-aluminium-fins-copper-heatpipes-lga1700-1851-am4-5",
+          "limitations": "Phase 5D, 21 October"
+        },
+        {
+          "slot": "case",
+          "model": "CC-H61FB-01",
+          "retailer": "Scan",
+          "observedItemPence": 8498,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "\u00a35.48 advertised; 23 October displayed",
+          "url": "https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx",
+          "limitations": "22 October page observation"
+        }
+      ]
+    },
+    "High-End": {
+      "deliveredTotalPence": null,
+      "purchasingApproved": false,
+      "observations": [
+        {
+          "slot": "cpu",
+          "model": "100-100001084WOF",
+          "retailer": "Scan",
+          "observedItemPence": 39998,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "\u00a35.48 advertised; 23 October displayed",
+          "url": "https://www.scan.co.uk/products/amd-ryzen-7-9800x3d-am5-zen-5-8-core-16-threads-47ghz-52ghz-turbo-104mb-cache-pcie-50-120w-cpu-retai",
+          "limitations": "Phase 5E 22 October observation; category/search offers differ, confirm exact product checkout"
+        },
+        {
+          "slot": "gpu",
+          "model": "RX9070XT 16G-A",
+          "retailer": "Overclockers UK",
+          "observedItemPence": 79999,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Basket delivery not verified",
+          "url": "https://www.overclockers.co.uk/powercolor-radeon-rx-9070-xt-reaper-16gb-gddr6-pci-express-graphics-card/GRA-PWC-04017.html",
+          "limitations": "Phase 5D, 21 October"
+        },
+        {
+          "slot": "motherboard",
+          "model": "B850M GAMING PLUS WIFI6E",
+          "retailer": "Overclockers UK",
+          "observedItemPence": 12995,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Basket delivery not verified",
+          "url": "https://www.overclockers.co.uk/msi-b850m-gaming-plus-wifi6e-amd-am5-b850-ddr5-micro-atx-motherboard/MOT-MSI-05943.html",
+          "limitations": "Phase 5D, 21 October"
+        },
+        {
+          "slot": "ram",
+          "model": "KD5AGU880-60B280L",
+          "retailer": "Overclockers UK",
+          "observedItemPence": 39995,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Basket delivery not verified",
+          "url": "https://www.overclockers.co.uk/klevv-fit-v-expo-32gb-2x16gb-6000mhz-c28-ddr5-dual-channel-kit-black/MEM-KLV-07037.html",
+          "limitations": "Phase 5D, 21 October; material value concern"
+        },
+        {
+          "slot": "ssd",
+          "model": "WDS200T5B0E-00CPE0",
+          "retailer": "Overclockers UK",
+          "observedItemPence": null,
+          "observedStock": "unconfirmed",
+          "deliveryEvidence": "Unverified",
+          "url": "https://www.overclockers.co.uk/wd-blue-sn5100-2tb-ssd-nvme-m.2-2280-pcie-4.0-solid-state-drive/STO-WDC-06214.html",
+          "limitations": "22 October: exact page available, current price/stock not retrievable; aggregator \u00a3249.95 excluded"
+        },
+        {
+          "slot": "psu",
+          "model": "CP-9020270-UK",
+          "retailer": "Corsair",
+          "observedItemPence": 13999,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "Free shipping advertised; no combined checkout quote",
+          "url": "https://www.corsair.com/uk/en/p/psu/CP-9020270-UK/rmx-series-rm850x-fully-modular-power-supply-uk-cp-9020270-uk",
+          "limitations": "Phase 5D, 21 October"
+        },
+        {
+          "slot": "cooler",
+          "model": "PA120 SE 1700",
+          "retailer": "Overclockers UK",
+          "observedItemPence": 2999,
+          "observedStock": "preorder",
+          "deliveryEvidence": "No qualified dispatch date",
+          "url": "https://www.overclockers.co.uk/thermalright-peerless-assassin-120-se-cpu-cooler-120mm/COO-TLR-02665.html",
+          "limitations": "22 October: preorder; AWD-IT original cooler also out of stock. Not a buying offer"
+        },
+        {
+          "slot": "case",
+          "model": "CC-H61FB-01",
+          "retailer": "Scan",
+          "observedItemPence": 8498,
+          "observedStock": "in_stock",
+          "deliveryEvidence": "\u00a35.48 advertised; 23 October displayed",
+          "url": "https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx",
+          "limitations": "22 October page observation"
+        }
+      ]
+    }
+  }
+}

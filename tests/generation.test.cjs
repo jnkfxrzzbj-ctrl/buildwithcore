@@ -17,8 +17,8 @@ const data = JSON.parse(source);
 // independent PR1 fingerprint. Added snapshots/registry do not weaken this lock.
 function legacyProjection(d) {
  const r=d.performanceRevisions['performance-1.1-approved'];
- const omitNew=o=>Object.fromEntries(Object.entries(o).filter(([k])=>!['asus9070xtprimeoc','msib850mwifi6e','rm850x2024uk'].includes(k)));
- const guides=Object.fromEntries(Object.entries(d.guideVariants).filter(([,v])=>!['asus9070xtprimeoc','msib850mwifi6e','rm850x2024uk'].includes(v.componentId)));
+ const omitNew=o=>Object.fromEntries(Object.entries(o).filter(([k])=>!['asus9070xtprimeoc','msib850mwifi6e','rm850x2024uk','reaper9070xt','sn7100_1tb','freezer36standard'].includes(k)));
+ const guides=Object.fromEntries(Object.entries(d.guideVariants).filter(([,v])=>!['asus9070xtprimeoc','msib850mwifi6e','rm850x2024uk','reaper9070xt','sn7100_1tb','freezer36standard'].includes(v.componentId)));
  const configs=Object.fromEntries(Object.entries(d.guideConfigurations).filter(([,v])=>v.buildRevision===r.build.revision).map(([id,c])=>[id,Object.fromEntries(Object.entries(c).filter(([k])=>!['compatibilityReviewed','powerPlan','hardwareSnapshot'].includes(k)))]));
  return {schemaVersion:1,release:d.release,decisions:d.decisions,builds:{performance:r.build},pricingPolicy:d.pricingPolicy,retailers:d.retailers,components:omitNew(d.components),offers:d.offers,selectionState:r.selectionState,guideVariants:guides,guideConfigurations:configs};
 }

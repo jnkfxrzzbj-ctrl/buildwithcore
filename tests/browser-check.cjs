@@ -25,7 +25,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
   const amazon=cpu.getByRole('link',{name:'Check price at Amazon ↗'});
   assert.equal(await amazon.count(),1);assert.equal(await amazon.getAttribute('href'),'https://www.amazon.co.uk/dp/B0D6NN6TM7?tag=buildwithcore-21');assert.equal(await amazon.getAttribute('rel'),'sponsored noopener noreferrer');assert.equal(await amazon.getAttribute('target'),'_blank');checks+=4;
   // Inspect each selected part, including every newly verified preferred destination.
-  const preferred={cpu:'ryzen9600x',gpu:'asus9070xtprimeoc',motherboard:'msib850mwifi6e',ram:'fitv28',ssd:'sn5100',psu:'rm850x2024uk',cooler:'pa120se',case:'h6flow'};
+  const preferred={cpu:'ryzen9600x',gpu:'reaper9070xt',motherboard:'msib850mwifi6e',ram:'fitv28',ssd:'sn7100_1tb',psu:'rm850x2024uk',cooler:'freezer36standard',case:'h6flow'};
   for(const [slot,id] of Object.entries(preferred)){
    const links=page.locator('#part-'+slot+' a[href*="amazon.co.uk"]');
    assert.equal(await links.count(),expected[id]?1:0);checks++;
@@ -35,7 +35,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
     assert.equal(await links.getAttribute('target'),'_blank');checks+=3;
    }
   }
-  assert.equal(await page.locator('a[href*="amazon.co.uk"]').count(),4);checks++;
+  assert.equal(await page.locator('a[href*="amazon.co.uk"]').count(),3);checks++;
   assert.equal(await cpu.getByRole('link',{name:'Reference retailer listing ↗'}).count(),1);assert.equal(await cpu.getByRole('link',{name:'Product source 1 ↗'}).count(),1);checks+=2;
   assert.match(await page.locator('[data-core="panel"]').innerText(),/HOLD/);checks++;
   assert.equal(await page.locator('.core-price-unchecked').count(),8);checks++;
@@ -120,7 +120,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
     for(const node of [link,summary]){assert.match(await node.innerText(),/Configuration C · HOLD — buying criteria awaiting approval/);checks++;}
     assert.ok(await summary.isVisible());
     assert.ok(await summary.evaluate(e=>{const r=e.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight;}));checks+=2;
-   }else{assert.equal(await summary.innerText(),id);checks++;}
+   }else if(id.startsWith('performance-1.3-b')){assert.match(await summary.innerText(),/Option B · HOLD/);checks++;}else{assert.equal(await summary.innerText(),id);checks++;}
    await summary.focus();await p.keyboard.press('Enter');
    assert.equal(await entry.evaluate(e=>e.open),true);assert.equal(await parts.locator(':scope>li').count(),8);checks+=2;
    for(const s of cfg.hardwareSnapshot){assert.ok((await parts.innerText()).includes(s.component.manufacturer+' '+s.component.name));checks++;}
@@ -174,6 +174,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
     await region.evaluate(e=>{e.scrollLeft=e.scrollWidth;});
     assert.ok(await p.locator('thead th').last().evaluate(e=>{const r=e.getBoundingClientRect();return r.right<=innerWidth&&r.left>=0;}));checks++;
    }
+   if(['core-starter.html','core-high-end.html'].includes(file)){const tier=file==='core-starter.html'?'Starter':'High-End';assert.equal(await p.locator('article.part').count(),8);checks++;for(const part of require('../core-data.json').launchBuilds[tier].parts){assert.ok((await p.locator('main').innerText()).includes(part.manufacturerModel));checks++;}assert.match(await p.locator('.public-hold').innerText(),/HOLD/);checks++;}
    if(file==='core-performance.html'){
     assert.match(await p.locator('[data-core="panel"]').innerText(),/HOLD/);checks++;
     assert.equal(await p.locator('.core-part .core-mpn').count(),8);checks++;
@@ -186,8 +187,8 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    assert.deepEqual(errors,[],file);checks++;p.off('pageerror',onError);
   }
   await p.goto(origin+'/guides.html');await p.getByRole('link',{name:'Explore Performance hardware notes'}).click();
-  if(javaScriptEnabled){assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);checks++;}
-  else {assert.match(await p.locator('.core-noscript').innerText(),/exact configuration index/);checks++;await p.locator('.core-noscript a').click();assert.equal(await p.locator('.core-saved-configuration').count(),9);checks++;for(const section of await p.locator('.core-saved-configuration').all()){await section.locator(':scope>summary').click();assert.equal(await section.locator('.core-guide-parts>li').count(),8);checks++;}}
+  if(javaScriptEnabled){await p.locator('[data-core="guide"] .core-guide-parts>li').first().waitFor({state:'attached',timeout:10000});assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);checks++;}
+  else {assert.match(await p.locator('.core-noscript').innerText(),/exact configuration index/);checks++;await p.locator('.core-noscript a').click();assert.equal(await p.locator('.core-saved-configuration').count(),10);checks++;for(const section of await p.locator('.core-saved-configuration').all()){await section.locator(':scope>summary').click();assert.equal(await section.locator('.core-guide-parts>li').count(),8);checks++;}}
   if(javaScriptEnabled){
    for(const id of ['', '?configuration=unknown','?configuration=__proto__']){
     await p.goto(origin+'/core-performance-guide.html'+id);
@@ -197,7 +198,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    // C must stay on HOLD with a complete, fresh, artificially cheap fixture.
    await p.goto(origin+'/core-performance.html');
    await p.evaluate(()=>{
-    const r=CORE_DATA.performanceRevisions['performance-1.2-c'],template=CORE_DATA.offers[0];
+    CORE_DATA.currentPerformanceRevision='performance-1.2-c';const r=CORE_DATA.performanceRevisions['performance-1.2-c'],template=CORE_DATA.offers[0];
     CORE_DATA.offers=r.build.slots.map(s=>({...template,id:'test-'+s.id,componentId:s.preferredId,checkedAt:new Date().toISOString(),stock:'in_stock',dispatchWorkingDays:1,identityVerified:true,sellerIsRetailer:true,condition:'new',currency:'GBP',vatIncluded:true,deliveryPence:0,itemPence:100}));
     document.dispatchEvent(new Event('visibilitychange'));
    });

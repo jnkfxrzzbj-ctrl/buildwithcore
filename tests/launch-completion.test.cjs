@@ -7,6 +7,6 @@ test('all three guide routes reach usable assembly and OS guidance without JavaS
 });
 test('public placeholders and unsupported budget anchors are removed without changing C',()=>{
  for(const f of fs.readdirSync('.').filter(f=>f.endsWith('.html')))assert.doesNotMatch(fs.readFileSync(f,'utf8'),/\[ADD YOUR|>EARLY ACCESS</);
- for(const t of ['starter','high-end']){const s=fs.readFileSync('core-'+t+'.html','utf8');assert.match(s,/UNDER REVIEW/);assert.doesNotMatch(s,/Earlier budget estimate|~£|Watch pricing/);}
- const d=require('../core-data.json');assert.equal(Object.keys(d.guideConfigurations).length,9);assert.equal(d.currentPerformanceRevision,'performance-1.2-c');assert.equal(require('../assets/core-engine.js').derive(d,'2026-10-22T12:00:00Z').state,'HOLD');
+ for(const t of ['starter','high-end']){const s=fs.readFileSync('core-'+t+'.html','utf8');assert.match(s,/HOLD/);assert.doesNotMatch(s,/Earlier budget estimate|~£|Watch pricing/);}
+ const d=require('../core-data.json');assert.equal(Object.keys(d.guideConfigurations).length,10);assert.equal(d.currentPerformanceRevision,'performance-1.3-b');assert.equal(require('../assets/core-engine.js').derive(d,'2026-10-22T12:00:00Z').state,'HOLD');
 });

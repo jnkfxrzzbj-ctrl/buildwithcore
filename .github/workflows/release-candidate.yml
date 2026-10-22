@@ -1,6 +1,11 @@
 name: CORE release candidate (no deployment)
 on:
   workflow_dispatch:
+    inputs:
+      preview_origin:
+        description: 'Exact HTTPS URL of the freshly deployed isolated CORE preview; required to run hosted acceptance'
+        required: false
+        type: string
   pull_request:
     paths:
       - '.github/workflows/release-candidate.yml'
@@ -44,13 +49,25 @@ jobs:
           git rev-parse HEAD > "$RUNNER_TEMP/core-release/source-sha.txt"
           cd "$RUNNER_TEMP/core-release"
           sha256sum public.tar.gz > archive.sha256
-      - name: Read-only acceptance of existing isolated preview
+      - name: Require explicit preview for manual hosted acceptance
+        if: github.event_name == 'workflow_dispatch'
         env:
-          CORE_PAGES_ORIGIN: https://c06cc7c7.core-preview-test.pages.dev
+          PREVIEW_ORIGIN: ${{ inputs.preview_origin }}
+        run: |
+          if [ -z "$PREVIEW_ORIGIN" ]; then
+            echo 'A freshly deployed isolated preview URL is required for hosted acceptance.' >&2
+            exit 1
+          fi
+      - name: Read-only acceptance of explicitly selected isolated preview
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          CORE_PAGES_ORIGIN: ${{ inputs.preview_origin }}
           CORE_PUBLIC_DIR: ${{ runner.temp }}/core-public
         run: |
           node tests/pages-routing-check.cjs
           node tests/hosted-browser-check.cjs
+      # Pull requests verify the complete local package and browser behaviour.
+      # Hosted byte parity remains mandatory for manually approved release acceptance.
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: core-release-${{ github.sha }}

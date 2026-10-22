@@ -124,7 +124,7 @@ function checkedConfiguration(d,id){
  const p=c.powerPlan;
  if(!p||p.reviewed!==true||p.gpuId!==c.components.gpu||p.psuId!==c.components.psu)return false;
  // Exact documented cable plans, not a wattage-based compatibility solver.
- const plans={gigabyte9070:['rm750x',2],pulse9070:['rm750x',2],asus9070xtprimeoc:['rm850x2024uk',3]};
+ const plans={gigabyte9070:['rm750x',2],pulse9070:['rm750x',2],asus9070xtprimeoc:['rm850x2024uk',3],reaper9070xt:['rm850x2024uk',2]};
  const plan=plans[p.gpuId];if(!plan||p.psuId!==plan[0]||p.separatePcieLeads!==plan[1])return false;
  return slots.every((s,i)=>{
   const id=c.components[s.id],component=d.components?.[id],v=d.guideVariants?.[c.guideVariantIds[s.id]],snap=c.hardwareSnapshot[i];
