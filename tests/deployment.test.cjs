@@ -22,7 +22,7 @@ test('package contains exactly 24 approved public files with source bytes, modes
  }
  // Approved Contact page wording changes the reviewed public fingerprint.
  // Other packaged files remain unchanged in this focused PR.
- assert.equal(hash.digest('hex'),'b5b17240878130ae65e9f427593fa47dcbd9fc6dec6c2e7015784f28bc4b53bb');
+ assert.equal(hash.digest('hex'),'18da940166edf81ba8ede933fb7c9a470df3dc0b29171cd2ebefd62e08b28560');
  for(const name of ['core-data.json','scripts','tests','.github','.git','.env','dist'])assert.equal(fs.existsSync(path.join(a.directory,name)),false);
 });
 test('source-only secrets, research, private feeds and unrelated development files are never copied',t=>{
