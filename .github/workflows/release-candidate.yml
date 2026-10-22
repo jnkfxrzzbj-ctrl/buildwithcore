@@ -1,6 +1,11 @@
 name: CORE release candidate (no deployment)
 on:
   workflow_dispatch:
+    inputs:
+      preview_origin:
+        description: 'Exact HTTPS URL of a freshly deployed isolated CORE preview (leave blank only when verifying the historical Phase 3D baseline)'
+        required: false
+        type: string
   pull_request:
     paths:
       - '.github/workflows/release-candidate.yml'
@@ -46,7 +51,7 @@ jobs:
           sha256sum public.tar.gz > archive.sha256
       - name: Read-only acceptance of existing isolated preview
         env:
-          CORE_PAGES_ORIGIN: https://c06cc7c7.core-preview-test.pages.dev
+          CORE_PAGES_ORIGIN: ${{ inputs.preview_origin || 'https://c06cc7c7.core-preview-test.pages.dev' }}
           CORE_PUBLIC_DIR: ${{ runner.temp }}/core-public
         run: |
           node tests/pages-routing-check.cjs
