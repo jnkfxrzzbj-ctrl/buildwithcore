@@ -22,3 +22,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex="0"]:focus-
 .core-nav .core-links a:focus-visible{outline:2px solid #35D2FF;outline-offset:3px}.core-part-price .core-reference-link{display:inline-flex;align-items:center;min-height:44px;color:#9AEBFF;text-decoration:underline;font-size:12px;line-height:1.5;margin-top:10px}
 
 @media(max-width:600px){.public-info h1{font-size:clamp(30px,8vw,40px)}}
+
+/* Phase 5E: readable text-first assembly checklist. */
+.core-assembly-steps{padding-left:1.5rem}.core-assembly-steps>li{padding:0 0 1rem .4rem}.core-assembly-steps h3{font-size:1.2rem;line-height:1.4}.public-info a{text-decoration:underline;text-underline-offset:.18em}.public-info p,.public-info li{overflow-wrap:anywhere}#assembly,#windows,#care{scroll-margin-top:100px}
