@@ -20,12 +20,12 @@ test('package contains exactly 24 approved public files with source bytes, modes
  for(const name of expected){const bytes=fs.readFileSync(path.join(a.directory,name));assert.deepEqual(bytes,fs.readFileSync(path.join(root,name)));if(!['assets/core-view.js','core-performance-guide.html'].includes(name)){hash.update(name+'\0');hash.update(bytes);hash.update('\0');}
   for(const directory of [a.directory,b.directory]){const s=fs.statSync(path.join(directory,name));assert.equal(s.nlink,1);assert.equal(s.mode&0o777,0o644);assert.equal(s.mtimeMs,946684800000);}
  }
- // Phase 5 explicitly reviews five editorial HTML changes; see phase-5-launch-readiness.md.
- // The other public bytes and the 24-file allowlist remain unchanged.
+ // Phase 5E reviews public copy/checklist changes; see phase-5e-launch-completion.md.
+ // The engine, generated data, affiliates, historical snapshots and 24-file allowlist remain unchanged.
  // This fixed digest must not be regenerated without reviewing the public diff.
- assert.equal(hash.digest('hex'),'7087d9ee9653a1f595ca44d5999d356ac363be38702838c66e965354759bf957');
+ assert.equal(hash.digest('hex'),'4a1ed0fc5c64e7be64a13b0fc6aa68a04b84159db8a1ef5d4d74932cd5f06f02');
  const verified=require('../scripts/verify-public.cjs').verify(a.directory);
- assert.equal(verified.fingerprint,'9d56efea73367b2865db759366202e519b3f2a1d536837889ac4d4fed2605d97');
+ assert.equal(verified.fingerprint,'8f4d98ada692b95a8175f7ccb30ce8f325f28454ed4a0293f029624e9d9e219e');
  console.log('Phase 5 verified public package:',verified.count,verified.fingerprint);
  for(const name of ['core-data.json','scripts','tests','.github','.git','.env','dist'])assert.equal(fs.existsSync(path.join(a.directory,name)),false);
 });
