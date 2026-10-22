@@ -20,10 +20,9 @@ test('package contains exactly 24 approved public files with source bytes, modes
  for(const name of expected){const bytes=fs.readFileSync(path.join(a.directory,name));assert.deepEqual(bytes,fs.readFileSync(path.join(root,name)));if(!['assets/core-view.js','core-performance-guide.html'].includes(name)){hash.update(name+'\0');hash.update(bytes);hash.update('\0');}
   for(const directory of [a.directory,b.directory]){const s=fs.statSync(path.join(directory,name));assert.equal(s.nlink,1);assert.equal(s.mode&0o777,0o644);assert.equal(s.mtimeMs,946684800000);}
  }
- // These 22 files remain byte-identical to main 25b840d. The reviewed no-JS
- // correction changes only core-view.js and its generated guide index.
- // Do not silently rebaseline unrelated files.
- assert.equal(hash.digest('hex'),'54ba40d7d90580e03072378b8cb4c929a781cfd0301398b953f227d79acc36fa');
+ // Approved Contact page wording changes the reviewed public fingerprint.
+ // Other packaged files remain unchanged in this focused PR.
+ assert.equal(hash.digest('hex'),'b5b17240878130ae65e9f427593fa47dcbd9fc6dec6c2e7015784f28bc4b53bb');
  for(const name of ['core-data.json','scripts','tests','.github','.git','.env','dist'])assert.equal(fs.existsSync(path.join(a.directory,name)),false);
 });
 test('source-only secrets, research, private feeds and unrelated development files are never copied',t=>{
