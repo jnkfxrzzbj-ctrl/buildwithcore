@@ -224,10 +224,10 @@
           "model": "WDS200T5B0E-00CPE0",
           "retailer": "Overclockers UK",
           "observedItemPence": null,
-          "observedStock": "unconfirmed",
+          "observedStock": "no_longer_available",
           "deliveryEvidence": "Unverified",
           "url": "https://www.overclockers.co.uk/wd-blue-sn5100-2tb-ssd-nvme-m.2-2280-pcie-4.0-solid-state-drive/STO-WDC-06214.html",
-          "limitations": "22 October: exact page available, current price/stock not retrievable; aggregator \u00a3249.95 excluded"
+          "limitations": "22 October live browser: retailer explicitly says product is no longer available. Aggregator \u00a3249.95 excluded. Scan SN7100 2TB alternative also marked end-of-life; no substitution made."
         },
         {
           "slot": "psu",
@@ -261,5 +261,18 @@
         }
       ]
     }
-  }
+  },
+  "boundedAlternatives": [
+    {
+      "model": "WDS200T4X0E-00CJA0",
+      "url": "https://www.scan.co.uk/products/2tb-wd-black-sn7100-m2-2280-pcie-40-x4-nvme-ssd-7250mb-s-read-6900mb-s-write-1000k-1400k-iops",
+      "result": "End of life at Scan, observed 22 October; not evidence of global unavailability"
+    },
+    {
+      "model": "Peerless Assassin 120 SE Extreme",
+      "ean": "0814256022019",
+      "url": "https://www.overclockers.co.uk/thermalright-peerless-assassin-120-se-extreme-cpu-cooler-120mm/COO-TLR-06823.html",
+      "result": "\u00a349.99 in-stock text in cached page with 20 October delivery date. Different cooler revision, not qualified or substituted."
+    }
+  ]
 }
