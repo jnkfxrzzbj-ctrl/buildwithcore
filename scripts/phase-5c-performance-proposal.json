@@ -1,0 +1,127 @@
+{
+  "schema": "core-internal-research-proposal-1",
+  "researchOnly": true,
+  "baselineMain": "a6bf03b3b94df70758c1c9dd943d1af7358eb108",
+  "configurationCStatus": "HOLD",
+  "purchasingApproved": false,
+  "observationRetrievedAt": "2026-10-21T15:01:58.280Z",
+  "verifiedAt": null,
+  "currency": "GBP",
+  "vatIncluded": true,
+  "deliveryRegion": "UK mainland; postcode not verified",
+  "parts": [
+    {
+      "slot": "cpu",
+      "name": "AMD Ryzen 5 9600X",
+      "manufacturerModel": "100-100001405WOF",
+      "seller": "Scan",
+      "itemPricePence": 18998,
+      "advertisedSingleItemDeliveryPence": 548,
+      "productUrl": "https://www.scan.co.uk/products/amd-ryzen-5-9600x-am5-zen-5-6-core-12-thread-39ghz-54ghz-turbo-32mb-cache-pcie-50-65w-cpu-retail-box",
+      "availabilityObserved": "in_stock",
+      "verifiedAt": null
+    },
+    {
+      "slot": "gpu",
+      "name": "PowerColor Reaper RX 9070 XT 16GB",
+      "manufacturerModel": "RX9070XT 16G-A",
+      "seller": "Overclockers UK",
+      "itemPricePence": 79999,
+      "advertisedSingleItemDeliveryPence": null,
+      "productUrl": "https://www.overclockers.co.uk/powercolor-radeon-rx-9070-xt-reaper-16gb-gddr6-pci-express-graphics-card/GRA-PWC-04017.html",
+      "availabilityObserved": "in_stock",
+      "verifiedAt": null
+    },
+    {
+      "slot": "motherboard",
+      "name": "MSI B850M GAMING PLUS WIFI6E",
+      "manufacturerModel": "B850M GAMING PLUS WIFI6E",
+      "seller": "Overclockers UK",
+      "itemPricePence": 12995,
+      "advertisedSingleItemDeliveryPence": null,
+      "productUrl": "https://www.overclockers.co.uk/msi-b850m-gaming-plus-wifi6e-amd-am5-b850-ddr5-micro-atx-motherboard/MOT-MSI-05943.html",
+      "availabilityObserved": "in_stock",
+      "verifiedAt": null
+    },
+    {
+      "slot": "ram",
+      "name": "Klevv FIT V 32GB (2×16GB) DDR5-6000 CL28",
+      "manufacturerModel": "KD5AGU880-60B280L",
+      "seller": "Overclockers UK",
+      "itemPricePence": 39995,
+      "advertisedSingleItemDeliveryPence": null,
+      "productUrl": "https://www.overclockers.co.uk/klevv-fit-v-expo-32gb-2x16gb-6000mhz-c28-ddr5-dual-channel-kit-black/MEM-KLV-07037.html",
+      "availabilityObserved": "in_stock",
+      "verifiedAt": null
+    },
+    {
+      "slot": "ssd",
+      "name": "WD Black SN7100 1TB",
+      "manufacturerModel": "WDS100T4X0E-00CJA0",
+      "seller": "Scan",
+      "itemPricePence": 15998,
+      "advertisedSingleItemDeliveryPence": 0,
+      "productUrl": "https://www.scan.co.uk/products/1tb-wd-black-sn7100-m2-2280-pcie-40-x4-nvme-ssd-7250mb-s-read-6900mb-s-write-1000k-1400k-iops",
+      "availabilityObserved": "in_stock",
+      "verifiedAt": null
+    },
+    {
+      "slot": "psu",
+      "name": "Corsair RM850e (2025), UK",
+      "manufacturerModel": "CP-9020296-UK",
+      "seller": "Corsair",
+      "itemPricePence": 11990,
+      "advertisedSingleItemDeliveryPence": 0,
+      "productUrl": "https://www.corsair.com/uk/en/p/psu/cp-9020296-uk/rme-series-rm850e-fully-modular-low-noise-atx-power-supply-uk-cp-9020296-uk",
+      "availabilityObserved": "in_stock",
+      "verifiedAt": null
+    },
+    {
+      "slot": "cooler",
+      "name": "Arctic Freezer 36 black",
+      "manufacturerModel": "ACFRE00121A",
+      "seller": "Scan",
+      "itemPricePence": 1999,
+      "advertisedSingleItemDeliveryPence": 548,
+      "productUrl": "https://www.scan.co.uk/products/arctic-freezer-36-cpu-air-cooler-2x120mm-p12-fans-aluminium-fins-copper-heatpipes-lga1700-1851-am4-5",
+      "availabilityObserved": "in_stock",
+      "verifiedAt": null
+    },
+    {
+      "slot": "case",
+      "name": "NZXT H6 Flow black (2023)",
+      "manufacturerModel": "CC-H61FB-01",
+      "seller": "Scan",
+      "itemPricePence": 8498,
+      "advertisedSingleItemDeliveryPence": 548,
+      "productUrl": "https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx",
+      "availabilityObserved": "in_stock",
+      "verifiedAt": null
+    }
+  ],
+  "itemSubtotalPence": 190472,
+  "completeDeliveredTotalPence": null,
+  "windowsIncluded": false,
+  "proposedGoodBuyDeliveredPence": 175000,
+  "proposedAcceptableMaximumDeliveredPence": 185000,
+  "policyApproved": false,
+  "blockingEvidence": [
+    "Complete consolidated delivery quote",
+    "Exact minimum and shipped CPU BIOS support",
+    "Final seller dispatch confirmation",
+    "Fresh full-basket evidence and explicit owner approval"
+  ],
+  "alternatives": {
+    "rx9070OnlyItemSubtotalPence": 174972,
+    "rx9070AndNv3ItemSubtotalPence": 172311
+  },
+  "prebuilt": {
+    "seller": "AWD-IT",
+    "sku": "C10-FD0-0AB-P",
+    "advertisedPricePence": 184999,
+    "advertisedMainlandDeliveryPence": 0,
+    "postcodeVerified": false,
+    "windowsIncluded": true,
+    "exactGpuVariantKnown": false
+  }
+}
