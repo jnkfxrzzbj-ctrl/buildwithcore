@@ -1,0 +1,312 @@
+{
+  "observedDate": "2026-10-23",
+  "baseline": "35e9b2d2e20609c0c11e4cdf3d23d68125b12bc9",
+  "method": "GET; TLS validation enabled; redirect history retained",
+  "observations": [
+    {
+      "url": "https://buildwithcore.co.uk/404.html",
+      "finalUrl": "https://buildwithcore.co.uk/404.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 3699,
+      "sha256": "cbe35a6e4882522540a8214c7fdad7300aaf724b5e7537422db2759051edd2e9",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/about.html",
+      "finalUrl": "https://buildwithcore.co.uk/about.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 18430,
+      "sha256": "65015ded92fdbe9491336058a015787b1a1fb0f5423aaab2c0a6ac5da3753e66",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/affiliate-disclosure.html",
+      "finalUrl": "https://buildwithcore.co.uk/affiliate-disclosure.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 18088,
+      "sha256": "d36c7d15491c8f1d18c61437f46ab40ef4e0bbf9a024e131858fa6153bd2b0c5",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/builds.html",
+      "finalUrl": "https://buildwithcore.co.uk/builds.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 14327,
+      "sha256": "e90cc075b2ec9aa98330d6c5e13c1f9b980db2f392d33111918eba288da0eeb8",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/contact.html",
+      "finalUrl": "https://buildwithcore.co.uk/contact.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 16755,
+      "sha256": "fe386a6b7c3577cdd4504ddf6ce36dd52855ae470b3da10f1e86d524b2e0bc6a",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/core-high-end-guide.html",
+      "finalUrl": "https://buildwithcore.co.uk/core-high-end-guide.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 10974,
+      "sha256": "943835f79d63e829343dce2c73be2b8cbff66efc5c78923dd662f28869028366",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/core-high-end.html",
+      "finalUrl": "https://buildwithcore.co.uk/core-high-end.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 18231,
+      "sha256": "2f5a3b61bee9c3882c6c623c63fed9252d6948d7a4514fe9a5f6573dd8416fa7",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/core-performance-guide.html",
+      "finalUrl": "https://buildwithcore.co.uk/core-performance-guide.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 44735,
+      "sha256": "18b0ad381b80bf7520dd27b94457b5e107c3f043757f0ba8fa813dcec69a813b",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/core-performance.html",
+      "finalUrl": "https://buildwithcore.co.uk/core-performance.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 30263,
+      "sha256": "a757fd0056fdbf28dd00f83b901031ece89f65afb53f304c2e77b79959d3169f",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/core-starter-guide.html",
+      "finalUrl": "https://buildwithcore.co.uk/core-starter-guide.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 10963,
+      "sha256": "e8e0ab584d6cd6519ba3fb643fe96dbcffd8508bc80941f2b792f7c9f299f62d",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/core-starter.html",
+      "finalUrl": "https://buildwithcore.co.uk/core-starter.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 18062,
+      "sha256": "9aa2103c293a00660b7e728f6949931d7592cddbdbf49f7e097085afd2e09e20",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/faq.html",
+      "finalUrl": "https://buildwithcore.co.uk/faq.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 14507,
+      "sha256": "c0e47fc63bad8c29e2c38d1d8cedd065f1751d181b4e06765ac61006377960df",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/guides.html",
+      "finalUrl": "https://buildwithcore.co.uk/guides.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 12406,
+      "sha256": "3ec65a6f790f02e38a937d0d5c3cacbac80480a386f71c019dc67d925439e673",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/",
+      "finalUrl": "https://buildwithcore.co.uk/",
+      "status": 200,
+      "redirects": [],
+      "bytes": 20496,
+      "sha256": "6a40f3b1cc925becf5739d274d52c92001b7d23e337b5112ad83f15bc0fc37be",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/privacy.html",
+      "finalUrl": "https://buildwithcore.co.uk/privacy.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 18422,
+      "sha256": "aa872fa2675adf7ddf1052d80fef9d7cb52c8de9381e8e8e71928d4c6e23a894",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/index.html",
+      "finalUrl": "https://buildwithcore.co.uk/index.html",
+      "status": 200,
+      "redirects": [],
+      "bytes": 20496,
+      "sha256": "6a40f3b1cc925becf5739d274d52c92001b7d23e337b5112ad83f15bc0fc37be",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/robots.txt",
+      "finalUrl": "https://buildwithcore.co.uk/robots.txt",
+      "status": 404,
+      "redirects": [],
+      "bytes": 3699,
+      "sha256": "cbe35a6e4882522540a8214c7fdad7300aaf724b5e7537422db2759051edd2e9",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/sitemap.xml",
+      "finalUrl": "https://buildwithcore.co.uk/sitemap.xml",
+      "status": 404,
+      "redirects": [],
+      "bytes": 3699,
+      "sha256": "cbe35a6e4882522540a8214c7fdad7300aaf724b5e7537422db2759051edd2e9",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/core-performance",
+      "finalUrl": "https://buildwithcore.co.uk/core-performance",
+      "status": 200,
+      "redirects": [],
+      "bytes": 30263,
+      "sha256": "a757fd0056fdbf28dd00f83b901031ece89f65afb53f304c2e77b79959d3169f",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/phase6a-missing-check",
+      "finalUrl": "https://buildwithcore.co.uk/phase6a-missing-check",
+      "status": 404,
+      "redirects": [],
+      "bytes": 3699,
+      "sha256": "cbe35a6e4882522540a8214c7fdad7300aaf724b5e7537422db2759051edd2e9",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/scripts/README.md",
+      "finalUrl": "https://buildwithcore.co.uk/scripts/README.md",
+      "status": 404,
+      "redirects": [],
+      "bytes": 3699,
+      "sha256": "cbe35a6e4882522540a8214c7fdad7300aaf724b5e7537422db2759051edd2e9",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/core-data.json",
+      "finalUrl": "https://buildwithcore.co.uk/core-data.json",
+      "status": 404,
+      "redirects": [],
+      "bytes": 3699,
+      "sha256": "cbe35a6e4882522540a8214c7fdad7300aaf724b5e7537422db2759051edd2e9",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": false
+    },
+    {
+      "url": "https://buildwithcore.co.uk/core-performance-guide.html?configuration=performance-1.2-c-asus9070xt-fitv28-sn5100",
+      "finalUrl": "https://buildwithcore.co.uk/core-performance-guide.html?configuration=performance-1.2-c-asus9070xt-fitv28-sn5100",
+      "status": 200,
+      "redirects": [],
+      "bytes": 44735,
+      "sha256": "18b0ad381b80bf7520dd27b94457b5e107c3f043757f0ba8fa813dcec69a813b",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "http://buildwithcore.co.uk/",
+      "finalUrl": "https://buildwithcore.co.uk/",
+      "status": 200,
+      "redirects": [
+        {
+          "status": 301,
+          "to": "https://buildwithcore.co.uk/"
+        }
+      ],
+      "bytes": 20496,
+      "sha256": "6a40f3b1cc925becf5739d274d52c92001b7d23e337b5112ad83f15bc0fc37be",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    },
+    {
+      "url": "https://www.buildwithcore.co.uk/",
+      "finalUrl": "https://buildwithcore.co.uk/",
+      "status": 200,
+      "redirects": [
+        {
+          "status": 301,
+          "to": "https://buildwithcore.co.uk/"
+        }
+      ],
+      "bytes": 20496,
+      "sha256": "6a40f3b1cc925becf5739d274d52c92001b7d23e337b5112ad83f15bc0fc37be",
+      "xRobotsTag": null,
+      "contentType": "text/html; charset=utf-8",
+      "matchesMain": true,
+      "analyticsMarker": false
+    }
+  ]
+}
