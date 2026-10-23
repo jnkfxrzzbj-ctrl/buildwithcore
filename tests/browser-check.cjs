@@ -167,6 +167,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    }else if(!javaScriptEnabled){
     for(const a of await p.locator('.core-links a').all()){assert.ok(await a.isVisible());checks++;}
    }
+   if(file==='index.html'){assert.ok(await p.locator('.hero .sub').evaluate(e=>{const r=e.getBoundingClientRect();const h=e.closest('.hero').getBoundingClientRect();return r.left>=h.left&&r.right<=h.right&&r.right<=innerWidth;}),'homepage introductory text clipped '+width);checks++;}
    if(file==='builds.html'){
     assert.equal(await p.locator('thead th').count(),4);checks++;
     assert.equal(await p.locator('tbody tr').count(),8);checks++;
