@@ -55,3 +55,21 @@ Approve separately before activation: Web Analytics/GSC and privacy changes; new
 7. Only then ask for explicit production approval.
 
 No PR closed, merged, retargeted or deployed by this plan.
+
+## Verified inherited work and preservation inventory (23 October)
+
+GitHub ancestry comparisons establish that #23 is a descendant of both #15 (`phase-5/launch-readiness-copy`, 13 commits behind #23 and zero divergent) and #19 (`phase-5e/three-build-completion`, 12 commits behind #23 and zero divergent). #23 also descends from current main. This proves commit inclusion, **not** editorial/visual acceptance or that later changes preserve every intended effect. No need to merge the stale #15/#19 branches independently. Their old descriptions recommending a linear merge order are superseded by this reconciliation.
+
+The independent research PR branches are diverged and the following files are **not present in the #23 main-diff file inventory**:
+
+| PR | Unique files to preserve/review | Disposition |
+|---|---|---|
+| #16 | `scripts/market-evidence.cjs`, `scripts/phase-5b-market-evidence.json`, `scripts/phase-5b-market-review.md`, `tests/market-evidence.test.cjs` | Historical market observations and optional repeatable evidence checks; keep as dated research, not live prices |
+| #17 | `scripts/phase-5c-buying-readiness.md`, `scripts/phase-5c-performance-proposal.json` | Preserve design alternatives/decision provenance; #23's final exact list takes precedence for proposed public parts |
+| #18 | `scripts/check-delivered-basket.cjs`, `scripts/phase-5d-delivered-baskets.md`, `scripts/phase-5d-performance-proposal.json`, `tests/delivered-basket.test.cjs` | High-value exact-identity/delivery freshness verifier and evidence; preserve tests before closing PR |
+
+The best route is a **new internal-only preservation PR** based on current main or the eventual consolidated branch, cherry-picking/reconciling these exact files and running the complete test suite. Do not merge the stale #16–18 branches into the public release wholesale. Audit for conflicting assumptions or stale links before promoting any tool into production. No preserved research observation is an approved live offer.
+
+**Verified #23 automated evidence:** GitHub Actions run `39850854385` at commit `8a6fbfdb...` recorded 2,762 source and 2,772 isolated-package browser checks, including HOLD and saved-configuration behaviour. This is a historical green run, not a claim that the latest #23 head or later #25/#26 heads have completed release acceptance. Physical tests, manual review and isolated hosted preview remain outstanding.
+
+**Release candidate recommendation:** #23 first, then #25, then #26, all owner-gated and with fresh checks; #24 independent internal-only candidate. Close #15/#19 only once their consolidated public work has been merged and verified, and #16–18 only after evidence is preserved and approved.
