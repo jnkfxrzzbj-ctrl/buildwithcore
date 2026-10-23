@@ -112,3 +112,9 @@ Final CI status confirmed 23 October: CORE checks [39850854385](https://github.c
 The website may be reviewed as a complete informational HOLD journey. It is not yet a certified three-build buying launch. November remains achievable if the specific blockers above close; no unconditional GO is justified today.
 
 Bounded final alternatives check: Scan marks exact SN7100 2TB WDS200T4X0E-00CJA0 end-of-life. The PA120 SE Extreme EAN 0814256022019 has a cached £49.99 listing with an old delivery date; it is a different revision, not a verified substitute. No global unavailability is claimed. Further shopping optimisation is deferred rather than using stale evidence as approval.
+
+## Consolidated release sequencing update — 23 October 2026
+
+PR #27 has now been squash-merged to `main` at `5a40a5c4267604503a647a16bc1929bdde09e848`, preserving ten internal Phase 5B–5D research/test files. As a result, #23 is one commit behind main, with no overlapping file paths between the preservation change and #23's public changes in the observed compare. GitHub ancestry confirms #23 already contains #15 and #19 (both are strict ancestors), so do **not** separately merge those stale branches. Treat #23 as the first consolidated public candidate, with #25 and #26 stacked afterward; #24 remains independent. Prior linear merge-order wording above is superseded by this section.
+
+Historical CI runs `39850854383` and `39850854385` both succeeded on implementation commit `8a6fbfdbb1730883adc1eebce1eecd7eae03bc1e`. These are not fresh CI on a reconciled #23 head. Reconcile with main, rerun all checks, review isolated hosted preview and obtain explicit owner approval before any public merge/deployment. All builds stay HOLD; physical fit and purchasing gates remain open.
