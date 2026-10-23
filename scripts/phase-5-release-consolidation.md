@@ -12,16 +12,20 @@ Date: 23 October 2026. Status: internal release planning; **no approval to merge
 
 Branch ancestry does not itself establish conflict-free mergeability after retargeting, or certify a release.
 
+## Reconciliation correction — branch ancestry and divergence
+
+GitHub comparison against current main shows PRs #15–19 are **8 commits behind main**, while #23–26 and #24 are 0 behind. #19 descends from #15; #23 descends from #19 and has integrated current main. Therefore **do not merge #15 and #19 individually as the default**. Use #23 as the consolidated public baseline, audit that it preserves their intended work, and close #15/#19 as superseded only after owner-approved integration and confirmation. Older #16–18 are independent/diverged research branches, not ancestors of #23; preserve their unique evidence and test utilities explicitly before closure.
+
 ## Disposition of open PRs
 
 | PR | Proposed disposition | Gate |
 |---|---|---|
-| #15 | Foundational merge candidate | Check current CI, public claims and diff, owner approves |
+| #15 | Supersede with #23 if all intended changes retained | Verify inherited public changes; do not merge stale branch |
 | #16 | Retain research, then close as superseded if no unique needed work | Check evidence and provenance against #23 |
 | #17 | Retain exact-hardware decision history, then close if superseded | Check alternatives and owner decisions against #23 |
 | #18 | Retain delivered-basket evidence and test utilities; close only after checking what #23 does not contain | Verify any independent scripts/tests worth preserving |
-| #19 | Merge after #15 | Retarget/recheck checks and diff |
-| #23 | Merge after #19 | All builds remain HOLD; check exact components, snapshots, tests, preview |
+| #19 | Supersede with #23 if all intended changes retained | #23 descends from #19; do not merge stale branch |
+| #23 | First consolidated public merge candidate | Check inherited #15/#19 changes, exact components, snapshots, tests and preview; owner approves |
 | #24 | Independent internal-only merge candidate | Verify CI, assumptions, reports and workbook parity; owner approves |
 | #25 | Merge after #23 | Update outdated PR description; visual/novice QA limitations explicit |
 | #26 | Merge after #25 | Latest targeted browser CI passed; manual/visual QA outstanding |
@@ -44,7 +48,7 @@ Approve separately before activation: Web Analytics/GSC and privacy changes; new
 
 1. Verify all open PR CI and base/head/diff metadata; reconcile unique #16–18 evidence and tests.
 2. Complete Starter diagram/manual verification and visual QA; do not represent conceptual SVGs as hardware photos.
-3. Prepare #15 and then #19 as owner-reviewed merges, with checks repeated after retargeting.
+3. Prepare #23 as the first owner-reviewed consolidated public merge candidate, checking inherited #15/#19 work; retire older PRs only after verifying their work is retained.
 4. Prepare #23, #25 and #26 in dependency order, preserving HOLD and saved configurations.
 5. Consider #24 separately for internal-only merge after checking CI; it should not block public UX work.
 6. Deploy to an isolated preview and complete owner acceptance before any live release.
