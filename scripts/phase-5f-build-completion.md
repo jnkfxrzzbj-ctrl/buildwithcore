@@ -66,7 +66,7 @@ Verified delivered total: **unknown**.
 | gpu | [Overclockers UK](https://www.overclockers.co.uk/powercolor-radeon-rx-9070-xt-reaper-16gb-gddr6-pci-express-graphics-card/GRA-PWC-04017.html) | £799.99 | in_stock | Basket delivery not verified. Phase 5D, 21 October |
 | motherboard | [Overclockers UK](https://www.overclockers.co.uk/msi-b850m-gaming-plus-wifi6e-amd-am5-b850-ddr5-micro-atx-motherboard/MOT-MSI-05943.html) | £129.95 | in_stock | Basket delivery not verified. Phase 5D, 21 October |
 | ram | [Overclockers UK](https://www.overclockers.co.uk/klevv-fit-v-expo-32gb-2x16gb-6000mhz-c28-ddr5-dual-channel-kit-black/MEM-KLV-07037.html) | £399.95 | in_stock | Basket delivery not verified. Phase 5D, 21 October; material value concern |
-| ssd | [Overclockers UK](https://www.overclockers.co.uk/wd-blue-sn5100-2tb-ssd-nvme-m.2-2280-pcie-4.0-solid-state-drive/STO-WDC-06214.html) | Unverified | unconfirmed | Unverified. 22 October: exact page available, current price/stock not retrievable; aggregator £249.95 excluded |
+| ssd | [Overclockers UK](https://www.overclockers.co.uk/wd-blue-sn5100-2tb-ssd-nvme-m.2-2280-pcie-4.0-solid-state-drive/STO-WDC-06214.html) | Unverified | no longer available | Unverified. 22 October: live browser confirms no longer available at this retailer; aggregator £249.95 excluded |
 | psu | [Corsair](https://www.corsair.com/uk/en/p/psu/CP-9020270-UK/rmx-series-rm850x-fully-modular-power-supply-uk-cp-9020270-uk) | £139.99 | in_stock | Free shipping advertised; no combined checkout quote. Phase 5D, 21 October |
 | cooler | [Overclockers UK](https://www.overclockers.co.uk/thermalright-peerless-assassin-120-se-cpu-cooler-120mm/COO-TLR-02665.html) | £29.99 | preorder | No qualified dispatch date. 22 October: preorder; AWD-IT original cooler also out of stock. Not a buying offer |
 | case | [Scan](https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx) | £84.98 | in_stock | £5.48 advertised; 23 October displayed. 22 October page observation |
@@ -97,14 +97,18 @@ Starter/High-End remain static pages within the original architecture. A source-
 Focused copy updates align homepage, comparison and guides with 1080p Starter, 1TB Performance and 9800X3D/2TB air-cooled High-End. Buying caveats remain visible. Main's approved contact email and tagline are preserved.
 
 ## Validation
+Final CI status confirmed 23 October: CORE checks [39850854385](https://github.com/jnkfxrzzbj-ctrl/buildwithcore/actions/runs/39850854385) and no-deployment release-candidate [39850854383](https://github.com/jnkfxrzzbj-ctrl/buildwithcore/actions/runs/39850854383) both passed for `8a6fbfdbb1730883adc1eebce1eecd7eae03bc1e`. This final report update does not change public bytes. Retail observations remain dated 22 October; no freshness timestamps were renewed.
+
 - 59 Node tests passed locally, including historical-data digest, new tuple/cabling rejection, HOLD under synthetic cheap/fresh offers, no-offer full specifications, static guide identity and package drift checks.
 - Deterministic data, Performance HTML and Starter/High-End HTML checks passed; `git diff --check` passed.
 - Public package: exact existing 24-file allowlist, no internal reports/JSON/tests; fingerprint `8edab4e85028119f01f5797ccc3102d68ec4ebacf107b5e84db50ab8d23bfc76`.
-- Local browser execution blocked by missing Chromium; official Playwright download returned a truncated archive. Browser CI result must be recorded on the draft before claiming mobile/keyboard/no-JS acceptance.
+- Local browser execution blocked by missing Chromium; official Playwright download returned a truncated archive. GitHub CORE checks run 39850854385 passed on commit `8a6fbfdbb1730883adc1eebce1eecd7eae03bc1e`: 2,762 source browser checks and 2,772 isolated-package checks. Covers 1440/390/320px, keyboard, JS/no-JS, navigation, saved configurations, affiliate disclosures and purchasing states. The first run exposed an ambiguous no-JS test locator; the corrected selector targets the exact configuration-index link. These are automated browser checks, not physical hardware tests.
 
 ## Remaining launch blockers — bounded list
-1. **Purchasing:** obtain fresh exact offers and complete delivered baskets; resolve Starter RAM freshness, High-End SSD price/stock and original cooler availability. Recheck Performance RAM value and agree actual buying bands. Preserve PR #18's delivered-evidence requirements before any later activation.
+1. **Purchasing:** obtain fresh exact offers and complete delivered baskets; resolve Starter RAM freshness, High-End SSD availability and original cooler availability. Recheck Performance RAM value and agree actual buying bands. Preserve PR #18's delivered-evidence requirements before any later activation.
 2. **Hardware acceptance:** physically verify High-End cooler fan/RAM/panel fit and adequate stock-load cooling, plus first-boot BIOS, fan and stability checks for each exact assembly. Do not replace these checks with an approval checkbox or claim tested performance.
-3. **Release acceptance:** successful browser CI for source and isolated package, then owner specification/content approval and separate merge/deploy decisions.
+3. **Release acceptance:** browser CI has passed for source and isolated package; owner specification/content approval and separate merge/deploy decisions remain. Hosted byte-parity acceptance must use an explicitly approved isolated preview at release time; production was not touched.
 
 The website may be reviewed as a complete informational HOLD journey. It is not yet a certified three-build buying launch. November remains achievable if the specific blockers above close; no unconditional GO is justified today.
+
+Bounded final alternatives check: Scan marks exact SN7100 2TB WDS200T4X0E-00CJA0 end-of-life. The PA120 SE Extreme EAN 0814256022019 has a cached £49.99 listing with an old delivery date; it is a different revision, not a verified substitute. No global unavailability is claimed. Further shopping optimisation is deferred rather than using stale evidence as approval.
