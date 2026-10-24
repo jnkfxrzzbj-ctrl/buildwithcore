@@ -187,6 +187,22 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    if(shots&&width!==320)await p.screenshot({path:path.join(shots,file.replace('.html','')+'-'+width+'-'+javaScriptEnabled+'.png'),fullPage:true});
    assert.deepEqual(errors,[],file);checks++;p.off('pageerror',onError);
   }
+  // Phase 5H: Starter-specific build-along is usable without JavaScript at every viewport.
+  await p.goto(origin+'/core-starter-guide.html#starter-walkthrough');
+  assert.equal(await p.getByRole('heading',{name:'Starter: follow the hardware, one stage at a time'}).count(),1);checks++;
+  assert.equal(await p.locator('#starter-walkthrough .starter-step').count(),6);checks++;
+  assert.equal(await p.locator('#starter-walkthrough .starter-step .stage-label').count(),6);checks++;
+  assert.equal(await p.locator('#starter-walkthrough .starter-step .stop').count(),6);checks++;
+  assert.equal(await p.locator('#starter-walkthrough svg[role="img"] title').count(),2);checks++;
+  assert.equal(await p.locator('#starter-walkthrough svg[role="img"] desc').count(),2);checks++;
+  assert.match(await p.locator('#starter-walkthrough').innerText(),/HOLD — do not buy parts yet/);checks++;
+  assert.match(await p.locator('#starter-walkthrough').innerText(),/not photographs, pinout maps or measured representations/);checks++;
+  assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Starter walkthrough '+width+' overflow');checks++;
+  const starterStepColumns=await p.locator('.starter-walkthrough').evaluate(e=>getComputedStyle(e).gridTemplateColumns.split(' ').length);
+  assert.equal(starterStepColumns,width<=700?1:2);checks++;
+  const starterManual=p.locator('#starter-walkthrough a[href*="msi.com/Motherboard/B550M-PRO-VDH-WIFI/support"]');
+  assert.equal(await starterManual.count(),1);checks++;
+  await starterManual.focus();assert.equal(await starterManual.evaluate(e=>e===document.activeElement),true);checks++;
   // Phase 5G: the beginner route must work at desktop and phone widths, with or without JS.
   await p.goto(origin+'/guides.html');
   assert.equal(await p.getByRole('heading',{name:'New to building? Start here.'}).count(),1);checks++;
