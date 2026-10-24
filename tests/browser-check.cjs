@@ -222,7 +222,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
   assert.equal(await p.getByRole('heading',{name:"Words you'll see during your build"}).count(),1);checks++;
   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'beginner guide '+width+' overflow');checks++;
   const assemblyJump=p.locator('.beginner-route a[href="#assembly"]');
-  await assemblyJump.focus();await p.keyboard.press('Enter');
+  await assemblyJump.focus();await Promise.all([p.waitForURL(url=>url.hash==='#assembly'),p.keyboard.press('Enter')]);
   assert.equal(new URL(p.url()).hash,'#assembly');checks++;
   assert.equal(await p.locator('#assembly').count(),1);checks++;
   await p.goto(origin+'/guides.html');await p.getByRole('link',{name:'Explore Performance hardware notes'}).click();
