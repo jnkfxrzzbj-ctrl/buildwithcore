@@ -23,8 +23,9 @@ test('package contains exactly 24 approved public files with source bytes, modes
  // Phase 5F reviews exact hardware and checklist integration; see phase-5f-build-completion.md.
  // Historical data has a separate PR19 digest lock; affiliates and 24-file allowlist remain unchanged.
  // Release acceptance: privacy contact sentence now matches the existing Contact page; homepage grid also prevents clipped introduction text at 320px.
+ // Phase 5G: reviewed public diff changes guides.html only; all other approved public files and safeguards are preserved.
  // This fixed digest must not be regenerated without reviewing the public diff.
- assert.equal(hash.digest('hex'),'107c26af5c202f188c2169a513cf03d262fcee9279f3d94ed734ae131e43827f');
+ assert.equal(hash.digest('hex'),'55299b1acc53e17680b1150fa23cab0216154644d01924d4e138b69ec1404a87');
  const verified=require('../scripts/verify-public.cjs').verify(a.directory);
  assert.equal(verified.fingerprint,'cd5d280e6966271077bf6e243e6d02cdccccb7d4e44b7875e90ba33c936551af');
  console.log('Phase 5 verified public package:',verified.count,verified.fingerprint);
