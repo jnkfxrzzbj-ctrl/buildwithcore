@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "release": "Performance digital proof • development prototype",
+  "release": "Performance digital proof \u2022 development prototype",
   "decisions": {
     "approvedOn": "2026-09-24",
-    "baseline": "CORE v16 — untouched source ZIP",
+    "baseline": "CORE v16 \u2014 untouched source ZIP",
     "status": "Owner-approved component update; prototype not approved for publication",
-    "ramMaximumRationale": "Keep the £300 ceiling regardless of market inflation.",
-    "ssdPolicyRationale": "Keep £230 target / £300 maximum. SN5100 is a value choice, not permission to raise the target to its observed price.",
+    "ramMaximumRationale": "Keep the \u00a3300 ceiling regardless of market inflation.",
+    "ssdPolicyRationale": "Keep \u00a3230 target / \u00a3300 maximum. SN5100 is a value choice, not permission to raise the target to its observed price.",
     "researchScope": "No further broad Performance review unless implementation exposes a genuine problem.",
     "removedFromActiveLists": [
       "Lexar NM790 2TB",
@@ -60,7 +60,7 @@
       "name": "B850 GAMING PLUS WIFI",
       "mpn": null,
       "why": "Integrated Wi-Fi, useful expansion and the right connections for the build.",
-      "compatibility": "ATX 304.8 × 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
+      "compatibility": "ATX 304.8 \u00d7 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
       "guideVariantId": "board-msib850",
       "sources": [
         "https://uk.msi.com/Motherboard/B850-GAMING-PLUS-WIFI/Specification"
@@ -71,7 +71,7 @@
     "pa120se": {
       "slot": "cooler",
       "manufacturer": "Thermalright",
-      "name": "Peerless Assassin 120 SE — non-RGB",
+      "name": "Peerless Assassin 120 SE \u2014 non-RGB",
       "mpn": "PA120 SE 1700",
       "why": "Straightforward air cooling without liquid-cooling cost or complexity.",
       "compatibility": "AM5 supported. 155mm nominal height versus 163mm case allowance; keep fan mounting within this limit. Four-pin PWM fans.",
@@ -88,14 +88,14 @@
       "name": "Radeon RX 9070 GAMING OC 16G",
       "mpn": "GV-R9070GAMING OC-16GD",
       "why": "16GB RX 9070 performance with an independently assessed cooler and conventional power connectors.",
-      "compatibility": "288 × 132 × 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation.",
+      "compatibility": "288 \u00d7 132 \u00d7 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation.",
       "guideVariantId": "gpu-gigabyte9070",
       "sources": [
         "https://www.gigabyte.com/Graphics-Card/GV-R9070GAMING-OC-16GD/sp",
         "https://www.gpureport.cz/recenze/521/gigabyte-rx-9070-gaming-oc-16g-testy-provoznich-vlastnosti.aspx?article=521&page=4"
       ],
       "lengthMm": 288,
-      "powerConnectors": "2 × PCIe 8-pin"
+      "powerConnectors": "2 \u00d7 PCIe 8-pin"
     },
     "pulse9070": {
       "slot": "gpu",
@@ -103,19 +103,19 @@
       "name": "PULSE Radeon RX 9070 16GB",
       "mpn": "11349-03-20G",
       "why": "A compact, quiet RX 9070 option when a qualifying offer makes it the better purchase.",
-      "compatibility": "280 × 120.25 × 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation.",
+      "compatibility": "280 \u00d7 120.25 \u00d7 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation.",
       "guideVariantId": "gpu-pulse9070",
       "sources": [
         "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-9070-16g-gddr6",
         "https://www.kitguru.net/components/graphic-cards/dominic-moass/amd-rx-9070-review-ft-sapphire/all/1/"
       ],
       "lengthMm": 280,
-      "powerConnectors": "2 × PCIe 8-pin"
+      "powerConnectors": "2 \u00d7 PCIe 8-pin"
     },
     "fitv28": {
       "slot": "ram",
       "manufacturer": "KLEVV",
-      "name": "FIT V black 32GB (2×16GB) DDR5-6000 CL28",
+      "name": "FIT V black 32GB (2\u00d716GB) DDR5-6000 CL28",
       "mpn": "KD5AGU880-60B280L",
       "why": "Low-profile EXPO memory. Chosen for the available value, not because this build needs CL28.",
       "compatibility": "33.21mm high; two DDR5 UDIMMs; AMD EXPO. 6000MT/s is an overclocked profile; exact-system stability is not yet tested.",
@@ -131,7 +131,7 @@
     "vulcan38": {
       "slot": "ram",
       "manufacturer": "TEAMGROUP",
-      "name": "T-Force Vulcanα black 32GB (2×16GB) DDR5-6000 CL38",
+      "name": "T-Force Vulcan\u03b1 black 32GB (2\u00d716GB) DDR5-6000 CL38",
       "mpn": "FLABD532G6000HC38ADC01",
       "why": "Low-profile EXPO alternative; looser timings are acceptable when it offers better value.",
       "compatibility": "32.7mm high; 1.25V rated profile; AMD EXPO; lifetime warranty. Exact MSI QVL membership and physical stability are not claimed.",
@@ -177,10 +177,10 @@
     "rm750x": {
       "slot": "psu",
       "manufacturer": "Corsair",
-      "name": "RM750x (2024) ATX 3.1 — UK",
+      "name": "RM750x (2024) ATX 3.1 \u2014 UK",
       "mpn": "CP-9020285-UK",
       "why": "Fixed, high-quality power supply keeps modular-cable instructions consistent.",
-      "compatibility": "750W; 160 × 150 × 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
+      "compatibility": "750W; 160 \u00d7 150 \u00d7 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
       "guideVariantId": "psu-rm750x",
       "sources": [
         "https://www.corsair.com/uk/en/p/psu/cp-9020285-uk/rmx-series-rm750x-fully-modular-power-supply-uk-cp-9020285-uk",
@@ -191,7 +191,7 @@
     "h6flow": {
       "slot": "case",
       "manufacturer": "NZXT",
-      "name": "H6 Flow black — original non-RGB",
+      "name": "H6 Flow black \u2014 original non-RGB",
       "mpn": "CC-H61FB-01",
       "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
       "compatibility": "GPU length allowance 365mm, cooler height 163mm, PSU length 200mm. Three included 120mm intake fans.",
@@ -209,7 +209,7 @@
       "mpn": "90YV0L71-M0NA00",
       "model": "PRIME-RX9070XT-O16G",
       "why": "16GB graphics for high-quality 1440p and capable 4K gaming with game-appropriate settings.",
-      "compatibility": "312 × 130 × 50mm; 53mm nominal length margin in H6 Flow. Use PCI_E2 and three separate supplied RM850x PCIe 6+2 leads, one per GPU socket. Cable clearance and GPU support need physical verification.",
+      "compatibility": "312 \u00d7 130 \u00d7 50mm; 53mm nominal length margin in H6 Flow. Use PCI_E2 and three separate supplied RM850x PCIe 6+2 leads, one per GPU socket. Cable clearance and GPU support need physical verification.",
       "guideVariantId": "gpu-asus9070xtprimeoc",
       "sources": [
         "https://www.asus.com/uk/motherboards-components/graphics-cards/prime/prime-rx9070xt-o16g/techspec/"
@@ -222,7 +222,7 @@
       "mpn": null,
       "model": "B850M GAMING PLUS WIFI6E",
       "why": "Micro-ATX AM5 board with Wi-Fi 6E, 2.5Gb Ethernet and two M.2 slots; useful gaming features without unnecessary expansion cost.",
-      "compatibility": "Micro-ATX 243.84 × 243.84mm. Match standoffs to the board; no unused standoff beneath the PCB. GPU in PCI_E2 (not the small PCI_E1); SSD in M2_1; RAM in A2/B2. Verify the exact 9600X minimum BIOS and shipped version. Regional numeric SKU/EAN remains unverified; do not substitute another MSI variant.",
+      "compatibility": "Micro-ATX 243.84 \u00d7 243.84mm. Match standoffs to the board; no unused standoff beneath the PCB. GPU in PCI_E2 (not the small PCI_E1); SSD in M2_1; RAM in A2/B2. Verify the exact 9600X minimum BIOS and shipped version. Regional numeric SKU/EAN remains unverified; do not substitute another MSI variant.",
       "guideVariantId": "board-msib850mwifi6e",
       "sources": [
         "https://www.msi.com/Motherboard/B850M-GAMING-PLUS-WIFI6E/Specification",
@@ -232,7 +232,7 @@
     "rm850x2024uk": {
       "slot": "psu",
       "manufacturer": "Corsair",
-      "name": "RM850x (2024) ATX 3.1 — UK",
+      "name": "RM850x (2024) ATX 3.1 \u2014 UK",
       "mpn": "CP-9020270-UK",
       "why": "850W headroom at stock settings and a documented three-lead GPU cable plan.",
       "compatibility": "160mm PSU in a 200mm nominal allowance. Use three separate supplied Type 4 PCIe 6+2 leads for this GPU; confirm exact UK box contents. EPS/CPU cables are different. Never reuse modular cables from another PSU. Native 12V-2x6 GPU cable is unused.",
@@ -241,6 +241,45 @@
         "https://www.corsair.com/uk/en/p/psu/cp-9020270-uk/rmx-series-rm850x-fully-modular-power-supply-uk-cp-9020270-uk",
         "https://www.corsair.com/uk/en/explorer/diy-builder/power-supply-units/rmx-atx-31-psus-cable-compatibility/"
       ]
+    },
+    "reaper9070xt": {
+      "slot": "gpu",
+      "manufacturer": "PowerColor",
+      "name": "Reaper Radeon RX 9070 XT 16GB",
+      "mpn": "RX9070XT 16G-A",
+      "why": "16GB graphics for 1440p gaming, with settings chosen for each game.",
+      "compatibility": "289mm body / 304mm including bracket; fits the H6 Flow 365mm length allowance. Install in PCI_E2. Use two separate supplied RM850x PCIe 6+2-pin leads, one per socket. Do not use EPS cables or the unused 12V-2x6 lead.",
+      "sources": [
+        "https://www.powercolor.com/product-detail212.htm"
+      ],
+      "guideVariantId": "gpu-reaper9070xt"
+    },
+    "sn7100_1tb": {
+      "slot": "ssd",
+      "manufacturer": "WD",
+      "name": "Black SN7100 1TB",
+      "mpn": "WDS100T4X0E-00CJA0",
+      "why": "1TB of fast storage to get started; add storage later if your library needs it.",
+      "compatibility": "Bare M.2 2280 PCIe 4.0 NVMe drive. Install in M2_1, secure the retention and remove the board heatsink thermal-pad film before refitting it.",
+      "capacityTB": 1,
+      "sources": [
+        "https://www.scan.co.uk/products/1tb-wd-black-sn7100-m2-2280-pcie-40-x4-nvme-ssd-7250mb-s-read-6900mb-s-write-1000k-1400k-iops"
+      ],
+      "guideVariantId": "ssd-sn7100_1tb"
+    },
+    "freezer36standard": {
+      "slot": "cooler",
+      "manufacturer": "Arctic",
+      "name": "Freezer 36 \u2014 standard silver fins / black fans",
+      "mpn": "ACFRE00121A",
+      "why": "Air cooling suited to the stock-power Ryzen 5, without liquid-cooling complexity.",
+      "compatibility": "159mm tall against the H6 Flow 163mm limit. Use the supplied AM5 mounting kit and paste; retain the AM5 backplate. Remove the cold-plate protective film. Connect the two PWM fans via their PST connection to CPU_FAN1. Follow the Arctic manual for mounting orientation and tightening.",
+      "heightMm": 159,
+      "sources": [
+        "https://www.arctic.de/en/Freezer-36/ACFRE00121A",
+        "https://support.arctic.de/freezer-36"
+      ],
+      "guideVariantId": "cooler-freezer36standard"
     }
   },
   "offers": [
@@ -319,7 +358,7 @@
       "timePrecision": "day",
       "evidenceMethod": "direct retailer page, reviewed in project research",
       "url": "https://www.novatech.co.uk/products/gigabyte-amd-radeon-rx-9070-gaming-oc-16gb-gddr6-graphics-card/gv-r9070gamingoc-16gd.html",
-      "stockNote": "Dispatches in 1–3 days; warehouse stock not explicitly confirmed.",
+      "stockNote": "Dispatches in 1\u20133 days; warehouse stock not explicitly confirmed.",
       "warranty": "Three-year coverage advertised; Novatech retailer support."
     },
     {
@@ -496,7 +535,7 @@
       "compatibilityReviewed": true,
       "instructionStatus": "pending-exact-hardware-review",
       "guidePage": "core-performance-guide.html",
-      "notes": "ATX 304.8 × 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants."
+      "notes": "ATX 304.8 \u00d7 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants."
     },
     "cooler-pa120se": {
       "componentId": "pa120se",
@@ -510,14 +549,14 @@
       "compatibilityReviewed": true,
       "instructionStatus": "pending-exact-hardware-review",
       "guidePage": "core-performance-guide.html",
-      "notes": "288 × 132 × 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation."
+      "notes": "288 \u00d7 132 \u00d7 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation."
     },
     "gpu-pulse9070": {
       "componentId": "pulse9070",
       "compatibilityReviewed": true,
       "instructionStatus": "pending-exact-hardware-review",
       "guidePage": "core-performance-guide.html",
-      "notes": "280 × 120.25 × 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation."
+      "notes": "280 \u00d7 120.25 \u00d7 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation."
     },
     "ram-fitv28": {
       "componentId": "fitv28",
@@ -552,7 +591,7 @@
       "compatibilityReviewed": true,
       "instructionStatus": "pending-exact-hardware-review",
       "guidePage": "core-performance-guide.html",
-      "notes": "750W; 160 × 150 × 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty."
+      "notes": "750W; 160 \u00d7 150 \u00d7 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty."
     },
     "case-h6flow": {
       "componentId": "h6flow",
@@ -566,14 +605,14 @@
       "compatibilityReviewed": true,
       "instructionStatus": "pending-exact-hardware-review",
       "guidePage": "core-performance-guide.html",
-      "notes": "312 × 130 × 50mm; 53mm nominal length margin in H6 Flow. Use PCI_E2 and three separate supplied RM850x PCIe 6+2 leads, one per GPU socket. Cable clearance and GPU support need physical verification."
+      "notes": "312 \u00d7 130 \u00d7 50mm; 53mm nominal length margin in H6 Flow. Use PCI_E2 and three separate supplied RM850x PCIe 6+2 leads, one per GPU socket. Cable clearance and GPU support need physical verification."
     },
     "board-msib850mwifi6e": {
       "componentId": "msib850mwifi6e",
       "compatibilityReviewed": true,
       "instructionStatus": "pending-exact-hardware-review",
       "guidePage": "core-performance-guide.html",
-      "notes": "Micro-ATX 243.84 × 243.84mm. Match standoffs to the board; no unused standoff beneath the PCB. GPU in PCI_E2 (not the small PCI_E1); SSD in M2_1; RAM in A2/B2. Verify the exact 9600X minimum BIOS and shipped version. Regional numeric SKU/EAN remains unverified; do not substitute another MSI variant."
+      "notes": "Micro-ATX 243.84 \u00d7 243.84mm. Match standoffs to the board; no unused standoff beneath the PCB. GPU in PCI_E2 (not the small PCI_E1); SSD in M2_1; RAM in A2/B2. Verify the exact 9600X minimum BIOS and shipped version. Regional numeric SKU/EAN remains unverified; do not substitute another MSI variant."
     },
     "psu-rm850x2024uk": {
       "componentId": "rm850x2024uk",
@@ -581,6 +620,27 @@
       "instructionStatus": "pending-exact-hardware-review",
       "guidePage": "core-performance-guide.html",
       "notes": "160mm PSU in a 200mm nominal allowance. Use three separate supplied Type 4 PCIe 6+2 leads for this GPU; confirm exact UK box contents. EPS/CPU cables are different. Never reuse modular cables from another PSU. Native 12V-2x6 GPU cable is unused."
+    },
+    "gpu-reaper9070xt": {
+      "componentId": "reaper9070xt",
+      "compatibilityReviewed": true,
+      "instructionStatus": "Manufacturer manual and CORE checklist",
+      "guidePage": "core-performance-guide.html",
+      "notes": "289 \u00d7 111 \u00d7 41mm; fits the H6 Flow 365mm length allowance. Install in PCI_E2. Use two separate supplied RM850x PCIe 6+2-pin leads, one per socket. Do not use EPS cables or the unused 12V-2x6 lead."
+    },
+    "ssd-sn7100_1tb": {
+      "componentId": "sn7100_1tb",
+      "compatibilityReviewed": true,
+      "instructionStatus": "Manufacturer manual and CORE checklist",
+      "guidePage": "core-performance-guide.html",
+      "notes": "Bare M.2 2280 PCIe 4.0 NVMe drive. Install in M2_1, secure the retention and remove the board heatsink thermal-pad film before refitting it."
+    },
+    "cooler-freezer36standard": {
+      "componentId": "freezer36standard",
+      "compatibilityReviewed": true,
+      "instructionStatus": "Manufacturer manual and CORE checklist",
+      "guidePage": "core-performance-guide.html",
+      "notes": "159mm tall against the H6 Flow 163mm limit. Use the supplied AM5 mounting kit and paste; retain the AM5 backplate. Remove the cold-plate protective film. Connect the two PWM fans via their PST connection to CPU_FAN1. Follow the Arctic manual for mounting orientation and tightening."
     }
   },
   "guideConfigurations": {
@@ -645,14 +705,14 @@
             "name": "Radeon RX 9070 GAMING OC 16G",
             "mpn": "GV-R9070GAMING OC-16GD",
             "why": "16GB RX 9070 performance with an independently assessed cooler and conventional power connectors.",
-            "compatibility": "288 × 132 × 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation.",
+            "compatibility": "288 \u00d7 132 \u00d7 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation.",
             "guideVariantId": "gpu-gigabyte9070",
             "sources": [
               "https://www.gigabyte.com/Graphics-Card/GV-R9070GAMING-OC-16GD/sp",
               "https://www.gpureport.cz/recenze/521/gigabyte-rx-9070-gaming-oc-16g-testy-provoznich-vlastnosti.aspx?article=521&page=4"
             ],
             "lengthMm": 288,
-            "powerConnectors": "2 × PCIe 8-pin"
+            "powerConnectors": "2 \u00d7 PCIe 8-pin"
           }
         },
         {
@@ -665,7 +725,7 @@
             "name": "B850 GAMING PLUS WIFI",
             "mpn": null,
             "why": "Integrated Wi-Fi, useful expansion and the right connections for the build.",
-            "compatibility": "ATX 304.8 × 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
+            "compatibility": "ATX 304.8 \u00d7 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
             "guideVariantId": "board-msib850",
             "sources": [
               "https://uk.msi.com/Motherboard/B850-GAMING-PLUS-WIFI/Specification"
@@ -681,7 +741,7 @@
           "component": {
             "slot": "ram",
             "manufacturer": "KLEVV",
-            "name": "FIT V black 32GB (2×16GB) DDR5-6000 CL28",
+            "name": "FIT V black 32GB (2\u00d716GB) DDR5-6000 CL28",
             "mpn": "KD5AGU880-60B280L",
             "why": "Low-profile EXPO memory. Chosen for the available value, not because this build needs CL28.",
             "compatibility": "33.21mm high; two DDR5 UDIMMs; AMD EXPO. 6000MT/s is an overclocked profile; exact-system stability is not yet tested.",
@@ -722,10 +782,10 @@
           "component": {
             "slot": "psu",
             "manufacturer": "Corsair",
-            "name": "RM750x (2024) ATX 3.1 — UK",
+            "name": "RM750x (2024) ATX 3.1 \u2014 UK",
             "mpn": "CP-9020285-UK",
             "why": "Fixed, high-quality power supply keeps modular-cable instructions consistent.",
-            "compatibility": "750W; 160 × 150 × 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
+            "compatibility": "750W; 160 \u00d7 150 \u00d7 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
             "guideVariantId": "psu-rm750x",
             "sources": [
               "https://www.corsair.com/uk/en/p/psu/cp-9020285-uk/rmx-series-rm750x-fully-modular-power-supply-uk-cp-9020285-uk",
@@ -741,7 +801,7 @@
           "component": {
             "slot": "cooler",
             "manufacturer": "Thermalright",
-            "name": "Peerless Assassin 120 SE — non-RGB",
+            "name": "Peerless Assassin 120 SE \u2014 non-RGB",
             "mpn": "PA120 SE 1700",
             "why": "Straightforward air cooling without liquid-cooling cost or complexity.",
             "compatibility": "AM5 supported. 155mm nominal height versus 163mm case allowance; keep fan mounting within this limit. Four-pin PWM fans.",
@@ -760,7 +820,7 @@
           "component": {
             "slot": "case",
             "manufacturer": "NZXT",
-            "name": "H6 Flow black — original non-RGB",
+            "name": "H6 Flow black \u2014 original non-RGB",
             "mpn": "CC-H61FB-01",
             "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
             "compatibility": "GPU length allowance 365mm, cooler height 163mm, PSU length 200mm. Three included 120mm intake fans.",
@@ -835,14 +895,14 @@
             "name": "Radeon RX 9070 GAMING OC 16G",
             "mpn": "GV-R9070GAMING OC-16GD",
             "why": "16GB RX 9070 performance with an independently assessed cooler and conventional power connectors.",
-            "compatibility": "288 × 132 × 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation.",
+            "compatibility": "288 \u00d7 132 \u00d7 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation.",
             "guideVariantId": "gpu-gigabyte9070",
             "sources": [
               "https://www.gigabyte.com/Graphics-Card/GV-R9070GAMING-OC-16GD/sp",
               "https://www.gpureport.cz/recenze/521/gigabyte-rx-9070-gaming-oc-16g-testy-provoznich-vlastnosti.aspx?article=521&page=4"
             ],
             "lengthMm": 288,
-            "powerConnectors": "2 × PCIe 8-pin"
+            "powerConnectors": "2 \u00d7 PCIe 8-pin"
           }
         },
         {
@@ -855,7 +915,7 @@
             "name": "B850 GAMING PLUS WIFI",
             "mpn": null,
             "why": "Integrated Wi-Fi, useful expansion and the right connections for the build.",
-            "compatibility": "ATX 304.8 × 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
+            "compatibility": "ATX 304.8 \u00d7 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
             "guideVariantId": "board-msib850",
             "sources": [
               "https://uk.msi.com/Motherboard/B850-GAMING-PLUS-WIFI/Specification"
@@ -871,7 +931,7 @@
           "component": {
             "slot": "ram",
             "manufacturer": "KLEVV",
-            "name": "FIT V black 32GB (2×16GB) DDR5-6000 CL28",
+            "name": "FIT V black 32GB (2\u00d716GB) DDR5-6000 CL28",
             "mpn": "KD5AGU880-60B280L",
             "why": "Low-profile EXPO memory. Chosen for the available value, not because this build needs CL28.",
             "compatibility": "33.21mm high; two DDR5 UDIMMs; AMD EXPO. 6000MT/s is an overclocked profile; exact-system stability is not yet tested.",
@@ -912,10 +972,10 @@
           "component": {
             "slot": "psu",
             "manufacturer": "Corsair",
-            "name": "RM750x (2024) ATX 3.1 — UK",
+            "name": "RM750x (2024) ATX 3.1 \u2014 UK",
             "mpn": "CP-9020285-UK",
             "why": "Fixed, high-quality power supply keeps modular-cable instructions consistent.",
-            "compatibility": "750W; 160 × 150 × 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
+            "compatibility": "750W; 160 \u00d7 150 \u00d7 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
             "guideVariantId": "psu-rm750x",
             "sources": [
               "https://www.corsair.com/uk/en/p/psu/cp-9020285-uk/rmx-series-rm750x-fully-modular-power-supply-uk-cp-9020285-uk",
@@ -931,7 +991,7 @@
           "component": {
             "slot": "cooler",
             "manufacturer": "Thermalright",
-            "name": "Peerless Assassin 120 SE — non-RGB",
+            "name": "Peerless Assassin 120 SE \u2014 non-RGB",
             "mpn": "PA120 SE 1700",
             "why": "Straightforward air cooling without liquid-cooling cost or complexity.",
             "compatibility": "AM5 supported. 155mm nominal height versus 163mm case allowance; keep fan mounting within this limit. Four-pin PWM fans.",
@@ -950,7 +1010,7 @@
           "component": {
             "slot": "case",
             "manufacturer": "NZXT",
-            "name": "H6 Flow black — original non-RGB",
+            "name": "H6 Flow black \u2014 original non-RGB",
             "mpn": "CC-H61FB-01",
             "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
             "compatibility": "GPU length allowance 365mm, cooler height 163mm, PSU length 200mm. Three included 120mm intake fans.",
@@ -1025,14 +1085,14 @@
             "name": "Radeon RX 9070 GAMING OC 16G",
             "mpn": "GV-R9070GAMING OC-16GD",
             "why": "16GB RX 9070 performance with an independently assessed cooler and conventional power connectors.",
-            "compatibility": "288 × 132 × 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation.",
+            "compatibility": "288 \u00d7 132 \u00d7 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation.",
             "guideVariantId": "gpu-gigabyte9070",
             "sources": [
               "https://www.gigabyte.com/Graphics-Card/GV-R9070GAMING-OC-16GD/sp",
               "https://www.gpureport.cz/recenze/521/gigabyte-rx-9070-gaming-oc-16g-testy-provoznich-vlastnosti.aspx?article=521&page=4"
             ],
             "lengthMm": 288,
-            "powerConnectors": "2 × PCIe 8-pin"
+            "powerConnectors": "2 \u00d7 PCIe 8-pin"
           }
         },
         {
@@ -1045,7 +1105,7 @@
             "name": "B850 GAMING PLUS WIFI",
             "mpn": null,
             "why": "Integrated Wi-Fi, useful expansion and the right connections for the build.",
-            "compatibility": "ATX 304.8 × 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
+            "compatibility": "ATX 304.8 \u00d7 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
             "guideVariantId": "board-msib850",
             "sources": [
               "https://uk.msi.com/Motherboard/B850-GAMING-PLUS-WIFI/Specification"
@@ -1061,7 +1121,7 @@
           "component": {
             "slot": "ram",
             "manufacturer": "TEAMGROUP",
-            "name": "T-Force Vulcanα black 32GB (2×16GB) DDR5-6000 CL38",
+            "name": "T-Force Vulcan\u03b1 black 32GB (2\u00d716GB) DDR5-6000 CL38",
             "mpn": "FLABD532G6000HC38ADC01",
             "why": "Low-profile EXPO alternative; looser timings are acceptable when it offers better value.",
             "compatibility": "32.7mm high; 1.25V rated profile; AMD EXPO; lifetime warranty. Exact MSI QVL membership and physical stability are not claimed.",
@@ -1102,10 +1162,10 @@
           "component": {
             "slot": "psu",
             "manufacturer": "Corsair",
-            "name": "RM750x (2024) ATX 3.1 — UK",
+            "name": "RM750x (2024) ATX 3.1 \u2014 UK",
             "mpn": "CP-9020285-UK",
             "why": "Fixed, high-quality power supply keeps modular-cable instructions consistent.",
-            "compatibility": "750W; 160 × 150 × 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
+            "compatibility": "750W; 160 \u00d7 150 \u00d7 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
             "guideVariantId": "psu-rm750x",
             "sources": [
               "https://www.corsair.com/uk/en/p/psu/cp-9020285-uk/rmx-series-rm750x-fully-modular-power-supply-uk-cp-9020285-uk",
@@ -1121,7 +1181,7 @@
           "component": {
             "slot": "cooler",
             "manufacturer": "Thermalright",
-            "name": "Peerless Assassin 120 SE — non-RGB",
+            "name": "Peerless Assassin 120 SE \u2014 non-RGB",
             "mpn": "PA120 SE 1700",
             "why": "Straightforward air cooling without liquid-cooling cost or complexity.",
             "compatibility": "AM5 supported. 155mm nominal height versus 163mm case allowance; keep fan mounting within this limit. Four-pin PWM fans.",
@@ -1140,7 +1200,7 @@
           "component": {
             "slot": "case",
             "manufacturer": "NZXT",
-            "name": "H6 Flow black — original non-RGB",
+            "name": "H6 Flow black \u2014 original non-RGB",
             "mpn": "CC-H61FB-01",
             "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
             "compatibility": "GPU length allowance 365mm, cooler height 163mm, PSU length 200mm. Three included 120mm intake fans.",
@@ -1215,14 +1275,14 @@
             "name": "Radeon RX 9070 GAMING OC 16G",
             "mpn": "GV-R9070GAMING OC-16GD",
             "why": "16GB RX 9070 performance with an independently assessed cooler and conventional power connectors.",
-            "compatibility": "288 × 132 × 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation.",
+            "compatibility": "288 \u00d7 132 \u00d7 50mm; 77mm nominal length margin in H6 Flow. Two separate PSU PCIe 6+2 cables; 750W PSU recommendation.",
             "guideVariantId": "gpu-gigabyte9070",
             "sources": [
               "https://www.gigabyte.com/Graphics-Card/GV-R9070GAMING-OC-16GD/sp",
               "https://www.gpureport.cz/recenze/521/gigabyte-rx-9070-gaming-oc-16g-testy-provoznich-vlastnosti.aspx?article=521&page=4"
             ],
             "lengthMm": 288,
-            "powerConnectors": "2 × PCIe 8-pin"
+            "powerConnectors": "2 \u00d7 PCIe 8-pin"
           }
         },
         {
@@ -1235,7 +1295,7 @@
             "name": "B850 GAMING PLUS WIFI",
             "mpn": null,
             "why": "Integrated Wi-Fi, useful expansion and the right connections for the build.",
-            "compatibility": "ATX 304.8 × 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
+            "compatibility": "ATX 304.8 \u00d7 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
             "guideVariantId": "board-msib850",
             "sources": [
               "https://uk.msi.com/Motherboard/B850-GAMING-PLUS-WIFI/Specification"
@@ -1251,7 +1311,7 @@
           "component": {
             "slot": "ram",
             "manufacturer": "TEAMGROUP",
-            "name": "T-Force Vulcanα black 32GB (2×16GB) DDR5-6000 CL38",
+            "name": "T-Force Vulcan\u03b1 black 32GB (2\u00d716GB) DDR5-6000 CL38",
             "mpn": "FLABD532G6000HC38ADC01",
             "why": "Low-profile EXPO alternative; looser timings are acceptable when it offers better value.",
             "compatibility": "32.7mm high; 1.25V rated profile; AMD EXPO; lifetime warranty. Exact MSI QVL membership and physical stability are not claimed.",
@@ -1292,10 +1352,10 @@
           "component": {
             "slot": "psu",
             "manufacturer": "Corsair",
-            "name": "RM750x (2024) ATX 3.1 — UK",
+            "name": "RM750x (2024) ATX 3.1 \u2014 UK",
             "mpn": "CP-9020285-UK",
             "why": "Fixed, high-quality power supply keeps modular-cable instructions consistent.",
-            "compatibility": "750W; 160 × 150 × 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
+            "compatibility": "750W; 160 \u00d7 150 \u00d7 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
             "guideVariantId": "psu-rm750x",
             "sources": [
               "https://www.corsair.com/uk/en/p/psu/cp-9020285-uk/rmx-series-rm750x-fully-modular-power-supply-uk-cp-9020285-uk",
@@ -1311,7 +1371,7 @@
           "component": {
             "slot": "cooler",
             "manufacturer": "Thermalright",
-            "name": "Peerless Assassin 120 SE — non-RGB",
+            "name": "Peerless Assassin 120 SE \u2014 non-RGB",
             "mpn": "PA120 SE 1700",
             "why": "Straightforward air cooling without liquid-cooling cost or complexity.",
             "compatibility": "AM5 supported. 155mm nominal height versus 163mm case allowance; keep fan mounting within this limit. Four-pin PWM fans.",
@@ -1330,7 +1390,7 @@
           "component": {
             "slot": "case",
             "manufacturer": "NZXT",
-            "name": "H6 Flow black — original non-RGB",
+            "name": "H6 Flow black \u2014 original non-RGB",
             "mpn": "CC-H61FB-01",
             "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
             "compatibility": "GPU length allowance 365mm, cooler height 163mm, PSU length 200mm. Three included 120mm intake fans.",
@@ -1405,14 +1465,14 @@
             "name": "PULSE Radeon RX 9070 16GB",
             "mpn": "11349-03-20G",
             "why": "A compact, quiet RX 9070 option when a qualifying offer makes it the better purchase.",
-            "compatibility": "280 × 120.25 × 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation.",
+            "compatibility": "280 \u00d7 120.25 \u00d7 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation.",
             "guideVariantId": "gpu-pulse9070",
             "sources": [
               "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-9070-16g-gddr6",
               "https://www.kitguru.net/components/graphic-cards/dominic-moass/amd-rx-9070-review-ft-sapphire/all/1/"
             ],
             "lengthMm": 280,
-            "powerConnectors": "2 × PCIe 8-pin"
+            "powerConnectors": "2 \u00d7 PCIe 8-pin"
           }
         },
         {
@@ -1425,7 +1485,7 @@
             "name": "B850 GAMING PLUS WIFI",
             "mpn": null,
             "why": "Integrated Wi-Fi, useful expansion and the right connections for the build.",
-            "compatibility": "ATX 304.8 × 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
+            "compatibility": "ATX 304.8 \u00d7 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
             "guideVariantId": "board-msib850",
             "sources": [
               "https://uk.msi.com/Motherboard/B850-GAMING-PLUS-WIFI/Specification"
@@ -1441,7 +1501,7 @@
           "component": {
             "slot": "ram",
             "manufacturer": "KLEVV",
-            "name": "FIT V black 32GB (2×16GB) DDR5-6000 CL28",
+            "name": "FIT V black 32GB (2\u00d716GB) DDR5-6000 CL28",
             "mpn": "KD5AGU880-60B280L",
             "why": "Low-profile EXPO memory. Chosen for the available value, not because this build needs CL28.",
             "compatibility": "33.21mm high; two DDR5 UDIMMs; AMD EXPO. 6000MT/s is an overclocked profile; exact-system stability is not yet tested.",
@@ -1482,10 +1542,10 @@
           "component": {
             "slot": "psu",
             "manufacturer": "Corsair",
-            "name": "RM750x (2024) ATX 3.1 — UK",
+            "name": "RM750x (2024) ATX 3.1 \u2014 UK",
             "mpn": "CP-9020285-UK",
             "why": "Fixed, high-quality power supply keeps modular-cable instructions consistent.",
-            "compatibility": "750W; 160 × 150 × 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
+            "compatibility": "750W; 160 \u00d7 150 \u00d7 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
             "guideVariantId": "psu-rm750x",
             "sources": [
               "https://www.corsair.com/uk/en/p/psu/cp-9020285-uk/rmx-series-rm750x-fully-modular-power-supply-uk-cp-9020285-uk",
@@ -1501,7 +1561,7 @@
           "component": {
             "slot": "cooler",
             "manufacturer": "Thermalright",
-            "name": "Peerless Assassin 120 SE — non-RGB",
+            "name": "Peerless Assassin 120 SE \u2014 non-RGB",
             "mpn": "PA120 SE 1700",
             "why": "Straightforward air cooling without liquid-cooling cost or complexity.",
             "compatibility": "AM5 supported. 155mm nominal height versus 163mm case allowance; keep fan mounting within this limit. Four-pin PWM fans.",
@@ -1520,7 +1580,7 @@
           "component": {
             "slot": "case",
             "manufacturer": "NZXT",
-            "name": "H6 Flow black — original non-RGB",
+            "name": "H6 Flow black \u2014 original non-RGB",
             "mpn": "CC-H61FB-01",
             "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
             "compatibility": "GPU length allowance 365mm, cooler height 163mm, PSU length 200mm. Three included 120mm intake fans.",
@@ -1595,14 +1655,14 @@
             "name": "PULSE Radeon RX 9070 16GB",
             "mpn": "11349-03-20G",
             "why": "A compact, quiet RX 9070 option when a qualifying offer makes it the better purchase.",
-            "compatibility": "280 × 120.25 × 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation.",
+            "compatibility": "280 \u00d7 120.25 \u00d7 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation.",
             "guideVariantId": "gpu-pulse9070",
             "sources": [
               "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-9070-16g-gddr6",
               "https://www.kitguru.net/components/graphic-cards/dominic-moass/amd-rx-9070-review-ft-sapphire/all/1/"
             ],
             "lengthMm": 280,
-            "powerConnectors": "2 × PCIe 8-pin"
+            "powerConnectors": "2 \u00d7 PCIe 8-pin"
           }
         },
         {
@@ -1615,7 +1675,7 @@
             "name": "B850 GAMING PLUS WIFI",
             "mpn": null,
             "why": "Integrated Wi-Fi, useful expansion and the right connections for the build.",
-            "compatibility": "ATX 304.8 × 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
+            "compatibility": "ATX 304.8 \u00d7 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
             "guideVariantId": "board-msib850",
             "sources": [
               "https://uk.msi.com/Motherboard/B850-GAMING-PLUS-WIFI/Specification"
@@ -1631,7 +1691,7 @@
           "component": {
             "slot": "ram",
             "manufacturer": "KLEVV",
-            "name": "FIT V black 32GB (2×16GB) DDR5-6000 CL28",
+            "name": "FIT V black 32GB (2\u00d716GB) DDR5-6000 CL28",
             "mpn": "KD5AGU880-60B280L",
             "why": "Low-profile EXPO memory. Chosen for the available value, not because this build needs CL28.",
             "compatibility": "33.21mm high; two DDR5 UDIMMs; AMD EXPO. 6000MT/s is an overclocked profile; exact-system stability is not yet tested.",
@@ -1672,10 +1732,10 @@
           "component": {
             "slot": "psu",
             "manufacturer": "Corsair",
-            "name": "RM750x (2024) ATX 3.1 — UK",
+            "name": "RM750x (2024) ATX 3.1 \u2014 UK",
             "mpn": "CP-9020285-UK",
             "why": "Fixed, high-quality power supply keeps modular-cable instructions consistent.",
-            "compatibility": "750W; 160 × 150 × 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
+            "compatibility": "750W; 160 \u00d7 150 \u00d7 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
             "guideVariantId": "psu-rm750x",
             "sources": [
               "https://www.corsair.com/uk/en/p/psu/cp-9020285-uk/rmx-series-rm750x-fully-modular-power-supply-uk-cp-9020285-uk",
@@ -1691,7 +1751,7 @@
           "component": {
             "slot": "cooler",
             "manufacturer": "Thermalright",
-            "name": "Peerless Assassin 120 SE — non-RGB",
+            "name": "Peerless Assassin 120 SE \u2014 non-RGB",
             "mpn": "PA120 SE 1700",
             "why": "Straightforward air cooling without liquid-cooling cost or complexity.",
             "compatibility": "AM5 supported. 155mm nominal height versus 163mm case allowance; keep fan mounting within this limit. Four-pin PWM fans.",
@@ -1710,7 +1770,7 @@
           "component": {
             "slot": "case",
             "manufacturer": "NZXT",
-            "name": "H6 Flow black — original non-RGB",
+            "name": "H6 Flow black \u2014 original non-RGB",
             "mpn": "CC-H61FB-01",
             "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
             "compatibility": "GPU length allowance 365mm, cooler height 163mm, PSU length 200mm. Three included 120mm intake fans.",
@@ -1785,14 +1845,14 @@
             "name": "PULSE Radeon RX 9070 16GB",
             "mpn": "11349-03-20G",
             "why": "A compact, quiet RX 9070 option when a qualifying offer makes it the better purchase.",
-            "compatibility": "280 × 120.25 × 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation.",
+            "compatibility": "280 \u00d7 120.25 \u00d7 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation.",
             "guideVariantId": "gpu-pulse9070",
             "sources": [
               "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-9070-16g-gddr6",
               "https://www.kitguru.net/components/graphic-cards/dominic-moass/amd-rx-9070-review-ft-sapphire/all/1/"
             ],
             "lengthMm": 280,
-            "powerConnectors": "2 × PCIe 8-pin"
+            "powerConnectors": "2 \u00d7 PCIe 8-pin"
           }
         },
         {
@@ -1805,7 +1865,7 @@
             "name": "B850 GAMING PLUS WIFI",
             "mpn": null,
             "why": "Integrated Wi-Fi, useful expansion and the right connections for the build.",
-            "compatibility": "ATX 304.8 × 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
+            "compatibility": "ATX 304.8 \u00d7 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
             "guideVariantId": "board-msib850",
             "sources": [
               "https://uk.msi.com/Motherboard/B850-GAMING-PLUS-WIFI/Specification"
@@ -1821,7 +1881,7 @@
           "component": {
             "slot": "ram",
             "manufacturer": "TEAMGROUP",
-            "name": "T-Force Vulcanα black 32GB (2×16GB) DDR5-6000 CL38",
+            "name": "T-Force Vulcan\u03b1 black 32GB (2\u00d716GB) DDR5-6000 CL38",
             "mpn": "FLABD532G6000HC38ADC01",
             "why": "Low-profile EXPO alternative; looser timings are acceptable when it offers better value.",
             "compatibility": "32.7mm high; 1.25V rated profile; AMD EXPO; lifetime warranty. Exact MSI QVL membership and physical stability are not claimed.",
@@ -1862,10 +1922,10 @@
           "component": {
             "slot": "psu",
             "manufacturer": "Corsair",
-            "name": "RM750x (2024) ATX 3.1 — UK",
+            "name": "RM750x (2024) ATX 3.1 \u2014 UK",
             "mpn": "CP-9020285-UK",
             "why": "Fixed, high-quality power supply keeps modular-cable instructions consistent.",
-            "compatibility": "750W; 160 × 150 × 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
+            "compatibility": "750W; 160 \u00d7 150 \u00d7 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
             "guideVariantId": "psu-rm750x",
             "sources": [
               "https://www.corsair.com/uk/en/p/psu/cp-9020285-uk/rmx-series-rm750x-fully-modular-power-supply-uk-cp-9020285-uk",
@@ -1881,7 +1941,7 @@
           "component": {
             "slot": "cooler",
             "manufacturer": "Thermalright",
-            "name": "Peerless Assassin 120 SE — non-RGB",
+            "name": "Peerless Assassin 120 SE \u2014 non-RGB",
             "mpn": "PA120 SE 1700",
             "why": "Straightforward air cooling without liquid-cooling cost or complexity.",
             "compatibility": "AM5 supported. 155mm nominal height versus 163mm case allowance; keep fan mounting within this limit. Four-pin PWM fans.",
@@ -1900,7 +1960,7 @@
           "component": {
             "slot": "case",
             "manufacturer": "NZXT",
-            "name": "H6 Flow black — original non-RGB",
+            "name": "H6 Flow black \u2014 original non-RGB",
             "mpn": "CC-H61FB-01",
             "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
             "compatibility": "GPU length allowance 365mm, cooler height 163mm, PSU length 200mm. Three included 120mm intake fans.",
@@ -1975,14 +2035,14 @@
             "name": "PULSE Radeon RX 9070 16GB",
             "mpn": "11349-03-20G",
             "why": "A compact, quiet RX 9070 option when a qualifying offer makes it the better purchase.",
-            "compatibility": "280 × 120.25 × 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation.",
+            "compatibility": "280 \u00d7 120.25 \u00d7 51.5mm; 85mm nominal length margin. Two separate PCIe 6+2 cables; 650W PSU recommendation.",
             "guideVariantId": "gpu-pulse9070",
             "sources": [
               "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-9070-16g-gddr6",
               "https://www.kitguru.net/components/graphic-cards/dominic-moass/amd-rx-9070-review-ft-sapphire/all/1/"
             ],
             "lengthMm": 280,
-            "powerConnectors": "2 × PCIe 8-pin"
+            "powerConnectors": "2 \u00d7 PCIe 8-pin"
           }
         },
         {
@@ -1995,7 +2055,7 @@
             "name": "B850 GAMING PLUS WIFI",
             "mpn": null,
             "why": "Integrated Wi-Fi, useful expansion and the right connections for the build.",
-            "compatibility": "ATX 304.8 × 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
+            "compatibility": "ATX 304.8 \u00d7 243.8mm. Two-DIMM slots per manual; SSD in M.2_1; GPU in top x16 slot. Do not confuse MAX, PZ, WIFI6E or B850M variants.",
             "guideVariantId": "board-msib850",
             "sources": [
               "https://uk.msi.com/Motherboard/B850-GAMING-PLUS-WIFI/Specification"
@@ -2011,7 +2071,7 @@
           "component": {
             "slot": "ram",
             "manufacturer": "TEAMGROUP",
-            "name": "T-Force Vulcanα black 32GB (2×16GB) DDR5-6000 CL38",
+            "name": "T-Force Vulcan\u03b1 black 32GB (2\u00d716GB) DDR5-6000 CL38",
             "mpn": "FLABD532G6000HC38ADC01",
             "why": "Low-profile EXPO alternative; looser timings are acceptable when it offers better value.",
             "compatibility": "32.7mm high; 1.25V rated profile; AMD EXPO; lifetime warranty. Exact MSI QVL membership and physical stability are not claimed.",
@@ -2052,10 +2112,10 @@
           "component": {
             "slot": "psu",
             "manufacturer": "Corsair",
-            "name": "RM750x (2024) ATX 3.1 — UK",
+            "name": "RM750x (2024) ATX 3.1 \u2014 UK",
             "mpn": "CP-9020285-UK",
             "why": "Fixed, high-quality power supply keeps modular-cable instructions consistent.",
-            "compatibility": "750W; 160 × 150 × 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
+            "compatibility": "750W; 160 \u00d7 150 \u00d7 86mm; Type 4 modular cables; two EPS and two separate PCIe 6+2 leads. Use only supplied cables. Native 12V-2x6 cable is unused. Ten-year warranty.",
             "guideVariantId": "psu-rm750x",
             "sources": [
               "https://www.corsair.com/uk/en/p/psu/cp-9020285-uk/rmx-series-rm750x-fully-modular-power-supply-uk-cp-9020285-uk",
@@ -2071,7 +2131,7 @@
           "component": {
             "slot": "cooler",
             "manufacturer": "Thermalright",
-            "name": "Peerless Assassin 120 SE — non-RGB",
+            "name": "Peerless Assassin 120 SE \u2014 non-RGB",
             "mpn": "PA120 SE 1700",
             "why": "Straightforward air cooling without liquid-cooling cost or complexity.",
             "compatibility": "AM5 supported. 155mm nominal height versus 163mm case allowance; keep fan mounting within this limit. Four-pin PWM fans.",
@@ -2090,7 +2150,7 @@
           "component": {
             "slot": "case",
             "manufacturer": "NZXT",
-            "name": "H6 Flow black — original non-RGB",
+            "name": "H6 Flow black \u2014 original non-RGB",
             "mpn": "CC-H61FB-01",
             "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
             "compatibility": "GPU length allowance 365mm, cooler height 163mm, PSU length 200mm. Three included 120mm intake fans.",
@@ -2166,7 +2226,7 @@
             "mpn": "90YV0L71-M0NA00",
             "model": "PRIME-RX9070XT-O16G",
             "why": "16GB graphics for high-quality 1440p and capable 4K gaming with game-appropriate settings.",
-            "compatibility": "312 × 130 × 50mm; 53mm nominal length margin in H6 Flow. Use PCI_E2 and three separate supplied RM850x PCIe 6+2 leads, one per GPU socket. Cable clearance and GPU support need physical verification.",
+            "compatibility": "312 \u00d7 130 \u00d7 50mm; 53mm nominal length margin in H6 Flow. Use PCI_E2 and three separate supplied RM850x PCIe 6+2 leads, one per GPU socket. Cable clearance and GPU support need physical verification.",
             "guideVariantId": "gpu-asus9070xtprimeoc",
             "sources": [
               "https://www.asus.com/uk/motherboards-components/graphics-cards/prime/prime-rx9070xt-o16g/techspec/"
@@ -2184,7 +2244,7 @@
             "mpn": null,
             "model": "B850M GAMING PLUS WIFI6E",
             "why": "Micro-ATX AM5 board with Wi-Fi 6E, 2.5Gb Ethernet and two M.2 slots; useful gaming features without unnecessary expansion cost.",
-            "compatibility": "Micro-ATX 243.84 × 243.84mm. Match standoffs to the board; no unused standoff beneath the PCB. GPU in PCI_E2 (not the small PCI_E1); SSD in M2_1; RAM in A2/B2. Verify the exact 9600X minimum BIOS and shipped version. Regional numeric SKU/EAN remains unverified; do not substitute another MSI variant.",
+            "compatibility": "Micro-ATX 243.84 \u00d7 243.84mm. Match standoffs to the board; no unused standoff beneath the PCB. GPU in PCI_E2 (not the small PCI_E1); SSD in M2_1; RAM in A2/B2. Verify the exact 9600X minimum BIOS and shipped version. Regional numeric SKU/EAN remains unverified; do not substitute another MSI variant.",
             "guideVariantId": "board-msib850mwifi6e",
             "sources": [
               "https://www.msi.com/Motherboard/B850M-GAMING-PLUS-WIFI6E/Specification",
@@ -2199,7 +2259,7 @@
           "component": {
             "slot": "ram",
             "manufacturer": "KLEVV",
-            "name": "FIT V black 32GB (2×16GB) DDR5-6000 CL28",
+            "name": "FIT V black 32GB (2\u00d716GB) DDR5-6000 CL28",
             "mpn": "KD5AGU880-60B280L",
             "why": "Low-profile EXPO memory. Chosen for the available value, not because this build needs CL28.",
             "compatibility": "Install the two modules in A2/B2. Start at JEDEC defaults and allow memory training before trying AMD EXPO. DDR5-6000 is an overclocked profile; exact QVL membership and stability remain unverified. Return to defaults if unstable.",
@@ -2240,7 +2300,7 @@
           "component": {
             "slot": "psu",
             "manufacturer": "Corsair",
-            "name": "RM850x (2024) ATX 3.1 — UK",
+            "name": "RM850x (2024) ATX 3.1 \u2014 UK",
             "mpn": "CP-9020270-UK",
             "why": "850W headroom at stock settings and a documented three-lead GPU cable plan.",
             "compatibility": "160mm PSU in a 200mm nominal allowance. Use three separate supplied Type 4 PCIe 6+2 leads for this GPU; confirm exact UK box contents. EPS/CPU cables are different. Never reuse modular cables from another PSU. Native 12V-2x6 GPU cable is unused.",
@@ -2258,7 +2318,7 @@
           "component": {
             "slot": "cooler",
             "manufacturer": "Thermalright",
-            "name": "Peerless Assassin 120 SE — non-RGB",
+            "name": "Peerless Assassin 120 SE \u2014 non-RGB",
             "mpn": "PA120 SE 1700",
             "why": "Straightforward air cooling without liquid-cooling cost or complexity.",
             "compatibility": "Use the supplied AM5 mounting hardware and verify paste/fan splitter contents. Connect cooler PWM fans to CPU_FAN1 with an appropriate supplied splitter within the header rating. Nominal height is 155mm against 163mm case clearance; verify front-fan height over RAM.",
@@ -2277,7 +2337,7 @@
           "component": {
             "slot": "case",
             "manufacturer": "NZXT",
-            "name": "H6 Flow black — original non-RGB",
+            "name": "H6 Flow black \u2014 original non-RGB",
             "mpn": "CC-H61FB-01",
             "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
             "compatibility": "Use only micro-ATX standoff positions matching this board. Route front-panel power to JFP1, front audio to JAUD1 and USB leads to the matching labelled headers per the exact manual. Connect the three included intake fans to suitable SYS_FAN headers, checking plug type, current limits and DC/PWM mode. No extra fan or hub is assumed. Verify GPU support, cable bends and side-panel closure physically.",
@@ -2290,9 +2350,193 @@
           }
         }
       ]
+    },
+    "performance-1.3-b-reaper9070xt-fitv28-sn7100": {
+      "buildRevision": "performance-1.3-b",
+      "components": {
+        "cpu": "ryzen9600x",
+        "gpu": "reaper9070xt",
+        "motherboard": "msib850mwifi6e",
+        "ram": "fitv28",
+        "ssd": "sn7100_1tb",
+        "psu": "rm850x2024uk",
+        "cooler": "freezer36standard",
+        "case": "h6flow"
+      },
+      "guideVariantIds": {
+        "cpu": "cpu-9600x",
+        "gpu": "gpu-reaper9070xt",
+        "motherboard": "board-msib850mwifi6e",
+        "ram": "ram-fitv28",
+        "ssd": "ssd-sn7100_1tb",
+        "psu": "psu-rm850x2024uk",
+        "cooler": "cooler-freezer36standard",
+        "case": "case-h6flow"
+      },
+      "instructionsReady": true,
+      "status": "Manufacturer-led assembly checklist and exact hardware notes; not physically validated.",
+      "photographed": false,
+      "compatibilityReviewed": true,
+      "powerPlan": {
+        "gpuId": "reaper9070xt",
+        "psuId": "rm850x2024uk",
+        "separatePcieLeads": 2,
+        "reviewed": true
+      },
+      "hardwareSnapshot": [
+        {
+          "id": "cpu",
+          "label": "Processor",
+          "componentId": "ryzen9600x",
+          "component": {
+            "slot": "cpu",
+            "manufacturer": "AMD",
+            "name": "Ryzen 5 9600X",
+            "mpn": "100-100001405WOF",
+            "why": "Six Zen 5 cores and a modern AM5 platform; no extra cores bought for their own sake.",
+            "compatibility": "Use stock power settings. MSI lists Ryzen 5 9600X support from BIOS 7E81v1A0. Confirm the supplied BIOS; use only this exact motherboard support page and its Flash BIOS instructions if an update is needed. No cooler is included with the CPU.",
+            "guideVariantId": "cpu-9600x",
+            "sources": [
+              "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-5-9600x.html"
+            ],
+            "socket": "AM5"
+          }
+        },
+        {
+          "id": "gpu",
+          "label": "Graphics",
+          "componentId": "reaper9070xt",
+          "component": {
+            "slot": "gpu",
+            "manufacturer": "PowerColor",
+            "name": "Reaper Radeon RX 9070 XT 16GB",
+            "mpn": "RX9070XT 16G-A",
+            "why": "16GB graphics for 1440p gaming, with settings chosen for each game.",
+            "compatibility": "289mm body / 304mm including bracket; fits the H6 Flow 365mm length allowance. Install in PCI_E2. Use two separate supplied RM850x PCIe 6+2-pin leads, one per socket. Do not use EPS cables or the unused 12V-2x6 lead.",
+            "sources": [
+              "https://www.powercolor.com/product-detail212.htm"
+            ],
+            "guideVariantId": "gpu-reaper9070xt"
+          }
+        },
+        {
+          "id": "motherboard",
+          "label": "Motherboard",
+          "componentId": "msib850mwifi6e",
+          "component": {
+            "slot": "motherboard",
+            "manufacturer": "MSI",
+            "name": "B850M GAMING PLUS WIFI6E",
+            "mpn": null,
+            "model": "B850M GAMING PLUS WIFI6E",
+            "why": "Micro-ATX AM5 board with Wi-Fi 6E, 2.5Gb Ethernet and two M.2 slots; useful gaming features without unnecessary expansion cost.",
+            "compatibility": "MSI B850M GAMING PLUS WIFI6E, micro-ATX. Fit only matching standoffs. RAM in A2/B2, SSD in M2_1, GPU in PCI_E2 (the long CPU-connected slot, not PCI_E1). CPU support starts at 7E81v1A0 for both 9600X and 9800X3D. Connect 24-pin ATX and the CPU EPS leads to the labelled power headers; JFP1 for case switches, JAUD1 for audio and matching USB headers per manual.",
+            "guideVariantId": "board-msib850mwifi6e",
+            "sources": [
+              "https://www.msi.com/Motherboard/B850M-GAMING-PLUS-WIFI6E/Specification",
+              "https://download-2.msi.com/archive/mnu_exe/mb/B850MGAMINGPLUSWIFI6E_English.pdf"
+            ]
+          }
+        },
+        {
+          "id": "ram",
+          "label": "Memory",
+          "componentId": "fitv28",
+          "component": {
+            "slot": "ram",
+            "manufacturer": "KLEVV",
+            "name": "FIT V black 32GB (2\u00d716GB) DDR5-6000 CL28",
+            "mpn": "KD5AGU880-60B280L",
+            "why": "32GB gives games and everyday applications room to run. Its current price still needs a value check.",
+            "compatibility": "Install both 33.21mm-high modules in A2/B2. Start at JEDEC defaults; allow memory training. EXPO 6000 is optional overclocking, not a guaranteed speed. If unstable, return to defaults. Exact QVL membership is not claimed.",
+            "guideVariantId": "ram-fitv28",
+            "sources": [
+              "https://www.klevv.com/ken/products_details/memory/Klevv_FITV"
+            ],
+            "heightMm": 33.21,
+            "capacityGB": 32,
+            "modules": 2,
+            "profile": "AMD EXPO"
+          }
+        },
+        {
+          "id": "ssd",
+          "label": "Storage",
+          "componentId": "sn7100_1tb",
+          "component": {
+            "slot": "ssd",
+            "manufacturer": "WD",
+            "name": "Black SN7100 1TB",
+            "mpn": "WDS100T4X0E-00CJA0",
+            "why": "1TB of fast storage to get started; add storage later if your library needs it.",
+            "compatibility": "Bare M.2 2280 PCIe 4.0 NVMe drive. Install in M2_1, secure the retention and remove the board heatsink thermal-pad film before refitting it.",
+            "capacityTB": 1,
+            "sources": [
+              "https://www.scan.co.uk/products/1tb-wd-black-sn7100-m2-2280-pcie-40-x4-nvme-ssd-7250mb-s-read-6900mb-s-write-1000k-1400k-iops"
+            ],
+            "guideVariantId": "ssd-sn7100_1tb"
+          }
+        },
+        {
+          "id": "psu",
+          "label": "Power",
+          "componentId": "rm850x2024uk",
+          "component": {
+            "slot": "psu",
+            "manufacturer": "Corsair",
+            "name": "RM850x (2024) ATX 3.1 \u2014 UK",
+            "mpn": "CP-9020270-UK",
+            "why": "850W capacity and two dedicated GPU leads for this configuration.",
+            "compatibility": "160mm PSU within the H6 Flow 200mm allowance. Use two separate supplied Type 4 PCIe 6+2-pin cables for the Reaper GPU. CPU/EPS cables go only to motherboard CPU power. Never reuse another PSU\u2019s modular cables. Leave the native 12V-2x6 GPU cable unused.",
+            "guideVariantId": "psu-rm850x2024uk",
+            "sources": [
+              "https://www.corsair.com/uk/en/p/psu/cp-9020270-uk/rmx-series-rm850x-fully-modular-power-supply-uk-cp-9020270-uk",
+              "https://www.corsair.com/uk/en/explorer/diy-builder/power-supply-units/rmx-atx-31-psus-cable-compatibility/"
+            ]
+          }
+        },
+        {
+          "id": "cooler",
+          "label": "Cooling",
+          "componentId": "freezer36standard",
+          "component": {
+            "slot": "cooler",
+            "manufacturer": "Arctic",
+            "name": "Freezer 36 \u2014 standard silver fins / black fans",
+            "mpn": "ACFRE00121A",
+            "why": "Air cooling suited to the stock-power Ryzen 5, without liquid-cooling complexity.",
+            "compatibility": "159mm tall against the H6 Flow 163mm limit. Use the supplied AM5 mounting kit and paste; retain the AM5 backplate. Remove the cold-plate protective film. Connect the two PWM fans via their PST connection to CPU_FAN1. Follow the Arctic manual for mounting orientation and tightening.",
+            "heightMm": 159,
+            "sources": [
+              "https://www.arctic.de/en/Freezer-36/ACFRE00121A",
+              "https://support.arctic.de/freezer-36"
+            ],
+            "guideVariantId": "cooler-freezer36standard"
+          }
+        },
+        {
+          "id": "case",
+          "label": "Case",
+          "componentId": "h6flow",
+          "component": {
+            "slot": "case",
+            "manufacturer": "NZXT",
+            "name": "H6 Flow black \u2014 original non-RGB",
+            "mpn": "CC-H61FB-01",
+            "why": "A clear dual-chamber layout and three supplied intake fans; no speculative extra fan.",
+            "compatibility": "Original non-RGB CC-H61FB-01: GPU allowance 365mm, cooler 163mm, PSU 200mm. Use micro-ATX standoffs only. Connect the three included intake fans to suitable SYS_FAN headers within their current ratings; set DC/PWM mode for the actual plugs. Route JFP1, JAUD1 and USB leads using the board manual. Check cable bends and panel closure before powering on.",
+            "guideVariantId": "case-h6flow",
+            "sources": [
+              "https://cdn-g.nzxt.com/dl/1698993634-h6-flow_digital-manual_231027_v2-pdf.pdf"
+            ],
+            "gpuClearanceMm": 365,
+            "coolerClearanceMm": 163
+          }
+        }
+      ]
     }
   },
-  "currentPerformanceRevision": "performance-1.2-c",
+  "currentPerformanceRevision": "performance-1.3-b",
   "performanceRevisions": {
     "performance-1.1-approved": {
       "build": {
@@ -2447,7 +2691,7 @@
     "performance-1.2-c": {
       "build": {
         "revision": "performance-1.2-c",
-        "title": "Performance — Configuration C",
+        "title": "Performance \u2014 Configuration C",
         "targetPence": null,
         "currency": "GBP",
         "vatIncluded": true,
@@ -2576,6 +2820,335 @@
         "performance-1.2-c-asus9070xt-fitv28-sn5100"
       ],
       "defaultConfigurationId": "performance-1.2-c-asus9070xt-fitv28-sn5100"
+    },
+    "performance-1.3-b": {
+      "build": {
+        "revision": "performance-1.3-b",
+        "title": "Performance \u2014 Option B",
+        "targetPence": null,
+        "currency": "GBP",
+        "vatIncluded": true,
+        "specificationReviewedOn": "2026-10-22",
+        "exclusions": [
+          "Windows licence",
+          "Monitor, keyboard, mouse and other peripherals",
+          "Delivery charges",
+          "Tools and optional extra fans"
+        ],
+        "slots": [
+          {
+            "id": "cpu",
+            "label": "Processor",
+            "policy": "FIXED",
+            "approvedIds": [
+              "ryzen9600x"
+            ],
+            "preferredId": "ryzen9600x",
+            "quantity": 1,
+            "targetPence": null,
+            "maxPence": null,
+            "switchSavingPence": null
+          },
+          {
+            "id": "gpu",
+            "label": "Graphics",
+            "policy": "FIXED",
+            "approvedIds": [
+              "reaper9070xt"
+            ],
+            "preferredId": "reaper9070xt",
+            "quantity": 1,
+            "targetPence": null,
+            "maxPence": null,
+            "switchSavingPence": null
+          },
+          {
+            "id": "motherboard",
+            "label": "Motherboard",
+            "policy": "FIXED",
+            "approvedIds": [
+              "msib850mwifi6e"
+            ],
+            "preferredId": "msib850mwifi6e",
+            "quantity": 1,
+            "targetPence": null,
+            "maxPence": null,
+            "switchSavingPence": null
+          },
+          {
+            "id": "ram",
+            "label": "Memory",
+            "policy": "FIXED",
+            "approvedIds": [
+              "fitv28"
+            ],
+            "preferredId": "fitv28",
+            "quantity": 1,
+            "targetPence": null,
+            "maxPence": null,
+            "switchSavingPence": null
+          },
+          {
+            "id": "ssd",
+            "label": "Storage",
+            "policy": "FIXED",
+            "approvedIds": [
+              "sn7100_1tb"
+            ],
+            "preferredId": "sn7100_1tb",
+            "quantity": 1,
+            "targetPence": null,
+            "maxPence": null,
+            "switchSavingPence": null
+          },
+          {
+            "id": "psu",
+            "label": "Power",
+            "policy": "FIXED",
+            "approvedIds": [
+              "rm850x2024uk"
+            ],
+            "preferredId": "rm850x2024uk",
+            "quantity": 1,
+            "targetPence": null,
+            "maxPence": null,
+            "switchSavingPence": null
+          },
+          {
+            "id": "cooler",
+            "label": "Cooling",
+            "policy": "FIXED",
+            "approvedIds": [
+              "freezer36standard"
+            ],
+            "preferredId": "freezer36standard",
+            "quantity": 1,
+            "targetPence": null,
+            "maxPence": null,
+            "switchSavingPence": null
+          },
+          {
+            "id": "case",
+            "label": "Case",
+            "policy": "FIXED",
+            "approvedIds": [
+              "h6flow"
+            ],
+            "preferredId": "h6flow",
+            "quantity": 1,
+            "targetPence": null,
+            "maxPence": null,
+            "switchSavingPence": null
+          }
+        ]
+      },
+      "selectionState": {},
+      "publicationStatus": "current",
+      "purchasingPolicy": {
+        "approvalStatus": "pending",
+        "approvedAt": null,
+        "wholeBuildMaximumPence": null
+      },
+      "approvedConfigurationIds": [
+        "performance-1.3-b-reaper9070xt-fitv28-sn7100"
+      ],
+      "defaultConfigurationId": "performance-1.3-b-reaper9070xt-fitv28-sn7100"
+    }
+  },
+  "launchBuilds": {
+    "Starter": {
+      "revision": "starter-2026-10",
+      "state": "HOLD",
+      "purchasingApproved": false,
+      "deliveredTotalPence": null,
+      "parts": [
+        {
+          "slot": "cpu",
+          "name": "AMD Ryzen 5 5600 boxed",
+          "manufacturerModel": "100-100000927BOX",
+          "productUrl": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5600.html",
+          "notes": "Boxed AM4 processor includes Wraith Stealth. MSI lists the Ryzen 5 5600 from BIOS 7C95v2A. Ask the seller to confirm the shipped BIOS; if needed, follow the exact board\u2019s Flash BIOS Button instructions. This CPU has no integrated graphics: plug the monitor into the graphics card."
+        },
+        {
+          "slot": "gpu",
+          "name": "Palit GeForce RTX 5060 Dual 8GB (non-OC)",
+          "manufacturerModel": "NE75060019P1-GB2063D",
+          "productUrl": "https://www.scan.co.uk/products/palit-nvidia-geforce-rtx-5060-dual-8gb-gddr7-ray-tracing-graphics-card-dlss-4-3840-cores-2497-mhz-bo",
+          "notes": "1080p-focused 8GB card. Reduce texture quality in games that exceed its memory; do not assume maximum settings. Fit in PCI_E1 and connect one PSU PCIe 6+2-pin plug. The card uses eight PCIe lanes and runs at PCIe 4.0 on this platform. Palit specifies 262.1 \u00d7 126.3 \u00d7 40.1mm, below the 365mm case length limit, and a 550W recommended PSU; this build uses 650W.",
+          "manufacturerSource": "https://www.palit.com/palit/vgapro.php?id=5575&lang=en&pn=NE75060019P1-GB2063D&tab=sp"
+        },
+        {
+          "slot": "motherboard",
+          "name": "MSI B550M PRO-VDH WIFI",
+          "manufacturerModel": "B550M PRO-VDH WIFI",
+          "productUrl": "https://www.msi.com/Motherboard/B550M-PRO-VDH-WIFI/support",
+          "notes": "Exact B550M PRO-VDH WIFI, not the CEC variant. Install RAM in DIMMA2/DIMMB2 and the SSD in M2_1. Match micro-ATX standoffs. Connect 24-pin ATX and CPU_PWR1 using the CPU/EPS cable, JFP1 for case switches, JAUD1 for audio and the matching USB headers. Use the board manual for pin positions."
+        },
+        {
+          "slot": "ram",
+          "name": "Corsair Vengeance LPX 16GB (2x8GB) DDR4-3200 CL16",
+          "manufacturerModel": "CMK16GX4M2E3200C16",
+          "productUrl": "https://www.corsair.com/uk/en/p/memory/cmk16gx4m2e3200c16/vengeance-lpx-16gb-2-x-8gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk16gx4m2e3200c16",
+          "notes": "Two 8GB DDR4 modules in A2/B2. Start at default memory settings, then try A-XMP 3200 only after a stable first boot. This DDR4 kit cannot be reused on an AM5 DDR5 board."
+        },
+        {
+          "slot": "ssd",
+          "name": "Kingston NV3 1TB M.2 2280",
+          "manufacturerModel": "SNV3S/1000G",
+          "productUrl": "https://www.kingston.com/en/ssd/nv3-nvme-pcie-ssd",
+          "notes": "Bare 1TB M.2 2280 PCIe NVMe SSD. Secure in M2_1 using the board retention and heatsink; remove the thermal-pad protective film. Capacity can be expanded later if needed."
+        },
+        {
+          "slot": "psu",
+          "name": "Corsair CX650 (2023), UK",
+          "manufacturerModel": "CP-9020278-UK",
+          "productUrl": "https://www.corsair.com/uk/en/p/psu/cp-9020278-uk/cx-series-cx650-650-watt-80-plus-bronze-atx-power-supply-uk-cp-9020278-uk",
+          "notes": "650W non-modular power supply, 125mm long within the case\u2019s 200mm allowance. Use its fixed CPU/EPS cable for CPU_PWR1 and one PCIe 6+2 plug for the GPU. Tie unused leads away from fans. Never open the PSU."
+        },
+        {
+          "slot": "cooler",
+          "name": "AMD Wraith Stealth bundled with boxed CPU",
+          "manufacturerModel": "Included with 100-100000927BOX",
+          "productUrl": "https://www.amd.com/en/resources/support-articles/faqs/CPU-7.html",
+          "notes": "Included with the boxed CPU; do not buy a second cooler. Remove the AM4 plastic retention brackets but retain the backplate. Follow AMD\u2019s screw-mounted cooler instructions and tighten evenly. Use the pre-applied paste once; do not add more on top. Connect its fan to CPU_FAN1."
+        },
+        {
+          "slot": "case",
+          "name": "NZXT H6 Flow black (2023)",
+          "manufacturerModel": "CC-H61FB-01",
+          "productUrl": "https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx",
+          "notes": "Original black non-RGB CC-H61FB-01 with three intake fans. GPU allowance 365mm and cooler 163mm. Connect included fans to SYS_FAN headers within the board ratings; choose DC/PWM mode for their actual plugs. Check front USB and audio connections against the exact board manual. No fan hub or extra fan is assumed."
+        }
+      ]
+    },
+    "High-End": {
+      "revision": "high-end-2026-10",
+      "state": "HOLD",
+      "purchasingApproved": false,
+      "deliveredTotalPence": null,
+      "parts": [
+        {
+          "slot": "cpu",
+          "name": "AMD Ryzen 7 9800X3D",
+          "manufacturerModel": "100-100001084WOF",
+          "productUrl": "https://www.scan.co.uk/products/amd-ryzen-7-9800x3d-am5-zen-5-8-core-16-threads-47ghz-52ghz-turbo-104mb-cache-pcie-50-120w-cpu-retai",
+          "notes": "Ryzen 7 9800X3D, AM5, no included cooler. MSI lists support from BIOS 7E81v1A0 on this exact board. Confirm the supplied BIOS and follow its Flash BIOS instructions if needed. Keep stock power settings; do not apply automatic motherboard overclocking."
+        },
+        {
+          "slot": "gpu",
+          "name": "PowerColor Reaper RX 9070 XT 16GB",
+          "manufacturerModel": "RX9070XT 16G-A",
+          "productUrl": "https://www.overclockers.co.uk/powercolor-radeon-rx-9070-xt-reaper-16gb-gddr6-pci-express-graphics-card/GRA-PWC-04017.html",
+          "notes": "289mm body / 304mm including bracket; fits the H6 Flow 365mm length allowance. Install in PCI_E2. Use two separate supplied RM850x PCIe 6+2-pin leads, one per socket. Do not use EPS cables or the unused 12V-2x6 lead."
+        },
+        {
+          "slot": "motherboard",
+          "name": "MSI B850M GAMING PLUS WIFI6E",
+          "manufacturerModel": "B850M GAMING PLUS WIFI6E",
+          "productUrl": "https://www.overclockers.co.uk/msi-b850m-gaming-plus-wifi6e-amd-am5-b850-ddr5-micro-atx-motherboard/MOT-MSI-05943.html",
+          "notes": "MSI B850M GAMING PLUS WIFI6E, micro-ATX. Fit only matching standoffs. RAM in A2/B2, SSD in M2_1, GPU in PCI_E2 (the long CPU-connected slot, not PCI_E1). CPU support starts at 7E81v1A0 for both 9600X and 9800X3D. Connect 24-pin ATX and the CPU EPS leads to the labelled power headers; JFP1 for case switches, JAUD1 for audio and matching USB headers per manual."
+        },
+        {
+          "slot": "ram",
+          "name": "Klevv FIT V 32GB (2\u00d716GB) DDR5-6000 CL28",
+          "manufacturerModel": "KD5AGU880-60B280L",
+          "productUrl": "https://www.overclockers.co.uk/klevv-fit-v-expo-32gb-2x16gb-6000mhz-c28-ddr5-dual-channel-kit-black/MEM-KLV-07037.html",
+          "notes": "Install both 33.21mm-high modules in A2/B2. Start at JEDEC defaults; allow memory training. EXPO 6000 is optional overclocking, not a guaranteed speed. If unstable, return to defaults. Exact QVL membership is not claimed."
+        },
+        {
+          "slot": "ssd",
+          "name": "WD Blue SN5100 2TB",
+          "manufacturerModel": "WDS200T5B0E-00CPE0",
+          "productUrl": "https://documents.sandisk.com/content/dam/asset-library/en_us/assets/public/sandisk/product/internal-drives/wd-blue-sn5100-nvme-ssd/data-sheet-wd-blue-sn5100-nvme-ssd.pdf",
+          "notes": "Bare 2TB M.2 2280 SN5100 in M2_1. Secure the retention and remove the heatsink thermal-pad film. The extra capacity is for a larger game library; it is not a promise of higher frame rates."
+        },
+        {
+          "slot": "psu",
+          "name": "Corsair RM850x (2024), UK",
+          "manufacturerModel": "CP-9020270-UK",
+          "productUrl": "https://www.corsair.com/uk/en/p/psu/CP-9020270-UK/rmx-series-rm850x-fully-modular-power-supply-uk-cp-9020270-uk",
+          "notes": "160mm PSU within the H6 Flow 200mm allowance. Use two separate supplied Type 4 PCIe 6+2-pin cables for the Reaper GPU. CPU/EPS cables go only to motherboard CPU power. Never reuse another PSU\u2019s modular cables. Leave the native 12V-2x6 GPU cable unused."
+        },
+        {
+          "slot": "cooler",
+          "name": "Thermalright Peerless Assassin 120 SE non-RGB",
+          "manufacturerModel": "PA120 SE 1700",
+          "productUrl": "https://www.thermalright.com/product/peerless-assassin-120-se/",
+          "notes": "Peerless Assassin 120 SE non-RGB, not another revision. Use its AM5 kit and retain the AM5 backplate. Remove cold-plate film and apply paste according to the manual. Two PWM fans connect to CPU_FAN1 with the supplied splitter within the header rating. Nominal height 155mm versus the case\u2019s 163mm: check the front fan clears 33.21mm RAM without exceeding 163mm. Exact fan position and stock-load temperatures require physical verification."
+        },
+        {
+          "slot": "case",
+          "name": "NZXT H6 Flow black (2023)",
+          "manufacturerModel": "CC-H61FB-01",
+          "productUrl": "https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx",
+          "notes": "Original non-RGB CC-H61FB-01: GPU allowance 365mm, cooler 163mm, PSU 200mm. Use micro-ATX standoffs only. Connect the three included intake fans to suitable SYS_FAN headers within their current ratings; set DC/PWM mode for the actual plugs. Route JFP1, JAUD1 and USB leads using the board manual. Check cable bends and panel closure before powering on."
+        }
+      ]
+    },
+    "Performance": {
+      "revision": "performance-1.3-b",
+      "configurationId": "performance-1.3-b-reaper9070xt-fitv28-sn7100",
+      "state": "HOLD",
+      "purchasingApproved": false,
+      "deliveredTotalPence": null,
+      "parts": [
+        {
+          "slot": "cpu",
+          "name": "AMD Ryzen 5 9600X",
+          "manufacturerModel": "100-100001405WOF",
+          "productUrl": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-5-9600x.html",
+          "notes": "Use stock power settings. MSI lists Ryzen 5 9600X support from BIOS 7E81v1A0. Confirm the supplied BIOS; use only this exact motherboard support page and its Flash BIOS instructions if an update is needed. No cooler is included with the CPU."
+        },
+        {
+          "slot": "gpu",
+          "name": "PowerColor Reaper Radeon RX 9070 XT 16GB",
+          "manufacturerModel": "RX9070XT 16G-A",
+          "productUrl": "https://www.powercolor.com/product-detail212.htm",
+          "notes": "289mm body / 304mm including bracket; fits the H6 Flow 365mm length allowance. Install in PCI_E2. Use two separate supplied RM850x PCIe 6+2-pin leads, one per socket. Do not use EPS cables or the unused 12V-2x6 lead."
+        },
+        {
+          "slot": "motherboard",
+          "name": "MSI B850M GAMING PLUS WIFI6E",
+          "manufacturerModel": "B850M GAMING PLUS WIFI6E",
+          "productUrl": "https://www.msi.com/Motherboard/B850M-GAMING-PLUS-WIFI6E/Specification",
+          "notes": "MSI B850M GAMING PLUS WIFI6E, micro-ATX. Fit only matching standoffs. RAM in A2/B2, SSD in M2_1, GPU in PCI_E2 (the long CPU-connected slot, not PCI_E1). CPU support starts at 7E81v1A0 for both 9600X and 9800X3D. Connect 24-pin ATX and the CPU EPS leads to the labelled power headers; JFP1 for case switches, JAUD1 for audio and matching USB headers per manual."
+        },
+        {
+          "slot": "ram",
+          "name": "KLEVV FIT V black 32GB (2\u00d716GB) DDR5-6000 CL28",
+          "manufacturerModel": "KD5AGU880-60B280L",
+          "productUrl": "https://www.klevv.com/ken/products_details/memory/Klevv_FITV",
+          "notes": "Install both 33.21mm-high modules in A2/B2. Start at JEDEC defaults; allow memory training. EXPO 6000 is optional overclocking, not a guaranteed speed. If unstable, return to defaults. Exact QVL membership is not claimed."
+        },
+        {
+          "slot": "ssd",
+          "name": "WD Black SN7100 1TB",
+          "manufacturerModel": "WDS100T4X0E-00CJA0",
+          "productUrl": "https://www.scan.co.uk/products/1tb-wd-black-sn7100-m2-2280-pcie-40-x4-nvme-ssd-7250mb-s-read-6900mb-s-write-1000k-1400k-iops",
+          "notes": "Bare M.2 2280 PCIe 4.0 NVMe drive. Install in M2_1, secure the retention and remove the board heatsink thermal-pad film before refitting it."
+        },
+        {
+          "slot": "psu",
+          "name": "Corsair RM850x (2024) ATX 3.1 \u2014 UK",
+          "manufacturerModel": "CP-9020270-UK",
+          "productUrl": "https://www.corsair.com/uk/en/p/psu/cp-9020270-uk/rmx-series-rm850x-fully-modular-power-supply-uk-cp-9020270-uk",
+          "notes": "160mm PSU within the H6 Flow 200mm allowance. Use two separate supplied Type 4 PCIe 6+2-pin cables for the Reaper GPU. CPU/EPS cables go only to motherboard CPU power. Never reuse another PSU\u2019s modular cables. Leave the native 12V-2x6 GPU cable unused."
+        },
+        {
+          "slot": "cooler",
+          "name": "Arctic Freezer 36 \u2014 standard silver fins / black fans",
+          "manufacturerModel": "ACFRE00121A",
+          "productUrl": "https://www.arctic.de/en/Freezer-36/ACFRE00121A",
+          "notes": "159mm tall against the H6 Flow 163mm limit. Use the supplied AM5 mounting kit and paste; retain the AM5 backplate. Remove the cold-plate protective film. Connect the two PWM fans via their PST connection to CPU_FAN1. Follow the Arctic manual for mounting orientation and tightening."
+        },
+        {
+          "slot": "case",
+          "name": "NZXT H6 Flow black \u2014 original non-RGB",
+          "manufacturerModel": "CC-H61FB-01",
+          "productUrl": "https://cdn-g.nzxt.com/dl/1698993634-h6-flow_digital-manual_231027_v2-pdf.pdf",
+          "notes": "Original non-RGB CC-H61FB-01: GPU allowance 365mm, cooler 163mm, PSU 200mm. Use micro-ATX standoffs only. Connect the three included intake fans to suitable SYS_FAN headers within their current ratings; set DC/PWM mode for the actual plugs. Route JFP1, JAUD1 and USB leads using the board manual. Check cable bends and panel closure before powering on."
+        }
+      ]
     }
   }
 }

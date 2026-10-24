@@ -7,7 +7,7 @@ test('known saved parts retain their own exact identities; unknown links do not 
   const html=V.guide(d,id);
   assert.equal((html.match(/<li>/g)||[]).length,8);
   for(const component of Object.values(cfg.components)){const c=d.components[component];assert.ok(html.includes(V.esc(c.mpn||c.ean||c.model)));}
-  assert.match(html,/not a purchase record/);assert.match(html,/assembly instructions are not yet released/);
+  assert.match(html,/not a purchase record/);assert.match(html,/assembly checklist/);
  }
  for(const id of ['missing','__proto__','constructor','<script>alert(1)</script>']){
   const html=V.guide(d,id);assert.match(html,/could not be found/);assert.doesNotMatch(html,/core-guide-parts|<script>/);
@@ -18,7 +18,7 @@ test('public copy no longer contradicts affiliate use or unreleased guides',()=>
  assert.doesNotMatch(fs.readFileSync('faq.html','utf8'),/Not yet\. Current retailer links/);
  assert.doesNotMatch(fs.readFileSync('about.html','utf8'),/Future affiliate commission/);
  for(const tier of ['starter','high-end']){
-  assert.match(fs.readFileSync('core-'+tier+'.html','utf8'),/UNDER REVIEW/);
+  assert.match(fs.readFileSync('core-'+tier+'.html','utf8'),/HOLD/);
   assert.doesNotMatch(fs.readFileSync('core-'+tier+'-guide.html','utf8'),/YOU BUILT IT|Enable the memory profile/);
  }
 });

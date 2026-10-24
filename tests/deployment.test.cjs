@@ -9,7 +9,7 @@ const expected=['404.html','CNAME','about.html','affiliate-disclosure.html','ass
 function temp(t){const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),'core-package-test-'));t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));return dir;}
 function fixture(t){
  const parent=temp(t),dir=path.join(parent,'repo');fs.mkdirSync(dir);fs.mkdirSync(path.join(dir,'assets'));fs.mkdirSync(path.join(dir,'scripts'));
- for(const name of [...expected,'core-data.json','scripts/build.cjs','scripts/render-performance.cjs','scripts/public-files.json'])fs.copyFileSync(path.join(root,name),path.join(dir,name));
+ for(const name of [...expected,'core-data.json','scripts/build.cjs','scripts/render-performance.cjs','scripts/render-launch.cjs','scripts/public-files.json'])fs.copyFileSync(path.join(root,name),path.join(dir,name));
  return {root:dir,out:path.join(parent,'site'),parent};
 }
 function readData(dir){const ctx={window:{}};vm.runInNewContext(fs.readFileSync(path.join(dir,'assets/core-data.generated.js'),'utf8'),ctx);return JSON.parse(JSON.stringify(ctx.window.CORE_DATA));}
@@ -20,9 +20,14 @@ test('package contains exactly 24 approved public files with source bytes, modes
  for(const name of expected){const bytes=fs.readFileSync(path.join(a.directory,name));assert.deepEqual(bytes,fs.readFileSync(path.join(root,name)));if(!['assets/core-view.js','core-performance-guide.html'].includes(name)){hash.update(name+'\0');hash.update(bytes);hash.update('\0');}
   for(const directory of [a.directory,b.directory]){const s=fs.statSync(path.join(directory,name));assert.equal(s.nlink,1);assert.equal(s.mode&0o777,0o644);assert.equal(s.mtimeMs,946684800000);}
  }
- // Approved Contact page wording changes the reviewed public fingerprint.
- // Other packaged files remain unchanged in this focused PR.
- assert.equal(hash.digest('hex'),'18da940166edf81ba8ede933fb7c9a470df3dc0b29171cd2ebefd62e08b28560');
+ // Phase 5F reviews exact hardware and checklist integration; see phase-5f-build-completion.md.
+ // Historical data has a separate PR19 digest lock; affiliates and 24-file allowlist remain unchanged.
+ // Release acceptance: privacy contact sentence now matches the existing Contact page; homepage grid also prevents clipped introduction text at 320px.
+ // This fixed digest must not be regenerated without reviewing the public diff.
+ assert.equal(hash.digest('hex'),'107c26af5c202f188c2169a513cf03d262fcee9279f3d94ed734ae131e43827f');
+ const verified=require('../scripts/verify-public.cjs').verify(a.directory);
+ assert.equal(verified.fingerprint,'cd5d280e6966271077bf6e243e6d02cdccccb7d4e44b7875e90ba33c936551af');
+ console.log('Phase 5 verified public package:',verified.count,verified.fingerprint);
  for(const name of ['core-data.json','scripts','tests','.github','.git','.env','dist'])assert.equal(fs.existsSync(path.join(a.directory,name)),false);
 });
 test('source-only secrets, research, private feeds and unrelated development files are never copied',t=>{
@@ -66,6 +71,7 @@ test('broken public references and stale generated/static fallbacks fail without
   f=>fs.appendFileSync(path.join(f.root,'assets/public.css'),'a{background:url(missing.svg)}'),
   f=>fs.appendFileSync(path.join(f.root,'assets/core-data.generated.js'),'\n'),
   f=>{const p=path.join(f.root,'core-performance.html');fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('Wait before buying this PC.','Wrong fallback'));},
+  f=>{const p=path.join(f.root,'core-starter.html');fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('NE75060019P1-GB2063D','WRONG GPU'));},
   f=>{const p=path.join(f.root,'core-performance-guide.html');fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('Exact configuration index','Wrong index'));}
  ];
  for(const mutate of mutations){const f=fixture(t);mutate(f);const before=fs.readFileSync(path.join(f.root,'core-performance.html'));assert.throws(()=>P.packagePublic(f));assert.equal(fs.existsSync(f.out),false);assert.deepEqual(fs.readFileSync(path.join(f.root,'core-performance.html')),before);}
@@ -74,12 +80,12 @@ test('packaged browser modules retain exact C, all eight historical configuratio
  const f=fixture(t);P.packagePublic(f);const d=readData(f.out),source=require('../core-data.json');assert.deepEqual(d,source);
  const E=require(path.join(f.out,'assets/core-engine.js')),V=require(path.join(f.out,'assets/core-view.js')),A=require(path.join(f.out,'assets/core-affiliates.js'));
  const before=require('../assets/core-engine.js').derive(source,now),r=E.derive(d,now);assert.deepEqual(r,before);assert.equal(r.state,'HOLD');assert.equal(r.completeEligible,false);assert.equal(r.eligiblePurchaseTotal,null);
- const exact={cpu:'ryzen9600x',gpu:'asus9070xtprimeoc',motherboard:'msib850mwifi6e',ram:'fitv28',ssd:'sn5100',psu:'rm850x2024uk',cooler:'pa120se',case:'h6flow'};assert.deepEqual(r.selectedIds,exact);
+ const exact={cpu:'ryzen9600x',gpu:'reaper9070xt',motherboard:'msib850mwifi6e',ram:'fitv28',ssd:'sn7100_1tb',psu:'rm850x2024uk',cooler:'freezer36standard',case:'h6flow'};assert.deepEqual(r.selectedIds,exact);
  const page=fs.readFileSync(path.join(f.out,'core-performance.html'),'utf8'),guide=fs.readFileSync(path.join(f.out,'core-performance-guide.html'),'utf8');assert.match(page,/HOLD — buying criteria awaiting approval/);assert.equal((page.match(/class="core-price-unchecked"/g)||[]).length,8);assert.doesNotMatch(page,/View exact offer|A good time to buy|Ready to buy\. Above our target/);assert.match(page,/details need a fresh check/);
  for(const id of Object.values(exact)){const c=d.components[id];assert.ok(page.includes(V.esc(c.mpn||c.ean||c.model)));assert.deepEqual(A.links(id,c),require('../assets/core-affiliates.js').links(id,c));}
  const old=d.performanceRevisions['performance-1.1-approved'].approvedConfigurationIds;assert.equal(old.length,8);
  for(const id of old){assert.equal(V.guide(d,id),require('../assets/core-view.js').guide(source,id));assert.ok(guide.includes('id="'+id+'"'));assert.equal((V.guide(d,id).match(/<li>/g)||[]).length,8);}
- assert.equal((guide.match(/class="core-saved-configuration"/g)||[]).length,9);assert.match(guide,/exact configuration index/);
+ assert.equal((guide.match(/class="core-saved-configuration"/g)||[]).length,10);assert.match(guide,/exact configuration index/);
 });
 test('CLI works from another cwd/timezone and prints only an external directory; invalid arguments do not write',t=>{
  const parent=temp(t),script=path.join(root,'scripts/package-public.cjs');

@@ -27,8 +27,9 @@ test('identity, stock, VAT, seller and dispatch uncertainty cannot pass',()=>{
   const d=complete();Object.assign(d.parts[0],patch);assert.equal(assess(d,now).evidenceComplete,false);
  }
 });
-test('proposal checker preserves canonical data and all nine configurations',()=>{
+test('proposal checker preserves canonical data and nine historical configurations plus pending revision',()=>{
  const d=require('../core-data.json'),before=JSON.stringify(d);assess(proposal,now);
- assert.equal(JSON.stringify(d),before);assert.equal(Object.keys(d.guideConfigurations).length,9);
+ assert.equal(JSON.stringify(d),before);assert.equal(Object.keys(d.guideConfigurations).length,10);
+ assert.equal(Object.keys(d.guideConfigurations).filter(id=>id!=='performance-1.3-b-reaper9070xt-fitv28-sn7100').length,9);
  assert.equal(require('../assets/core-engine.js').derive(d,now).state,'HOLD');
 });
