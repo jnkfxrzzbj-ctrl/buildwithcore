@@ -187,6 +187,18 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    if(shots&&width!==320)await p.screenshot({path:path.join(shots,file.replace('.html','')+'-'+width+'-'+javaScriptEnabled+'.png'),fullPage:true});
    assert.deepEqual(errors,[],file);checks++;p.off('pageerror',onError);
   }
+  // Phase 5G: the beginner route must work at desktop and phone widths, with or without JS.
+  await p.goto(origin+'/guides.html');
+  assert.equal(await p.getByRole('heading',{name:'New to building? Start here.'}).count(),1);checks++;
+  assert.match(await p.locator('.beginner-route').innerText(),/HOLD — do not order yet/);checks++;
+  assert.equal(await p.locator('.core-assembly-steps > li').count(),10);checks++;
+  assert.equal(await p.locator('.core-stage-note').count(),10);checks++;
+  assert.equal(await p.getByRole('heading',{name:"Words you'll see during your build"}).count(),1);checks++;
+  assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'beginner guide '+width+' overflow');checks++;
+  const assemblyJump=p.locator('.beginner-route a[href="#assembly"]');
+  await assemblyJump.focus();await p.keyboard.press('Enter');
+  assert.equal(new URL(p.url()).hash,'#assembly');checks++;
+  assert.equal(await p.locator('#assembly').count(),1);checks++;
   await p.goto(origin+'/guides.html');await p.getByRole('link',{name:'Explore Performance hardware notes'}).click();
   if(javaScriptEnabled){await p.locator('[data-core="guide"] .core-guide-parts>li').first().waitFor({state:'attached',timeout:10000});assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);checks++;}
   else {assert.match(await p.locator('.core-noscript').innerText(),/exact configuration index/);checks++;await p.locator('.core-noscript').getByRole('link',{name:'exact configuration index',exact:true}).click();assert.equal(await p.locator('.core-saved-configuration').count(),10);checks++;for(const section of await p.locator('.core-saved-configuration').all()){await section.locator(':scope>summary').click();assert.equal(await section.locator('.core-guide-parts>li').count(),8);checks++;}}
