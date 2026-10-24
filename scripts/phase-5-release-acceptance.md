@@ -1,5 +1,24 @@
 # CORE Phase 5 — hosted release acceptance
 
+## Final hosted closure — 24 October 2026
+
+**GO for owner-approved merging of PR #23 as an educational HOLD release.** The previously outstanding preview gate is closed. Purchasing remains **NO-GO**; no buying evidence, specification, rules or affiliate behaviour changed. This recommendation is not merge or production-deployment authorisation.
+
+- Exact checked-out, packaged and deployed PR head: `24ab40ce140f6e198865b619fb2be2bb127a7fc0`. GitHub showed PR #23 open, targeting main and mergeable. Both checks passed: [40042159723](https://github.com/jnkfxrzzbj-ctrl/buildwithcore/actions/runs/40042159723) and [40042154440](https://github.com/jnkfxrzzbj-ctrl/buildwithcore/actions/runs/40042154440). No new public code was added during this closure.
+- Ran the existing `node scripts/package-public.cjs --out ../phase5-resume-public` and `node scripts/verify-public.cjs ../phase5-resume-public` from that exact clean checkout. Result: **24 files, 449,298 bytes**, fingerprint **`cd5d280e6966271077bf6e243e6d02cdccccb7d4e44b7875e90ba33c936551af`**, exactly matching the approved final-layout package recorded below.
+- Immutable preview: **https://f992f454.core-preview-test.pages.dev**. Deployment ID: **`f992f454-6b3b-430a-a417-366f6852bdc1`**. Existing project `core-preview-test`, explicit branch `core-phase5-release-preview`, exact source commit metadata and `commit_dirty=false`.
+- Cloudflare API confirms `environment=preview` and successful deploy stage, completed `2026-10-24T11:06:56.700414Z`. The production branch remains `core-production-disabled`, canonical production deployment remains absent, and domains remain only `core-preview-test.pages.dev`.
+- **43 hosted HTTP route checks passed:** every one of the 24 public files is byte-identical to the verified package; nine representative internal/missing paths return the exact 404 page; all ten saved-configuration queries survive redirects. Curl TLS certificate verification remained enabled.
+- **142 targeted hosted browser assertions passed, with zero retries in the completed run.** Corrected introductory text stays within the hero and viewport at 320, 390 and 1440px, with JavaScript enabled and disabled. Mobile menu open/close, Escape/focus recovery, visible no-JS navigation, keyboard 404-to-home recovery, privacy text and all three HOLD states were checked. No exact-offer purchase action appeared. Representative hosted screenshots were visually inspected; the previously clipped introduction is readable.
+- Hosted Chromium still needed the previously documented inspection-proxy certificate exception. The separate HTTP byte checks retained TLS verification. This is targeted closure of the final fix, not a repeat hardware audit or new physical/novice study.
+
+The update containing this closure is report-only: public bytes and fingerprint are unchanged, so the immutable preview remains representative. Check that report-only head's CI before merging. No PR was merged/closed; no production/DNS/account configuration or paid service changed. The purchasing gates and #25 → #26 review sequence below remain in force.
+
+### Historical acceptance record
+
+The conditional decision and access blocker below describe the earlier, now-superseded state. The final hosted closure above is authoritative for release readiness.
+
+
 24 October 2026. **CONDITIONAL GO for an educational HOLD release; do not merge yet.** The final mobile-layout fix passes local tests but still needs an isolated preview deployment and targeted hosted acceptance. Purchasing remains **NO-GO**.
 
 ## Exact candidates and previews
