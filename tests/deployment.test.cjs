@@ -5,7 +5,7 @@ const {createHash}=require('node:crypto'),{spawnSync}=require('node:child_proces
 const P=require('../scripts/package-public.cjs');
 const root=path.resolve(__dirname,'..'),now='2026-10-14T12:00:00Z';
 // Independent public inventory for this approved baseline, not inferred from copy output.
-const expected=['404.html','CNAME','about.html','affiliate-disclosure.html','assets/core-affiliates.js','assets/core-client.js','assets/core-data.generated.js','assets/core-engine.js','assets/core-view.js','assets/navigation.js','assets/performance.css','assets/public.css','builds.html','contact.html','core-high-end-guide.html','core-high-end.html','core-performance-guide.html','core-performance.html','core-starter-guide.html','core-starter.html','faq.html','guides.html','index.html','privacy.html'];
+const expected=['404.html','CNAME','about.html','affiliate-disclosure.html','assets/core-affiliates.js','assets/core-client.js','assets/core-data.generated.js','assets/core-engine.js','assets/core-view.js','assets/h6-exterior.webp','assets/navigation.js','assets/performance.css','assets/public.css','builds.html','contact.html','core-high-end-guide.html','core-high-end.html','core-performance-guide.html','core-performance.html','core-starter-guide.html','core-starter.html','faq.html','guides.html','index.html','privacy.html'];
 function temp(t){const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),'core-package-test-'));t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));return dir;}
 function fixture(t){
  const parent=temp(t),dir=path.join(parent,'repo');fs.mkdirSync(dir);fs.mkdirSync(path.join(dir,'assets'));fs.mkdirSync(path.join(dir,'scripts'));
@@ -13,7 +13,7 @@ function fixture(t){
  return {root:dir,out:path.join(parent,'site'),parent};
 }
 function readData(dir){const ctx={window:{}};vm.runInNewContext(fs.readFileSync(path.join(dir,'assets/core-data.generated.js'),'utf8'),ctx);return JSON.parse(JSON.stringify(ctx.window.CORE_DATA));}
-test('package contains exactly 24 approved public files with source bytes, modes and stable timestamps',t=>{
+test('package contains exactly 25 reviewed public files with source bytes, modes and stable timestamps',t=>{
  const parent=temp(t),a=P.packagePublic({out:path.join(parent,'a')}),b=P.packagePublic({out:path.join(parent,'b')});
  assert.deepEqual(P.manifest(root),expected);assert.deepEqual(a.files.map(f=>f.path),expected);assert.deepEqual(a.files,b.files);
  const hash=createHash('sha256');
@@ -21,13 +21,13 @@ test('package contains exactly 24 approved public files with source bytes, modes
   for(const directory of [a.directory,b.directory]){const s=fs.statSync(path.join(directory,name));assert.equal(s.nlink,1);assert.equal(s.mode&0o777,0o644);assert.equal(s.mtimeMs,946684800000);}
  }
  // Phase 5F reviews exact hardware and checklist integration; see phase-5f-build-completion.md.
- // Historical data has a separate PR19 digest lock; affiliates and 24-file allowlist remain unchanged.
+ // Phase 5I adds one WebP and reviews the public presentation diff. Historical data and affiliate locks remain independent.
  // Release acceptance: privacy contact sentence now matches the existing Contact page; homepage grid also prevents clipped introduction text at 320px.
  // Phase 5G: reviewed public diff changes guides.html only; all other approved public files and safeguards are preserved.
  // This fixed digest must not be regenerated without reviewing the public diff.
- assert.equal(hash.digest('hex'),'24675d7bbfa441c23142bb84b8e2dfcce3375b66687cc81b799abba19639a50c');
+ assert.equal(hash.digest('hex'),'0e535690f4419cbb787c4879cccd93b6a8a38c9e750858f04766cf2a1c21c0b2');
  const verified=require('../scripts/verify-public.cjs').verify(a.directory);
- assert.equal(verified.fingerprint,'4eb0af309e9eb3976d64630139bafd3ed9282fa7225f3405033933597ee2bb2d');
+ assert.equal(verified.fingerprint,'d7a40cfe43616d94cad485951195490b768922b6e044f85d7d2a1b5385338b7a');
  console.log('Phase 5 verified public package:',verified.count,verified.fingerprint);
  for(const name of ['core-data.json','scripts','tests','.github','.git','.env','dist'])assert.equal(fs.existsSync(path.join(a.directory,name)),false);
 });

@@ -25,7 +25,7 @@ function manifest(root){
  for(const f of files){
   // Only this site's flat HTML pages, browser assets and domain file are eligible.
   // No JSON, Markdown, maps, hidden paths, feeds, keys or arbitrary directories.
-  if(!(f==='CNAME'||f==='404.html'||/^[a-z][a-z0-9-]*\.html$/.test(f)||/^assets\/[a-z][a-z0-9.-]*\.(js|css)$/.test(f)))fail('unsafe allowlist path: '+f);
+  if(!(f==='CNAME'||f==='404.html'||/^[a-z][a-z0-9-]*\.html$/.test(f)||/^assets\/[a-z][a-z0-9.-]*\.(js|css|webp)$/.test(f)))fail('unsafe allowlist path: '+f);
  }
  return files;
 }

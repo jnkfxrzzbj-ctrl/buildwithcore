@@ -12,7 +12,9 @@ test('known saved parts retain their own exact identities; unknown links do not 
  for(const id of ['missing','__proto__','constructor','<script>alert(1)</script>']){
   const html=V.guide(d,id);assert.match(html,/could not be found/);assert.doesNotMatch(html,/core-guide-parts|<script>/);
  }
- assert.match(V.guide(d,null),/Performance hardware notes/);
+ assert.match(V.guide(d,null),/performance-1.3-b-reaper9070xt-fitv28-sn7100/);
+ assert.equal(V.guide(d,null),V.guide(d,'performance-1.3-b-reaper9070xt-fitv28-sn7100'));
+ assert.match(V.guide(d,''),/could not be found|Select your exact configuration/);
 });
 test('public copy no longer contradicts affiliate use or unreleased guides',()=>{
  assert.doesNotMatch(fs.readFileSync('faq.html','utf8'),/Not yet\. Current retailer links/);

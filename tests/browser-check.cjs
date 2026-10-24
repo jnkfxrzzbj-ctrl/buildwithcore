@@ -10,7 +10,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
  const server=http.createServer((req,res)=>{
   const file=path.resolve(siteRoot,decodeURIComponent(req.url.split('?')[0]).replace(/^\//,'')||'index.html');
   if(!file.startsWith(siteRoot+path.sep)){res.writeHead(403);res.end();return;}
-  fs.readFile(file,(err,data)=>{if(err){res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'});res.end(fs.readFileSync(path.join(siteRoot,'404.html')));return;}res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html');res.end(data);});
+  fs.readFile(file,(err,data)=>{if(err){res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'});res.end(fs.readFileSync(path.join(siteRoot,'404.html')));return;}res.setHeader('Content-Type',file.endsWith('.webp')?'image/webp':file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html');res.end(data);});
  });
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port;
  let browser,checks=0;
@@ -85,7 +85,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    assert.equal(await p.locator('body').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(3, 8, 36)');checks++;
    assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));checks++;
    if(width<900&&javaScriptEnabled)await p.getByRole('button',{name:'Open navigation'}).click();
-   for(const name of ['Home','Builds','Guides','FAQ']){assert.ok(await p.locator('.core-nav').getByRole('link',{name,exact:true}).isVisible());checks++;}
+   for(const name of ['Home','Builds','Guides','FAQ','About CORE']){assert.ok(await p.locator('.core-nav').getByRole('link',{name,exact:true}).isVisible());checks++;}
    assert.deepEqual(failures,[]);checks++;
    await p.getByRole('link',{name:'Return to Home →'}).click();assert.equal(new URL(p.url()).pathname,'/index.html');checks++;
    p.off('response',listener);
@@ -108,6 +108,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    await p.goto(origin+route);
    const entry=p.locator('[id="'+id+'"]'),summary=entry.locator(':scope>summary'),parts=entry.locator('.core-guide-parts');
    assert.equal(await entry.evaluate(e=>e.open),false);checks++;
+   await p.locator('.core-history>summary').click();
    const link=p.locator('a[href="#'+id+'"]');
    await link.focus();
    await Promise.all([
@@ -156,11 +157,20 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    const errors=[];const onError=e=>errors.push(e.message);p.on('pageerror',onError);
    await p.goto(origin+'/'+file);
    assert.equal(await p.locator('main#main-content').count(),1,file);checks++;
+   assert.ok(await p.locator('header .navcta').isVisible(),file+' global build action');checks++;
+   assert.equal(await p.locator('header a[href$="about.html"]').count(),1);checks++;
+   for(const img of await p.locator('img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0&&i.width>0&&!!i.alt&&i.hasAttribute('width')&&i.hasAttribute('height')));checks++;}
+   if(['core-starter.html','core-performance.html','core-high-end.html'].includes(file)){assert.ok(await p.locator('.core-buying-first').evaluate(e=>!!(e.compareDocumentPosition(document.querySelector('.actions'))&Node.DOCUMENT_POSITION_FOLLOWING)));assert.equal(await p.locator('.core-build-image img').count(),1);assert.ok(await p.locator('.core-buying-first').evaluate(e=>e.getBoundingClientRect().bottom<=document.querySelector('.actions').getBoundingClientRect().top+1));checks+=3;}
+   if(file==='core-performance-guide.html'){assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);assert.equal(await p.locator('.core-history').evaluate(e=>e.open),false);checks+=2;}
+   await p.evaluate(()=>{document.body.style.zoom='2';});
+   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),file+' 200% CSS zoom overflow');checks++;
+   await p.evaluate(()=>{document.body.style.zoom='';});await p.evaluate(()=>scrollTo(0,0));
+
    assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),file+' '+width+' overflow');checks++;
    await p.keyboard.press('Tab');assert.equal(await p.locator('.skip-link').evaluate(e=>e===document.activeElement),true);checks++;
    if(width<900&&javaScriptEnabled){
     const menu=p.getByRole('button',{name:'Open navigation'});await menu.click();
-    for(const name of ['Home','Builds','Guides','FAQ']){assert.ok(await p.locator('.core-nav').getByRole('link',{name,exact:true}).isVisible());checks++;}
+    for(const name of ['Home','Builds','Guides','FAQ','About CORE']){assert.ok(await p.locator('.core-nav').getByRole('link',{name,exact:true}).isVisible());checks++;}
     await p.locator('.core-links a').first().focus();await p.keyboard.press('Escape');
     assert.equal(await menu.getAttribute('aria-expanded'),'false');assert.equal(await menu.evaluate(e=>e===document.activeElement),true);checks+=2;
     await menu.click();await p.mouse.click(4,450);assert.equal(await menu.getAttribute('aria-expanded'),'false');checks++;
@@ -217,9 +227,9 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
   assert.equal(await p.locator('#assembly').count(),1);checks++;
   await p.goto(origin+'/guides.html');await p.getByRole('link',{name:'Explore Performance hardware notes'}).click();
   if(javaScriptEnabled){await p.locator('[data-core="guide"] .core-guide-parts>li').first().waitFor({state:'attached',timeout:10000});assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);checks++;}
-  else {assert.match(await p.locator('.core-noscript').innerText(),/exact configuration index/);checks++;await p.locator('.core-noscript').getByRole('link',{name:'exact configuration index',exact:true}).click();assert.equal(await p.locator('.core-saved-configuration').count(),10);checks++;for(const section of await p.locator('.core-saved-configuration').all()){await section.locator(':scope>summary').click();assert.equal(await section.locator('.core-guide-parts>li').count(),8);checks++;}}
+  else {assert.match(await p.locator('.core-noscript').last().innerText(),/exact configuration index/);checks++;await p.locator('.core-noscript').last().getByRole('link',{name:'exact configuration index',exact:true}).click();assert.equal(await p.locator('.core-saved-configuration').count(),10);checks++;for(const section of await p.locator('.core-saved-configuration').all()){await section.locator(':scope>summary').click();assert.equal(await section.locator('.core-guide-parts>li').count(),8);checks++;}}
   if(javaScriptEnabled){
-   for(const id of ['', '?configuration=unknown','?configuration=__proto__']){
+   for(const id of ['?configuration=','?configuration=unknown','?configuration=__proto__']){
     await p.goto(origin+'/core-performance-guide.html'+id);
     assert.equal(await p.locator('[data-core="guide"] .core-guide-parts').count(),0);checks++;
     assert.ok(await p.locator('[data-core="guide"]').getByRole('link',{name:'Find your exact saved configuration →'}).isVisible());checks++;
