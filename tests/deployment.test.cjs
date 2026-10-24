@@ -27,7 +27,7 @@ test('package contains exactly 24 approved public files with source bytes, modes
  // This fixed digest must not be regenerated without reviewing the public diff.
  assert.equal(hash.digest('hex'),'24675d7bbfa441c23142bb84b8e2dfcce3375b66687cc81b799abba19639a50c');
  const verified=require('../scripts/verify-public.cjs').verify(a.directory);
- assert.equal(verified.fingerprint,'56df0d3792bb56eb6304749239b266317135d696af47a42464e9f6f013f303b2');
+ assert.equal(verified.fingerprint,'4eb0af309e9eb3976d64630139bafd3ed9282fa7225f3405033933597ee2bb2d');
  console.log('Phase 5 verified public package:',verified.count,verified.fingerprint);
  for(const name of ['core-data.json','scripts','tests','.github','.git','.env','dist'])assert.equal(fs.existsSync(path.join(a.directory,name)),false);
 });
