@@ -33,7 +33,7 @@ document.querySelectorAll('.core-legacy').forEach(section=>section.addEventListe
 }));
 function openSavedSection(){
  const id=location.hash.slice(1),el=document.getElementById(id);
- if(el?.classList.contains('core-saved-configuration'))el.open=true;
+ if(el){for(let parent=el;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;}
 }
 refresh();openSavedSection();window.addEventListener('hashchange',openSavedSection);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});

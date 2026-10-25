@@ -1,0 +1,554 @@
+{
+  "result": "PASS",
+  "origin": "https://50571d39.core-preview-test.pages.dev",
+  "checks": 1642,
+  "matrix": [
+    {
+      "page": "404.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "about.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "affiliate-disclosure.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "builds.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "contact.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end-guide.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance-guide.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter-guide.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "faq.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "guides.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "index.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "privacy.html",
+      "width": 320,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "404.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "about.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "affiliate-disclosure.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "builds.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "contact.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end-guide.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance-guide.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter-guide.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "faq.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "guides.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "privacy.html",
+      "width": 390,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "404.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "about.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "affiliate-disclosure.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "builds.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "contact.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end-guide.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance-guide.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter-guide.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "faq.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "guides.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "index.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "privacy.html",
+      "width": 1440,
+      "javaScriptEnabled": false,
+      "result": "PASS"
+    },
+    {
+      "page": "404.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "about.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "affiliate-disclosure.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "builds.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "contact.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end-guide.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance-guide.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter-guide.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "faq.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "guides.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "index.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "privacy.html",
+      "width": 320,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "404.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "about.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "affiliate-disclosure.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "builds.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "contact.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end-guide.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance-guide.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter-guide.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "faq.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "guides.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "index.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "privacy.html",
+      "width": 390,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "404.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "about.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "affiliate-disclosure.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "builds.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "contact.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end-guide.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-high-end.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance-guide.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-performance.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter-guide.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "core-starter.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "faq.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "guides.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "index.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    },
+    {
+      "page": "privacy.html",
+      "width": 1440,
+      "javaScriptEnabled": true,
+      "result": "PASS"
+    }
+  ],
+  "historyConfigurations": 10,
+  "historyJavaScriptStates": [
+    false,
+    true
+  ],
+  "journeys": "All three Builds → exact guide → assembly, JavaScript on/off at 390px",
+  "limitations": "Chromium through managed proxy; TLS checked separately with curl and a normal connected-browser visit. CSS zoom 2 is a layout stress test, not all native browser zoom modes."
+}

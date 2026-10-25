@@ -1,0 +1,310 @@
+[
+  {
+    "path": "/core-high-end.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "8d557868e7a09de340e9bd640a73a029d3698d39fc3981ee102472d98a229986",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-high-end"
+  },
+  {
+    "path": "/contact.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "cbe35c72a2635b6c09a97da8bfd4f2940156add0989e94b62f09dbf53fe081a5",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/contact"
+  },
+  {
+    "path": "/core-starter.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "67becf81e615d6b797d4d94202c2521149b6d46f30451ce46c2a91adefd1c937",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-starter"
+  },
+  {
+    "path": "/guides.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "0cbb09942d148195e9165c0dde6648b54139c3a772e84c0c8f2f8b170694abc9",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/guides"
+  },
+  {
+    "path": "/privacy.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "d64d9e0d498e5079fe4af5e7ea67b15e50fc63fc26ffb8028e0ea34f82d427aa",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/privacy"
+  },
+  {
+    "path": "/about.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "12eae4df38e0476d1c6492ce408f542bf61cce6eaa359f668ba61144cbfc97a8",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/about"
+  },
+  {
+    "path": "/index.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "eba1e947eecf89110d3bf6ebb587d389bd04cbf6f050bfcec738e25b60138d61",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/"
+  },
+  {
+    "path": "/CNAME",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "72b7b644212be564a1bbb704047c0233262ba2acb724c93ad032e111b0ca5338",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/CNAME"
+  },
+  {
+    "path": "/core-performance-guide.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide"
+  },
+  {
+    "path": "/affiliate-disclosure.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "89daf63a67ebee4b9305f4673c401fa5fee7faed4a6b125f9bc48c224fcc2c6a",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/affiliate-disclosure"
+  },
+  {
+    "path": "/core-starter-guide.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "67447fc636a0999309dbeeee177f02350bf96c61438d0e5181f7492c53468b09",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-starter-guide"
+  },
+  {
+    "path": "/core-high-end-guide.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "66feca52d7186f1dbe4852ac47fa445f8f2d8d4ac3ce4c81dba15c28e179fd77",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-high-end-guide"
+  },
+  {
+    "path": "/404.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "2f43aa1fa14d98add53d16cdac7cbf3bf3710911471577c202a0fc736b108d47",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/404"
+  },
+  {
+    "path": "/builds.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "ca81ac9a83f1fa373df215d76aeb31710fa9297aee60a04d24efe8ed46e65bac",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/builds"
+  },
+  {
+    "path": "/core-performance.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "3c98282a3c66fb3c42b28cd86733a37d646b6aea352f27ca8eabd2dc64e22c13",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance"
+  },
+  {
+    "path": "/faq.html",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "a4753506190cd5e8e102a433349ae00a1fc0fedf434f51dbcc5ed97318ee2c4a",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/faq"
+  },
+  {
+    "path": "/assets/navigation.js",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "a3f095058cfaa40bafb3d7653144b6aeb24531d6126bbab2fb22fec80ae9bd6e",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/assets/navigation.js"
+  },
+  {
+    "path": "/assets/core-affiliates.js",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "1ff72d584ecc979b906f3347af86df16837ea0708e38f557e4e6ea14ab0f0483",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/assets/core-affiliates.js"
+  },
+  {
+    "path": "/assets/core-client.js",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "a523131b519959de0db3e70be75e5bc9e8345197a85efea60afb98c8c48f8ba2",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/assets/core-client.js"
+  },
+  {
+    "path": "/assets/core-view.js",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "69edbcbf0d04024a69b266de08b8a70779c52b7c5a8e068697eeb8b021b431ba",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/assets/core-view.js"
+  },
+  {
+    "path": "/assets/core-data.generated.js",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "7d4b0f21732df41c4995ed8ee3862f1acc7371f1c4ac66291fe0734e58c83bd2",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/assets/core-data.generated.js"
+  },
+  {
+    "path": "/assets/core-engine.js",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "3eb4c3a76f407694e4b14b8d14d8b3e76202967503b32921fc23d86289e392d3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/assets/core-engine.js"
+  },
+  {
+    "path": "/assets/performance.css",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "90550243c0b91f89dbf44bb3ac5d680065353202f6cba6e0780b0cb2ed212b42",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/assets/performance.css"
+  },
+  {
+    "path": "/assets/public.css",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "01e4f835f9bb445c476bab126dcd77117370f66ba8269ab127b456ee4a68ddc0",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/assets/public.css"
+  },
+  {
+    "path": "/assets/h6-exterior.webp",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "81e25e13ead2f90366c7a1be1c69ea20d0b63b060cb31db39ab44cc14410e48b",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/assets/h6-exterior.webp"
+  },
+  {
+    "path": "/scripts/README.md",
+    "status": 404,
+    "bytesMatch": true,
+    "sha256": "2f43aa1fa14d98add53d16cdac7cbf3bf3710911471577c202a0fc736b108d47",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/scripts/README.md"
+  },
+  {
+    "path": "/scripts/phase-5f-purchasing-evidence.json",
+    "status": 404,
+    "bytesMatch": true,
+    "sha256": "2f43aa1fa14d98add53d16cdac7cbf3bf3710911471577c202a0fc736b108d47",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/scripts/phase-5f-purchasing-evidence.json"
+  },
+  {
+    "path": "/tests/browser-check.cjs",
+    "status": 404,
+    "bytesMatch": true,
+    "sha256": "2f43aa1fa14d98add53d16cdac7cbf3bf3710911471577c202a0fc736b108d47",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/tests/browser-check.cjs"
+  },
+  {
+    "path": "/core-data.json",
+    "status": 404,
+    "bytesMatch": true,
+    "sha256": "2f43aa1fa14d98add53d16cdac7cbf3bf3710911471577c202a0fc736b108d47",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-data.json"
+  },
+  {
+    "path": "/.env",
+    "status": 404,
+    "bytesMatch": true,
+    "sha256": "2f43aa1fa14d98add53d16cdac7cbf3bf3710911471577c202a0fc736b108d47",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/.env"
+  },
+  {
+    "path": "/.git/config",
+    "status": 404,
+    "bytesMatch": true,
+    "sha256": "2f43aa1fa14d98add53d16cdac7cbf3bf3710911471577c202a0fc736b108d47",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/.git/config"
+  },
+  {
+    "path": "/private-feed.json",
+    "status": 404,
+    "bytesMatch": true,
+    "sha256": "2f43aa1fa14d98add53d16cdac7cbf3bf3710911471577c202a0fc736b108d47",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/private-feed.json"
+  },
+  {
+    "path": "/nested/missing/page",
+    "status": 404,
+    "bytesMatch": true,
+    "sha256": "2f43aa1fa14d98add53d16cdac7cbf3bf3710911471577c202a0fc736b108d47",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/nested/missing/page"
+  },
+  {
+    "path": "/assets/missing.css",
+    "status": 404,
+    "bytesMatch": true,
+    "sha256": "2f43aa1fa14d98add53d16cdac7cbf3bf3710911471577c202a0fc736b108d47",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/assets/missing.css"
+  },
+  {
+    "path": "/core-performance-guide.html?configuration=performance-1.1-gigabyte9070-fitv28-sn5100",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide?configuration=performance-1.1-gigabyte9070-fitv28-sn5100"
+  },
+  {
+    "path": "/core-performance-guide.html?configuration=performance-1.1-gigabyte9070-fitv28-sn7100",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide?configuration=performance-1.1-gigabyte9070-fitv28-sn7100"
+  },
+  {
+    "path": "/core-performance-guide.html?configuration=performance-1.1-gigabyte9070-vulcan38-sn5100",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide?configuration=performance-1.1-gigabyte9070-vulcan38-sn5100"
+  },
+  {
+    "path": "/core-performance-guide.html?configuration=performance-1.1-gigabyte9070-vulcan38-sn7100",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide?configuration=performance-1.1-gigabyte9070-vulcan38-sn7100"
+  },
+  {
+    "path": "/core-performance-guide.html?configuration=performance-1.1-pulse9070-fitv28-sn5100",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide?configuration=performance-1.1-pulse9070-fitv28-sn5100"
+  },
+  {
+    "path": "/core-performance-guide.html?configuration=performance-1.1-pulse9070-fitv28-sn7100",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide?configuration=performance-1.1-pulse9070-fitv28-sn7100"
+  },
+  {
+    "path": "/core-performance-guide.html?configuration=performance-1.1-pulse9070-vulcan38-sn5100",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide?configuration=performance-1.1-pulse9070-vulcan38-sn5100"
+  },
+  {
+    "path": "/core-performance-guide.html?configuration=performance-1.1-pulse9070-vulcan38-sn7100",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide?configuration=performance-1.1-pulse9070-vulcan38-sn7100"
+  },
+  {
+    "path": "/core-performance-guide.html?configuration=performance-1.2-c-asus9070xt-fitv28-sn5100",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide?configuration=performance-1.2-c-asus9070xt-fitv28-sn5100"
+  },
+  {
+    "path": "/core-performance-guide.html?configuration=performance-1.3-b-reaper9070xt-fitv28-sn7100",
+    "status": 200,
+    "bytesMatch": true,
+    "sha256": "304e72d899268e9f4b5278124a5c0a73863511e5b8bfafbb6fd52ff1f112d2a3",
+    "finalURL": "https://50571d39.core-preview-test.pages.dev/core-performance-guide?configuration=performance-1.3-b-reaper9070xt-fitv28-sn7100"
+  }
+]
