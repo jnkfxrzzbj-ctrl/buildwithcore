@@ -36,7 +36,7 @@ function fixture(t) {
   fs.mkdirSync(path.join(dir, 'scripts'));
   fs.writeFileSync(path.join(dir, 'core-data.json'), source);
   fs.writeFileSync(path.join(dir, 'assets/core-data.generated.js'), bundle);
-  for (const file of ['scripts/build.cjs', 'assets/core-engine.js']) {
+  for (const file of ['scripts/build.cjs', 'assets/core-engine.js', 'assets/core-view.js', 'assets/core-affiliates.js']) {
     fs.copyFileSync(path.join(root, file), path.join(dir, file));
   }
   return {root: dir, output: path.join(dir, 'assets/core-data.generated.js')};

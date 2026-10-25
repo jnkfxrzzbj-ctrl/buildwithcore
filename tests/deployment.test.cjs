@@ -26,7 +26,7 @@ test('package contains exactly 25 reviewed public files with source bytes, modes
  // Phase 5G: reviewed public diff changes guides.html only; all other approved public files and safeguards are preserved.
  // 25 October launch: reviewed 5080/EVO revision, exact reference links, saved-link recovery and corresponding generated output.
  // This fixed digest must not be regenerated without reviewing the public diff.
- assert.equal(hash.digest('hex'),'6574d39d9d04ec181f48649a5ab35eee7c4c2d38fe9fd46043edfb735789cf75');
+ assert.equal(hash.digest('hex'),'787f9ec702b2435389e7226cdaf06f4ed0c811b9e77c5299a7037af4171383dd');
  const verified=require('../scripts/verify-public.cjs').verify(a.directory);
  const independentFingerprint=createHash('sha256');
  for(const name of expected){independentFingerprint.update(name+'\0');independentFingerprint.update(fs.readFileSync(path.join(root,name)));independentFingerprint.update('\0');}
@@ -74,7 +74,7 @@ test('broken public references and stale generated/static fallbacks fail without
   f=>fs.appendFileSync(path.join(f.root,'index.html'),'<a href="core-performance.html#missing">broken</a>'),
   f=>fs.appendFileSync(path.join(f.root,'assets/public.css'),'a{background:url(missing.svg)}'),
   f=>fs.appendFileSync(path.join(f.root,'assets/core-data.generated.js'),'\n'),
-  f=>{const p=path.join(f.root,'core-performance.html');fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('Wait before buying this PC.','Wrong fallback'));},
+  f=>{const p=path.join(f.root,'core-performance.html');fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('Purchasing offers: not approved.','Wrong fallback'));},
   f=>{const p=path.join(f.root,'core-starter.html');fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('NE75060019P1-GB2063D','WRONG GPU'));},
   f=>{const p=path.join(f.root,'core-performance-guide.html');fs.writeFileSync(p,fs.readFileSync(p,'utf8').replace('Exact configuration index','Wrong index'));}
  ];

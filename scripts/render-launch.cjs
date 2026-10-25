@@ -23,3 +23,15 @@ for(const [tier,b] of Object.entries(d.launchBuilds)){
  }
 }
 module.exports={validate};
+
+// Reuse the same editorial renderer across build, guide and comparison pages.
+const view=require('../assets/core-view.js');view.validateEditorial(d);
+for(const name of ['index.html','builds.html',...Object.keys(d.launchBuilds).flatMap(t=>[`core-${t.toLowerCase()}.html`,`core-${t.toLowerCase()}-guide.html`])]){
+ const file=path.join(root,name),before=fs.readFileSync(file,'utf8');
+ for(const tier of (['index.html','builds.html'].includes(name)?Object.keys(d.launchBuilds):Object.keys(d.launchBuilds).filter(t=>name.startsWith('core-'+t.toLowerCase()+'.')||name.startsWith('core-'+t.toLowerCase()+'-guide.')))){
+  for(const edge of ['start','end'])if(before.split(`<!-- editorial:${tier}:${edge} -->`).length!==2)throw Error('Missing/duplicate editorial boundary: '+name);
+ }
+ let after=before.replace(/<!-- editorial:(Starter|Performance|High-End):start -->[\s\S]*?<!-- editorial:\1:end -->/g,(all,tier)=>`<!-- editorial:${tier}:start -->${view.editorial(d,tier,{compact:['index.html','builds.html'].includes(name)})}<!-- editorial:${tier}:end -->`);
+ if(name==='builds.html')after=after.replace(/<!-- editorial-table:start -->[\s\S]*?<!-- editorial-table:end -->/,`<!-- editorial-table:start -->${['Starter','Performance','High-End'].map(t=>`<td>${esc(d.editorialRecommendations[t].status)}</td>`).join('')}<!-- editorial-table:end -->`);
+ if(process.argv.includes('--check')){if(after!==before)throw Error('Stale editorial region: '+name);}else fs.writeFileSync(file,after);
+}

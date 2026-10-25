@@ -8,7 +8,7 @@ test('all launch parts have exact reference destinations without purchasing or a
   assert.equal(ref.status,'reference-only');assert.equal(ref.affiliate,false);
   assert.equal(new URL(ref.url).protocol,'https:');
   for(const forbidden of ['itemPence','deliveryPence','stock','checkedAt','commission','asin'])assert.equal(Object.hasOwn(ref,forbidden),false);
-  assert.match(V.referenceLink(d,p),/Reference retailer listing/);
+  assert.match(V.referenceLink(d,p),/Check current price at retailer/);
  }
  const before=E.derive(d,'2026-10-25T12:00:00Z'),x=structuredClone(d);delete x.retailerReferences;
  assert.deepEqual(E.derive(x,'2026-10-25T12:00:00Z'),before);

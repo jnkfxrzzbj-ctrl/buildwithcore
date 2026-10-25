@@ -10,7 +10,7 @@ test('all three complete specifications render without JavaScript and never impl
   assert.equal(b.parts.length,8);assert.equal(new Set(b.parts.map(p=>p.slot)).size,8);assert.equal(b.state,'HOLD');assert.equal(b.purchasingApproved,false);assert.equal(b.deliveredTotalPence,null);
   const page=fs.readFileSync('core-'+tier.toLowerCase()+'.html','utf8'),guide=fs.readFileSync('core-'+tier.toLowerCase()+'-guide.html','utf8');
   for(const p of b.parts){assert.ok(page.includes(p.manufacturerModel),p.manufacturerModel);assert.ok(guide.includes(p.manufacturerModel),p.manufacturerModel);}
-  assert.match(page,/HOLD/);assert.match(guide,/guides.html#assembly/);assert.doesNotMatch(page,/UNDER REVIEW|earlier component list|360mm AIO|View exact offer/);
+  assert.match(page,/HOLD/);assert.match(guide,/guides.html#assembly/);assert.doesNotMatch(page,/earlier component list|360mm AIO|View exact offer/);
  }
 });
 test('Option B and C stay HOLD with fresh, complete, cheap offers; cable swaps fail closed',()=>{

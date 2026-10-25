@@ -36,7 +36,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    }
   }
   assert.equal(await page.locator('a[href*="amazon.co.uk"]').count(),3);checks++;
-  assert.equal(await cpu.getByRole('link',{name:'Reference retailer listing ↗'}).count(),1);assert.equal(await cpu.getByRole('link',{name:'Product source 1 ↗'}).count(),1);checks+=2;
+  assert.equal(await cpu.getByRole('link',{name:'Check current price at retailer ↗'}).count(),1);assert.equal(await cpu.getByRole('link',{name:'Product source 1 ↗'}).count(),1);checks+=2;
   assert.match(await page.locator('[data-core="panel"]').innerText(),/HOLD/);checks++;
   assert.equal(await page.locator('.core-price-unchecked').count(),8);checks++;
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));checks++;
@@ -161,6 +161,15 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    assert.ok(await p.locator('header .navcta').isVisible(),file+' global build action');checks++;
    assert.equal(await p.locator('header a[href$="about.html"]').count(),1);checks++;
    for(const img of await p.locator('img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0&&i.width>0&&!!i.alt&&i.hasAttribute('width')&&i.hasAttribute('height')));checks++;}
+   if(/^core-(starter|performance|high-end)(-guide)?\.html$/.test(file)){
+    const tier=file.includes('starter')?'Starter':file.includes('high-end')?'High-End':'Performance';
+    const editorial=p.locator('.core-editorial');assert.equal(await editorial.count(),1);assert.ok(await editorial.isVisible());
+    assert.match(await editorial.innerText(),new RegExp('Specification: '+require('../core-data.json').editorialRecommendations[tier].status));
+    assert.equal(await editorial.locator('time').getAttribute('datetime'),'2026-10-25');
+    await editorial.locator('summary').click();assert.match(await editorial.innerText(),/Not a current quote/);
+    assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    await editorial.locator('summary').click();checks+=6;
+   }
    if(['core-starter.html','core-performance.html','core-high-end.html'].includes(file)){assert.ok(await p.locator('.core-buying-first').evaluate(e=>!!(e.compareDocumentPosition(document.querySelector('.actions'))&Node.DOCUMENT_POSITION_FOLLOWING)));assert.equal(await p.locator('.core-build-image img').count(),1);assert.ok(await p.locator('.core-buying-first').evaluate(e=>e.getBoundingClientRect().bottom<=document.querySelector('.actions').getBoundingClientRect().top+1));checks+=3;}
    if(file==='core-performance-guide.html'){assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);assert.equal(await p.locator('.core-history').evaluate(e=>e.open),false);assert.equal(await p.locator('.core-history').isVisible(),false);checks+=3;}
    await p.evaluate(()=>{document.body.style.zoom='2';});

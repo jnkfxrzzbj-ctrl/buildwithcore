@@ -7,6 +7,7 @@ const {validate} = require('../assets/core-engine.js');
 function generate(source) {
   const data = JSON.parse(source);
   validate(data);
+  require('../assets/core-view.js').validateEditorial(data);
   return '/* GENERATED from core-data.json. Run node scripts/build.cjs; never edit. */\n'
     + 'window.CORE_DATA = ' + JSON.stringify(data) + ';\n';
 }
