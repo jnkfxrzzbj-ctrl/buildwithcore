@@ -62,7 +62,7 @@ jobs:
       - name: Final package gate
         run: |
           node scripts/verify-public.cjs "$RUNNER_TEMP/core-public" > "$RUNNER_TEMP/inventory.json"
-          node -e 'const i=require(process.env.RUNNER_TEMP+"/inventory.json"),a=require("node:assert/strict");a.equal(i.count,24);a.equal(i.fingerprint,process.env.CORE_EXPECTED_FINGERPRINT);a.equal(require("node:fs").readFileSync(process.env.RUNNER_TEMP+"/core-public/CNAME","utf8").trim(),"buildwithcore.co.uk")'
+          node -e 'const i=require(process.env.RUNNER_TEMP+"/inventory.json"),a=require("node:assert/strict");a.equal(i.count,25);a.equal(i.fingerprint,process.env.CORE_EXPECTED_FINGERPRINT);a.equal(require("node:fs").readFileSync(process.env.RUNNER_TEMP+"/core-public/CNAME","utf8").trim(),"buildwithcore.co.uk")'
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
         with:
           path: ${{ runner.temp }}/core-public
