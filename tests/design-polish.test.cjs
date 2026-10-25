@@ -12,5 +12,5 @@ test('all 15 pages share the shell, exact current-page context and build action'
 });
 test('representative imagery is explicit, dimensioned, optimized and limited to useful pages',()=>{
  const bytes=fs.readFileSync('assets/h6-exterior.webp');assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');assert.ok(bytes.length<80000);
- for(const f of ['index.html','builds.html','core-starter.html','core-performance.html','core-high-end.html']){const s=fs.readFileSync(f,'utf8');assert.match(s,/Representative AI illustration/);assert.match(s,/not a photograph of a CORE build/);assert.match(s,/width="1152" height="768"/);}
+ for(const f of ['index.html','builds.html','core-starter.html','core-performance.html','core-high-end.html']){const s=fs.readFileSync(f,'utf8');assert.match(s,/Illustrative image — not an actual CORE build\./);assert.doesNotMatch(s,/Representative AI illustration/);assert.match(s,/width="1152" height="768"/);}
 });
