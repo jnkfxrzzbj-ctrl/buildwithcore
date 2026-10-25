@@ -20,7 +20,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
   const ctx=await browser.newContext({javaScriptEnabled,reducedMotion:'reduce',viewport:{width,height:900}}),page=await ctx.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.url()+': '+r.status());});
   await page.goto(origin+'/core-performance.html');
-  assert.equal(await page.locator('.core-part').count(),8);checks++;
+  assert.equal(await page.locator('.core-part').count(),8);assert.equal(await page.locator('.core-part a.core-reference-link').count(),8);checks+=2;
   const cpu=page.locator('#part-cpu');await cpu.locator('summary').click();
   const amazon=cpu.getByRole('link',{name:'Check price at Amazon ↗'});
   assert.equal(await amazon.count(),1);assert.equal(await amazon.getAttribute('href'),'https://www.amazon.co.uk/dp/B0D6NN6TM7?tag=buildwithcore-21');assert.equal(await amazon.getAttribute('rel'),'sponsored noopener noreferrer');assert.equal(await amazon.getAttribute('target'),'_blank');checks+=4;
@@ -108,7 +108,8 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    await p.goto(origin+route);
    const entry=p.locator('[id="'+id+'"]'),summary=entry.locator(':scope>summary'),parts=entry.locator('.core-guide-parts');
    assert.equal(await entry.evaluate(e=>e.open),false);checks++;
-   await p.locator('.core-history>summary').click();
+   await p.locator('a[href="#saved-configurations"]').first().click();
+   if(!await p.locator('.core-history').evaluate(e=>e.open))await p.locator('.core-history>summary').click();
    const link=p.locator('a[href="#'+id+'"]');
    await link.focus();
    await Promise.all([
@@ -161,7 +162,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    assert.equal(await p.locator('header a[href$="about.html"]').count(),1);checks++;
    for(const img of await p.locator('img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0&&i.width>0&&!!i.alt&&i.hasAttribute('width')&&i.hasAttribute('height')));checks++;}
    if(['core-starter.html','core-performance.html','core-high-end.html'].includes(file)){assert.ok(await p.locator('.core-buying-first').evaluate(e=>!!(e.compareDocumentPosition(document.querySelector('.actions'))&Node.DOCUMENT_POSITION_FOLLOWING)));assert.equal(await p.locator('.core-build-image img').count(),1);assert.ok(await p.locator('.core-buying-first').evaluate(e=>e.getBoundingClientRect().bottom<=document.querySelector('.actions').getBoundingClientRect().top+1));checks+=3;}
-   if(file==='core-performance-guide.html'){assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);assert.equal(await p.locator('.core-history').evaluate(e=>e.open),false);checks+=2;}
+   if(file==='core-performance-guide.html'){assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);assert.equal(await p.locator('.core-history').evaluate(e=>e.open),false);assert.equal(await p.locator('.core-history').isVisible(),false);checks+=3;}
    await p.evaluate(()=>{document.body.style.zoom='2';});
    assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),file+' 200% CSS zoom overflow');checks++;
    await p.evaluate(()=>{document.body.style.zoom='';});await p.evaluate(()=>scrollTo(0,0));
@@ -185,7 +186,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
     await region.evaluate(e=>{e.scrollLeft=e.scrollWidth;});
     assert.ok(await p.locator('thead th').last().evaluate(e=>{const r=e.getBoundingClientRect();return r.right<=innerWidth&&r.left>=0;}));checks++;
    }
-   if(['core-starter.html','core-high-end.html'].includes(file)){const tier=file==='core-starter.html'?'Starter':'High-End';assert.equal(await p.locator('article.part').count(),8);checks++;for(const part of require('../core-data.json').launchBuilds[tier].parts){assert.ok((await p.locator('main').innerText()).includes(part.manufacturerModel));checks++;}assert.match(await p.locator('.public-hold').innerText(),/HOLD/);checks++;}
+   if(['core-starter.html','core-high-end.html'].includes(file)){const tier=file==='core-starter.html'?'Starter':'High-End';assert.equal(await p.locator('article.part').count(),8);assert.equal(await p.locator('article.part a.core-reference-link').count(),8);checks+=2;for(const part of require('../core-data.json').launchBuilds[tier].parts){assert.ok((await p.locator('main').innerText()).includes(part.manufacturerModel));checks++;}assert.match(await p.locator('.public-hold').innerText(),/HOLD/);checks++;}
    if(file==='core-performance.html'){
     assert.match(await p.locator('[data-core="panel"]').innerText(),/HOLD/);checks++;
     assert.equal(await p.locator('.core-part .core-mpn').count(),8);checks++;

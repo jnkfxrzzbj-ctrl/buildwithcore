@@ -63,3 +63,8 @@ a:focus-visible,summary:focus-visible,select:focus-visible{outline:2px solid #35
 .core-saved-configuration{border-top:1px solid #222b36;padding:18px 0;scroll-margin-top:110px}
 .core-saved-configuration>summary{cursor:pointer;color:#9aebff}
 .core-configuration-id{overflow-wrap:anywhere}
+
+/* History is a saved-link recovery route, not a normal configuration selector. */
+.core-history{display:none}
+.core-history.core-history-access,.core-history:target,.core-history:has(:target){display:block}
+.core-reference-note{display:block;margin-top:8px;font-size:12px;line-height:1.6;color:var(--core-quiet)}

@@ -3,7 +3,8 @@
 'use strict';const d=window.CORE_DATA,E=window.CoreEngine,V=window.CoreView;
 if(!d||!E||!V)return;
 function refreshGuide(){
- const id=new URLSearchParams(location.search).get('configuration');
+ const params=new URLSearchParams(location.search),id=params.get('configuration');
+ document.querySelectorAll('.core-history').forEach(el=>el.classList.toggle('core-history-access',(params.has('configuration')&&id!==d.performanceRevisions[d.currentPerformanceRevision].defaultConfigurationId)||!!location.hash));
  document.querySelectorAll('[data-core="guide"]').forEach(el=>el.innerHTML=V.guide(d,id));
 }
 function refresh(){
@@ -32,6 +33,7 @@ document.querySelectorAll('.core-legacy').forEach(section=>section.addEventListe
  if(section.open)section.querySelectorAll('img[data-src]').forEach(img=>{img.src=img.dataset.src;img.removeAttribute('data-src');});
 }));
 function openSavedSection(){
+ document.querySelectorAll('.core-history').forEach(el=>el.classList.toggle('core-history-access',(new URLSearchParams(location.search).has('configuration')&&new URLSearchParams(location.search).get('configuration')!==d.performanceRevisions[d.currentPerformanceRevision].defaultConfigurationId)||!!location.hash));
  const id=location.hash.slice(1),el=document.getElementById(id);
  if(el){for(let parent=el;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;}
 }

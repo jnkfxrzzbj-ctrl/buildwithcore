@@ -71,3 +71,5 @@ dd,dt{overflow-wrap:anywhere}
 .core-performance .hero-grid{grid-template-areas:"heading status" "description status" "warning status" "actions status"}.core-performance .hero-grid>.core-buying-first{grid-area:warning;margin:0}
 @media(max-width:900px){.core-performance .hero-grid{grid-template-areas:"heading" "status" "description" "warning" "actions"}}
 .summary>small,.target small{font-size:13px;color:#b6c1d0}
+
+.core-reference-note{display:block;margin-top:8px;font-size:12px;line-height:1.6;color:#a6b4c1}
