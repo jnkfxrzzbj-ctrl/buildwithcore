@@ -19,7 +19,7 @@ test('HTTP acceptance handles both hosts and rejects development-file exposure',
   if(!names.has(name)&&names.has(name+'.html'))name+='.html';
   const found=names.has(name);
   res.statusCode=leak&&name==='core-data.json'?200:found?200:404;
-  res.setHeader('content-type',name.endsWith('.css')?'text/css':name.endsWith('.js')?'text/javascript':'text/html');
+  res.setHeader('content-type',name.endsWith('.webp')?'image/webp':name.endsWith('.css')?'text/css':name.endsWith('.js')?'text/javascript':'text/html');
   res.end(req.method==='HEAD'?undefined:fs.readFileSync(path.join(directory,found?name:'404.html')));
  });
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));

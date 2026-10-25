@@ -16,7 +16,7 @@ for(const name of ['core-performance.html','core-performance-guide.html']){
   const marker='<div data-core="parts">',a=html.indexOf(marker)+marker.length,b=html.indexOf('</div></div><p class="price-note">',a);
   if(a<marker.length||b<a)throw Error('Performance parts boundary missing');
   output=region(html.slice(0,a)+view.parts(data,result,{unverified:true})+html.slice(b),'status',view.fallback(data));
- }else output=region(html,'guide-index',view.guideIndex(data));
+ }else {output=region(html,'guide-index',view.guideIndex(data));const a=output.indexOf('<div data-core="guide">'),b=output.indexOf('<div><!-- core:guide-index:start -->',a);if(a<0||b<0)throw Error('Guide boundary missing');output=output.slice(0,a)+'<div data-core="guide">'+view.guide(data,null)+'</div>'+output.slice(b);}
  if(process.argv.includes('--check')){if(output!==html)throw Error('Run node scripts/render-performance.cjs to update '+name);}
  else fs.writeFileSync(file,output);
 }

@@ -23,7 +23,7 @@ const {inventory}=require('../scripts/package-public.cjs');
    const final=await request(next);assert.equal(final.status,200);assert.deepEqual(Buffer.from(await final.arrayBuffer()),fs.readFileSync(path.join(root,name)));checks+=2;
   }else{
    assert.equal(response.status,200);assert.deepEqual(Buffer.from(await response.arrayBuffer()),fs.readFileSync(path.join(root,name)));checks+=2;
-   if(name.startsWith('assets/')){assert.match(response.headers.get('content-type'),name.endsWith('.css')?/text\/css/:/javascript/);checks++;}
+   if(name.startsWith('assets/')){assert.match(response.headers.get('content-type'),name.endsWith('.webp')?/image\/webp/:name.endsWith('.css')?/text\/css/:/javascript/);checks++;}
   }
  }
  for(const route of ['/core-data.json','/package.json','/this-page-does-not-exist-12345','/nested/missing/page','/assets/missing.css','/scripts/public-files.json','/scripts/README.md','/tests/deployment.test.cjs','/.env','/.git/config','/private-feed.json']){
