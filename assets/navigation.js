@@ -29,3 +29,16 @@
     });
   });
 })();
+
+/* Privacy-first site analytics: load only on the public CORE domain.
+   This guard excludes Cloudflare preview, localhost and GitHub Pages staging. */
+(function () {
+  'use strict';
+  var host = window.location.hostname.toLowerCase();
+  if (host !== 'buildwithcore.co.uk' && host !== 'www.buildwithcore.co.uk') return;
+  var beacon = document.createElement('script');
+  beacon.defer = true;
+  beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  beacon.setAttribute('data-cf-beacon', JSON.stringify({token:'9f4b8198b6d34841bdf4bff9edb40daf'}));
+  document.head.appendChild(beacon);
+})();

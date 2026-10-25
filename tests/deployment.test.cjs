@@ -25,7 +25,7 @@ test('package contains exactly 25 reviewed public files with source bytes, modes
  // Release acceptance: privacy contact sentence now matches the existing Contact page; homepage grid also prevents clipped introduction text at 320px.
  // Phase 5G: reviewed public diff changes guides.html only; all other approved public files and safeguards are preserved.
  // This fixed digest must not be regenerated without reviewing the public diff.
- assert.equal(hash.digest('hex'),'12dbbe026178a3bd21cb27467e4a04e8ae73f06a262c5f44a1dfe45e33a15dc8');
+ assert.equal(hash.digest('hex'),'0014bd4feaed070d07160dcaedc6bee777a0097bded6896603637837d79885d9');
  const verified=require('../scripts/verify-public.cjs').verify(a.directory);
  const independentFingerprint=createHash('sha256');
  for(const name of expected){independentFingerprint.update(name+'\0');independentFingerprint.update(fs.readFileSync(path.join(root,name)));independentFingerprint.update('\0');}
