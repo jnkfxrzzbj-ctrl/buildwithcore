@@ -3019,10 +3019,12 @@
           "productUrl": "https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx",
           "notes": "Original black non-RGB CC-H61FB-01 with three intake fans. GPU allowance 365mm and cooler 163mm. Connect included fans to SYS_FAN headers within the board ratings; choose DC/PWM mode for their actual plugs. Check front USB and audio connections against the exact board manual. No fan hub or extra fan is assumed."
         }
-      ]
+      ],
+      "specificationReviewedOn": "2026-10-25",
+      "physicalValidation": "not-completed"
     },
     "High-End": {
-      "revision": "high-end-2026-10",
+      "revision": "high-end-2026-10-5080",
       "state": "HOLD",
       "purchasingApproved": false,
       "deliveredTotalPence": null,
@@ -3036,10 +3038,10 @@
         },
         {
           "slot": "gpu",
-          "name": "PowerColor Reaper RX 9070 XT 16GB",
-          "manufacturerModel": "RX9070XT 16G-A",
-          "productUrl": "https://www.overclockers.co.uk/powercolor-radeon-rx-9070-xt-reaper-16gb-gddr6-pci-express-graphics-card/GRA-PWC-04017.html",
-          "notes": "289mm body / 304mm including bracket; fits the H6 Flow 365mm length allowance. Install in PCI_E2. Use two separate supplied RM850x PCIe 6+2-pin leads, one per socket. Do not use EPS cables or the unused 12V-2x6 lead."
+          "name": "Inno3D GeForce RTX 5080 X3 16GB (non-OC)",
+          "manufacturerModel": "N50803-16D7-176068N",
+          "productUrl": "https://www.inno3d.com/product/inno3d-geforce-rtx-5080-x3",
+          "notes": "300 \u00d7 116 \u00d7 41mm; fits the H6 Flow 365mm GPU length allowance. Install in PCI_E2, which runs at PCIe 4.0 x16 on this board. Inno3D specifies an 850W minimum PSU. Use the RM850x native 12V-2x6 GPU cable, fully seated at both ends. Check cable bend clearance and glass-panel closure without pressure on the connector. Physical cable clearance and stock-load temperatures remain unverified."
         },
         {
           "slot": "motherboard",
@@ -3067,14 +3069,14 @@
           "name": "Corsair RM850x (2024), UK",
           "manufacturerModel": "CP-9020270-UK",
           "productUrl": "https://www.corsair.com/uk/en/p/psu/CP-9020270-UK/rmx-series-rm850x-fully-modular-power-supply-uk-cp-9020270-uk",
-          "notes": "160mm PSU within the H6 Flow 200mm allowance. Use two separate supplied Type 4 PCIe 6+2-pin cables for the Reaper GPU. CPU/EPS cables go only to motherboard CPU power. Never reuse another PSU\u2019s modular cables. Leave the native 12V-2x6 GPU cable unused."
+          "notes": "160mm PSU within the H6 Flow 200mm allowance. Use only the supplied native 12V-2x6 cable for this RTX 5080; fully seat both ends. Do not follow the earlier Reaper two-8-pin cable plan. CPU/EPS cables go only to motherboard CPU power. Never mix modular cables from different PSUs. Retain stock power settings and check cable clearance before powering on."
         },
         {
           "slot": "cooler",
-          "name": "Thermalright Peerless Assassin 120 SE non-RGB",
-          "manufacturerModel": "PA120 SE 1700",
-          "productUrl": "https://www.thermalright.com/product/peerless-assassin-120-se/",
-          "notes": "Peerless Assassin 120 SE non-RGB, not another revision. Use its AM5 kit and retain the AM5 backplate. Remove cold-plate film and apply paste according to the manual. Two PWM fans connect to CPU_FAN1 with the supplied splitter within the header rating. Nominal height 155mm versus the case\u2019s 163mm: check the front fan clears 33.21mm RAM without exceeding 163mm. Exact fan position and stock-load temperatures require physical verification."
+          "name": "Thermalright Phantom Spirit 120 EVO",
+          "manufacturerModel": "Phantom Spirit 120 EVO",
+          "productUrl": "https://www.thermalright.com/product/phantom-spirit-120-evo/",
+          "notes": "Exact EVO model, not SE, Digital or Vision. Confirm the package and invoice identify Phantom Spirit 120 EVO; a regional numeric MPN/EAN is not independently established. Use its AM5 kit and retain the AM5 backplate. Remove cold-plate film and apply paste per manual. Connect the two PWM fans to CPU_FAN1 using the supplied splitter within the header rating. Nominal 157mm height leaves 6mm below the case limit: check front-fan clearance over 33.21mm RAM without exceeding 163mm. Optional lighting uses 5V 3-pin ARGB only, never 12V RGB. Physical fit and thermals remain unverified."
         },
         {
           "slot": "case",
@@ -3083,7 +3085,9 @@
           "productUrl": "https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx",
           "notes": "Original non-RGB CC-H61FB-01: GPU allowance 365mm, cooler 163mm, PSU 200mm. Use micro-ATX standoffs only. Connect the three included intake fans to suitable SYS_FAN headers within their current ratings; set DC/PWM mode for the actual plugs. Route JFP1, JAUD1 and USB leads using the board manual. Check cable bends and panel closure before powering on."
         }
-      ]
+      ],
+      "specificationReviewedOn": "2026-10-25",
+      "physicalValidation": "not-completed"
     },
     "Performance": {
       "revision": "performance-1.3-b",
@@ -3148,7 +3152,230 @@
           "productUrl": "https://cdn-g.nzxt.com/dl/1698993634-h6-flow_digital-manual_231027_v2-pdf.pdf",
           "notes": "Original non-RGB CC-H61FB-01: GPU allowance 365mm, cooler 163mm, PSU 200mm. Use micro-ATX standoffs only. Connect the three included intake fans to suitable SYS_FAN headers within their current ratings; set DC/PWM mode for the actual plugs. Route JFP1, JAUD1 and USB leads using the board manual. Check cable bends and panel closure before powering on."
         }
+      ],
+      "specificationReviewedOn": "2026-10-25",
+      "physicalValidation": "not-completed"
+    }
+  },
+  "launchBuildHistory": {
+    "high-end-2026-10": {
+      "revision": "high-end-2026-10",
+      "state": "HOLD",
+      "purchasingApproved": false,
+      "deliveredTotalPence": null,
+      "parts": [
+        {
+          "slot": "cpu",
+          "name": "AMD Ryzen 7 9800X3D",
+          "manufacturerModel": "100-100001084WOF",
+          "productUrl": "https://www.scan.co.uk/products/amd-ryzen-7-9800x3d-am5-zen-5-8-core-16-threads-47ghz-52ghz-turbo-104mb-cache-pcie-50-120w-cpu-retai",
+          "notes": "Ryzen 7 9800X3D, AM5, no included cooler. MSI lists support from BIOS 7E81v1A0 on this exact board. Confirm the supplied BIOS and follow its Flash BIOS instructions if needed. Keep stock power settings; do not apply automatic motherboard overclocking."
+        },
+        {
+          "slot": "gpu",
+          "name": "PowerColor Reaper RX 9070 XT 16GB",
+          "manufacturerModel": "RX9070XT 16G-A",
+          "productUrl": "https://www.overclockers.co.uk/powercolor-radeon-rx-9070-xt-reaper-16gb-gddr6-pci-express-graphics-card/GRA-PWC-04017.html",
+          "notes": "289mm body / 304mm including bracket; fits the H6 Flow 365mm length allowance. Install in PCI_E2. Use two separate supplied RM850x PCIe 6+2-pin leads, one per socket. Do not use EPS cables or the unused 12V-2x6 lead."
+        },
+        {
+          "slot": "motherboard",
+          "name": "MSI B850M GAMING PLUS WIFI6E",
+          "manufacturerModel": "B850M GAMING PLUS WIFI6E",
+          "productUrl": "https://www.overclockers.co.uk/msi-b850m-gaming-plus-wifi6e-amd-am5-b850-ddr5-micro-atx-motherboard/MOT-MSI-05943.html",
+          "notes": "MSI B850M GAMING PLUS WIFI6E, micro-ATX. Fit only matching standoffs. RAM in A2/B2, SSD in M2_1, GPU in PCI_E2 (the long CPU-connected slot, not PCI_E1). CPU support starts at 7E81v1A0 for both 9600X and 9800X3D. Connect 24-pin ATX and the CPU EPS leads to the labelled power headers; JFP1 for case switches, JAUD1 for audio and matching USB headers per manual."
+        },
+        {
+          "slot": "ram",
+          "name": "Klevv FIT V 32GB (2\u00d716GB) DDR5-6000 CL28",
+          "manufacturerModel": "KD5AGU880-60B280L",
+          "productUrl": "https://www.overclockers.co.uk/klevv-fit-v-expo-32gb-2x16gb-6000mhz-c28-ddr5-dual-channel-kit-black/MEM-KLV-07037.html",
+          "notes": "Install both 33.21mm-high modules in A2/B2. Start at JEDEC defaults; allow memory training. EXPO 6000 is optional overclocking, not a guaranteed speed. If unstable, return to defaults. Exact QVL membership is not claimed."
+        },
+        {
+          "slot": "ssd",
+          "name": "WD Blue SN5100 2TB",
+          "manufacturerModel": "WDS200T5B0E-00CPE0",
+          "productUrl": "https://documents.sandisk.com/content/dam/asset-library/en_us/assets/public/sandisk/product/internal-drives/wd-blue-sn5100-nvme-ssd/data-sheet-wd-blue-sn5100-nvme-ssd.pdf",
+          "notes": "Bare 2TB M.2 2280 SN5100 in M2_1. Secure the retention and remove the heatsink thermal-pad film. The extra capacity is for a larger game library; it is not a promise of higher frame rates."
+        },
+        {
+          "slot": "psu",
+          "name": "Corsair RM850x (2024), UK",
+          "manufacturerModel": "CP-9020270-UK",
+          "productUrl": "https://www.corsair.com/uk/en/p/psu/CP-9020270-UK/rmx-series-rm850x-fully-modular-power-supply-uk-cp-9020270-uk",
+          "notes": "160mm PSU within the H6 Flow 200mm allowance. Use two separate supplied Type 4 PCIe 6+2-pin cables for the Reaper GPU. CPU/EPS cables go only to motherboard CPU power. Never reuse another PSU\u2019s modular cables. Leave the native 12V-2x6 GPU cable unused."
+        },
+        {
+          "slot": "cooler",
+          "name": "Thermalright Peerless Assassin 120 SE non-RGB",
+          "manufacturerModel": "PA120 SE 1700",
+          "productUrl": "https://www.thermalright.com/product/peerless-assassin-120-se/",
+          "notes": "Peerless Assassin 120 SE non-RGB, not another revision. Use its AM5 kit and retain the AM5 backplate. Remove cold-plate film and apply paste according to the manual. Two PWM fans connect to CPU_FAN1 with the supplied splitter within the header rating. Nominal height 155mm versus the case\u2019s 163mm: check the front fan clears 33.21mm RAM without exceeding 163mm. Exact fan position and stock-load temperatures require physical verification."
+        },
+        {
+          "slot": "case",
+          "name": "NZXT H6 Flow black (2023)",
+          "manufacturerModel": "CC-H61FB-01",
+          "productUrl": "https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx",
+          "notes": "Original non-RGB CC-H61FB-01: GPU allowance 365mm, cooler 163mm, PSU 200mm. Use micro-ATX standoffs only. Connect the three included intake fans to suitable SYS_FAN headers within their current ratings; set DC/PWM mode for the actual plugs. Route JFP1, JAUD1 and USB leads using the board manual. Check cable bends and panel closure before powering on."
+        }
       ]
+    }
+  },
+  "retailerReferences": {
+    "100-100000927BOX": {
+      "manufacturerModel": "100-100000927BOX",
+      "retailer": "AWD-IT",
+      "url": "https://www.awd-it.co.uk/amd-ryzen-5-5600-cpu-six-core-3-5ghz-processor-socket-am4-retail.html",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "NE75060019P1-GB2063D": {
+      "manufacturerModel": "NE75060019P1-GB2063D",
+      "retailer": "Scan",
+      "url": "https://www.scan.co.uk/products/palit-nvidia-geforce-rtx-5060-dual-8gb-gddr7-ray-tracing-graphics-card-dlss-4-3840-cores-2497-mhz-bo",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "B550M PRO-VDH WIFI": {
+      "manufacturerModel": "B550M PRO-VDH WIFI",
+      "retailer": "PCUpgrade",
+      "url": "https://www.pcupgrade.co.uk/components/motherboards/msi-b550m-pro-vdh-wifi-amd-socket-am4-motherboard/",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "CMK16GX4M2E3200C16": {
+      "manufacturerModel": "CMK16GX4M2E3200C16",
+      "retailer": "Scan",
+      "url": "https://www.scan.co.uk/products/16gb-2x8gb-corsair-ddr4-vengeance-lpx-black-pc4-25600-3200-non-ecc-unbuffered-cas-16-20-20-38-xmp-20",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "SNV3S/1000G": {
+      "manufacturerModel": "SNV3S/1000G",
+      "retailer": "Scan",
+      "url": "https://www.scan.co.uk/products/1tb-kingston-nv3-ssd-m2-2280-pcie-40-x4-nvme-ssd-3d-nand-6000mb-s-read-4000mb-s-write-oem",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "CP-9020278-UK": {
+      "manufacturerModel": "CP-9020278-UK",
+      "retailer": "Corsair",
+      "url": "https://www.corsair.com/uk/en/p/psu/cp-9020278-uk/cx-series-cx650-650-watt-80-plus-bronze-atx-power-supply-uk-cp-9020278-uk",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "CC-H61FB-01": {
+      "manufacturerModel": "CC-H61FB-01",
+      "retailer": "Scan",
+      "url": "https://www.scan.co.uk/products/nzxt-h6-flow-black-compact-dual-chamber-chassis-w-tempered-glass-3x-120mm-fans-e-atx-atx-matx-mitx",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "100-100001405WOF": {
+      "manufacturerModel": "100-100001405WOF",
+      "retailer": "Scan",
+      "url": "https://www.scan.co.uk/products/amd-ryzen-5-9600x-am5-zen-5-6-core-12-thread-39ghz-54ghz-turbo-32mb-cache-pcie-50-65w-cpu-retail-box",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "RX9070XT 16G-A": {
+      "manufacturerModel": "RX9070XT 16G-A",
+      "retailer": "Overclockers UK",
+      "url": "https://www.overclockers.co.uk/powercolor-radeon-rx-9070-xt-reaper-16gb-gddr6-pci-express-graphics-card/GRA-PWC-04017.html",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "B850M GAMING PLUS WIFI6E": {
+      "manufacturerModel": "B850M GAMING PLUS WIFI6E",
+      "retailer": "Scan",
+      "url": "https://www.scan.co.uk/products/msi-b850m-gaming-plus-wifi6e-amd-b850-am5-ddr5-pcie-40-2x-m2-25g-wifi6e-usb-32-aplusc-amd-expo-micro",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "KD5AGU880-60B280L": {
+      "manufacturerModel": "KD5AGU880-60B280L",
+      "retailer": "Overclockers UK",
+      "url": "https://www.overclockers.co.uk/klevv-fit-v-expo-32gb-2x16gb-6000mhz-c28-ddr5-dual-channel-kit-black/MEM-KLV-07037.html",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "WDS100T4X0E-00CJA0": {
+      "manufacturerModel": "WDS100T4X0E-00CJA0",
+      "retailer": "Scan",
+      "url": "https://www.scan.co.uk/products/1tb-wd-black-sn7100-m2-2280-pcie-40-x4-nvme-ssd-7250mb-s-read-6900mb-s-write-1000k-1400k-iops",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "CP-9020270-UK": {
+      "manufacturerModel": "CP-9020270-UK",
+      "retailer": "Scan",
+      "url": "https://www.scan.co.uk/products/850w-corsair-rmx-series-rm850x-black-fully-modular-cybenetics-gold-pcie-51-single-rail-140mm-fan-atx",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "ACFRE00121A": {
+      "manufacturerModel": "ACFRE00121A",
+      "retailer": "Scan",
+      "url": "https://www.scan.co.uk/products/arctic-freezer-36-cpu-air-cooler-2x120mm-p12-fans-aluminium-fins-copper-heatpipes-lga1700-1851-am4-5",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "100-100001084WOF": {
+      "manufacturerModel": "100-100001084WOF",
+      "retailer": "Scan",
+      "url": "https://www.scan.co.uk/products/amd-ryzen-7-9800x3d-am5-zen-5-8-core-16-threads-47ghz-52ghz-turbo-104mb-cache-pcie-50-120w-cpu-retai",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "N50803-16D7-176068N": {
+      "manufacturerModel": "N50803-16D7-176068N",
+      "retailer": "Overclockers UK",
+      "url": "https://www.overclockers.co.uk/inno3d-geforce-rtx-5080-x3-16gb-gddr7-pci-express-graphics-card/GRA-INO-04222.html",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "WDS200T5B0E-00CPE0": {
+      "manufacturerModel": "WDS200T5B0E-00CPE0",
+      "retailer": "Ballicom",
+      "url": "https://www.ballicom.co.uk/sandisk-wds200t5b0e-00cpe0-wd-blue-sn5100.p1677569.html",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "Phantom Spirit 120 EVO": {
+      "manufacturerModel": "Phantom Spirit 120 EVO",
+      "retailer": "Computer Orbit",
+      "url": "https://computerorbit.com/products/thermalright-phantom-spirit-120-evo-dual-tower-air-cooler",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false
+    },
+    "Included with 100-100000927BOX": {
+      "manufacturerModel": "Included with 100-100000927BOX",
+      "retailer": "AWD-IT",
+      "url": "https://www.awd-it.co.uk/amd-ryzen-5-5600-cpu-six-core-3-5ghz-processor-socket-am4-retail.html",
+      "identityReviewedOn": "2026-10-25",
+      "status": "reference-only",
+      "affiliate": false,
+      "includedWith": "100-100000927BOX"
     }
   }
 }

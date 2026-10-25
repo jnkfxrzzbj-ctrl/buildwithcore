@@ -24,8 +24,9 @@ test('package contains exactly 25 reviewed public files with source bytes, modes
  // Phase 5I adds one WebP and reviews the public presentation diff. Historical data and affiliate locks remain independent.
  // Release acceptance: privacy contact sentence now matches the existing Contact page; homepage grid also prevents clipped introduction text at 320px.
  // Phase 5G: reviewed public diff changes guides.html only; all other approved public files and safeguards are preserved.
+ // 25 October launch: reviewed 5080/EVO revision, exact reference links, saved-link recovery and corresponding generated output.
  // This fixed digest must not be regenerated without reviewing the public diff.
- assert.equal(hash.digest('hex'),'0014bd4feaed070d07160dcaedc6bee777a0097bded6896603637837d79885d9');
+ assert.equal(hash.digest('hex'),'6574d39d9d04ec181f48649a5ab35eee7c4c2d38fe9fd46043edfb735789cf75');
  const verified=require('../scripts/verify-public.cjs').verify(a.directory);
  const independentFingerprint=createHash('sha256');
  for(const name of expected){independentFingerprint.update(name+'\0');independentFingerprint.update(fs.readFileSync(path.join(root,name)));independentFingerprint.update('\0');}
