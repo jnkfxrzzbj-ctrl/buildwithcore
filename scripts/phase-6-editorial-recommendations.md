@@ -44,3 +44,6 @@ Review the proposed editorial verdicts and presentation together when preview ac
 
 ## Verification
 Local regression and hosted/CI evidence are recorded in the draft PR after execution. A local Chromium install attempt failed with truncated downloads; do not infer a browser pass from Node tests. Preview must use the exact PR commit and `core-preview-test` with production branch `core-production-disabled`.
+
+## Owner UX refinement — 26 October 2026
+The homepage now introduces the specification service and retailer-choice guidance before three equally sized Starter, Performance and High-End cards. “Choose your build” and the three-stage journey use owner-supplied consumer copy. Shared white explore buttons provide clear contrast, hover/focus states and aligned desktop actions. Starter remains UNDER REVIEW; every offer remains HOLD. The canonical Performance price-position wording now emphasises balanced 1440p performance, quality components, upgrades and the self-build experience, without a prebuilt-savings claim. Existing evidence and limitations remain. No guide layout, imagery, hardware, verdict, historical record or release safeguard changed. Final exact-commit CI and preview evidence are recorded in PR #35.

@@ -179,6 +179,19 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
     for(const a of await p.locator('.core-links a').all()){assert.ok(await a.isVisible());checks++;}
    }
    if(file==='index.html'){assert.ok(await p.locator('.hero .sub').evaluate(e=>{const r=e.getBoundingClientRect();const h=e.closest('.hero').getBoundingClientRect();return r.left>=h.left&&r.right<=h.right&&r.right<=innerWidth;}),'homepage introductory text clipped '+width);checks++;}
+   if(file==='index.html'){
+    assert.equal(await p.locator('.core-build-card').count(),3);
+    assert.equal(await p.locator('.core-journey li').count(),3);
+    assert.equal(await p.getByRole('heading',{name:'What makes CORE different?',exact:true}).count(),1);
+    for(const [i,tier] of ['Starter','Performance','High-End'].entries()){
+     const card=p.locator('.core-build-card').nth(i),button=card.getByRole('link',{name:'Explore '+tier});
+     assert.match(await card.innerText(),tier==='Starter'?/UNDER REVIEW/:/RECOMMENDED/);
+     assert.ok(await button.isVisible());
+     assert.ok(await button.evaluate(e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return s.backgroundColor==='rgb(246, 249, 252)'&&s.color==='rgb(3, 8, 36)'&&r.height>=44;}));
+    }
+    if(width===1440){const ys=await p.locator('.core-build-card .core-explore').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().top));assert.ok(Math.max(...ys)-Math.min(...ys)<2);}
+    checks+=12;
+   }
    if(file==='builds.html'){
     assert.equal(await p.locator('thead th').count(),4);checks++;
     assert.equal(await p.locator('tbody tr').count(),8);checks++;
