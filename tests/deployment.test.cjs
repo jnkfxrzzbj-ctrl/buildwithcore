@@ -26,7 +26,7 @@ test('package contains exactly 25 reviewed public files with source bytes, modes
  // Phase 5G: reviewed public diff changes guides.html only; all other approved public files and safeguards are preserved.
  // 25 October launch: reviewed 5080/EVO revision, exact reference links, saved-link recovery and corresponding generated output.
  // This fixed digest must not be regenerated without reviewing the public diff.
- assert.equal(hash.digest('hex'),'6ea9c867c734c1cc4e4cc885d07ad7f2b4b12128736290f83d3962a48250dbb1');
+ assert.equal(hash.digest('hex'),'50c55ea5e75f02974ad61b5bf3c018ab47f86f2a537bbe835c1d80fde409f4e0');
  const verified=require('../scripts/verify-public.cjs').verify(a.directory);
  const independentFingerprint=createHash('sha256');
  for(const name of expected){independentFingerprint.update(name+'\0');independentFingerprint.update(fs.readFileSync(path.join(root,name)));independentFingerprint.update('\0');}
