@@ -105,3 +105,19 @@ a.core-explore b{color:inherit}a.core-explore:hover{background:#d9f5ff;border-co
 .core-intro-label{display:flex;align-items:center;gap:11px;color:#9aebff;font-size:13px;font-weight:850;line-height:1.6;letter-spacing:.08em;text-transform:uppercase;margin:0 0 24px;min-width:0;overflow-wrap:anywhere}
 .core-intro-label::before{content:"";display:block;flex:0 0 26px;width:26px;height:1px;background:#35d2ff;box-shadow:0 0 12px rgba(53,210,255,.5)}
 .public-info h1.core-tagline{letter-spacing:-.025em;word-spacing:.12em}
+
+/* Shared introductory spacing; preserve each page's typography and hero composition. */
+:root{--core-content-max:1200px;--core-gutter:24px;--core-intro-top:72px;--core-intro-bottom:48px;--core-intro-gap:24px;--core-reading-max:850px}
+header .core-header.wrap,main .core-page-intro.wrap,main .core-page-intro>.wrap{width:min(var(--core-content-max),calc(100% - 2 * var(--core-gutter)));max-width:var(--core-content-max);margin-inline:auto}
+main .core-page-intro{position:relative;padding-top:var(--core-intro-top);padding-bottom:var(--core-intro-bottom)}
+main .core-page-intro>.core-intro-label,main .core-page-intro .core-intro-label{margin:0 0 var(--core-intro-gap)}
+main .core-page-intro h1{margin:0 0 var(--core-intro-gap)}
+main .core-page-intro .lead,main .core-page-intro .lede,main .core-page-intro .sub{margin-top:0;margin-bottom:var(--core-intro-gap)}
+main .core-page-intro .hero-heading h1{margin-bottom:0}
+main .core-page-intro .hero-grid{row-gap:var(--core-intro-gap)}
+main .core-page-intro>.crumb{position:absolute;top:24px;left:0;margin:0}
+main .core-page-intro:has(>.core-build-image){align-items:start}
+main .core-page-intro.public-info>h1,main .core-page-intro.public-info>section,main .core-page-intro.public-info>p{max-width:var(--core-reading-max)}
+main .core-page-intro.public-info>section{margin:var(--core-intro-gap) 0}
+@media(max-width:900px){:root{--core-intro-top:48px;--core-intro-bottom:40px}main .core-page-intro>.crumb{top:12px}}
+@media(max-width:600px){:root{--core-gutter:16px;--core-intro-top:36px;--core-intro-bottom:32px}main .core-page-intro>.crumb{top:8px}}

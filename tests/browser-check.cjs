@@ -75,7 +75,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
   await ctx.close();
  }
  // Generic local HTTP server: real browser recovery checks, not Cloudflare edge certification.
- for(const javaScriptEnabled of [true,false])for(const width of [1440,390,320]){
+ for(const javaScriptEnabled of [true,false])for(const width of [1440,768,390,320]){
   const context=await browser.newContext({javaScriptEnabled,reducedMotion:'reduce',viewport:{width,height:900}}),p=await context.newPage();
   for(const route of ['/this-page-does-not-exist-12345','/nested/missing/page?test=1#main-content','/assets/missing.css']){
    const failures=[];const listener=r=>{if(r.request().resourceType()!=='document'&&r.status()>=400)failures.push(r.url());};
@@ -101,7 +101,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
  }
  // No-JS index links must expose the buying warning before a beginner expands
  // the row. Retain native disclosure controls and every historical identity.
- for(const width of [1440,390,320]){
+ for(const width of [1440,768,390,320]){
   const context=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce',viewport:{width,height:900}}),p=await context.newPage();
   for(const [id,cfg] of Object.entries(require('../core-data.json').guideConfigurations)){
    const route='/core-performance-guide.html?configuration='+id;
@@ -152,12 +152,16 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
  // Phase 1 public journeys, including narrow phones, keyboard navigation and no-JS recovery.
  const shots=process.env.CORE_QA_DIR;
  if(shots)fs.mkdirSync(shots,{recursive:true});
- for(const javaScriptEnabled of [true,false])for(const width of [1440,390,320]){
+ for(const javaScriptEnabled of [true,false])for(const width of [1440,768,390,320]){
   const context=await browser.newContext({javaScriptEnabled,reducedMotion:'reduce',viewport:{width,height:900}}),p=await context.newPage();
   for(const file of htmlFiles){
    const errors=[];const onError=e=>errors.push(e.message);p.on('pageerror',onError);
    await p.goto(origin+'/'+file);
    assert.equal(await p.locator('main#main-content').count(),1,file);checks++;
+   const spacing=await p.evaluate(()=>{const label=document.querySelector('.core-intro-label').getBoundingClientRect(),h=document.querySelector('h1').getBoundingClientRect(),header=document.querySelector('header').getBoundingClientRect(),grid=document.querySelector('.core-header').getBoundingClientRect(),root=getComputedStyle(document.documentElement);return {top:label.top-header.bottom,wanted:parseFloat(root.getPropertyValue('--core-intro-top')),left:label.left,headingLeft:h.left,gridLeft:grid.left,gap:h.top-label.bottom};});
+   assert.ok(Math.abs(spacing.top-spacing.wanted)<2,file+' introductory top spacing '+JSON.stringify(spacing));
+   assert.ok(Math.abs(spacing.left-spacing.gridLeft)<2&&Math.abs(spacing.headingLeft-spacing.gridLeft)<2,file+' introductory grid');
+   assert.ok(Math.abs(spacing.gap-24)<2,file+' label-to-heading rhythm');checks+=3;
    const intro=p.locator('.core-intro-label');assert.equal(await intro.count(),1,file+' shared intro label');
    assert.ok(await intro.evaluate(e=>{const s=getComputedStyle(e),dash=getComputedStyle(e,'::before'),r=e.getBoundingClientRect();return s.color==='rgb(154, 235, 255)'&&s.textTransform==='uppercase'&&dash.width==='26px'&&r.left>=0&&r.right<=innerWidth;}),file+' intro appearance and bounds');checks+=2;
    if(file==='about.html'){assert.equal(await p.locator('h1').innerText(),'Your PC. Built by you.');assert.ok(await p.locator('h1').evaluate(e=>parseFloat(getComputedStyle(e).wordSpacing)>0));checks+=2;}
