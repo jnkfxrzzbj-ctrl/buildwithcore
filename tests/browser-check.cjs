@@ -172,7 +172,7 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    if(['core-starter.html','core-performance.html','core-high-end.html'].includes(file)){assert.ok(await p.locator('.core-buying-first').evaluate(e=>!!(e.compareDocumentPosition(document.querySelector('.actions'))&Node.DOCUMENT_POSITION_FOLLOWING)));assert.equal(await p.locator('.core-build-image img').count(),1);assert.ok(await p.locator('.core-buying-first').evaluate(e=>e.getBoundingClientRect().bottom<=document.querySelector('.actions').getBoundingClientRect().top+1));checks+=3;}
    if(file==='core-performance-guide.html'){assert.equal(await p.locator('[data-core="guide"] .core-guide-parts>li').count(),8);assert.equal(await p.locator('.core-history').evaluate(e=>e.open),false);assert.equal(await p.locator('.core-history').isVisible(),false);checks+=3;}
    await p.evaluate(()=>{document.body.style.zoom='2';});
-   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),file+' 200% CSS zoom overflow');checks++;
+   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),file+' '+width+' 200% CSS zoom overflow');checks++;
    await p.evaluate(()=>{document.body.style.zoom='';});await p.evaluate(()=>scrollTo(0,0));
 
    assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),file+' '+width+' overflow');checks++;

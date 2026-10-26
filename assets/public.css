@@ -57,7 +57,7 @@ p,li,figcaption{overflow-wrap:anywhere}.core-mpn,.core-configuration-id{overflow
 @media(max-width:900px){.guides-grid,.guide-grid{grid-template-columns:minmax(0,1fr)}}
 h1,h2,h3{overflow-wrap:anywhere}.hero h1{max-width:100%}.guide-grid.guide-grid{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:900px){.guide-grid.guide-grid{grid-template-columns:minmax(0,1fr)}}
 /* Reflow long labels rather than widening grid tracks at 200% text zoom. */
-.hero-grid>*,.next>*,.feature>*,.build>*,.guide-grid>*,.metrics>*,.alt>*{min-width:0}
+.part>*,.hero-grid>*,.next>*,.feature>*,.build>*,.guide-grid>*,.metrics>*,.alt>*{min-width:0}
 .primary,.secondary,.cta,.action{max-width:100%;overflow-wrap:anywhere;white-space:normal}
 .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.metric b{overflow-wrap:anywhere}
 .faq summary{grid-template-columns:32px minmax(0,1fr) auto;gap:12px;overflow-wrap:anywhere}
