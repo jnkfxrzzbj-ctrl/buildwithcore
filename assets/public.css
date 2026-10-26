@@ -108,16 +108,16 @@ a.core-explore b{color:inherit}a.core-explore:hover{background:#d9f5ff;border-co
 
 /* Shared introductory spacing; preserve each page's typography and hero composition. */
 :root{--core-content-max:1200px;--core-gutter:24px;--core-intro-top:72px;--core-intro-bottom:48px;--core-intro-gap:24px;--core-reading-max:850px}
-header .core-header.wrap,:is(main.core-page-intro,main .core-page-intro).wrap,:is(main.core-page-intro,main .core-page-intro)>.wrap{width:min(var(--core-content-max),calc(100% - 2 * var(--core-gutter)));max-width:var(--core-content-max);margin-inline:auto}
-:is(main.core-page-intro,main .core-page-intro){position:relative;padding-top:var(--core-intro-top);padding-bottom:var(--core-intro-bottom)}
-:is(main.core-page-intro,main .core-page-intro)>.core-intro-label,:is(main.core-page-intro,main .core-page-intro) .core-intro-label{margin:0 0 var(--core-intro-gap)}
-:is(main.core-page-intro,main .core-page-intro) h1{margin:0 0 var(--core-intro-gap)}
-:is(main.core-page-intro,main .core-page-intro) .lead,:is(main.core-page-intro,main .core-page-intro) .lede,:is(main.core-page-intro,main .core-page-intro) .sub{margin-top:0;margin-bottom:var(--core-intro-gap)}
-:is(main.core-page-intro,main .core-page-intro) .hero-heading h1{margin-bottom:0}
-:is(main.core-page-intro,main .core-page-intro) .hero-grid{row-gap:var(--core-intro-gap)}
-:is(main.core-page-intro,main .core-page-intro)>.crumb{position:absolute;top:24px;left:0;margin:0}
-:is(main.core-page-intro,main .core-page-intro):has(>.core-build-image){align-items:start}
-:is(main.core-page-intro,main .core-page-intro).public-info>h1,:is(main.core-page-intro,main .core-page-intro).public-info>section,:is(main.core-page-intro,main .core-page-intro).public-info>p{max-width:var(--core-reading-max)}
-:is(main.core-page-intro,main .core-page-intro).public-info>section{margin:var(--core-intro-gap) 0}
-@media(max-width:900px){:root{--core-intro-top:48px;--core-intro-bottom:40px}:is(main.core-page-intro,main .core-page-intro)>.crumb{top:12px}}
-@media(max-width:600px){:root{--core-gutter:16px;--core-intro-top:36px;--core-intro-bottom:32px}:is(main.core-page-intro,main .core-page-intro)>.crumb{top:8px}}
+header .core-header.wrap,:is(main.core-page-intro,main .core-page-intro).core-page-intro.wrap,:is(main.core-page-intro,main .core-page-intro).core-page-intro>.wrap{width:min(var(--core-content-max),calc(100% - 2 * var(--core-gutter)));max-width:var(--core-content-max);margin-inline:auto}
+:is(main.core-page-intro,main .core-page-intro).core-page-intro{position:relative;padding-top:var(--core-intro-top);padding-bottom:var(--core-intro-bottom)}
+:is(main.core-page-intro,main .core-page-intro).core-page-intro>.core-intro-label,:is(main.core-page-intro,main .core-page-intro).core-page-intro .core-intro-label{margin:0 0 var(--core-intro-gap)}
+:is(main.core-page-intro,main .core-page-intro).core-page-intro h1{margin:0 0 var(--core-intro-gap)}
+:is(main.core-page-intro,main .core-page-intro).core-page-intro .lead,:is(main.core-page-intro,main .core-page-intro).core-page-intro .lede,:is(main.core-page-intro,main .core-page-intro).core-page-intro .sub{margin-top:0;margin-bottom:var(--core-intro-gap)}
+:is(main.core-page-intro,main .core-page-intro).core-page-intro .hero-heading h1{margin-bottom:0}
+:is(main.core-page-intro,main .core-page-intro).core-page-intro .hero-grid{row-gap:var(--core-intro-gap)}
+:is(main.core-page-intro,main .core-page-intro).core-page-intro>.crumb{position:absolute;top:24px;left:0;margin:0}
+:is(main.core-page-intro,main .core-page-intro).core-page-intro:has(>.core-build-image){align-items:start}
+:is(main.core-page-intro,main .core-page-intro).core-page-intro.public-info>h1,:is(main.core-page-intro,main .core-page-intro).core-page-intro.public-info>section,:is(main.core-page-intro,main .core-page-intro).core-page-intro.public-info>p{max-width:var(--core-reading-max)}
+:is(main.core-page-intro,main .core-page-intro).core-page-intro.public-info>section{margin:var(--core-intro-gap) 0}
+@media(max-width:900px){:root{--core-intro-top:48px;--core-intro-bottom:40px}:is(main.core-page-intro,main .core-page-intro).core-page-intro>.crumb{top:12px}}
+@media(max-width:600px){:root{--core-gutter:16px;--core-intro-top:36px;--core-intro-bottom:32px}:is(main.core-page-intro,main .core-page-intro).core-page-intro>.crumb{top:8px}}
