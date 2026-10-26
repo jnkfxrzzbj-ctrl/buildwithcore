@@ -158,6 +158,10 @@ const htmlFiles=fs.readdirSync(siteRoot).filter(x=>x.endsWith('.html'));
    const errors=[];const onError=e=>errors.push(e.message);p.on('pageerror',onError);
    await p.goto(origin+'/'+file);
    assert.equal(await p.locator('main#main-content').count(),1,file);checks++;
+   const intro=p.locator('.core-intro-label');assert.equal(await intro.count(),1,file+' shared intro label');
+   assert.ok(await intro.evaluate(e=>{const s=getComputedStyle(e),dash=getComputedStyle(e,'::before'),r=e.getBoundingClientRect();return s.color==='rgb(154, 235, 255)'&&s.textTransform==='uppercase'&&dash.width==='26px'&&r.left>=0&&r.right<=innerWidth;}),file+' intro appearance and bounds');checks+=2;
+   if(file==='about.html'){assert.equal(await p.locator('h1').innerText(),'Your PC. Built by you.');assert.ok(await p.locator('h1').evaluate(e=>parseFloat(getComputedStyle(e).wordSpacing)>0));checks+=2;}
+
    assert.ok(await p.locator('header .navcta').isVisible(),file+' global build action');checks++;
    assert.equal(await p.locator('header a[href$="about.html"]').count(),1);checks++;
    for(const img of await p.locator('img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(i=>i.decode());assert.ok(await img.evaluate(i=>i.naturalWidth>0&&i.width>0&&!!i.alt&&i.hasAttribute('width')&&i.hasAttribute('height')));checks++;}

@@ -100,3 +100,8 @@ a.core-explore{display:inline-flex;align-items:center;justify-content:space-betw
 a.core-explore b{color:inherit}a.core-explore:hover{background:#d9f5ff;border-color:#d9f5ff}a.core-explore:focus-visible{outline:3px solid #35d2ff;outline-offset:4px}
 .core-journey-three ol{grid-template-columns:repeat(3,minmax(0,1fr))}.core-journey-three li{padding-left:4px}.core-journey-three strong{margin-bottom:8px;font-size:17px}
 @media(max-width:900px){.core-build-cards,.core-offer-grid,.core-journey-three ol{grid-template-columns:minmax(0,1fr)}.core-offer-grid{gap:24px}.core-build-card .core-explore{align-self:stretch}.core-offer{padding-block:32px}}
+
+/* One CORE introduction treatment, derived from the homepage kicker. */
+.core-intro-label{display:flex;align-items:center;gap:11px;color:#9aebff;font-size:13px;font-weight:850;line-height:1.6;letter-spacing:.08em;text-transform:uppercase;margin:0 0 24px;min-width:0;overflow-wrap:anywhere}
+.core-intro-label::before{content:"";display:block;flex:0 0 26px;width:26px;height:1px;background:#35d2ff;box-shadow:0 0 12px rgba(53,210,255,.5)}
+.public-info h1.core-tagline{letter-spacing:-.025em;word-spacing:.12em}
