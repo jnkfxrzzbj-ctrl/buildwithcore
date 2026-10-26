@@ -82,3 +82,5 @@ dd,dt{overflow-wrap:anywhere}
 .core-editorial h3{margin:14px 0 8px}.core-editorial a{color:#9AEBFF;text-decoration:underline}
 .core-editorial .core-review-date,.core-editorial .core-editorial-note{font-size:13px;color:#bbc9df}
 .core-editorial-compact{margin:14px 0;overflow-wrap:anywhere}.core-editorial-compact strong{color:#9AEBFF;font-size:15px}.core-editorial-compact p{font-size:14px;line-height:1.5}.core-editorial-compact small{font-size:12px}
+.core-performance .hero-grid{grid-template-areas:"heading status" "description status" "editorial status" "warning status" "actions status"}.core-performance .hero-grid>.core-editorial{grid-area:editorial;margin:0}
+@media(max-width:900px){.core-performance .hero-grid{grid-template-areas:"heading" "description" "editorial" "warning" "actions" "status"}}
