@@ -100,7 +100,7 @@ test('all purchasing states and the 24-hour boundary are independent of affiliat
 test('reference rendering retains links without promoting stale prices',()=>{
  for(const time of ['2026-09-24T12:00:00Z',now])for(const unverified of [true,false]){
   const r=E.derive(base,time),html=V.parts(base,r,{unverified});assertDestinations(base,r,html);
-  assert.match(html,/Reference retailer listing/);
+  assert.match(html,/Check current price at retailer/);
  }
 });
 test('unknown selected identity and missing offers never borrow another destination',()=>{

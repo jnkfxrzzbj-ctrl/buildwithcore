@@ -6,6 +6,7 @@ test('Launch revision preserves the Phase 5I baseline, engine, attribution and S
  // additions and High-End revision are excluded; historical data stays locked.
  const baseline=structuredClone(require('../core-data.json'));
  baseline.launchBuilds['High-End']=baseline.launchBuildHistory['high-end-2026-10'];
+ delete baseline.editorialRecommendations;
  delete baseline.launchBuildHistory;delete baseline.retailerReferences;
  for(const b of Object.values(baseline.launchBuilds)){delete b.specificationReviewedOn;delete b.physicalValidation;}
  assert.equal(hash(JSON.stringify(baseline)),'460ab16adce5d92272b2cbc43eb8c9f087b53139a1119ff5dd7e52007921bd7f');
