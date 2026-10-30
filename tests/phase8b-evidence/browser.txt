@@ -1,0 +1,11 @@
+Checking 1440 core-starter.html
+Checking 1440 core-performance.html
+Checking 1440 core-high-end.html
+Checking 1440 core-starter-guide.html
+Checking 1440 core-high-end-guide.html
+Checking 390 core-starter.html
+Checking 390 core-performance.html
+Checking 390 core-high-end.html
+Checking 390 core-starter-guide.html
+Checking 390 core-high-end-guide.html
+{"checks":1137,"synthetic":true,"acceptedClicks":150,"attemptedEvents":152}

@@ -1,0 +1,477 @@
+{
+  "synthetic": true,
+  "realCustomerClicks": 0,
+  "checks": 1137,
+  "acceptedClicks": 150,
+  "attemptedEvents": 152,
+  "rows": [
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "100-100001084WOF",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 6
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "100-100001084WOF",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-high-end.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "B850M GAMING PLUS WIFI6E",
+      "retailer": "Overclockers UK",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "B850M GAMING PLUS WIFI6E",
+      "retailer": "Overclockers UK",
+      "link_type": "reference",
+      "page": "core-high-end.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "B850M GAMING PLUS WIFI6E",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "B850M GAMING PLUS WIFI6E",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-high-end.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "CC-H61FB-01",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 6
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "CC-H61FB-01",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-high-end.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "CP-9020270-UK",
+      "retailer": "Corsair UK",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "CP-9020270-UK",
+      "retailer": "Corsair UK",
+      "link_type": "reference",
+      "page": "core-high-end.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "CP-9020270-UK",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "CP-9020270-UK",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-high-end.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "KD5AGU880-60B280L",
+      "retailer": "Overclockers UK",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 6
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "KD5AGU880-60B280L",
+      "retailer": "Overclockers UK",
+      "link_type": "reference",
+      "page": "core-high-end.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "N50803-16D7-176068N",
+      "retailer": "Overclockers UK",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "N50803-16D7-176068N",
+      "retailer": "Overclockers UK",
+      "link_type": "reference",
+      "page": "core-high-end.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "Phantom Spirit 120 EVO",
+      "retailer": "Computer Orbit",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "Phantom Spirit 120 EVO",
+      "retailer": "Computer Orbit",
+      "link_type": "reference",
+      "page": "core-high-end.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "RX9070XT 16G-A",
+      "retailer": "Overclockers UK",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "WDS200T5B0E-00CPE0",
+      "retailer": "Ballicom",
+      "link_type": "reference",
+      "page": "core-high-end-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "High-End",
+      "component": "WDS200T5B0E-00CPE0",
+      "retailer": "Ballicom",
+      "link_type": "reference",
+      "page": "core-high-end.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "fitv28",
+      "retailer": "Amazon",
+      "link_type": "affiliate",
+      "page": "core-performance.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "fitv28",
+      "retailer": "Overclockers UK",
+      "link_type": "reference",
+      "page": "core-performance.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "freezer36standard",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-performance.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "h6flow",
+      "retailer": "Amazon",
+      "link_type": "affiliate",
+      "page": "core-performance.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "h6flow",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-performance.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "msib850mwifi6e",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-performance.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "reaper9070xt",
+      "retailer": "Overclockers UK",
+      "link_type": "reference",
+      "page": "core-performance.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "rm850x2024uk",
+      "retailer": "Corsair UK",
+      "link_type": "reference",
+      "page": "core-performance.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "rm850x2024uk",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-performance.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "ryzen9600x",
+      "retailer": "Amazon",
+      "link_type": "affiliate",
+      "page": "core-performance.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "ryzen9600x",
+      "retailer": "Overclockers UK",
+      "link_type": "reference",
+      "page": "core-performance.html",
+      "clicks": 8
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "ryzen9600x",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-performance.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Performance",
+      "component": "sn7100_1tb",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-performance.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "100-100000927BOX",
+      "retailer": "AWD-IT",
+      "link_type": "reference",
+      "page": "core-starter-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "100-100000927BOX",
+      "retailer": "AWD-IT",
+      "link_type": "reference",
+      "page": "core-starter.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "B550M PRO-VDH WIFI",
+      "retailer": "PCUpgrade",
+      "link_type": "reference",
+      "page": "core-starter-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "B550M PRO-VDH WIFI",
+      "retailer": "PCUpgrade",
+      "link_type": "reference",
+      "page": "core-starter.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "CC-H61FB-01",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-starter-guide.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "CC-H61FB-01",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-starter.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "CMK16GX4M2E3200C16",
+      "retailer": "Corsair UK",
+      "link_type": "reference",
+      "page": "core-starter-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "CMK16GX4M2E3200C16",
+      "retailer": "Corsair UK",
+      "link_type": "reference",
+      "page": "core-starter.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "CMK16GX4M2E3200C16",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-starter-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "CMK16GX4M2E3200C16",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-starter.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "CP-9020278-UK",
+      "retailer": "Corsair UK",
+      "link_type": "reference",
+      "page": "core-starter-guide.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "CP-9020278-UK",
+      "retailer": "Corsair UK",
+      "link_type": "reference",
+      "page": "core-starter.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "Included with 100-100000927BOX",
+      "retailer": "AWD-IT",
+      "link_type": "reference",
+      "page": "core-starter-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "Included with 100-100000927BOX",
+      "retailer": "AWD-IT",
+      "link_type": "reference",
+      "page": "core-starter.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "NE75060019P1-GB2063D",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-starter-guide.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "NE75060019P1-GB2063D",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-starter.html",
+      "clicks": 4
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "SNV3S/1000G",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-starter-guide.html",
+      "clicks": 2
+    },
+    {
+      "day": "2026-10-30",
+      "build": "Starter",
+      "component": "SNV3S/1000G",
+      "retailer": "Scan",
+      "link_type": "reference",
+      "page": "core-starter.html",
+      "clicks": 2
+    }
+  ]
+}

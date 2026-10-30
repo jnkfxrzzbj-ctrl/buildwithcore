@@ -5,7 +5,7 @@ const {createHash}=require('node:crypto'),{spawnSync}=require('node:child_proces
 const P=require('../scripts/package-public.cjs');
 const root=path.resolve(__dirname,'..'),now='2026-10-14T12:00:00Z';
 // Independent public inventory for this approved baseline, not inferred from copy output.
-const expected=['404.html','CNAME','about.html','affiliate-disclosure.html','assets/core-affiliates.js','assets/core-client.js','assets/core-data.generated.js','assets/core-engine.js','assets/core-view.js','assets/h6-exterior.webp','assets/navigation.js','assets/performance.css','assets/public.css','builds.html','contact.html','core-high-end-guide.html','core-high-end.html','core-performance-guide.html','core-performance.html','core-starter-guide.html','core-starter.html','faq.html','guides.html','index.html','privacy.html'];
+const expected=['404.html','CNAME','about.html','affiliate-disclosure.html','assets/core-affiliates.js','assets/core-clicks.js','assets/core-client.js','assets/core-data.generated.js','assets/core-engine.js','assets/core-view.js','assets/h6-exterior.webp','assets/navigation.js','assets/performance.css','assets/public.css','builds.html','contact.html','core-high-end-guide.html','core-high-end.html','core-performance-guide.html','core-performance.html','core-starter-guide.html','core-starter.html','faq.html','guides.html','index.html','privacy.html'];
 function temp(t){const dir=fs.mkdtempSync(path.join(fs.realpathSync(os.tmpdir()),'core-package-test-'));t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));return dir;}
 function fixture(t){
  const parent=temp(t),dir=path.join(parent,'repo');fs.mkdirSync(dir);fs.mkdirSync(path.join(dir,'assets'));fs.mkdirSync(path.join(dir,'scripts'));
@@ -13,7 +13,7 @@ function fixture(t){
  return {root:dir,out:path.join(parent,'site'),parent};
 }
 function readData(dir){const ctx={window:{}};vm.runInNewContext(fs.readFileSync(path.join(dir,'assets/core-data.generated.js'),'utf8'),ctx);return JSON.parse(JSON.stringify(ctx.window.CORE_DATA));}
-test('package contains exactly 25 reviewed public files with source bytes, modes and stable timestamps',t=>{
+test('package contains exactly 26 reviewed public files with source bytes, modes and stable timestamps',t=>{
  const parent=temp(t),a=P.packagePublic({out:path.join(parent,'a')}),b=P.packagePublic({out:path.join(parent,'b')});
  assert.deepEqual(P.manifest(root),expected);assert.deepEqual(a.files.map(f=>f.path),expected);assert.deepEqual(a.files,b.files);
  const hash=createHash('sha256');
@@ -25,8 +25,9 @@ test('package contains exactly 25 reviewed public files with source bytes, modes
  // Release acceptance: privacy contact sentence now matches the existing Contact page; homepage grid also prevents clipped introduction text at 320px.
  // Phase 5G: reviewed public diff changes guides.html only; all other approved public files and safeguards are preserved.
  // 25 October launch: reviewed 5080/EVO revision, exact reference links, saved-link recovery and corresponding generated output.
+ // Phase 8B: reviewed metadata, optional disabled tracker and privacy text; retailer destinations verified unchanged.
  // This fixed digest must not be regenerated without reviewing the public diff.
- assert.equal(hash.digest('hex'),'7f16251456948a7f5d5faa4797cbaef1a76c15fd011f5efc0cf64a4316359372');
+ assert.equal(hash.digest('hex'),'2b858b8b767ab7662b0d87a5c4e1d492fb5c6151ba7f1770b42312ed3ddeca51');
  const verified=require('../scripts/verify-public.cjs').verify(a.directory);
  const independentFingerprint=createHash('sha256');
  for(const name of expected){independentFingerprint.update(name+'\0');independentFingerprint.update(fs.readFileSync(path.join(root,name)));independentFingerprint.update('\0');}

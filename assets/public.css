@@ -121,3 +121,10 @@ header .core-header.wrap,:is(main.core-page-intro,main .core-page-intro).core-pa
 :is(main.core-page-intro,main .core-page-intro).core-page-intro.public-info>section{margin:var(--core-intro-gap) 0}
 @media(max-width:900px){:root{--core-intro-top:48px;--core-intro-bottom:40px}:is(main.core-page-intro,main .core-page-intro).core-page-intro>.crumb{top:12px}}
 @media(max-width:600px){:root{--core-gutter:16px;--core-intro-top:36px;--core-intro-bottom:32px}:is(main.core-page-intro,main .core-page-intro).core-page-intro>.crumb{top:8px}}
+
+/* Optional, page-only analytics choice; no overlay or navigation obstruction. */
+.core-click-choice{border:1px solid #35d2ff55;border-radius:8px;padding:16px;margin:24px 0;color:#d5e4f3;font-size:.9rem;line-height:1.6}
+.core-click-choice p{margin:0 0 12px}.core-click-choice button{font:inherit;color:#9aebff;background:#030824;border:1px solid #35d2ff;padding:9px 12px;border-radius:4px;cursor:pointer;margin:0 8px 8px 0}
+.core-click-choice button:focus-visible{outline:2px solid #fff;outline-offset:3px}.core-click-choice [role=status]{display:block}
+
+.core-click-choice a{text-decoration:underline;color:#9aebff}

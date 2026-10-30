@@ -1,0 +1,137 @@
+{
+  "count": 26,
+  "bytes": 596233,
+  "fingerprint": "e9ac064cc89a3906b63fdae5f1bb90bcd7b8f9782da03e50cd319c77a9dafacb",
+  "files": [
+    {
+      "path": "404.html",
+      "bytes": 4009,
+      "sha256": "66444d251f4dd2d5f199537fdce0999b9f8f78048e61ef0b96a9b75685654384"
+    },
+    {
+      "path": "CNAME",
+      "bytes": 19,
+      "sha256": "72b7b644212be564a1bbb704047c0233262ba2acb724c93ad032e111b0ca5338"
+    },
+    {
+      "path": "about.html",
+      "bytes": 19406,
+      "sha256": "6fba031e79138393af2e64f29a1d71a0553fd5f507aaffeae88de1df982ae1c8"
+    },
+    {
+      "path": "affiliate-disclosure.html",
+      "bytes": 18303,
+      "sha256": "c05a4ed0d5d6ca40fe68be3a6859280c462e7915323f7f6b92bc8dc06b168d41"
+    },
+    {
+      "path": "assets/core-affiliates.js",
+      "bytes": 3476,
+      "sha256": "1ff72d584ecc979b906f3347af86df16837ea0708e38f557e4e6ea14ab0f0483"
+    },
+    {
+      "path": "assets/core-clicks.js",
+      "bytes": 4125,
+      "sha256": "aab8ba6842994864bbfda02a1fdd7f1aef9d39edcde4d4f8d5414a6911cae933"
+    },
+    {
+      "path": "assets/core-client.js",
+      "bytes": 2958,
+      "sha256": "8c2a19f7ec5d95f3344685215845ac2a7cf4c6cd3602dbaa1dd10430ead89602"
+    },
+    {
+      "path": "assets/core-data.generated.js",
+      "bytes": 116490,
+      "sha256": "e34b56f5c337899195b1891638742167fd34d5273d1437188039712a134f62e6"
+    },
+    {
+      "path": "assets/core-engine.js",
+      "bytes": 15493,
+      "sha256": "3eb4c3a76f407694e4b14b8d14d8b3e76202967503b32921fc23d86289e392d3"
+    },
+    {
+      "path": "assets/core-view.js",
+      "bytes": 19484,
+      "sha256": "2d4e79b4621ca8b6217b041f712ec492d98aebdf04cf1f5eeb1c2f69525908e3"
+    },
+    {
+      "path": "assets/h6-exterior.webp",
+      "bytes": 22496,
+      "sha256": "81e25e13ead2f90366c7a1be1c69ea20d0b63b060cb31db39ab44cc14410e48b"
+    },
+    {
+      "path": "assets/navigation.js",
+      "bytes": 1885,
+      "sha256": "a54d3b31d2195396b52096ea5eb93474c2fb074bf439c7ee4904356cecf3ebe7"
+    },
+    {
+      "path": "assets/performance.css",
+      "bytes": 8736,
+      "sha256": "3f5e347cbf673039865e566cb79ee2a2ff3fc921129255f513fe82a8e4f9d9b0"
+    },
+    {
+      "path": "assets/public.css",
+      "bytes": 19969,
+      "sha256": "4f8549059cd4c8eb967b27033c7061a3642ae15e8ea81363632ec7e0651035c0"
+    },
+    {
+      "path": "builds.html",
+      "bytes": 16659,
+      "sha256": "c6eb52e1333bb2dc3ac412ac228fbbf27a110aa5461089324c9dadf6fc198a77"
+    },
+    {
+      "path": "contact.html",
+      "bytes": 17064,
+      "sha256": "e6b1f22b4f6dbf330ef24fd7bd6adcf9ba5ae54619490bde48a359a96517dba1"
+    },
+    {
+      "path": "core-high-end-guide.html",
+      "bytes": 30915,
+      "sha256": "c0bfb2a940d959d455d96dc9be4a1e32a6ea08df918ab0b29f1e7fd9221f3330"
+    },
+    {
+      "path": "core-high-end.html",
+      "bytes": 31060,
+      "sha256": "c7a0b342c6947ac8af1ced7742239eb5777e5ffd0d7fd368e46bb490ff2f2a35"
+    },
+    {
+      "path": "core-performance-guide.html",
+      "bytes": 58213,
+      "sha256": "ea5219793087e171f11c53e96528a6e18a0d138c64ab694ddde0fbe4a80692fb"
+    },
+    {
+      "path": "core-performance.html",
+      "bytes": 37684,
+      "sha256": "a7b2ee6c61c1bc0d53ae63266184dc43d37b88ada6ae627e36a4da3e13a56f9b"
+    },
+    {
+      "path": "core-starter-guide.html",
+      "bytes": 31609,
+      "sha256": "7c4bef69a376dab3865300d8f7eba766a62f7f51ab862737234b50820dbd199a"
+    },
+    {
+      "path": "core-starter.html",
+      "bytes": 29692,
+      "sha256": "88a804592fa76713f9a936746967ec4a588d515e6cfc3778354d38367e058d24"
+    },
+    {
+      "path": "faq.html",
+      "bytes": 15187,
+      "sha256": "c701df9096f38ae20ef48c2c67c9f7cc3753d3d49b6aba6f91a4a0b70a644943"
+    },
+    {
+      "path": "guides.html",
+      "bytes": 27376,
+      "sha256": "0f2c9b8a6e955e7e8a674f76f5716be4321dd69b746501dfce9c8a4ef071b4c6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 21968,
+      "sha256": "25c35ad36cefa3992377171fb96833b33661c076d7d8c13bc6cfb3a59c0a7aa5"
+    },
+    {
+      "path": "privacy.html",
+      "bytes": 21957,
+      "sha256": "89cc5ff5727979c9e9be80b74059317e84cea3119149d6b3c3d7c6168d82c7ab"
+    }
+  ]
+}
