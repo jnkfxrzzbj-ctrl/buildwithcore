@@ -1,0 +1,31 @@
+{
+  "baseline": "7b990411b1e8fce8fb39404cbacffa94107a7d4a",
+  "linkChecks": [
+    {
+      "file": "core-starter.html",
+      "links": 34,
+      "destinationsRelAndTargetUnchanged": true
+    },
+    {
+      "file": "core-performance.html",
+      "links": 49,
+      "destinationsRelAndTargetUnchanged": true
+    },
+    {
+      "file": "core-high-end.html",
+      "links": 36,
+      "destinationsRelAndTargetUnchanged": true
+    },
+    {
+      "file": "core-starter-guide.html",
+      "links": 43,
+      "destinationsRelAndTargetUnchanged": true
+    },
+    {
+      "file": "core-high-end-guide.html",
+      "links": 49,
+      "destinationsRelAndTargetUnchanged": true
+    }
+  ],
+  "productAndPurchasingCodeUnchanged": true
+}
